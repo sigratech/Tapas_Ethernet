@@ -25,6 +25,7 @@ E-mail: karim@sigratech.de
 
 #include "app_test.h"
 #include "ecu.h"
+#include "uc.h"
 
 #define APP_TEST_TASK_MS                               (100)
 #define APP_TEST_HEARTBEAT_HALF_PERIOD_MS              (500)
@@ -44,7 +45,7 @@ void APP_vdTestMgr(void)
   
   if (su8Counter == 5)
   {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
+    UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIOHB, UC_DIO_OUT_COMMAND_TOGGLE);
     su8Counter = 0;
   }
   //ECU_MEM_INT_eEraseSector(0);
