@@ -116,7 +116,7 @@
   IF &progflash 
   (
 	FLASH.ReProgram.ALL /Erase
-	Data.LOAD.auto ..\..\Flash_Debug\Exe\JLG_E6_VCU.srec
+	Data.LOAD.auto ..\..\Flash_Debug\Exe\Tapas_Boot.srec
 	FLASH.ReProgram.off
 	
 	
@@ -155,7 +155,7 @@
     
 	; Load sieve demo application
 	  Register.RESet
-	  Data.LOAD.Elf ..\..\Flash_Debug\Exe\JLG_E6_VCU.out
+	  Data.LOAD.Elf ..\..\Flash_Debug\Exe\Tapas_Boot.out
 	  ;Register.Set PC main
 	  ;Register.Set R13 0x08008000
 	  
