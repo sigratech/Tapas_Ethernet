@@ -1,0 +1,10 @@
+Dear Madame/Sir,
+
+I am facing a problem that the Real-Time of the whole system crashes when I enter the debug session, apparently there is something wrong happens with the system clock.
+
+The controller PLL is set to 160Mhz
+I set the JtagClock to 10Mhz, apparently when I increase it, the system clock start to change towards the right value, but still far away, once I reach 20Mhz for JtagCkick, the debugger stops (system down).
+
+Is there a way to synchronize the system clock with the debugger, so I can reach the proper realtime of the system.
+
+Karim

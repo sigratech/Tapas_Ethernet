@@ -1,0 +1,100 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: TI_DEV2 TI_DEV
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ Rx2Sig3 : 0|16@1+ (0.01,0) [0|100] "%" Vector__XXX
+
+BO_ 2181038079 New_Message_11: 8 Vector__XXX
+
+BO_ 1 New_Message_10: 8 Vector__XXX
+ SG_ New_Signal_32 : 54|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 0 New_Message_10: 8 Vector__XXX
+ SG_ New_Signal_23 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 259 TAPAS_ANLG_P4: 8 TI_DEV
+ SG_ Supply_3v3 : 0|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+
+BO_ 258 TAPAS_ANLG_P3: 8 TI_DEV
+ SG_ AnalogCh9 : 48|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh8 : 32|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh11 : 16|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh10 : 0|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+
+BO_ 257 TAPAS_ANLG_P2: 8 TI_DEV
+ SG_ AnalogCh7 : 48|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh6 : 32|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh5 : 16|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh4 : 0|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+
+BO_ 256 TAPAS_ANLG_P1: 8 TI_DEV
+ SG_ AnalogCh3 : 48|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh2 : 32|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh1 : 16|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+ SG_ AnalogCh0 : 0|16@1+ (0.0977517106549365,0) [0|100] "%" Vector__XXX
+
+BO_ 1281 TI_DEV_STATUS_BUS2: 8 TI_DEV2
+ SG_ Tx2Sig2 : 16|16@1- (0.01,0) [0|0] "%" Vector__XXX
+ SG_ Tx2Sig1 : 0|16@1+ (0.01,0) [0|100] "%" Vector__XXX
+
+BO_ 1280 TI_DEV_CONTROL_BUS2: 8 TI_DEV2
+ SG_ Rx2Sig2 : 16|16@1+ (0.01,0) [0|100] "%" Vector__XXX
+ SG_ Rx2Sig1 : 0|16@1+ (0.01,0) [0|100] "%" Vector__XXX
+
+BO_ 2418719966 TI_DEV_CONTROL: 8 TI_DEV
+ SG_ Bit6 : 53|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Bit5 : 49|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Bit4 : 55|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Signal_Control_3 : 39|16@0+ (0.01,0) [0|100] "" Vector__XXX
+ SG_ Signal_Control_2 : 16|16@1+ (0.01,0) [0|100] "" Vector__XXX
+ SG_ Signal_Control_1 : 7|16@0+ (0.01,0) [0|100] "%" Vector__XXX
+
+BO_ 2417671390 TI_DEV_TEST: 8 TI_DEV
+ SG_ Bit3 : 53|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Bit2 : 54|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Bit1 : 55|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ TI_SPI3C0 : 39|16@0+ (0.01,0) [0|0] "C" Vector__XXX
+ SG_ TI_A1CH2 : 16|16@1+ (0.0048828125,0.00244140625) [0.00244140625|319.99755859375] "Volts" Vector__XXX
+ SG_ TI_A1CH0 : 0|16@1+ (0.0048828125,0.00244140625) [0|5] "Volts" Vector__XXX
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "BusType" "CAN";
+

@@ -1,0 +1,68 @@
+[XdsDriver]
+xds100serialNo=TIMCUHDK
+xds100foundProbes=
+WatchCond=_ 0
+Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+CStepIntDis=_ 0
+xdsResetStyle=0
+xdsResetStrategy=2
+[DebugChecksum]
+Checksum=766700348
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[JLinkDriver]
+WatchCond=_ 0
+Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+CStepIntDis=_ 0
+[PlDriver]
+MemConfigValue=C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\arm\CONFIG\debugger\TexasInstruments\TMS570LS3137ZWT.ddf
+[Jet]
+DisableInterrupts=0
+MultiCoreRunAll=0
+[ArmDriver]
+EnableCache=1
+[StLinkDriver]
+WatchCond=_ 0
+Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+CStepIntDis=_ 0
+[watch_formats]
+Fmt0={W}1:g_u32SPI_TestData	4	0
+Fmt1={W}1:u32TxFrame	4	0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Count=0
+[Aliases]
+A0=_ "C:\Git\Tapas\01_Software\main.c" "C:\Git\Tapas\01_Software\01_Code\Main\main.c"
+A1=_ "C:\Users\kmansour\Tabas\Tapas\main.c" "C:\Git\Tapas\01_Software\main.c"
+Count=2
+SuppressDialog=0
