@@ -10,8 +10,8 @@ define symbol __ICFEDIT_region_RAM_start__ = 0x08000000;
 define symbol __ICFEDIT_region_RAM_end__   = 0x0802FFFF;
 //define symbol __ICFEDIT_region_FLASH_end__   = 0x0803FFFF;
 //define symbol __ICFEDIT_region_FLASH_start__ = 0x08030000;
-define symbol __ICFEDIT_region_FLASH_end__   = 0x00180000;
-define symbol __ICFEDIT_region_FLASH_start__ = 0x0019FFFF;
+define symbol __ICFEDIT_region_FLASH_start__  = 0x00180000;
+define symbol __ICFEDIT_region_FLASH_end__ = 0x0019FFFF;
 
 /*-Sizes-*/
 define symbol __ICFEDIT_size_cstack__   = 0x2000;
@@ -51,4 +51,5 @@ place in RAM_region   { readwrite,
                         block CSTACK, block SVC_STACK, block IRQ_STACK, block FIQ_STACK,
                         block UND_STACK, block ABT_STACK, block HEAP };
 place in DRAM_region  { section DRAM };
-//place in FLASH_region {object F021_API_CortexR4_BE.lib};
+place in FLASH_region {readonly object F021_API_CortexR4_BE.lib};
+place in RAM_region {readwrite object F021_API_CortexR4_BE.lib};
