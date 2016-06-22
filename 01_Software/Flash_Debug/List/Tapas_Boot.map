@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.50.2.10312/W32 for ARM                22/Jun/2016  13:06:56
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                22/Jun/2016  13:52:35
 # Copyright 2007-2015 IAR Systems AB.
 #
 #    Output file  =  
@@ -96,40 +96,40 @@ __SystemLibrary = DLib
   .intvec            ro code  0x00000000    0x3c  tms570ls3137_cstartup.o [1]
                             - 0x0000003c    0x3c
 
-"P1":                                     0x10c3
+"P1":                                     0x10cb
   .text              ro code  0x00000040   0x470  uc_dio.o [1]
   .text              ro code  0x000004b0    0xb0  ABImemcpy.o [6]
   .text              ro code  0x00000560    0xf0  uc_system.o [1]
   .text              ro code  0x00000650   0x1c0  low_level_init.o [1]
-  .text              ro code  0x00000810   0x208  os.o [1]
-  .text              ro code  0x00000a18   0x11c  uc_timer.o [1]
-  .text              ro code  0x00000b34   0x1cc  tms570ls3137_cstartup.o [1]
-  .text              ro code  0x00000d00    0x78  lz77_init_single.o [6]
-  .text              ro code  0x00000d78    0x52  main.o [1]
-  .text              ro code  0x00000dca    0x12  uc.o [1]
-  .text              ro code  0x00000ddc    0x10  ecu.o [1]
-  .text              ro code  0x00000dec     0x4  rte.o [1]
-  .text              ro code  0x00000df0     0x4  app.o [1]
-  .text              ro code  0x00000df4     0x4  ecu_system.o [1]
-  .text              ro code  0x00000df8    0x40  zero_init3.o [6]
-  .text              ro code  0x00000e38    0x30  data_init.o [6]
-  .text              ro code  0x00000e68    0x2c  cmain.o [6]
-  Veneer             ro code  0x00000e94     0x8  - Linker created -
-  .text              ro code  0x00000e9c     0x4  exit.o [4]
-  .text              ro code  0x00000ea0    0x14  exit.o [7]
-  .text              ro code  0x00000eb4    0x10  cexit.o [6]
-  .text              ro code  0x00000ec4    0x28  app_test.o [1]
-  .text              ro code  0x00000eec    0x28  fpinit.o [5]
-  .text              ro code  0x00000f14    0x24  os_tasks.o [1]
-  .text              ro code  0x00000f38     0x6  rte_tasks.o [1]
-  .iar.init_table    const    0x00000f40    0x20  - Linker created -
-  .rodata            const    0x00000f60     0x4  uc_system.o [1]
-  .text              ro code  0x00000f64     0x4  vectortrap.o [6]
-  .text              ro code  0x00000f68     0x4  xreturnswi.o [7]
-  .rodata            const    0x00000f6c     0x0  zero_init3.o [6]
-  .rodata            const    0x00000f6c     0x0  lz77_init_single.o [6]
-  Initializer bytes  const    0x00000f6c   0x197  <for P2-1>
-                            - 0x00001103  0x10c3
+  .text              ro code  0x00000810   0x210  os.o [1]
+  .text              ro code  0x00000a20   0x11c  uc_timer.o [1]
+  .text              ro code  0x00000b3c   0x1cc  tms570ls3137_cstartup.o [1]
+  .text              ro code  0x00000d08    0x78  lz77_init_single.o [6]
+  .text              ro code  0x00000d80    0x52  main.o [1]
+  .text              ro code  0x00000dd2    0x12  uc.o [1]
+  .text              ro code  0x00000de4    0x10  ecu.o [1]
+  .text              ro code  0x00000df4     0x4  rte.o [1]
+  .text              ro code  0x00000df8     0x4  app.o [1]
+  .text              ro code  0x00000dfc     0x4  ecu_system.o [1]
+  .text              ro code  0x00000e00    0x40  zero_init3.o [6]
+  .text              ro code  0x00000e40    0x30  data_init.o [6]
+  .text              ro code  0x00000e70    0x2c  cmain.o [6]
+  Veneer             ro code  0x00000e9c     0x8  - Linker created -
+  .text              ro code  0x00000ea4     0x4  exit.o [4]
+  .text              ro code  0x00000ea8    0x14  exit.o [7]
+  .text              ro code  0x00000ebc    0x10  cexit.o [6]
+  .text              ro code  0x00000ecc    0x28  app_test.o [1]
+  .text              ro code  0x00000ef4    0x28  fpinit.o [5]
+  .text              ro code  0x00000f1c    0x24  os_tasks.o [1]
+  .text              ro code  0x00000f40     0x6  rte_tasks.o [1]
+  .iar.init_table    const    0x00000f48    0x20  - Linker created -
+  .rodata            const    0x00000f68     0x4  uc_system.o [1]
+  .text              ro code  0x00000f6c     0x4  vectortrap.o [6]
+  .text              ro code  0x00000f70     0x4  xreturnswi.o [7]
+  .rodata            const    0x00000f74     0x0  zero_init3.o [6]
+  .rodata            const    0x00000f74     0x0  lz77_init_single.o [6]
+  Initializer bytes  const    0x00000f74   0x197  <for P2-1>
+                            - 0x0000110b  0x10cb
 
 "P2", part 1 of 3:                         0x418
   P2-1                        0x08000000   0x418  <Init block>
@@ -381,7 +381,7 @@ Zero (__iar_zero_init3)
 
 Copy/lz77 (__iar_lz77_init_single3)
     1 source range, total size 0x197 (38% of destination):
-          0x00000f6c  0x197
+          0x00000f74  0x197
     1 destination range, total size 0x418:
           0x08000000  0x418
 
@@ -401,7 +401,7 @@ C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj: [1]
     ecu_system.o                   4
     low_level_init.o             448                         60
     main.o                        82
-    os.o                         520                13
+    os.o                         528                13
     os_cfg.o                               37       96
     os_tasks.o                    36
     rte.o                          4
@@ -413,7 +413,7 @@ C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj: [1]
     uc_system.o                  240        4                52
     uc_timer.o                   284                 4       32
     -----------------------------------------------------------
-    Total:                     3 358      411    1 130      408
+    Total:                     3 366      411    1 130      408
 
 C:\ti\Hercules\F021 Flash API\02.01.01: [2]
     -----------------------------------------------------------
@@ -453,7 +453,7 @@ sh7Sxs_b.a: [7]
     Gaps                                    2
     Linker created                 8       32    9 472
 ---------------------------------------------------------------
-    Grand Total:               3 906      445   10 602      408
+    Grand Total:               3 914      445   10 602      408
 
 
 *******************************************************************************
@@ -462,62 +462,62 @@ sh7Sxs_b.a: [7]
 
 Entry                      Address   Size  Type      Object
 -----                      -------   ----  ----      ------
-.iar.init_table$$Base   0x00000f40          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x00000f60          --   Gb  - Linker created -
-?main                   0x00000e68         Code  Gb  cmain.o [6]
+.iar.init_table$$Base   0x00000f48          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00000f68          --   Gb  - Linker created -
+?main                   0x00000e70         Code  Gb  cmain.o [6]
 ABT_STACK$$Base         0x08002818          --   Gb  - Linker created -
 ABT_STACK$$Limit        0x08002918          --   Gb  - Linker created -
-APP_vdDeInit            0x00000df3    0x2  Code  Gb  app.o [1]
-APP_vdInit              0x00000df1    0x2  Code  Gb  app.o [1]
-APP_vdTask100ms         0x00000f3d    0x2  Code  Gb  rte_tasks.o [1]
-APP_vdTask1ms           0x00000f39    0x2  Code  Gb  rte_tasks.o [1]
-APP_vdTask50ms          0x00000f3b    0x2  Code  Gb  rte_tasks.o [1]
-APP_vdTestMgr           0x00000ec5   0x28  Code  Gb  app_test.o [1]
-Abort_Handler           0x00000f64         Code  Wk  vectortrap.o [6]
+APP_vdDeInit            0x00000dfb    0x2  Code  Gb  app.o [1]
+APP_vdInit              0x00000df9    0x2  Code  Gb  app.o [1]
+APP_vdTask100ms         0x00000f45    0x2  Code  Gb  rte_tasks.o [1]
+APP_vdTask1ms           0x00000f41    0x2  Code  Gb  rte_tasks.o [1]
+APP_vdTask50ms          0x00000f43    0x2  Code  Gb  rte_tasks.o [1]
+APP_vdTestMgr           0x00000ecd   0x28  Code  Gb  app_test.o [1]
+Abort_Handler           0x00000f6c         Code  Wk  vectortrap.o [6]
 CSTACK$$Base            0x08000418          --   Gb  - Linker created -
 CSTACK$$Limit           0x08002418          --   Gb  - Linker created -
-ECU_SYS_vdDeInit        0x00000df7    0x2  Code  Gb  ecu_system.o [1]
-ECU_SYS_vdInit          0x00000df5    0x2  Code  Gb  ecu_system.o [1]
-ECU_vdDeInit            0x00000de5    0x8  Code  Gb  ecu.o [1]
-ECU_vdInit              0x00000ddd    0x8  Code  Gb  ecu.o [1]
-FIQ_Handler             0x00000f64         Code  Wk  vectortrap.o [6]
+ECU_SYS_vdDeInit        0x00000dff    0x2  Code  Gb  ecu_system.o [1]
+ECU_SYS_vdInit          0x00000dfd    0x2  Code  Gb  ecu_system.o [1]
+ECU_vdDeInit            0x00000ded    0x8  Code  Gb  ecu.o [1]
+ECU_vdInit              0x00000de5    0x8  Code  Gb  ecu.o [1]
+FIQ_Handler             0x00000f6c         Code  Wk  vectortrap.o [6]
 FIQ_STACK$$Base         0x08002618          --   Gb  - Linker created -
 FIQ_STACK$$Limit        0x08002718          --   Gb  - Linker created -
 IOMM_KICK_REG0          0xffffea38    0x4  Data  Gb  uc_system.o [1]
 IOMM_KICK_REG1          0xffffea3c    0x4  Data  Gb  uc_system.o [1]
-IRQ_Handler             0x00000f64         Code  Wk  vectortrap.o [6]
+IRQ_Handler             0x00000f6c         Code  Wk  vectortrap.o [6]
 IRQ_STACK$$Base         0x08002518          --   Gb  - Linker created -
 IRQ_STACK$$Limit        0x08002618          --   Gb  - Linker created -
-IntTable                0x00000f60    0x4  Data  Gb  uc_system.o [1]
+IntTable                0x00000f68    0x4  Data  Gb  uc_system.o [1]
 OS_astrTasks            0x08000000   0x60  Data  Gb  os_cfg.o [1]
 OS_u32SystemTick        0x08002958    0x4  Data  Gb  os.o [1]
 OS_u32SystemTimerUs     0x0800295c    0x4  Data  Gb  os.o [1]
 OS_u32UpdateTasksCounter
                         0x08002960    0x4  Data  Gb  os.o [1]
 OS_u8ShutDownSignal     0x08002969    0x1  Data  Gb  os.o [1]
-OS_vdDeInit             0x00000871    0x8  Code  Gb  os.o [1]
-OS_vdInit               0x00000811   0x50  Code  Gb  os.o [1]
-OS_vdMain               0x00000879   0xd0  Code  Gb  os.o [1]
-OS_vdStart              0x00000861    0x8  Code  Gb  os.o [1]
-OS_vdStop               0x00000869    0x8  Code  Gb  os.o [1]
-OS_vdTask100ms          0x00000f2d    0xc  Code  Gb  os_tasks.o [1]
-OS_vdTask10ms           0x00000f1d    0x8  Code  Gb  os_tasks.o [1]
-OS_vdTask1ms            0x00000f15    0x8  Code  Gb  os_tasks.o [1]
-OS_vdTask50ms           0x00000f25    0x8  Code  Gb  os_tasks.o [1]
-Prefetch_Handler        0x00000f64         Code  Wk  vectortrap.o [6]
-RTE_vdDeInit            0x00000def    0x2  Code  Gb  rte.o [1]
-RTE_vdInit              0x00000ded    0x2  Code  Gb  rte.o [1]
+OS_vdDeInit             0x00000877    0x8  Code  Gb  os.o [1]
+OS_vdInit               0x00000811   0x56  Code  Gb  os.o [1]
+OS_vdMain               0x0000087f   0xd0  Code  Gb  os.o [1]
+OS_vdStart              0x00000867    0x8  Code  Gb  os.o [1]
+OS_vdStop               0x0000086f    0x8  Code  Gb  os.o [1]
+OS_vdTask100ms          0x00000f35    0xc  Code  Gb  os_tasks.o [1]
+OS_vdTask10ms           0x00000f25    0x8  Code  Gb  os_tasks.o [1]
+OS_vdTask1ms            0x00000f1d    0x8  Code  Gb  os_tasks.o [1]
+OS_vdTask50ms           0x00000f2d    0x8  Code  Gb  os_tasks.o [1]
+Prefetch_Handler        0x00000f6c         Code  Wk  vectortrap.o [6]
+RTE_vdDeInit            0x00000df7    0x2  Code  Gb  rte.o [1]
+RTE_vdInit              0x00000df5    0x2  Code  Gb  rte.o [1]
 RTICOMP0                0xfffffc50    0x4  Data  Gb  uc_timer.o [1]
 RTICPUC0                0xfffffc18    0x4  Data  Gb  uc_timer.o [1]
 RTIFRC0                 0xfffffc10    0x4  Data  Gb  uc_timer.o [1]
 RTIUDCP0                0xfffffc54    0x4  Data  Gb  uc_timer.o [1]
-Region$$Table$$Base     0x00000f40          --   Gb  - Linker created -
-Region$$Table$$Limit    0x00000f60          --   Gb  - Linker created -
+Region$$Table$$Base     0x00000f48          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000f68          --   Gb  - Linker created -
 SVC_STACK$$Base         0x08002418          --   Gb  - Linker created -
 SVC_STACK$$Limit        0x08002518          --   Gb  - Linker created -
-SWI_Handler             0x00000f64         Code  Wk  vectortrap.o [6]
-SYS_vdDeInit            0x00000db3   0x18  Code  Gb  main.o [1]
-SYS_vdInit              0x00000d9b   0x18  Code  Gb  main.o [1]
+SWI_Handler             0x00000f6c         Code  Wk  vectortrap.o [6]
+SYS_vdDeInit            0x00000dbb   0x18  Code  Gb  main.o [1]
+SYS_vdInit              0x00000da3   0x18  Code  Gb  main.o [1]
 UC_DIO_astrInput        0x080003b8   0x60  Data  Gb  uc_dio_cfg.o [1]
 UC_DIO_astrIntInputIdDecode
                         0x08002918   0x40  Data  Gb  uc_dio.o [1]
@@ -535,21 +535,21 @@ UC_SYS_vdRegisterISR    0x00000561   0x14  Code  Gb  uc_system.o [1]
 UC_TIMER_pftTickCallback
                         0x08002964    0x4  Data  Gb  uc_timer.o [1]
 UC_TIMER_u32TimerTickUs
-                        0x00000aa9    0x8  Code  Gb  uc_timer.o [1]
-UC_TIMER_vdDisable      0x00000a9b    0xe  Code  Gb  uc_timer.o [1]
-UC_TIMER_vdEnable       0x00000a8d    0xe  Code  Gb  uc_timer.o [1]
-UC_TIMER_vdInit         0x00000a19   0x6e  Code  Gb  uc_timer.o [1]
+                        0x00000ab1    0x8  Code  Gb  uc_timer.o [1]
+UC_TIMER_vdDisable      0x00000aa3    0xe  Code  Gb  uc_timer.o [1]
+UC_TIMER_vdEnable       0x00000a95    0xe  Code  Gb  uc_timer.o [1]
+UC_TIMER_vdInit         0x00000a21   0x6e  Code  Gb  uc_timer.o [1]
 UC_TIMER_vdRegisterTickCallback
-                        0x00000a87    0x6  Code  Gb  uc_timer.o [1]
-UC_vdDeInit             0x00000ddb    0x2  Code  Gb  uc.o [1]
-UC_vdInit               0x00000dcb   0x10  Code  Gb  uc.o [1]
+                        0x00000a8f    0x6  Code  Gb  uc_timer.o [1]
+UC_vdDeInit             0x00000de3    0x2  Code  Gb  uc.o [1]
+UC_vdInit               0x00000dd3   0x10  Code  Gb  uc.o [1]
 UND_STACK$$Base         0x08002718          --   Gb  - Linker created -
 UND_STACK$$Limit        0x08002818          --   Gb  - Linker created -
-Undefined_Handler       0x00000f64         Code  Wk  vectortrap.o [6]
+Undefined_Handler       0x00000f6c         Code  Wk  vectortrap.o [6]
 VIM_GIOA_Handler        0x000003fc   0x40  Code  Gb  uc_dio.o [1]
 VIM_GIOB_Handler        0x0000043c   0x40  Code  Gb  uc_dio.o [1]
 VIM_RAM_BASE            0xfff82000    0x4  Data  Gb  uc_system.o [1]
-VIM_RTIC0_Handler       0x00000ab0   0x64  Code  Gb  uc_timer.o [1]
+VIM_RTIC0_Handler       0x00000ab8   0x64  Code  Gb  uc_timer.o [1]
 _A_CLKCNTL              0xffffffd0    0x4  Data  Gb  low_level_init.o [1]
 _A_CLKSLIP              0xffffe170    0x4  Data  Gb  low_level_init.o [1]
 _A_CSDIS                0xffffff30    0x4  Data  Gb  low_level_init.o [1]
@@ -647,31 +647,31 @@ _A_WAKEENACLR0          0xfffffe60    0x4  Data  Gb  uc_system.o [1]
 _A_WAKEENACLR1          0xfffffe64    0x4  Data  Gb  uc_system.o [1]
 __aeabi_memcpy4         0x000004b0         Code  Gb  ABImemcpy.o [6]
 __aeabi_memcpy8         0x000004b0         Code  Gb  ABImemcpy.o [6]
-__cmain                 0x00000e68         Code  Gb  cmain.o [6]
-__exit                  0x00000ea1   0x14  Code  Gb  exit.o [7]
-__iar_data_init3        0x00000e39   0x30  Code  Gb  data_init.o [6]
-__iar_init_vfp          0x00000f00         Code  Gb  fpinit.o [5]
-__iar_init_vfp_v6       0x00000eec         Code  Gb  fpinit.o [5]
+__cmain                 0x00000e70         Code  Gb  cmain.o [6]
+__exit                  0x00000ea9   0x14  Code  Gb  exit.o [7]
+__iar_data_init3        0x00000e41   0x30  Code  Gb  data_init.o [6]
+__iar_init_vfp          0x00000f08         Code  Gb  fpinit.o [5]
+__iar_init_vfp_v6       0x00000ef4         Code  Gb  fpinit.o [5]
 __iar_lz77_init_single3
-                        0x00000d01   0x78  Code  Gb  lz77_init_single.o [6]
-__iar_program_start     0x00000b34         Code  Gb  tms570ls3137_cstartup.o [1]
-__iar_return_from_swi   0x00000f68    0x4  Code  Gb  xreturnswi.o [7]
-__iar_zero_init3        0x00000df9   0x40  Code  Gb  zero_init3.o [6]
+                        0x00000d09   0x78  Code  Gb  lz77_init_single.o [6]
+__iar_program_start     0x00000b3c         Code  Gb  tms570ls3137_cstartup.o [1]
+__iar_return_from_swi   0x00000f70    0x4  Code  Gb  xreturnswi.o [7]
+__iar_zero_init3        0x00000e01   0x40  Code  Gb  zero_init3.o [6]
 __low_level_init        0x00000650  0x1c0  Code  Gb  low_level_init.o [1]
 __vector                0x00000000         Code  Gb  tms570ls3137_cstartup.o [1]
-_call_main              0x00000e7c         Code  Gb  cmain.o [6]
-_exit                   0x00000eb4         Code  Gb  cexit.o [6]
-_main                   0x00000e84         Code  Gb  cmain.o [6]
-exit                    0x00000e9d    0x4  Code  Gb  exit.o [4]
+_call_main              0x00000e84         Code  Gb  cmain.o [6]
+_exit                   0x00000ebc         Code  Gb  cexit.o [6]
+_main                   0x00000e8c         Code  Gb  cmain.o [6]
+exit                    0x00000ea5    0x4  Code  Gb  exit.o [4]
 local_OS_u32GetSystemTickTrigVal
-                        0x00000973    0xe  Code  Gb  os.o [1]
-local_OS_vdAddTask      0x00000981   0x82  Code  Gb  os.o [1]
-local_OS_vdTrigger      0x00000949   0x2a  Code  Gb  os.o [1]
+                        0x0000097b    0xe  Code  Gb  os.o [1]
+local_OS_vdAddTask      0x00000989   0x82  Code  Gb  os.o [1]
+local_OS_vdTrigger      0x00000951   0x2a  Code  Gb  os.o [1]
 local_UC_DIO_eInputInterruptHandler
                         0x000003b1   0x48  Code  Gb  uc_dio.o [1]
 local_UC_DIO_ePinConfigure
                         0x00000343   0x6e  Code  Gb  uc_dio.o [1]
-main                    0x00000d79   0x22  Code  Gb  main.o [1]
+main                    0x00000d81   0x22  Code  Gb  main.o [1]
 
 
 [1] = C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj
@@ -682,7 +682,7 @@ main                    0x00000d79   0x22  Code  Gb  main.o [1]
 [6] = rt7Sx_tb.a
 [7] = sh7Sxs_b.a
 
-   3 906 bytes of readonly  code memory
+   3 914 bytes of readonly  code memory
      445 bytes of readonly  data memory
   10 602 bytes of readwrite data memory (+ 408 absolute)
 
