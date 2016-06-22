@@ -45,7 +45,7 @@ void APP_vdTestMgr(void)
   
   if (su8Counter == 5)
   {
-    UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIOHB, UC_DIO_OUT_COMMAND_TOGGLE);
+    UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO19, UC_DIO_OUT_COMMAND_TOGGLE);
     su8Counter = 0;
   }
   //ECU_MEM_INT_eEraseSector(0);
