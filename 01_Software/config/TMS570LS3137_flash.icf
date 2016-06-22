@@ -7,9 +7,12 @@ define symbol __ICFEDIT_intvec_start__ = 0x00000000;
 define symbol __ICFEDIT_region_ROM_start__ = 0x00000040;
 define symbol __ICFEDIT_region_ROM_end__   = 0x002FFFFF;
 define symbol __ICFEDIT_region_RAM_start__ = 0x08000000;
-define symbol __ICFEDIT_region_RAM_end__   = 0x0803FFFF;
-define symbol __ICFEDIT_region_FLASH_start__ = 0x08002000;
-define symbol __ICFEDIT_region_FLASH_end__   = 0x0803FFFF;
+define symbol __ICFEDIT_region_RAM_end__   = 0x0802FFFF;
+//define symbol __ICFEDIT_region_FLASH_end__   = 0x0803FFFF;
+//define symbol __ICFEDIT_region_FLASH_start__ = 0x08030000;
+define symbol __ICFEDIT_region_FLASH_end__   = 0x00180000;
+define symbol __ICFEDIT_region_FLASH_start__ = 0x0019FFFF;
+
 /*-Sizes-*/
 define symbol __ICFEDIT_size_cstack__   = 0x2000;
 define symbol __ICFEDIT_size_svcstack__ = 0x100;
