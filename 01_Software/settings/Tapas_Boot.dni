@@ -18,7 +18,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
-Checksum=1512556426
+Checksum=843979904
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -50,7 +50,10 @@ ShowTiming=1
 mode=0
 [Breakpoints2]
 Bp0=_ 0 "EMUL_CODE" "0x0018025C" 0 0 1 "" 0 "" 0
-Count=1
+Bp1=_ 0 "EMUL_CODE" "0x00001034" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "0x00000FEC" 0 0 1 "" 0 "" 0
+Bp3=_ 0 "EMUL_CODE" "0x00001012" 0 0 1 "" 0 "" 0
+Count=4
 [Aliases]
 A0=_ "../Source/Async.c" ""
 A1=_ "../Source/FlashStateMachine.EnableMainSectors.c" ""
