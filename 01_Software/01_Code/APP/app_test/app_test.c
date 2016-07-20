@@ -33,21 +33,44 @@ E-mail: karim@sigratech.de
 uint8_t APP_TEST_u8InputReadMaxim;
 uint32_t APP_TEST_u32SubSchCounter = 1;
 uint8_t u8ShutDown = 0;
+uint8_t u8Counter = 0;
+uint8_t u8Flag = 0;
+uint8_t au8EEPROMData[4] = {0xA0,0xB0,0xC0,0xD0};
 
 void APP_vdTestMgr(void)
 {
-  static uint8_t su8Counter = 0;
+//  static uint8_t su8Counter = 0;
 //  static uint8_t u8Flag = 0;
 //  static uint8_t u8Loop;
 //  float fltValue;
   
-  su8Counter++;
-  
-  if (su8Counter == 5)
+//  su8Counter++;
+  if(u8Flag == 0)
   {
-    UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIOHB, UC_DIO_OUT_COMMAND_TOGGLE);
-    su8Counter = 0;
+    UC_EEPROM_ERASE_SECTOR(0);
+    UC_EEPROM_WRITE(0xF0200000, au8EEPROMData, 4);      
+    u8Flag = 1;
   }
+  if(u8Counter == 20)
+  {
+    UC_DIO_eCommandOutputPin(14, UC_DIO_OUT_COMMAND_OFF);    
+    u8Counter = 0;
+  }  
+  if(u8Counter < 10 || u8Counter == 10)
+  {
+    UC_DIO_eCommandOutputPin(14, UC_DIO_OUT_COMMAND_TOGGLE);
+    u8Counter++;       
+  }
+  if(u8Counter > 10)
+  {
+    UC_DIO_eCommandOutputPin(14, UC_DIO_OUT_COMMAND_ON);
+    u8Counter++;       
+  }  
+//  if (su8Counter == 5)
+//  {
+//    UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIOHB, UC_DIO_OUT_COMMAND_TOGGLE);
+//    su8Counter = 0;
+//  }
   //ECU_MEM_INT_eEraseSector(0);
 //  ECU_MEM_INT_eWriteSignalValue(0, 20.4);
 //  ECU_MEM_INT_eWriteSignalValue(1, 21.4);
