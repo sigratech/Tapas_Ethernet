@@ -64,9 +64,9 @@
   IF &AutoECCGeneration!=0
   (
     ; Program flash
-    FLASH.Create  1. 0x00000000--0x0000FFFF  0x800 TARGET Byte 0.  ; Bank 0
-    ;FLASH.Create  1. 0x00020000--0x0017FFFF 0x20000 TARGET Byte 0.  ; Bank 0
-    ;FLASH.Create  2. 0x00180000--0x002FFFFF 0x20000 TARGET Byte 1.  ; Bank 1
+    FLASH.Create  1. 0x00000000--0x0001FFFF  0x8000 TARGET Byte 0.  ; Bank 0
+    FLASH.Create  2. 0x00020000--0x0017FFFF 0x20000 TARGET Byte 0.  ; Bank 0
+    FLASH.Create  3. 0x00180000--0x002FFFFF 0x20000 TARGET Byte 1.  ; Bank 1
     ; EEPROM emulation flash
     FLASH.Create  8. 0xF0200000--0xF020FFFF  0x4000 TARGET Byte 7.  ; Bank 7
 
@@ -78,13 +78,13 @@
   ELSE
   (
     ; Program flash
-    FLASH.Create  1. 0x00000000--0x0000FFFF  0x800 TARGET Byte 0. /EraseALIAS 0xf0400000--0xf0403FFF  ; Bank 0
-    ;FLASH.Create  1. 0x00020000--0x0017FFFF 0x20000 TARGET Byte 0. /EraseALIAS 0xf0404000--0xf042FFFF  ; Bank 0
-    ;FLASH.Create  2. 0x00180000--0x002FFFFF 0x20000 TARGET Byte 1. /EraseALIAS 0xf0430000--0xf045FFFF  ; Bank 1
+    FLASH.Create  1. 0x00000000--0x0001FFFF  0x8000 TARGET Byte 0. /EraseALIAS 0xf0400000--0xf0403FFF  ; Bank 0
+    FLASH.Create  2. 0x00020000--0x0017FFFF 0x20000 TARGET Byte 0. /EraseALIAS 0xf0404000--0xf042FFFF  ; Bank 0
+    FLASH.Create  3. 0x00180000--0x002FFFFF 0x20000 TARGET Byte 1. /EraseALIAS 0xf0430000--0xf045FFFF  ; Bank 1
     ; Program flash ECC
     FLASH.Create  1. 0xF0400000--0xF0403FFF  0x1000 TARGET Byte 0. /EraseALIAS 0x00000000--0x0001FFFF  ; Bank 0
-    FLASH.Create  1. 0xF0404000--0xF042FFFF  0x4000 TARGET Byte 0. /EraseALIAS 0x00020000--0x0017FFFF  ; Bank 0
-    FLASH.Create  2. 0xF0430000--0xF045FFFF  0x4000 TARGET Byte 1. /EraseALIAS 0x00180000--0x002FFFFF  ; Bank 1
+    FLASH.Create  2. 0xF0404000--0xF042FFFF  0x4000 TARGET Byte 0. /EraseALIAS 0x00020000--0x0017FFFF  ; Bank 0
+    FLASH.Create  3. 0xF0430000--0xF045FFFF  0x4000 TARGET Byte 1. /EraseALIAS 0x00180000--0x002FFFFF  ; Bank 1
     ; EEPROM emulation flash
     FLASH.Create  8. 0xF0200000--0xF020FFFF  0x4000 TARGET Byte 7. /EraseALIAS 0xf0100000--0xf0101FFF  ; Bank 7
     ; EEPROM emulation flash ECC
@@ -115,17 +115,10 @@
 
   IF &progflash 
   (
-	;FLASH.ReProgram.ALL /Erase
-	FLASH.ReProgram 0x00000000--0x0000FFFF
-	Data.LOAD.auto ..\..\Flash_Debug\Exe\Tapas_Boot.srec
-	FLASH.ReProgram.off
-	
-	
-	;WinPAGE.RESet
-	;AREA.RESet
-	;WinPOS 0. 26. 75. 9. 0. 0. W000
-	;AREA.view
-	
+	FLASH.Erase 0x00008000--0x002FFFFF
+	FLASH.Program 0x00008000--0x002FFFFF
+	Data.LOAD.auto C:\Git\Tapas\01_Software\Flash_Debug\Exe\Tapas.srec
+	FLASH.Program.off
 	
 	; Basic setup
 	  SYStem.RESet
@@ -135,33 +128,16 @@
 	  SYStem.Option ResBreak OFF
 	  SYStem.JtagClock 10Mhz
 	  SYStem.Up
-    
-	; Clear all windows
-	;  WinCLEAR
-    
-	; Open some windows
-	;  WinPOS 0% 0% 50% 50%
-	;  List.auto
-    
-	;  WinPOS 50% 0% 50% 50%
-	;  Register.view /SpotLight
-    
-	;  WinPOS 0% 50% 50% 50%
-	;  Frame /Locals /Caller
-    
-	;  WinPOS 50% 50% 50% 50%
-	;  Var.Watch
-	;  Var.AddWatch ast; flags;
-    
-    
+
 	; Load sieve demo application
 	  Register.RESet
-	  Data.LOAD.Elf ..\..\Flash_Debug\Exe\Tapas_Boot.out
+	  Data.LOAD.Elf C:\Git\Tapas\01_Software\Flash_Debug\Exe\Tapas.out
 	  ;Register.Set PC main
 	  ;Register.Set R13 0x08008000
 	  
 	  SYStem.RESetTarget
 	  
+	  Register.Set PC main
 	  SYStem.CpuAccess Enable
 	  SYStem.MemAccess DAP
   )
