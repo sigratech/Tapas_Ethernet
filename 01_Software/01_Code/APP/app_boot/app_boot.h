@@ -27,12 +27,8 @@ E-mail: shany@sigratech.de
 #define APP_BOOT_H
 
 #include "ecu.h"
-#include "uc.h" //Debugging purpose, delete upon working
 
-//Debugging purpose, delete upon working
-typedef UC_FLASH_strBlockMemory_t APP_BOOT_strBlockMemory_t;
-
-//typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
+typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
 
 void APP_BOOT_vdInit(void);
 void APP_BOOT_vdDeInit(void);

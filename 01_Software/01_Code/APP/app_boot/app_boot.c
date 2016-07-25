@@ -31,9 +31,9 @@ E-mail: shany@sigratech.de
 /********************* EXTERNAL GLOBAL VARIABLES DECLARATION ********************************/
 /********************************************************************************************/
 
-//#ifdef ECU_MEM_CODE_MODULE_ENABLE     //Debugging purpose, uncomment upon working
+#ifdef ECU_MEM_CODE_MODULE_ENABLE     
 extern APP_BOOT_strBlockMemory_t APP_BOOT_astrBlockMemory[274];
-//#endif 
+#endif 
 
 /********************************************************************************************/
 /**************************** GLOBAL FUNCTIONS IMPLEMENTATION *******************************/
@@ -41,46 +41,40 @@ extern APP_BOOT_strBlockMemory_t APP_BOOT_astrBlockMemory[274];
 
 void APP_BOOT_vdInit(void)
 {
-  uint16_t u16DebugCounter;
-  for(u16DebugCounter = 0; u16DebugCounter < 274; u16DebugCounter++)
+  uint8_t u8LoopCounter;
+  uint8_t u8Counter;
+  uint8_t u8ByteCounter;
+  uint16_t u16RecordsCount = 0;
+  uint16_t u16NumberOfBytes = 0;
+  uint8_t u8PagesNumber = ((ECU_MEM_CODE_RECORDS_NUM + UC_FLASH_MAX_BLOCK_SIZE_IN_BYTES - 1)/UC_FLASH_MAX_BLOCK_SIZE_IN_BYTES);
+  ECU_MEM_CODE_strPageMemory_t ECU_MEM_CODE_strApplicationCode[3] = {0};//{0,0,{{0,0,{0},0,0}}}; // Max BL size is 32Kb --> 125 pages
+  for(u8LoopCounter = 0; u8LoopCounter < u8PagesNumber; u8LoopCounter++)
   {
-    UC_FLASH_eWriteBlock(APP_BOOT_astrBlockMemory[u16DebugCounter]);
+    for(u8Counter = 0; u8Counter < 16; u8Counter++)
+    {
+      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u32Address = APP_BOOT_astrBlockMemory[u16RecordsCount].u32Address;
+      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u32LineNumber = APP_BOOT_astrBlockMemory[u16RecordsCount].u32LineNumber; 
+      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u8CheckSum = APP_BOOT_astrBlockMemory[u16RecordsCount].u8CheckSum;
+      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u8DataBytesCount = APP_BOOT_astrBlockMemory[u16RecordsCount].u8DataBytesCount;
+      for(u8ByteCounter = 0; u8ByteCounter < APP_BOOT_astrBlockMemory[u16RecordsCount].u8DataBytesCount; u8ByteCounter++)
+      {
+        ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].au8Byte[u8ByteCounter] = APP_BOOT_astrBlockMemory[u16RecordsCount].au8Byte[u8ByteCounter];
+        u16NumberOfBytes++;
+      }
+      u16RecordsCount++;
+      if(u16RecordsCount == ECU_MEM_CODE_RECORDS_NUM)
+      {
+        u8LoopCounter = u8PagesNumber; // Break out of bigger loop
+        break;                         // Break out of smaller loop
+      }      
+    }
+    ECU_MEM_CODE_strApplicationCode[u8LoopCounter].u8BlocksNumber = u16RecordsCount;
+    ECU_MEM_CODE_strApplicationCode[u8LoopCounter].u16BytesNumber = u16NumberOfBytes;
   }
-//  uint8_t u8LoopCounter;
-//  uint8_t u8Counter;
-//  uint8_t u8ByteCounter;
-//  uint16_t u16RecordsCount = 0;
-//  uint16_t u16NumberOfBytes = 0;
-//  uint8_t u8PagesNumber = ((ECU_MEM_CODE_RECORDS_NUM + UC_FLASH_MAX_BLOCK_SIZE_IN_BYTES - 1)/UC_FLASH_MAX_BLOCK_SIZE_IN_BYTES);
-//  ECU_MEM_CODE_strPageMemory_t ECU_MEM_CODE_strApplicationCode[20] = {0};//{0,0,{{0,0,{0},0,0}}}; // Max BL size is 32Kb --> 125 pages
-//  for(u8LoopCounter = 0; u8LoopCounter < u8PagesNumber; u8LoopCounter++)
-//  {
-//    for(u8Counter = 0; u8Counter < 16; u8Counter++)
-//    {
-//      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u32Address = APP_BOOT_astrBlockMemory[u16RecordsCount].u32Address;
-//      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u32LineNumber = APP_BOOT_astrBlockMemory[u16RecordsCount].u32LineNumber; 
-//      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u8CheckSum = APP_BOOT_astrBlockMemory[u16RecordsCount].u8CheckSum;
-//      ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].u8DataBytesCount = APP_BOOT_astrBlockMemory[u16RecordsCount].u8DataBytesCount;
-//      for(u8ByteCounter = 0; u8ByteCounter < APP_BOOT_astrBlockMemory[u16RecordsCount].u8DataBytesCount; u8ByteCounter++)
-//      {
-//        ECU_MEM_CODE_strApplicationCode[u8LoopCounter].UC_FLASH_astrBlocksOfMemory[u8Counter].au8Byte[u8ByteCounter] = APP_BOOT_astrBlockMemory[u16RecordsCount].au8Byte[u8ByteCounter];
-//        u16NumberOfBytes++;
-//      }
-//      u16RecordsCount++;
-//      if(u16RecordsCount == ECU_MEM_CODE_RECORDS_NUM)
-//      {
-//        u8LoopCounter = u8PagesNumber; // Break out of bigger loop
-//        break;                         // Break out of smaller loop
-//      }      
-//    }
-//    ECU_MEM_CODE_strApplicationCode[u8LoopCounter].u8BlocksNumber = u16RecordsCount;
-//    ECU_MEM_CODE_strApplicationCode[u8LoopCounter].u16BytesNumber = u16NumberOfBytes;
-//  }
-//  for(u8Counter = 0; u8Counter < u8PagesNumber; u8Counter++)
-//  {
-//    ECU_MEM_CODE_eWritePage(ECU_MEM_CODE_strApplicationCode[u8Counter]);
-//  }
-  
+  for(u8Counter = 0; u8Counter < u8PagesNumber; u8Counter++)
+  {
+    ECU_MEM_CODE_eWritePage(ECU_MEM_CODE_strApplicationCode[u8Counter]);
+  }
   APP_BOOT_vdMgr();
 
 }
@@ -92,6 +86,5 @@ void APP_BOOT_vdDeInit(void)
 
 void APP_BOOT_vdMgr(void)
 {
-//  ECU_SYS_vdGoToApplication(ECU_MEM_CODE_STARTING_ADDRESS);
-  ECU_SYS_vdGoToApplication(0x100000);
+  ECU_SYS_vdGoToApplication(ECU_MEM_CODE_STARTING_ADDRESS);
 }

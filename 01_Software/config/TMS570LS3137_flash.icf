@@ -6,7 +6,7 @@ define symbol __ICFEDIT_intvec_start__ = 0x00000000;
 //define symbol __ICFEDIT_intvec_start__ = 0x00180000; // BL in Bank 1
 /*-Memory Regions-*/
 define symbol __ICFEDIT_region_ROM_start__ = 0x00000040;
-define symbol __ICFEDIT_region_ROM_end__   = 0x00007FFF;
+define symbol __ICFEDIT_region_ROM_end__   = 0x0001FFFF;
 //define symbol __ICFEDIT_region_ROM_start__ = 0x00180040; // BL in Bank 1
 //define symbol __ICFEDIT_region_ROM_end__   = 0x002FFFFF; // BL in Bank 1
 define symbol __ICFEDIT_region_RAM_start__ = 0x08000000;

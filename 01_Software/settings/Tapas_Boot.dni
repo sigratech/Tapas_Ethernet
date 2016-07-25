@@ -18,7 +18,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
-Checksum=-481368550
+Checksum=-912777808
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -32,17 +32,18 @@ Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
 [struct_types]
-Fmt0=ECU_MEM_CODE_strPageMemory_t-u8BlocksNumber	3	0
-Fmt1=UC_FLASH_strBlockMemory_t-u32Address	4	0
-Fmt2=UC_FLASH_strBlockMemory_t-u32LineNumber	3	0
+Fmt0=UC_FLASH_strBlockMemory_t-u32Address	4	0
+Fmt1=UC_FLASH_strBlockMemory_t-u32LineNumber	3	0
 [watch_formats]
 Fmt0={W}1:DataBytesNumber	3	0
-Fmt1={W}1:u32Address	4	0
-Fmt2={W}1:u32StartingAddress	4	0
-Fmt3={W}1:u32Value	4	0
-Fmt4={W}1:u8BytesCount	3	0
-Fmt5={W}1:u8LoopCounter	3	0
-Fmt6={W}1:u8PagesNumber	3	0
+Fmt1={W}1:UC_FLASH_strWriteBlock.u32Address	4	0
+Fmt2={W}1:eStatus	5	0
+Fmt3={W}1:u32Address	4	0
+Fmt4={W}1:u32StartingAddress	4	0
+Fmt5={W}1:u32Value	4	0
+Fmt6={W}1:u8BytesCount	3	0
+Fmt7={W}1:u8LoopCounter	3	0
+Fmt8={W}1:u8PagesNumber	3	0
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
