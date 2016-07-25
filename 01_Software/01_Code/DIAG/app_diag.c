@@ -25,6 +25,7 @@ E-mail: karim@sigratech.de
 
 #include "app.h"
 #include "rte.h"
+#include "lib_data.h"
 
 #define APP_DIAG_HEARTBEAT_HALF_PERIOD_MS                             100
 #define APP_DIAG_TASK_MS                                              50
@@ -140,12 +141,54 @@ void local_APP_DIAG_EndService(STATUS_t eStatus, uint8_t *pau8Data)
 
 void local_APP_DIAG_vdMemory_Write(void)
 {
-
+  STATUS_t eStatus = STATUS_NOK;
+  uint32_t u32Data = APP_DIAG_au8RequestData[0] << 24;
+  u32Data |= APP_DIAG_au8RequestData[1] << 16;
+  u32Data |= APP_DIAG_au8RequestData[2] << 8;
+  u32Data |= APP_DIAG_au8RequestData[3];
+  if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
+  {
+    eStatus = ECU_MEM_INT_eDirectWriteSignalValue(APP_DIAG_u8RequestId, u32Data/100);
+  }
+  else // External EEPROM
+  {
+#ifdef ECU_MEM_EXT_MODULE_ENABLE
+  eStatus = ECU_MEM_EXT_eWriteSignalValue(APP_DIAG_u8RequestId, LIB_DATA_fltRaw2Phy(u32Data, 0.01, 0));    
+#else
+  eStatus = STATUS_NOK;
+#endif /*ECU_MEM_EXT_MODULE_ENABLE*/
+  }
+  APP_DIAG_au8DataNotUsed[0] = APP_DIAG_au8RequestData[0];
+  APP_DIAG_au8DataNotUsed[1] = APP_DIAG_au8RequestData[1];
+  APP_DIAG_au8DataNotUsed[2] = APP_DIAG_au8RequestData[2];
+  APP_DIAG_au8DataNotUsed[3] = APP_DIAG_au8RequestData[3];  
+  local_APP_DIAG_EndService(eStatus, APP_DIAG_au8DataNotUsed);
 }
 
 void local_APP_DIAG_vdMemory_Read(void)
 {
-
+  STATUS_t eStatus = STATUS_NOK;
+  float fltData;
+  uint32_t u32Data;
+  if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
+  {
+    eStatus = ECU_MEM_INT_eReadSignalValue(APP_DIAG_u8RequestId, &fltData);
+  }
+  else // External EEPROM
+  {
+#ifdef ECU_MEM_EXT_MODULE_ENABLE
+  eStatus = ECU_MEM_EXT_eReadSignalValue(APP_DIAG_u8RequestId, &fltData);    
+#else
+  eStatus = STATUS_NOK;
+#endif /*ECU_MEM_EXT_MODULE_ENABLE*/
+  
+  }
+  u32Data =(uint32_t) (fltData * 100);
+  APP_DIAG_au8DataNotUsed[0] = u32Data >> 24;
+  APP_DIAG_au8DataNotUsed[1] = u32Data >> 16;
+  APP_DIAG_au8DataNotUsed[2] = u32Data >> 8;
+  APP_DIAG_au8DataNotUsed[3] = u32Data;
+  local_APP_DIAG_EndService(eStatus, APP_DIAG_au8DataNotUsed);
 }
 
 void local_APP_DIAG_vdHeartBeat(void)
