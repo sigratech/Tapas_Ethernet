@@ -27,7 +27,8 @@ E-mail: karim@sigratech.de
 #define APP_H
 
 #include "app_test.h"
-#include "rte_app.h"
+#include "app_boot_cfg.h"
+#include "app_boot.h"
 
 
 void APP_vdInit(void);

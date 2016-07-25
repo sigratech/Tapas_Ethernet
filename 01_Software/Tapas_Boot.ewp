@@ -369,6 +369,15 @@
           <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_int</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Core\UC\flash</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\UC\flash</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\diag</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem_ext</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_ext</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem_int</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem_code</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_int</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_code</state>
+          <state>$PROJ_DIR$\01_Code\APP\app_boot</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1014,6 +1023,27 @@
   <group>
     <name>APP</name>
     <group>
+      <name>app_boot</name>
+      <group>
+        <name>cfg</name>
+        <file>
+          <name>$PROJ_DIR$\01_Code\APP\app_boot\app_boot_cfg.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\01_Code\APP\app_boot\app_boot_cfg.h</name>
+        </file>
+      </group>
+      <group>
+        <name>core</name>
+        <file>
+          <name>$PROJ_DIR$\01_Code\APP\app_boot\app_boot.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\01_Code\APP\app_boot\app_boot.h</name>
+        </file>
+      </group>
+    </group>
+    <group>
       <name>app_test</name>
       <file>
         <name>$PROJ_DIR$\01_Code\APP\app_test\app_test.c</name>
@@ -1080,6 +1110,27 @@
       </group>
     </group>
     <group>
+      <name>diag</name>
+      <group>
+        <name>cfg</name>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\diag\ecu_diag_cfg.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\diag\ecu_diag_cfg.h</name>
+        </file>
+      </group>
+      <group>
+        <name>core</name>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.h</name>
+        </file>
+      </group>
+    </group>
+    <group>
       <name>io</name>
       <group>
         <name>cfg</name>
@@ -1118,27 +1169,6 @@
         </file>
         <file>
           <name>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem\ecu_mem.h</name>
-        </file>
-      </group>
-    </group>
-    <group>
-      <name>mem_int</name>
-      <group>
-        <name>cfg</name>
-        <file>
-          <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_int\ecu_mem_int_cfg.c</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_int\ecu_mem_int_cfg.h</name>
-        </file>
-      </group>
-      <group>
-        <name>core</name>
-        <file>
-          <name>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem_int\ecu_mem_int.c</name>
-        </file>
-        <file>
-          <name>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem_int\ecu_mem_int.h</name>
         </file>
       </group>
     </group>

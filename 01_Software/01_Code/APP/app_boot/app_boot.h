@@ -16,24 +16,27 @@ Agnes-Pockels-Bogen 1,
 80992, Munich,
 Germany
 
-File Name: app.c
-Author: Karim Mansour 
-E-mail: karim@sigratech.de 
+File Name: app_boot.h
+Author: Hany elShahawy 
+E-mail: shany@sigratech.de 
 ***************************************************************************
 ***************************************************************************
 */
 
-#include "app.h"
+#ifndef APP_BOOT_H
+#define APP_BOOT_H
 
+#include "ecu.h"
+#include "uc.h" //Debugging purpose, delete upon working
 
-void APP_vdInit(void)
-{
-//  app_test_gen_initialize();
-  APP_BOOT_vdInit();
+//Debugging purpose, delete upon working
+typedef UC_FLASH_strBlockMemory_t APP_BOOT_strBlockMemory_t;
 
-}
+//typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
 
-void APP_vdDeInit(void)
-{
-//  app_test_gen_terminate();
-}
+void APP_BOOT_vdInit(void);
+void APP_BOOT_vdDeInit(void);
+void APP_BOOT_vdMgr(void);
+
+#endif /*APP_BOOT_H*/
+

@@ -16,24 +16,17 @@ Agnes-Pockels-Bogen 1,
 80992, Munich,
 Germany
 
-File Name: app.c
-Author: Karim Mansour 
-E-mail: karim@sigratech.de 
+File Name: app_boot_cfg.h
+Author: Hany elShahawy 
+E-mail: shany@sigratech.de 
 ***************************************************************************
 ***************************************************************************
 */
 
-#include "app.h"
+#ifndef APP_BOOT_CFG_H
+#define APP_BOOT_CFG_H
 
+#define APP_BOOT_ENABLE
 
-void APP_vdInit(void)
-{
-//  app_test_gen_initialize();
-  APP_BOOT_vdInit();
+#endif /*APP_BOOT_CFG_H*/
 
-}
-
-void APP_vdDeInit(void)
-{
-//  app_test_gen_terminate();
-}
