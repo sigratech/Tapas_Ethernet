@@ -318,7 +318,6 @@
           <state>$PROJ_DIR$\01_Code\RTE</state>
           <state>$PROJ_DIR$\01_Code\APP\app_test</state>
           <state>$PROJ_DIR$\01_Code\APP\app_shared</state>
-          <state>$PROJ_DIR$\01_Code\APP\app_diag</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Core\Startup</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Core\LIB</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Core\Main</state>
@@ -378,6 +377,9 @@
           <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_int</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem_code</state>
           <state>$PROJ_DIR$\01_Code\APP\app_boot</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\txcp</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\txcp</state>
+          <state>$PROJ_DIR$\01_Code\DIAG</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1057,6 +1059,15 @@
     </file>
     <file>
       <name>$PROJ_DIR$\01_Code\APP\app.h</name>
+    </file>
+  </group>
+  <group>
+    <name>APP_DIAG</name>
+    <file>
+      <name>$PROJ_DIR$\01_Code\DIAG\app_diag.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\01_Code\DIAG\app_diag.h</name>
     </file>
   </group>
   <group>

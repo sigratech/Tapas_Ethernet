@@ -86,5 +86,5 @@ void APP_BOOT_vdDeInit(void)
 
 void APP_BOOT_vdMgr(void)
 {
-  ECU_SYS_vdGoToApplication(ECU_MEM_CODE_STARTING_ADDRESS);
+//  ECU_SYS_vdGoToApplication(ECU_MEM_CODE_STARTING_ADDRESS);
 }

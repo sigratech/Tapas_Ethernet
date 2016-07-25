@@ -29,6 +29,7 @@ E-mail: karim@sigratech.de
 #include "app_test.h"
 #include "app_boot_cfg.h"
 #include "app_boot.h"
+#include "app_diag.h"
 
 
 void APP_vdInit(void);

@@ -53,17 +53,17 @@ void APP_vdTestMgr(void)
   }
   if(u8Counter == 20)
   {
-    UC_DIO_eCommandOutputPin(14, UC_DIO_OUT_COMMAND_OFF);    
+    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_OFF);    
     u8Counter = 0;
   }  
   if(u8Counter < 10 || u8Counter == 10)
   {
-    UC_DIO_eCommandOutputPin(14, UC_DIO_OUT_COMMAND_TOGGLE);
+    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
     u8Counter++;       
   }
   if(u8Counter > 10)
   {
-    UC_DIO_eCommandOutputPin(14, UC_DIO_OUT_COMMAND_ON);
+    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_ON);
     u8Counter++;       
   }  
 //  if (su8Counter == 5)
