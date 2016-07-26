@@ -27,6 +27,10 @@ E-mail: shany@sigratech.de
 #include "app_boot.h"
 #include "ecu.h"
 
+
+APP_BOOT_eStatus_t APP_BOOT_eStatus = APP_BOOT_ST_INIT;
+APP_BOOT_eDownloadStatus_t APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
+
 /********************************************************************************************/
 /********************* EXTERNAL GLOBAL VARIABLES DECLARATION ********************************/
 /********************************************************************************************/
@@ -34,6 +38,10 @@ E-mail: shany@sigratech.de
 #ifdef ECU_MEM_CODE_MODULE_ENABLE     
 extern APP_BOOT_strBlockMemory_t APP_BOOT_astrBlockMemory[274];
 #endif 
+
+
+void local_APP_BOOT_vdBootHeartBeat(void);
+void local_APP_BOOT_vdSwDownload(void);
 
 /********************************************************************************************/
 /**************************** GLOBAL FUNCTIONS IMPLEMENTATION *******************************/
@@ -86,5 +94,57 @@ void APP_BOOT_vdDeInit(void)
 
 void APP_BOOT_vdMgr(void)
 {
-//  ECU_SYS_vdGoToApplication(ECU_MEM_CODE_STARTING_ADDRESS);
+  /*Heart Beat*/
+  local_APP_BOOT_vdBootHeartBeat();
+    
+  /*Main Bootloader State Machine*/
+  switch(APP_BOOT_eStatus)
+  {
+  case APP_BOOT_ST_INIT:
+    
+    break;
+  case APP_BOOT_ST_DOWNLOAD:
+    local_APP_BOOT_vdSwDownload();
+    break;
+  case APP_BOOT_ST_UPLOAD:
+    
+    break;
+  case APP_BOOT_ST_APP_RUN:
+    ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);
+    break;
+  case APP_BOOT_ST_ERROR:
+    
+    break;
+  default:
+    APP_BOOT_eStatus = APP_BOOT_ST_INIT;
+    break;
+  }
+}
+
+void local_APP_BOOT_vdSwDownload(void)
+{
+  switch(APP_BOOT_eDownloadStatus)
+  {
+  case APP_BOOT_DL_ST_INIT:
+    /*Prepare fow page download*/
+    break;
+  case APP_BOOT_DL_ST_PAGE_RECEIVE:
+    /*Receive page and calcualte the received page checksum*/
+    break;
+  case APP_BOOT_DL_ST_PAGE_DOWNLOAD:
+    /*Download the page and confirm the download by calcualting the checksum of the falshed bytes (read them)*/
+    /* Check the real-time of flashing one block, to know how much flash in one task period */
+    break;
+  case APP_BOOT_DL_ST_ERROR:
+    /*Respond with negative response*/
+    break;
+  default:
+    APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
+    break;
+  }
+}
+
+void local_APP_BOOT_vdBootHeartBeat(void)
+{
+  /*Implement here the bootloader heartbeat*/
 }

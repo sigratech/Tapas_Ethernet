@@ -30,6 +30,25 @@ E-mail: shany@sigratech.de
 
 typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
 
+typedef enum APP_BOOT_eStatusTemplate
+{
+  APP_BOOT_ST_INIT = 0,
+  APP_BOOT_ST_DOWNLOAD = 1,
+  APP_BOOT_ST_UPLOAD = 2,
+  APP_BOOT_ST_APP_RUN = 3,
+  APP_BOOT_ST_ERROR = 4,
+} APP_BOOT_eStatus_t;
+
+
+typedef enum APP_BOOT_eDownloadStatusTemplate
+{
+  APP_BOOT_DL_ST_INIT = 0,
+  APP_BOOT_DL_ST_PAGE_RECEIVE = 1,
+  APP_BOOT_DL_ST_PAGE_DOWNLOAD = 2,
+  APP_BOOT_DL_ST_ERROR = 3,
+} APP_BOOT_eDownloadStatus_t;
+
+
 void APP_BOOT_vdInit(void);
 void APP_BOOT_vdDeInit(void);
 void APP_BOOT_vdMgr(void);
