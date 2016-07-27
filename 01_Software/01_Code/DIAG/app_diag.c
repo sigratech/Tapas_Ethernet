@@ -142,13 +142,18 @@ void local_APP_DIAG_EndService(STATUS_t eStatus, uint8_t *pau8Data)
 void local_APP_DIAG_vdMemory_Write(void)
 {
   STATUS_t eStatus = STATUS_NOK;
-  uint32_t u32Data = APP_DIAG_au8RequestData[0] << 24;
-  u32Data |= APP_DIAG_au8RequestData[1] << 16;
-  u32Data |= APP_DIAG_au8RequestData[2] << 8;
-  u32Data |= APP_DIAG_au8RequestData[3];
+  float fltRecData;
+  uint32_t u32Data = APP_DIAG_au8RequestData[0] ;
+  uint8_t APP_DIAG_au8ReceivedData[4] = {0, 0, 0, 0};
+  u32Data |= APP_DIAG_au8RequestData[1] << 8;
+  u32Data |= APP_DIAG_au8RequestData[2] << 16;
+  u32Data |= APP_DIAG_au8RequestData[3] << 24;
+  
+  fltRecData = (float)u32Data;
+  fltRecData = fltRecData / 100.0f;
   if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
   {
-    eStatus = ECU_MEM_INT_eDirectWriteSignalValue(APP_DIAG_u8RequestId, u32Data/100);
+    eStatus = ECU_MEM_INT_eDirectWriteSignalValue(APP_DIAG_u8RequestId, fltRecData);
   }
   else // External EEPROM
   {
@@ -158,11 +163,11 @@ void local_APP_DIAG_vdMemory_Write(void)
   eStatus = STATUS_NOK;
 #endif /*ECU_MEM_EXT_MODULE_ENABLE*/
   }
-  APP_DIAG_au8DataNotUsed[0] = APP_DIAG_au8RequestData[0];
-  APP_DIAG_au8DataNotUsed[1] = APP_DIAG_au8RequestData[1];
-  APP_DIAG_au8DataNotUsed[2] = APP_DIAG_au8RequestData[2];
-  APP_DIAG_au8DataNotUsed[3] = APP_DIAG_au8RequestData[3];  
-  local_APP_DIAG_EndService(eStatus, APP_DIAG_au8DataNotUsed);
+  APP_DIAG_au8ReceivedData[0] = APP_DIAG_au8RequestData[0];
+  APP_DIAG_au8ReceivedData[1] = APP_DIAG_au8RequestData[1];
+  APP_DIAG_au8ReceivedData[2] = APP_DIAG_au8RequestData[2];
+  APP_DIAG_au8ReceivedData[3] = APP_DIAG_au8RequestData[3];  
+  local_APP_DIAG_EndService(eStatus, APP_DIAG_au8ReceivedData);
 }
 
 void local_APP_DIAG_vdMemory_Read(void)
@@ -170,6 +175,8 @@ void local_APP_DIAG_vdMemory_Read(void)
   STATUS_t eStatus = STATUS_NOK;
   float fltData;
   uint32_t u32Data;
+  uint8_t APP_DIAG_au8ReceivedData[4] = {0, 0, 0, 0};
+  uint8_t APP_DIAG_au8TrialReceivedData[4] = {0, 0, 0, 0};
   if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
   {
     eStatus = ECU_MEM_INT_eReadSignalValue(APP_DIAG_u8RequestId, &fltData);
@@ -184,11 +191,11 @@ void local_APP_DIAG_vdMemory_Read(void)
   
   }
   u32Data =(uint32_t) (fltData * 100);
-  APP_DIAG_au8DataNotUsed[0] = u32Data >> 24;
-  APP_DIAG_au8DataNotUsed[1] = u32Data >> 16;
-  APP_DIAG_au8DataNotUsed[2] = u32Data >> 8;
-  APP_DIAG_au8DataNotUsed[3] = u32Data;
-  local_APP_DIAG_EndService(eStatus, APP_DIAG_au8DataNotUsed);
+  APP_DIAG_au8TrialReceivedData[0] = (u32Data >> 24);
+  APP_DIAG_au8TrialReceivedData[1] = (u32Data >> 16);
+  APP_DIAG_au8TrialReceivedData[2] = (u32Data >> 8);
+  APP_DIAG_au8TrialReceivedData[3] = (u32Data); 
+  local_APP_DIAG_EndService(eStatus, APP_DIAG_au8TrialReceivedData);
 }
 
 void local_APP_DIAG_vdHeartBeat(void)

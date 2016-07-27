@@ -18,7 +18,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
-Checksum=-2145315194
+Checksum=1367509672
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -67,7 +67,8 @@ mode=0
 Bp0=_ 0 "EMUL_CODE" "0x08007164" 0 0 1 "" 0 "" 0
 Bp1=_ 0 "EMUL_CODE" "0x080073F8" 0 0 1 "" 0 "" 0
 Bp2=_ 0 "EMUL_CODE" "0x080075F4" 0 0 1 "" 0 "" 0
-Count=3
+Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem\ecu_mem.c}.235.5" 0 0 1 "" 0 "" 0
+Count=4
 [Aliases]
 A0=_ "../Source/Async.c" ""
 A1=_ "../Source/FlashStateMachine.EnableEepromSectors.c" ""
