@@ -28,15 +28,23 @@ E-mail: shany@sigratech.de
 
 #include "ecu.h"
 
+#define SID_REQUEST_DOWNLOAD                                    (0x34)
+#define SID_REQUEST_UPLOAD                                      (0x35)
+#define SID_TRANSFER_DATA                                       (0x36)
+#define SID_REQUEST_TRANSFER_EXIT                               (0x37)
+
+
+
 typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
 
 typedef enum APP_BOOT_eStatusTemplate
 {
-  APP_BOOT_ST_INIT = 0,
-  APP_BOOT_ST_DOWNLOAD = 1,
-  APP_BOOT_ST_UPLOAD = 2,
-  APP_BOOT_ST_APP_RUN = 3,
-  APP_BOOT_ST_ERROR = 4,
+  APP_BOOT_ST_INIT = 0, 
+  APP_BOOT_ST_REQUEST_DOWNLOAD = 1,
+  APP_BOOT_ST_DATA_TRANSFER = 2, 
+  APP_BOOT_ST_REQUEST_UPLOAD = 3,
+  APP_BOOT_ST_APP_RUN = 4,
+  APP_BOOT_ST_ERROR = 5,
 } APP_BOOT_eStatus_t;
 
 
