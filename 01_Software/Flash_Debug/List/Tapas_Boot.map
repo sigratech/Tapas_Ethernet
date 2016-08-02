@@ -1,76 +1,76 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.50.2.10312/W32 for ARM                02/Aug/2016  17:15:55
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                02/Aug/2016  20:39:27
 # Copyright 2007-2015 IAR Systems AB.
 #
 #    Output file  =  
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Exe\Tapas_Boot.out
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Exe\Tapas_Boot.out
 #    Map file     =  
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\List\Tapas_Boot.map
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\List\Tapas_Boot.map
 #    Command line =  
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\app.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\app_boot.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\app_boot_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\app_diag.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\app_test.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_anlg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_anlg_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_com.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_com_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_com_cfg_gen.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_diag.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_diag_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_io.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_io_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_mem.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_mem_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_serial.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_serial_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_system.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_system_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_wdg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_wdg_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\Fapi_UserDefinedFunctions.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\lib_data.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\lib_delay.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\low_level_init.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\main.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\os.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\os_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\os_tasks.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\rte.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\rte_tasks.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\tms570ls3137_cstartup.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_adc.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_adc_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_can.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_can_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_dio.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_dio_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_eeprom.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_eeprom_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_flash.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_flash_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_pwm.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_pwm_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_spi.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_spi_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_system.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_system_cfg.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_timer.o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_timer_cfg.o
-#        "C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_uart _cfg.o"
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_uart.o -o
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Exe\Tapas_Boot.out
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\app.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\app_boot.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\app_boot_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\app_diag.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\app_test.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_anlg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_anlg_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_com.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_com_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_com_cfg_gen.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_diag.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_diag_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_io.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_io_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_mem.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_mem_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_serial.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_serial_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_system.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_system_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_wdg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\ecu_wdg_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\Fapi_UserDefinedFunctions.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\lib_data.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\lib_delay.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\low_level_init.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\main.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\os.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\os_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\os_tasks.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\rte.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\rte_tasks.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\tms570ls3137_cstartup.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_adc.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_adc_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_can.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_can_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_dio.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_dio_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_eeprom.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_eeprom_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_flash.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_flash_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_pwm.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_pwm_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_spi.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_spi_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_system.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_system_cfg.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_timer.o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_timer_cfg.o
+#        "C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_uart _cfg.o"
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj\uc_uart.o -o
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\Exe\Tapas_Boot.out
 #        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
 #        "--image_input=C:\ti\Hercules\F021 Flash
 #        API\02.01.01\F021_API_CortexR4_BE.lib,__boot,RAM_region,8" --map
-#        C:\Git2\Tapas_Boot\01_Software\Flash_Debug\List\Tapas_Boot.map
-#        --config C:\Git2\Tapas_Boot\01_Software\config\TMS570LS3137_flash.icf
+#        C:\Git\Tapas_Boot\01_Software\Flash_Debug\List\Tapas_Boot.map --config
+#        C:\Git\Tapas_Boot\01_Software\config\TMS570LS3137_flash.icf
 #        --semihosting
-#        "C:\Git2\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash
+#        "C:\Git\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash
 #        API\02.01.01\F021_API_CortexR4_BE.lib" --entry __iar_program_start
 #        --BE32 --vfe
 #
@@ -100,7 +100,7 @@ __SystemLibrary = DLib
   .intvec                 ro code  0x00000000    0x3c  tms570ls3137_cstartup.o [1]
                                  - 0x0000003c    0x3c
 
-"P1":                                          0x3670
+"P1":                                          0x3686
   .text                   ro code  0x00000040   0x1cc  tms570ls3137_cstartup.o [1]
   .text                   ro code  0x0000020c   0x1c0  low_level_init.o [1]
   Veneer                  ro code  0x000003cc     0x8  - Linker created -
@@ -116,15 +116,15 @@ __SystemLibrary = DLib
   .text                   ro code  0x00000674     0x4  xreturnswi.o [8]
   .rodata                 const    0x00000678     0x0  zero_init3.o [7]
   .rodata                 const    0x00000678     0x0  lz77_init_single.o [7]
-  Initializer bytes       const    0x00000678  0x3038  <for P2-1>
-                                 - 0x000036b0  0x3670
+  Initializer bytes       const    0x00000678  0x304e  <for P2-1>
+                                 - 0x000036c6  0x3686
 
 "P2", part 1 of 3:                             0x5797
   P2-1                             0x08000000  0x5797  <Init block>
     .rodata               inited   0x08000000     0x4  uc_system.o [1]
-    .text                 inited   0x08000004   0x206  app_boot.o [1]
-    .text                 inited   0x0800020c   0x214  app_diag.o [1]
-    .text                 inited   0x08000420    0x6c  app_test.o [1]
+    .text                 inited   0x08000004   0x24e  app_boot.o [1]
+    .text                 inited   0x08000254   0x224  app_diag.o [1]
+    .text                 inited   0x08000478    0x14  app_test.o [1]
     .text                 inited   0x0800048c   0x1d6  ecu_diag.o [1]
     .text                 inited   0x08000664    0xd8  ecu_io.o [1]
     .text                 inited   0x0800073c   0x280  ecu_mem.o [1]
@@ -237,7 +237,7 @@ __SystemLibrary = DLib
     ABT_STACK             uninit   0x08007b98   0x100  <Block tail>
                                  - 0x08007c98  0x2500
 
-"P2", part 3 of 3:                              0x274
+"P2", part 3 of 3:                              0x270
   .bss                    zero     0x08007c98   0x1c0  app_boot.o [1]
   .bss                    zero     0x08007e58    0x40  uc_dio.o [1]
   .bss                    zero     0x08007e98    0x18  ecu_diag.o [1]
@@ -269,10 +269,9 @@ __SystemLibrary = DLib
   .bss                    zero     0x08007f03     0x1  app_diag.o [1]
   .bss                    zero     0x08007f04     0x1  app_diag.o [1]
   .bss                    zero     0x08007f05     0x1  app_test.o [1]
-  .bss                    zero     0x08007f06     0x1  app_test.o [1]
-  .bss                    zero     0x08007f07     0x1  os.o [1]
-  .bss                    zero     0x08007f08     0x1  uc_flash.o [1]
-                                 - 0x08007f09   0x271
+  .bss                    zero     0x08007f06     0x1  os.o [1]
+  .bss                    zero     0x08007f07     0x1  uc_flash.o [1]
+                                 - 0x08007f08   0x270
 
 Absolute sections, part 1 of 65:                  0x4
   .noinit                 uninit   0xff1a0000     0x4  uc_can.o [1]
@@ -751,12 +750,12 @@ Absolute sections, part 65 of 65:                 0x4
           Address     Size
           -------     ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x271:
-          0x08007c98   0x271
+    1 destination range, total size 0x270:
+          0x08007c98   0x270
 
 Copy/lz77 (__iar_lz77_init_single3)
-    1 source range, total size 0x3038 (55% of destination):
-          0x00000678  0x3038
+    1 source range, total size 0x304e (55% of destination):
+          0x00000678  0x304e
     1 destination range, total size 0x5797:
           0x08000000  0x5797
 
@@ -769,39 +768,39 @@ Copy/lz77 (__iar_lz77_init_single3)
     Module                                       ro code  rw code  ro data  rw data  rw data
                                                                                       (abs)
     ------                                       -------  -------  -------  -------  -------
-C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj: [1]
+C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj: [1]
     Fapi_UserDefinedFunctions.o                                 4        2
     app.o                                                      10        6
-    app_boot.o                                              1 022      562      482
-    app_diag.o                                                532      296       16
-    app_test.o                                                108       59        2
+    app_boot.o                                              1 094      603      482
+    app_diag.o                                                548      305       16
+    app_test.o                                                 20       11        1
     ecu.o                                                      44       24
-    ecu_diag.o                                                470      259       24
+    ecu_diag.o                                                470      260       24
     ecu_io.o                                                  216      120
     ecu_io_cfg.o                                                        18       32
-    ecu_mem.o                                                 712      392
-    ecu_mem_cfg.o                                                      498      904
+    ecu_mem.o                                                 712      393
+    ecu_mem_cfg.o                                                      499      904
     ecu_system.o                                               36       21        1
-    lib_data.o                                                 62       34
+    lib_data.o                                                 62       35
     low_level_init.o                                 448                                  56
     main.o                                                    100       55
     os.o                                                      528      291       13
     os_cfg.o                                                            53       96
-    os_tasks.o                                                112       61
+    os_tasks.o                                                112       62
     rte.o                                                       4        2
-    rte_tasks.o                                                 8        5
+    rte_tasks.o                                                 8        4
     tms570ls3137_cstartup.o                          520
     uc.o                                                       36       20
-    uc_can.o                                                8 768    5 566    1 344      684
+    uc_can.o                                                8 768    5 576    1 344      684
     uc_can_cfg.o                                                       280      508
-    uc_dio.o                                                1 264      943      512      264
-    uc_dio_cfg.o                                                       277      504
-    uc_eeprom.o                                               580      319
-    uc_flash.o                                                968      533       17        8
+    uc_dio.o                                                1 264      944      512      264
+    uc_dio_cfg.o                                                       278      504
+    uc_eeprom.o                                               580      320
+    uc_flash.o                                                968      534       17        8
     uc_system.o                                      328        6        5       12       52
-    uc_timer.o                                                284      156        4       32
+    uc_timer.o                                                284      157        4       32
     ----------------------------------------------------------------------------------------
-    Total:                                         1 296   15 874   10 857    4 471    1 096
+    Total:                                         1 296   15 874   10 878    4 470    1 096
 
 C:\ti\Hercules\F021 Flash API\02.01.01: [2]
     ----------------------------------------------------------------------------------------
@@ -813,30 +812,30 @@ command line: [3]
 
 F021_API_CortexR4_BE.lib: [4]
     Async.WithAddress.obj                                      48       26
-    Async.obj                                                  42       23
-    FlashStateMachine.EnableEepromSectors.obj                 196      108
-    FlashStateMachine.EnableMainSectors.obj                   112       61
+    Async.obj                                                  42       24
+    FlashStateMachine.EnableEepromSectors.obj                 196      109
+    FlashStateMachine.EnableMainSectors.obj                   112       62
     FlashStateMachine.Hercules.IsEccAddress.obj                80       44
     FlashStateMachine.InitializeFlashBanks.obj                636      350
     FlashStateMachine.IssueFsmCommand.obj                      60       33
-    FlashStateMachine.ScaleFclk.obj                            32       22        8
-    FlashStateMachine.SetActiveBank.obj                       380      211        1
-    Program.obj                                               376      207
+    FlashStateMachine.ScaleFclk.obj                            32       21        8
+    FlashStateMachine.SetActiveBank.obj                       380      210        1
+    Program.obj                                               376      208
     Read.Common.obj                                           148       82
-    Read.FlushPipeline.obj                                     34       19
+    Read.FlushPipeline.obj                                     34       18
     Read.Margin.obj                                           110       61
     Read.WdService.obj                                         12        7
     Utilities.CalculateEcc.obj                                 20       11
-    Utilities.CalculateFletcher.obj                            54       29
+    Utilities.CalculateFletcher.obj                            54       30
     Utilities.GetNumberOfSectors.obj                           16        9
     Utilities.WaitDelay.obj                                    48       26
     ----------------------------------------------------------------------------------------
-    Total:                                                  2 404    1 329        9
+    Total:                                                  2 404    1 331        9
 
 dl7Sx_tbn.a: [5]
-    exit.o                                                      4        3
+    exit.o                                                      4        2
     ----------------------------------------------------------------------------------------
-    Total:                                                      4        3
+    Total:                                                      4        2
 
 m7Sx_tbv.a: [6]
     fpinit.o                                                   40       22
@@ -862,7 +861,7 @@ sh7Sxs_b.a: [8]
     Gaps                                                        6
     Linker created                                    24       48       60    9 472
 --------------------------------------------------------------------------------------------
-    Grand Total:                                   1 620   18 568   12 376   13 952    1 096
+    Grand Total:                                   1 620   18 568   12 398   13 951    1 096
 
 
 *******************************************************************************
@@ -899,8 +898,8 @@ APP_BOOT_u8DataSize     0x08005794    0x1  Data  Gb  app_boot.o [1]
 APP_BOOT_u8HeartBeatCounter
                         0x08007efa    0x1  Data  Gb  app_boot.o [1]
 APP_BOOT_u8ServiceId    0x08007efb    0x1  Data  Gb  app_boot.o [1]
-APP_BOOT_vdInit         0x08000005    0xe  Code  Gb  app_boot.o [1]
-APP_BOOT_vdMgr          0x08000013   0xc2  Code  Gb  app_boot.o [1]
+APP_BOOT_vdInit         0x08000005   0x2e  Code  Gb  app_boot.o [1]
+APP_BOOT_vdMgr          0x08000033   0xec  Code  Gb  app_boot.o [1]
 APP_DIAG_au8DataNotUsed
                         0x08007edc    0x4  Data  Gb  app_diag.o [1]
 APP_DIAG_au8RequestData
@@ -909,14 +908,14 @@ APP_DIAG_eStatus        0x08007f04    0x1  Data  Gb  app_diag.o [1]
 APP_DIAG_u8DeviceId     0x08007f02    0x1  Data  Gb  app_diag.o [1]
 APP_DIAG_u8RequestId    0x08007f03    0x1  Data  Gb  app_diag.o [1]
 APP_DIAG_u8ServiceId    0x08007f01    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_vdMgr          0x0800020d   0x68  Code  Gb  app_diag.o [1]
+APP_DIAG_vdMgr          0x08000255   0x76  Code  Gb  app_diag.o [1]
 APP_vdDeInit            0x08005477    0x2  Code  Gb  app.o [1]
 APP_vdInit              0x0800546f    0x8  Code  Gb  app.o [1]
 APP_vdTask100ms         0x080055cb    0x2  Code  Gb  rte_tasks.o [1]
 APP_vdTask10ms          0x080055c7    0x2  Code  Gb  rte_tasks.o [1]
 APP_vdTask1ms           0x080055c5    0x2  Code  Gb  rte_tasks.o [1]
 APP_vdTask50ms          0x080055c9    0x2  Code  Gb  rte_tasks.o [1]
-APP_vdTestMgr           0x08000421   0x6c  Code  Gb  app_test.o [1]
+APP_vdTestMgr           0x08000479   0x14  Code  Gb  app_test.o [1]
 Abort_Handler           0x00000489    0xc  Code  Gb  uc_system.o [1]
 CSTACK$$Base            0x08005798          --   Gb  - Linker created -
 CSTACK$$Limit           0x08007798          --   Gb  - Linker created -
@@ -1004,7 +1003,7 @@ OS_u32SystemTick        0x08007ee0    0x4  Data  Gb  os.o [1]
 OS_u32SystemTimerUs     0x08007ee4    0x4  Data  Gb  os.o [1]
 OS_u32UpdateTasksCounter
                         0x08007ee8    0x4  Data  Gb  os.o [1]
-OS_u8ShutDownSignal     0x08007f07    0x1  Data  Gb  os.o [1]
+OS_u8ShutDownSignal     0x08007f06    0x1  Data  Gb  os.o [1]
 OS_vdDeInit             0x08000a47    0x8  Code  Gb  os.o [1]
 OS_vdInit               0x080009e1   0x56  Code  Gb  os.o [1]
 OS_vdMain               0x08000a4f   0xd0  Code  Gb  os.o [1]
@@ -1060,7 +1059,7 @@ UC_EEPROM_vdDeInit      0x08003397   0x62  Code  Gb  uc_eeprom.o [1]
 UC_EEPROM_vdInit        0x08003335   0x62  Code  Gb  uc_eeprom.o [1]
 UC_FLASH_au8Sectors     0x08007eb0   0x10  Data  Gb  uc_flash.o [1]
 UC_FLASH_eWriteBlock    0x08005105  0x364  Code  Gb  uc_flash.o [1]
-UC_FLASH_u8BankIndex    0x08007f08    0x1  Data  Gb  uc_flash.o [1]
+UC_FLASH_u8BankIndex    0x08007f07    0x1  Data  Gb  uc_flash.o [1]
 UC_FLASH_vdInit         0x08003579   0x56  Code  Gb  uc_flash.o [1]
 UC_SYSTEM_STOP_u32Address
                         0x08007ef0    0x4  Data  Gb  uc_system.o [1]
@@ -1384,29 +1383,29 @@ _scaleMainFclk          0x08003ff5         Code  Gb  FlashStateMachine.ScaleFclk
 bFirstRun$1             0x08005796    0x1  Data  Lc  FlashStateMachine.SetActiveBank.obj [4]
 exit                    0x08005601    0x4  Code  Gb  exit.o [5]
 local_APP_BOOT_EndService
-                        0x08000197   0x18  Code  Gb  app_boot.o [1]
+                        0x080001e1   0x18  Code  Gb  app_boot.o [1]
 local_APP_BOOT_u8CheckSumCalculate
-                        0x080001d1   0x3a  Code  Gb  app_boot.o [1]
+                        0x08000219   0x3a  Code  Gb  app_boot.o [1]
 local_APP_BOOT_vdBootHeartBeat
-                        0x080000d5   0x56  Code  Gb  app_boot.o [1]
+                        0x0800011f   0x56  Code  Gb  app_boot.o [1]
 local_APP_BOOT_vdPageDataReset
-                        0x0800012b   0x6c  Code  Gb  app_boot.o [1]
+                        0x08000175   0x6c  Code  Gb  app_boot.o [1]
 local_APP_BOOT_vdSwDownload
                         0x08004f0d  0x1f8  Code  Gb  app_boot.o [1]
 local_APP_DIAG_EndService
-                        0x080002c7   0x18  Code  Gb  app_diag.o [1]
+                        0x0800031d   0x18  Code  Gb  app_diag.o [1]
 local_APP_DIAG_vdHeartBeat
-                        0x080003d5   0x2a  Code  Gb  app_diag.o [1]
+                        0x0800042d   0x2a  Code  Gb  app_diag.o [1]
 local_APP_DIAG_vdIO_Control_Identifier
-                        0x080002af    0xc  Code  Gb  app_diag.o [1]
+                        0x08000305    0xc  Code  Gb  app_diag.o [1]
 local_APP_DIAG_vdMainStateMachine
-                        0x08000275   0x3a  Code  Gb  app_diag.o [1]
+                        0x080002cb   0x3a  Code  Gb  app_diag.o [1]
 local_APP_DIAG_vdMemory_Read
-                        0x08000371   0x64  Code  Gb  app_diag.o [1]
+                        0x080003c9   0x64  Code  Gb  app_diag.o [1]
 local_APP_DIAG_vdMemory_Write
-                        0x080002e1   0x8e  Code  Gb  app_diag.o [1]
+                        0x08000339   0x8e  Code  Gb  app_diag.o [1]
 local_APP_DIAG_vdRead_Identifier
-                        0x080002bb    0xc  Code  Gb  app_diag.o [1]
+                        0x08000311    0xc  Code  Gb  app_diag.o [1]
 local_ECU_DIAG_vdCreateNegativeResponse
                         0x080005f1   0x26  Code  Gb  ecu_diag.o [1]
 local_ECU_DIAG_vdCreatePositiveResponse
@@ -1439,11 +1438,10 @@ local_UC_DIO_eInputInterruptHandler
 local_UC_DIO_ePinConfigure
                         0x080031c7   0x6e  Code  Gb  uc_dio.o [1]
 main                    0x080054f1   0x34  Code  Gb  main.o [1]
-u8Counter               0x08007f05    0x1  Data  Gb  app_test.o [1]
-u8Flag                  0x08007f06    0x1  Data  Gb  app_test.o [1]
+u8Flag                  0x08007f05    0x1  Data  Gb  app_test.o [1]
 
 
-[1] = C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj
+[1] = C:\Git\Tapas_Boot\01_Software\Flash_Debug\Obj
 [2] = C:\ti\Hercules\F021 Flash API\02.01.01
 [3] = command line
 [4] = F021_API_CortexR4_BE.lib
@@ -1454,8 +1452,8 @@ u8Flag                  0x08007f06    0x1  Data  Gb  app_test.o [1]
 
    1 620 bytes of readonly  code memory
   18 568 bytes of readwrite code memory
-  12 376 bytes of readonly  data memory
-  13 952 bytes of readwrite data memory (+ 1 096 absolute)
+  12 398 bytes of readonly  data memory
+  13 951 bytes of readwrite data memory (+ 1 096 absolute)
 
 Errors: none
 Warnings: none

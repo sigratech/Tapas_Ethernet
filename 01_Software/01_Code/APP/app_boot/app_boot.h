@@ -28,6 +28,7 @@ E-mail: shany@sigratech.de
 
 #include "ecu.h"
 
+#define SID_DIAG_SESSION_CONTROL                                (0x10)
 #define SID_REQUEST_DOWNLOAD                                    (0x34)
 #define SID_REQUEST_UPLOAD                                      (0x35)
 #define SID_TRANSFER_DATA                                       (0x36)

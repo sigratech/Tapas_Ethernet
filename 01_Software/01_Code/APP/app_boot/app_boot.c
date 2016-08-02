@@ -78,13 +78,13 @@ void APP_BOOT_vdInit(void)
 {
   APP_BOOT_eStatus = APP_BOOT_ST_INIT;
   APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
-  float fltStayInBoot;
-//  ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_STAY_IN_BOOT,&fltStayInBoot);
+  float fltAppValid;
+  ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_APP_VALID,&fltAppValid);
   
-//  if(fltStayInBoot == TAPAS_FALSE)
-//  {
-//    ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);    
-//  }
+  if(fltAppValid != TAPAS_FALSE)
+  {
+    ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);    
+  }
 }
 
 void APP_BOOT_vdDeInit(void)
@@ -101,60 +101,72 @@ void APP_BOOT_vdMgr(void)
   
   if(eEcuMode == ECU_SYS_BOOT)
   {
-  /*Heart Beat*/
-  local_APP_BOOT_vdBootHeartBeat();
-  }
-
-  eStatus = ECU_DIAG_u8GetDiagFrame(&APP_BOOT_u8ServiceId, APP_BOOT_au8Data, APP_BOOT_u8DataSize);
-  if(	eStatus == STATUS_OK)
-  {
-    switch(APP_BOOT_u8ServiceId)      
-      {
-      case SID_REQUEST_DOWNLOAD:
-        APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_DOWNLOAD;
-        break;
-      case SID_REQUEST_UPLOAD:
-        APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_UPLOAD;
-        break;
-      case SID_TRANSFER_DATA:
-        APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
-        break;
-      case SID_REQUEST_TRANSFER_EXIT:
-        APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
-        break;
-      default:
-        APP_BOOT_eStatus = APP_BOOT_ST_ERROR;
-        break;
-      }
+    /*Heart Beat*/
+    local_APP_BOOT_vdBootHeartBeat();
     
-    if((APP_BOOT_au8Data[4] == 1) && (APP_BOOT_u8ServiceId == SID_REQUEST_TRANSFER_EXIT))
+    eStatus = ECU_DIAG_u8GetDiagFrame(&APP_BOOT_u8ServiceId, APP_BOOT_au8Data, APP_BOOT_u8DataSize);
+    
+    if((APP_BOOT_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_BOOT_au8Data[0] == (uint8_t)ECU_SYS_NORMAL))
     {
-      local_APP_BOOT_EndService(STATUS_OK, &APP_BOOT_au8DataNotUsed[0]);
-//      ECU_MEM_INT_eDirectWriteSignalValue(ECU_MEM_INT_STAY_IN_BOOT, TAPAS_FALSE);
-      APP_BOOT_eStatus = APP_BOOT_ST_APP_RUN;
-    }    
-    /*Main Bootloader State Machine*/
-    switch(APP_BOOT_eStatus)        
+      ECU_SYS_vdSetEcuMode(ECU_SYS_NORMAL);
+      local_APP_BOOT_EndService(STATUS_OK, APP_BOOT_au8DataNotUsed);
+    }
+    
+    eEcuMode = ECU_SYS_eGetEcuMode();
+    
+    if(eEcuMode == ECU_SYS_BOOT)
+    {
+      if(	eStatus == STATUS_OK)
       {
-      case APP_BOOT_ST_INIT:
-        break;
-      case APP_BOOT_ST_REQUEST_DOWNLOAD:
-      case APP_BOOT_ST_DATA_TRANSFER:
-        local_APP_BOOT_vdSwDownload();
-        break;
-      case APP_BOOT_ST_REQUEST_UPLOAD:
+        switch(APP_BOOT_u8ServiceId)      
+          {
+          case SID_REQUEST_DOWNLOAD:
+            APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_DOWNLOAD;
+            break;
+          case SID_REQUEST_UPLOAD:
+            APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_UPLOAD;
+            break;
+          case SID_TRANSFER_DATA:
+            APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
+            break;
+          case SID_REQUEST_TRANSFER_EXIT:
+            APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
+            break;
+          default:
+            APP_BOOT_eStatus = APP_BOOT_ST_ERROR;
+            break;
+          }
         
-        break;
-      case APP_BOOT_ST_APP_RUN:
-        ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);
-        break;
-      case APP_BOOT_ST_ERROR:
-        local_APP_BOOT_EndService(STATUS_NOK, APP_BOOT_au8DataNotUsed);
-        break;
-      default:
-        APP_BOOT_eStatus = APP_BOOT_ST_INIT;
-        break;
+        if((APP_BOOT_au8Data[4] == 1) && (APP_BOOT_u8ServiceId == SID_REQUEST_TRANSFER_EXIT))
+        {
+          local_APP_BOOT_EndService(STATUS_OK, &APP_BOOT_au8DataNotUsed[0]);
+    //      ECU_MEM_INT_eDirectWriteSignalValue(ECU_MEM_INT_STAY_IN_BOOT, TAPAS_FALSE);
+          APP_BOOT_eStatus = APP_BOOT_ST_APP_RUN;
+        }    
+        /*Main Bootloader State Machine*/
+        switch(APP_BOOT_eStatus)        
+          {
+          case APP_BOOT_ST_INIT:
+            break;
+          case APP_BOOT_ST_REQUEST_DOWNLOAD:
+          case APP_BOOT_ST_DATA_TRANSFER:
+            local_APP_BOOT_vdSwDownload();
+            break;
+          case APP_BOOT_ST_REQUEST_UPLOAD:
+            
+            break;
+          case APP_BOOT_ST_APP_RUN:
+            ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);
+            break;
+          case APP_BOOT_ST_ERROR:
+            local_APP_BOOT_EndService(STATUS_NOK, APP_BOOT_au8DataNotUsed);
+            break;
+          default:
+            APP_BOOT_eStatus = APP_BOOT_ST_INIT;
+            break;
+          }
       }
+    }
   }
 }
 
@@ -252,17 +264,17 @@ void local_PP_BOOT_vdPageDownload(APP_BOOT_strBlockMemory_t* APP_BOOT_strApplica
 void local_APP_BOOT_vdBootHeartBeat(void)
 {
   /*Implement here the bootloader heartbeat*/
-  if(APP_BOOT_u8HeartBeatCounter == 15)
+  if(APP_BOOT_u8HeartBeatCounter == 20)
   {
     ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_OFF);    
     APP_BOOT_u8HeartBeatCounter  = 0;
   }  
-  if(APP_BOOT_u8HeartBeatCounter  < 5)
+  if(APP_BOOT_u8HeartBeatCounter  < 10)
   {
     ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
     APP_BOOT_u8HeartBeatCounter ++;       
   }
-  if(APP_BOOT_u8HeartBeatCounter  > 5 || APP_BOOT_u8HeartBeatCounter  == 5)
+  if(APP_BOOT_u8HeartBeatCounter  > 10 || APP_BOOT_u8HeartBeatCounter  == 10)
   {
     ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_ON);
     APP_BOOT_u8HeartBeatCounter ++;       

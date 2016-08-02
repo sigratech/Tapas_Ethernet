@@ -60,37 +60,41 @@ void APP_DIAG_vdMgr(void)
   /* Check the system mode */
   eEcuMode = ECU_SYS_eGetEcuMode(); 
   
-  if(eEcuMode == ECU_SYS_DIAG)
-  {
-    local_APP_DIAG_vdHeartBeat();
-  }
   
-	if(APP_DIAG_eStatus == APP_DIAG_STATUS_FREE)
-	{
-		eStatus = ECU_DIAG_u8GetDiagRequest(&APP_DIAG_u8ServiceId, &APP_DIAG_u8DeviceId, &APP_DIAG_u8RequestId, APP_DIAG_au8RequestData);
-		
-		if(eStatus == STATUS_OK)
-		{			
-			/* Check if it is the Diag session request */
-			if((eEcuMode == ECU_SYS_NORMAL) && (APP_DIAG_u8ServiceId == SID_DIAG_SESSION_CONTROL))
-			{
-				ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);
-				/* Send Positive Response */
-				local_APP_DIAG_EndService(STATUS_OK, &APP_DIAG_au8DataNotUsed[0]);	
-			}
-			else if(eEcuMode == ECU_SYS_DIAG)
-			{
-				/* Serve the request */
-				APP_DIAG_eStatus = APP_DIAG_STATUS_BUSY;
-				local_APP_DIAG_vdMainStateMachine();
-			}
-			else
-			{
-				/* Send Negative Response */
-				local_APP_DIAG_EndService(STATUS_NOK, &APP_DIAG_au8DataNotUsed[0]);				
-			}
-		}
-	}
+  if(eEcuMode != ECU_SYS_BOOT)
+  {
+    if(eEcuMode == ECU_SYS_DIAG)
+    {
+      local_APP_DIAG_vdHeartBeat();
+    }
+    
+    if(APP_DIAG_eStatus == APP_DIAG_STATUS_FREE)
+    {
+      eStatus = ECU_DIAG_u8GetDiagRequest(&APP_DIAG_u8ServiceId, &APP_DIAG_u8DeviceId, &APP_DIAG_u8RequestId, APP_DIAG_au8RequestData);
+      
+      if(eStatus == STATUS_OK)
+      {			
+        /* Check if it is the Diag session request */
+        if((eEcuMode == ECU_SYS_NORMAL) && (APP_DIAG_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_DIAG_u8DeviceId == (uint8_t)ECU_SYS_DIAG))
+        {
+          ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);
+          /* Send Positive Response */
+          local_APP_DIAG_EndService(STATUS_OK, &APP_DIAG_au8DataNotUsed[0]);	
+        }
+        else if(eEcuMode == ECU_SYS_DIAG)
+        {
+          /* Serve the request */
+          APP_DIAG_eStatus = APP_DIAG_STATUS_BUSY;
+          local_APP_DIAG_vdMainStateMachine();
+        }
+        else
+        {
+          /* Send Negative Response */
+          local_APP_DIAG_EndService(STATUS_NOK, &APP_DIAG_au8DataNotUsed[0]);				
+        }
+      }
+    }
+  }
 }
 
 void local_APP_DIAG_vdMainStateMachine(void)
