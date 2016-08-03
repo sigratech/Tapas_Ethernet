@@ -27,7 +27,6 @@ E-mail: shany@sigratech.de
 #include "app_boot.h"
 #include "ecu.h"
 
-
 #define APP_BOOT_BLOCK_BYTE_SIZE                                        (16)
 
 #define APP_BOOT_BLOCKS_PER_PAGE                                        (APP_BOOT_PAGE_SIZE/APP_BOOT_BLOCK_BYTE_SIZE)
@@ -35,7 +34,7 @@ E-mail: shany@sigratech.de
 APP_BOOT_eStatus_t APP_BOOT_eStatus = APP_BOOT_ST_INIT;
 APP_BOOT_eDownloadStatus_t APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
 uint8_t APP_BOOT_au8PageReceived[APP_BOOT_PAGE_SIZE];
-uint8_t APP_BOOT_u8HeartBeatCounter;
+uint32_t APP_BOOT_u32HeartBeatCounter;
 uint8_t APP_BOOT_au8DataNotUsed[4] = {0,0,0,0};
 uint8_t APP_BOOT_u8ServiceId = TAPAS_DEFAULT;
 uint8_t APP_BOOT_au8Data[6] = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
@@ -48,15 +47,18 @@ APP_BOOT_strBlockMemory_t APP_BOOT_astrBlockMemory[APP_BOOT_BLOCKS_PER_PAGE] = {
 uint8_t APP_BOOT_u16BlockByteCounter = 0;
 uint8_t APP_BOOT_u8CheckSumReceived;
 uint8_t APP_BOOT_u8CheckSumCalculated;
+uint8_t APP_BOOT_u8CheckSumOfPageWritten;
 uint8_t APP_BOOT_u8DataBytesCountPerBlock = 0;
 uint8_t APP_BOOT_au8RDTSend[4] = {0};
+uint8_t APP_BOOT_au8ReceivedDataEcho[4] = {0}; // Array which has the data to be filled with received data so that it will be sent back again  
+APP_BOOT_strPageMemory_t APP_BOOT_strPageMemoryTemplate = {0, APP_BOOT_BLOCKS_PER_PAGE, 0, {0}}; // Temporary page to read data every time and making checksum calculation
 
 /********************************************************************************************/
 /********************* EXTERNAL GLOBAL VARIABLES DECLARATION ********************************/
 /********************************************************************************************/
 
 //#ifdef ECU_MEM_CODE_MODULE_ENABLE     
-extern APP_BOOT_strBlockMemory_t APP_BOOT_astrBlockMemoryTemp[274];
+//extern APP_BOOT_strBlockMemory_t APP_BOOT_astrBlockMemoryTemp[274];
 //#endif 
 
 
@@ -66,9 +68,12 @@ extern APP_BOOT_strBlockMemory_t APP_BOOT_astrBlockMemoryTemp[274];
 
 void local_APP_BOOT_vdBootHeartBeat(void);
 __ramfunc void local_APP_BOOT_vdSwDownload(void);
-void local_APP_BOOT_vdPageDataReset(void);
-void local_APP_BOOT_EndService(STATUS_t eStatus, uint8_t *pau8Data);
-uint8_t local_APP_BOOT_u8CheckSumCalculate(APP_BOOT_strBlockMemory_t* pBlockMemory, uint8_t u8BlockSize);
+void local_APP_BOOT_vdPageDataReset(APP_BOOT_strPageMemory_t *strPageMemory);
+void local_APP_BOOT_vdEndService(STATUS_t eStatus, uint8_t *pau8Data);
+uint8_t local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_strBlockMemory_t* pBlockMemory, uint8_t u8PageSize); // Check sum of page as array of blocks
+void local_APP_BOOT_vdFillEchoArray(uint8_t *au8EchoArray);
+void local_APP_BOOT_vdEndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus);
+uint8_t local_APP_BOOT_u8PageCheckSumCalculate(APP_BOOT_strPageMemory_t* pPageMemory);
 
 /********************************************************************************************/
 /**************************** GLOBAL FUNCTIONS IMPLEMENTATION *******************************/
@@ -80,11 +85,17 @@ void APP_BOOT_vdInit(void)
   APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
   float fltAppValid;
   ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_APP_VALID,&fltAppValid);
-  
   if(fltAppValid != TAPAS_FALSE)
   {
     ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);    
   }
+  /*Debugging*/
+//  APP_BOOT_strPageMemory_t temp = {0};
+//  temp.u32PageStartingAddress = 0;
+//  temp.u8BlocksNumber = 16;
+//  ECU_MEM_CODE_eReadPage(&temp);
+//  uint8_t u8Temp = 0;
+//  u8Temp = local_APP_BOOT_u8PageCheckSumCalculate(&temp);
 }
 
 void APP_BOOT_vdDeInit(void)
@@ -109,7 +120,7 @@ void APP_BOOT_vdMgr(void)
     if((APP_BOOT_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_BOOT_au8Data[0] == (uint8_t)ECU_SYS_NORMAL))
     {
       ECU_SYS_vdSetEcuMode(ECU_SYS_NORMAL);
-      local_APP_BOOT_EndService(STATUS_OK, APP_BOOT_au8DataNotUsed);
+      local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_OK);
     }
     
     eEcuMode = ECU_SYS_eGetEcuMode();
@@ -139,8 +150,8 @@ void APP_BOOT_vdMgr(void)
         
         if((APP_BOOT_au8Data[4] == 1) && (APP_BOOT_u8ServiceId == SID_REQUEST_TRANSFER_EXIT))
         {
-          local_APP_BOOT_EndService(STATUS_OK, &APP_BOOT_au8DataNotUsed[0]);
-    //      ECU_MEM_INT_eDirectWriteSignalValue(ECU_MEM_INT_STAY_IN_BOOT, TAPAS_FALSE);
+          local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_OK);
+          ECU_MEM_INT_eDirectWriteSignalValue(ECU_MEM_INT_APP_VALID, TAPAS_TRUE);
           APP_BOOT_eStatus = APP_BOOT_ST_APP_RUN;
         }    
         /*Main Bootloader State Machine*/
@@ -159,7 +170,7 @@ void APP_BOOT_vdMgr(void)
             ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);
             break;
           case APP_BOOT_ST_ERROR:
-            local_APP_BOOT_EndService(STATUS_NOK, APP_BOOT_au8DataNotUsed);
+            local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_NOK);
             break;
           default:
             APP_BOOT_eStatus = APP_BOOT_ST_INIT;
@@ -179,7 +190,7 @@ void local_APP_BOOT_vdSwDownload(void)
   switch(APP_BOOT_eDownloadStatus)
   {
   case APP_BOOT_DL_ST_INIT:
-    local_APP_BOOT_vdPageDataReset();
+    local_APP_BOOT_vdPageDataReset((APP_BOOT_strPageMemory_t *)APP_BOOT_astrBlockMemory);
     APP_BOOT_u32StartAddress = 0;
     /*Prepare for page download*/
     APP_BOOT_u32PageSize |= APP_BOOT_au8Data[0];
@@ -191,12 +202,13 @@ void local_APP_BOOT_vdSwDownload(void)
     APP_BOOT_u16BlockByteCounter = 0;
     APP_BOOT_u8BlockIndex = 0;
     APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_PAGE_RECEIVE;
-		local_APP_BOOT_EndService(STATUS_OK, &APP_BOOT_au8DataNotUsed[0]);
+    local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8ReceivedDataEcho,STATUS_OK);
     break;
   case APP_BOOT_DL_ST_PAGE_RECEIVE:
     /*Receive page and calcualte the received page checksum*/
     APP_BOOT_u8CheckSumReceived = 0;
     APP_BOOT_u8CheckSumCalculated = 0;
+    APP_BOOT_u8CheckSumOfPageWritten = 0;
     if(su8PageReceived == 0)
     {
       for(u8Counter = 0; u8Counter < 6; u8Counter++)
@@ -225,30 +237,41 @@ void local_APP_BOOT_vdSwDownload(void)
       APP_BOOT_u8CheckSumReceived = APP_BOOT_au8Data[5];
       break;
     }
-    local_APP_BOOT_EndService(STATUS_OK, &APP_BOOT_au8DataNotUsed[0]);
+    local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8ReceivedDataEcho, STATUS_OK);
     break;
     
   case APP_BOOT_DL_ST_PAGE_DOWNLOAD:
     /*Download the page and confirm the download by calcualting the checksum of the flashed bytes (read them)*/
     /* Check the real-time of flashing one block, to know how much flash in one task period */
-    APP_BOOT_u8CheckSumCalculated = local_APP_BOOT_u8CheckSumCalculate(APP_BOOT_astrBlockMemory, APP_BOOT_BLOCK_BYTE_SIZE);
+    APP_BOOT_u8CheckSumCalculated = local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_astrBlockMemory, APP_BOOT_BLOCK_BYTE_SIZE);
     if(APP_BOOT_u8CheckSumCalculated == APP_BOOT_u8CheckSumReceived)
     {
-      ECU_MEM_CODE_eWriteBlocks(APP_BOOT_astrBlockMemory, APP_BOOT_u8BlockIndex);
-      eStatus = STATUS_OK;
+      ECU_MEM_CODE_eWriteBlocks(APP_BOOT_astrBlockMemory, APP_BOOT_u8BlockIndex); // Write page as array of blocks
+      APP_BOOT_strPageMemoryTemplate.u32PageStartingAddress = APP_BOOT_u32StartAddress; // set page starting address of the temporary page
+      ECU_MEM_CODE_eReadPage(&APP_BOOT_strPageMemoryTemplate); // Read page as a whole
+      APP_BOOT_u8CheckSumOfPageWritten = local_APP_BOOT_u8PageCheckSumCalculate(&APP_BOOT_strPageMemoryTemplate); // Calculate checksum of written page
+      if(APP_BOOT_u8CheckSumOfPageWritten == APP_BOOT_u8CheckSumCalculated)
+      {
+        
+        eStatus = STATUS_OK;
+      }
+      else
+      {
+        eStatus = STATUS_NOK;       
+      }
     }
     else
     {
       eStatus = STATUS_NOK;
     }
     APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;      
-    APP_BOOT_au8RDTSend[3] = APP_BOOT_u8CheckSumCalculated ;
-    local_APP_BOOT_EndService(eStatus, APP_BOOT_au8RDTSend);
+    APP_BOOT_au8RDTSend[3] = APP_BOOT_u8CheckSumCalculated;
+    local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8RDTSend, eStatus);
     break;
     
   case APP_BOOT_DL_ST_ERROR:
     /*Respond with negative response*/
-    local_APP_BOOT_EndService(STATUS_NOK, APP_BOOT_au8DataNotUsed);
+    local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_NOK);
     break;
   default:
     APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
@@ -256,32 +279,77 @@ void local_APP_BOOT_vdSwDownload(void)
   }
 }
 
-void local_PP_BOOT_vdPageDownload(APP_BOOT_strBlockMemory_t* APP_BOOT_strApplicationCode)
+void local_APP_BOOT_vdEndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus)
 {
-  
-  
-}
-void local_APP_BOOT_vdBootHeartBeat(void)
-{
-  /*Implement here the bootloader heartbeat*/
-  if(APP_BOOT_u8HeartBeatCounter == 20)
+  uint8_t u8Count;
+  local_APP_BOOT_vdFillEchoArray(pau8EchoArray);
+  local_APP_BOOT_vdEndService(eStatus, pau8EchoArray);
+  for(u8Count = 0; u8Count < 8; u8Count++)
   {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_OFF);    
-    APP_BOOT_u8HeartBeatCounter  = 0;
-  }  
-  if(APP_BOOT_u8HeartBeatCounter  < 10)
-  {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
-    APP_BOOT_u8HeartBeatCounter ++;       
+    pau8EchoArray[u8Count] = 0;
   }
-  if(APP_BOOT_u8HeartBeatCounter  > 10 || APP_BOOT_u8HeartBeatCounter  == 10)
-  {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_ON);
-    APP_BOOT_u8HeartBeatCounter ++;       
-  }  
 }
 
-void local_APP_BOOT_vdPageDataReset(void)
+void local_APP_BOOT_vdFillEchoArray(uint8_t *pau8EchoArray)
+{
+  pau8EchoArray[0] = APP_BOOT_au8Data[2];
+  pau8EchoArray[1] = APP_BOOT_au8Data[3];
+  pau8EchoArray[2] = APP_BOOT_au8Data[4];
+  pau8EchoArray[3] = APP_BOOT_au8Data[5];    
+}
+
+void local_APP_BOOT_vdEndService(STATUS_t eStatus, uint8_t *pau8Data)
+{
+	APP_BOOT_eStatus = APP_BOOT_ST_INIT;
+	ECU_DIAG_vdServiceDone(eStatus, pau8Data);
+}
+
+void local_APP_BOOT_vdBootHeartBeat(void)
+{
+  static uint32_t su32HeartBeatCounter = 1;
+  static uint8_t su8Counter = 0;
+    
+  if(((su32HeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_HALF_PERIOD_MS) && (su8Counter < (APP_BOOT_HEARTBEAT_FAST_COUNT*2)))
+  {
+    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
+    su32HeartBeatCounter = 1;
+    su8Counter++;
+  }
+  else if(su8Counter == (APP_BOOT_HEARTBEAT_FAST_COUNT*2))
+  {
+    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_ON);
+    su8Counter = (APP_BOOT_HEARTBEAT_FAST_COUNT*2) + 1;
+    su32HeartBeatCounter++;
+  }
+  else if ((su32HeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_STATIC_PERIOD_MS)
+  {
+    su32HeartBeatCounter = 1;
+    su8Counter = 0;
+  }
+  else
+  {
+    su32HeartBeatCounter++;
+  }
+  
+//  /*Implement here the bootloader heartbeat*/
+//  if((APP_BOOT_u32HeartBeatCounter * APP_BOOT_TASK_MS)  == 1000)
+//  {
+//    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_OFF);    
+//    APP_BOOT_u32HeartBeatCounter  = 0;
+//  }  
+//  if((APP_BOOT_u32HeartBeatCounter * APP_BOOT_TASK_MS)  < 500)
+//  {
+//    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
+//    APP_BOOT_u32HeartBeatCounter ++;       
+//  }
+//  if((APP_BOOT_u32HeartBeatCounter * APP_BOOT_TASK_MS)  >= 500 || (APP_BOOT_u32HeartBeatCounter * APP_BOOT_TASK_MS)  == 500)
+//  {
+//    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_ON);
+//    APP_BOOT_u32HeartBeatCounter ++;       
+//  }  
+}
+
+void local_APP_BOOT_vdPageDataReset(APP_BOOT_strPageMemory_t *strPageMemory)
 {
   uint8_t u8IndexBlock;
   uint8_t u8Count;
@@ -289,32 +357,43 @@ void local_APP_BOOT_vdPageDataReset(void)
   {
     for(u8Count = 0; u8Count < APP_BOOT_BLOCK_BYTE_SIZE; u8Count++)
     {
-      APP_BOOT_astrBlockMemory[u8IndexBlock].au8Byte[u8Count] = (uint8_t)0;      
+      strPageMemory[u8IndexBlock].UC_FLASH_astrBlocksOfMemory[u8IndexBlock].au8Byte[u8Count] = (uint8_t)0;      
     }
-    APP_BOOT_astrBlockMemory[u8IndexBlock].u32Address = 0;
-    APP_BOOT_astrBlockMemory[u8IndexBlock].u32LineNumber = 0;
-    APP_BOOT_astrBlockMemory[u8IndexBlock].u8DataBytesCount = 0;
-    APP_BOOT_astrBlockMemory[u8IndexBlock].u8CheckSum = 0;
+    strPageMemory->UC_FLASH_astrBlocksOfMemory[u8IndexBlock].u32Address = 0;
+    strPageMemory->UC_FLASH_astrBlocksOfMemory[u8IndexBlock].u32LineNumber = 0;
+    strPageMemory->UC_FLASH_astrBlocksOfMemory[u8IndexBlock].u8DataBytesCount = 0;
+    strPageMemory->UC_FLASH_astrBlocksOfMemory[u8IndexBlock].u8CheckSum = 0;
   }
+  strPageMemory->u16BytesNumber = 0;
+  strPageMemory->u32PageStartingAddress = 0;
 }
 
-void local_APP_BOOT_EndService(STATUS_t eStatus, uint8_t *pau8Data)
-{
-	APP_BOOT_eStatus = APP_BOOT_ST_INIT;
-	ECU_DIAG_vdServiceDone(eStatus, pau8Data);
-}
-
-uint8_t local_APP_BOOT_u8CheckSumCalculate(APP_BOOT_strBlockMemory_t* pBlockMemory, uint8_t u8PageSize)
+uint8_t local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_strBlockMemory_t* pBlockMemory, uint8_t u8PageSize) // Check sum of page as array of blocks
 {
   uint8_t u8CheckSum = 0;
   uint8_t u8Counter;
   uint8_t u8LoopCounter;
   for(u8Counter = 0; u8Counter < u8PageSize; u8Counter++)
   {
-    for(u8LoopCounter = 0; u8LoopCounter < 16; u8LoopCounter++)
+    for(u8LoopCounter = 0; u8LoopCounter < APP_BOOT_BLOCK_BYTE_SIZE; u8LoopCounter++)
     {
       u8CheckSum = u8CheckSum + pBlockMemory[u8Counter].au8Byte[u8LoopCounter]; 
     }
   }
   return u8CheckSum;
+}
+
+uint8_t local_APP_BOOT_u8PageCheckSumCalculate(APP_BOOT_strPageMemory_t* pPageMemory)
+{
+  uint8_t u8PageCheckSum = 0;
+  uint8_t u8Counter;
+  uint8_t u8LoopCounter;
+  for(u8LoopCounter = 0; u8LoopCounter < pPageMemory->u8BlocksNumber; u8LoopCounter++)
+  {
+    for(u8Counter = 0; u8Counter < APP_BOOT_BLOCK_BYTE_SIZE; u8Counter++)
+    {
+      u8PageCheckSum  = u8PageCheckSum  + pPageMemory->UC_FLASH_astrBlocksOfMemory[u8LoopCounter].au8Byte[u8Counter];      
+    }
+  }  
+  return u8PageCheckSum ;
 }

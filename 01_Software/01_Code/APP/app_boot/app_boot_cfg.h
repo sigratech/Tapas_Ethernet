@@ -28,9 +28,15 @@ E-mail: shany@sigratech.de
 
 #define APP_BOOT_ENABLE
 
+#define APP_BOOT_TASK_MS                                             (1)
+
 #define APP_BOOT_APPLICATION_ADDRESS                                 (0x100000)
 
 #define APP_BOOT_PAGE_SIZE                                           (256)
+
+#define APP_BOOT_HEARTBEAT_HALF_PERIOD_MS                            (100)
+#define APP_BOOT_HEARTBEAT_STATIC_PERIOD_MS                          (500)
+#define APP_BOOT_HEARTBEAT_FAST_COUNT                                (3)
 
 #endif /*APP_BOOT_CFG_H*/
 

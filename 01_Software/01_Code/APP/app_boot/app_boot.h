@@ -37,6 +37,7 @@ E-mail: shany@sigratech.de
 
 
 typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
+typedef ECU_MEM_CODE_strPageMemory_t APP_BOOT_strPageMemory_t;
 
 typedef enum APP_BOOT_eStatusTemplate
 {

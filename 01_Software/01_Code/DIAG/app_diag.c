@@ -27,8 +27,8 @@ E-mail: karim@sigratech.de
 #include "rte.h"
 #include "lib_data.h"
 
-#define APP_DIAG_HEARTBEAT_HALF_PERIOD_MS                             100
-#define APP_DIAG_TASK_MS                                              50
+#define APP_DIAG_HEARTBEAT_HALF_PERIOD_MS                             (100)
+#define APP_DIAG_TASK_MS                                              (1)
 
 uint8_t APP_DIAG_u8ServiceId = TAPAS_DEFAULT;
 uint8_t APP_DIAG_u8DeviceId = TAPAS_DEFAULT;
@@ -45,6 +45,9 @@ void local_APP_DIAG_vdIO_Control_Identifier(void);
 void local_APP_DIAG_vdRead_Identifier(void);
 void local_APP_DIAG_vdMemory_Write(void);
 void local_APP_DIAG_vdMemory_Read(void);
+void local_APP_DIAG_EndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus);
+void local_APP_DIAG_vdFillEchoArray(uint8_t *pau8EchoArray);
+
 
 void APP_DIAG_vdInit(void)
 {
@@ -79,7 +82,7 @@ void APP_DIAG_vdMgr(void)
         {
           ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);
           /* Send Positive Response */
-          local_APP_DIAG_EndService(STATUS_OK, &APP_DIAG_au8DataNotUsed[0]);	
+          local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
         }
         else if(eEcuMode == ECU_SYS_DIAG)
         {
@@ -90,7 +93,7 @@ void APP_DIAG_vdMgr(void)
         else
         {
           /* Send Negative Response */
-          local_APP_DIAG_EndService(STATUS_NOK, &APP_DIAG_au8DataNotUsed[0]);				
+          local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
         }
       }
     }
@@ -114,7 +117,7 @@ void local_APP_DIAG_vdMainStateMachine(void)
       local_APP_DIAG_vdMemory_Read();
 			break;
 		default :
-			local_APP_DIAG_EndService(STATUS_NOK, &APP_DIAG_au8DataNotUsed[0]);
+      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
 	}
 }
 
@@ -123,7 +126,7 @@ void local_APP_DIAG_vdIO_Control_Identifier(void)
 	switch(APP_DIAG_u8DeviceId) 
 	{
 		default :
-			local_APP_DIAG_EndService(STATUS_NOK, &APP_DIAG_au8DataNotUsed[0]);
+      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
 	}
 }
 
@@ -132,9 +135,28 @@ void local_APP_DIAG_vdRead_Identifier(void)
 	switch(APP_DIAG_u8DeviceId) 
 	{
 		default :
-			local_APP_DIAG_EndService(STATUS_NOK, &APP_DIAG_au8DataNotUsed[0]);
+      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
 			break;
 	}
+}
+
+void local_APP_DIAG_EndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus)
+{
+  uint8_t u8Count;
+  local_APP_DIAG_vdFillEchoArray(pau8EchoArray);
+  local_APP_DIAG_EndService(eStatus, pau8EchoArray);
+  for(u8Count = 0; u8Count < 8; u8Count++)
+  {
+    pau8EchoArray[u8Count] = 0;
+  }
+}
+
+void local_APP_DIAG_vdFillEchoArray(uint8_t *pau8EchoArray)
+{
+  pau8EchoArray[0] = APP_DIAG_au8RequestData[0];
+  pau8EchoArray[1] = APP_DIAG_au8RequestData[1];
+  pau8EchoArray[2] = APP_DIAG_au8RequestData[2];
+  pau8EchoArray[3] = APP_DIAG_au8RequestData[3];    
 }
 
 void local_APP_DIAG_EndService(STATUS_t eStatus, uint8_t *pau8Data)
@@ -147,11 +169,12 @@ void local_APP_DIAG_vdMemory_Write(void)
 {
   STATUS_t eStatus = STATUS_NOK;
   float fltRecData;
-  uint32_t u32Data = APP_DIAG_au8RequestData[0] ;
   uint8_t APP_DIAG_au8ReceivedData[4] = {0, 0, 0, 0};
-  u32Data |= APP_DIAG_au8RequestData[1] << 8;
-  u32Data |= APP_DIAG_au8RequestData[2] << 16;
-  u32Data |= APP_DIAG_au8RequestData[3] << 24;
+  uint32_t u32Data = 0;
+  u32Data = APP_DIAG_au8RequestData[0] << 24;
+  u32Data |= APP_DIAG_au8RequestData[1] << 16;
+  u32Data |= APP_DIAG_au8RequestData[2] << 8;
+  u32Data |= APP_DIAG_au8RequestData[3];
   
   fltRecData = (float)u32Data;
   fltRecData = fltRecData / 100.0f;
@@ -179,7 +202,6 @@ void local_APP_DIAG_vdMemory_Read(void)
   STATUS_t eStatus = STATUS_NOK;
   float fltData;
   uint32_t u32Data;
-  uint8_t APP_DIAG_au8ReceivedData[4] = {0, 0, 0, 0};
   uint8_t APP_DIAG_au8TrialReceivedData[4] = {0, 0, 0, 0};
   if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
   {
