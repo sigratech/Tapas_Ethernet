@@ -16,25 +16,20 @@ Agnes-Pockels-Bogen 1,
 80992, Munich,
 Germany
 
-File Name: app.h
-Author: Karim Mansour 
-E-mail: karim@sigratech.de 
+File Name: app_boot_cfg.h
+Author: Hany elShahawy 
+E-mail: shany@sigratech.de 
 ***************************************************************************
 ***************************************************************************
 */
 
-#ifndef APP_H
-#define APP_H
+#ifndef APP_DIAG_CFG_H
+#define APP_DIAG_CFG_H
 
-#include "app_test.h"
-#include "app_boot_cfg.h"
-#include "app_boot.h"
-#include "app_diag_cfg.h"
-#include "app_diag.h"
+#define APP_DIAG_ENABLE
 
+#define APP_DIAG_HEARTBEAT_HALF_PERIOD_MS                             (100)
+#define APP_DIAG_TASK_MS                                              (1)
 
-void APP_vdInit(void);
-void APP_vdDeInit(void);
-
-#endif /*APP_H*/
+#endif /*APP_DIAG_CFG_H*/
 

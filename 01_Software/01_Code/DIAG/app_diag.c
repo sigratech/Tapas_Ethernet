@@ -22,13 +22,15 @@ E-mail: karim@sigratech.de
 ***************************************************************************
 ***************************************************************************
 */
+#include "app_diag_cfg.h"
+#include "app_diag.h"
+
+#ifdef APP_DIAG_ENABLE
 
 #include "app.h"
 #include "rte.h"
 #include "lib_data.h"
 
-#define APP_DIAG_HEARTBEAT_HALF_PERIOD_MS                             (100)
-#define APP_DIAG_TASK_MS                                              (1)
 
 uint8_t APP_DIAG_u8ServiceId = TAPAS_DEFAULT;
 uint8_t APP_DIAG_u8DeviceId = TAPAS_DEFAULT;
@@ -250,3 +252,5 @@ void local_APP_DIAG_vdHeartBeat(void)
     su32HeartBeatCounter++;
   }
 }
+
+#endif /*APP_DIAG_ENABLE*/
