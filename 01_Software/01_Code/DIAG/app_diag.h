@@ -57,5 +57,6 @@ E-mail: karim@sigratech.de
 void APP_DIAG_vdInit(void);
 void APP_DIAG_vdMgr(void);
 
+
 #endif /*APP_DIAG_H*/
 

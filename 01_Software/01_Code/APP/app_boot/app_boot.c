@@ -74,6 +74,7 @@ uint8_t local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_strBlockMemory_t*
 void local_APP_BOOT_vdFillEchoArray(uint8_t *au8EchoArray);
 void local_APP_BOOT_vdEndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus);
 uint8_t local_APP_BOOT_u8PageCheckSumCalculate(APP_BOOT_strPageMemory_t* pPageMemory);
+void local_APP_BOOT_vdFlashApplicationSoftware(void);
 
 /********************************************************************************************/
 /**************************** GLOBAL FUNCTIONS IMPLEMENTATION *******************************/
@@ -84,18 +85,14 @@ void APP_BOOT_vdInit(void)
   APP_BOOT_eStatus = APP_BOOT_ST_INIT;
   APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
   float fltAppValid;
+  
   ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_APP_VALID,&fltAppValid);
   if(fltAppValid != TAPAS_FALSE)
   {
     ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_ADDRESS);    
   }
-  /*Debugging*/
-//  APP_BOOT_strPageMemory_t temp = {0};
-//  temp.u32PageStartingAddress = 0;
-//  temp.u8BlocksNumber = 16;
-//  ECU_MEM_CODE_eReadPage(&temp);
-//  uint8_t u8Temp = 0;
-//  u8Temp = local_APP_BOOT_u8PageCheckSumCalculate(&temp);
+
+  ECU_DIAG_vdRegisterAppBootCallback(local_APP_BOOT_vdFlashApplicationSoftware);
 }
 
 void APP_BOOT_vdDeInit(void)
@@ -105,6 +102,18 @@ void APP_BOOT_vdDeInit(void)
 
 void APP_BOOT_vdMgr(void)
 {
+	ECU_SYS_eEcuMode_t eEcuMode;
+  eEcuMode = ECU_SYS_eGetEcuMode();
+  
+  if(eEcuMode == ECU_SYS_BOOT)
+  {
+    /*Heart Beat*/
+    local_APP_BOOT_vdBootHeartBeat();
+  }
+}
+
+void local_APP_BOOT_vdFlashApplicationSoftware(void)
+{
   
 	ECU_SYS_eEcuMode_t eEcuMode;
   eEcuMode = ECU_SYS_eGetEcuMode(); 
@@ -112,10 +121,11 @@ void APP_BOOT_vdMgr(void)
   
   if(eEcuMode == ECU_SYS_BOOT)
   {
-    /*Heart Beat*/
-    local_APP_BOOT_vdBootHeartBeat();
+//    /*Heart Beat*/
+//    local_APP_BOOT_vdBootHeartBeat();
     
     eStatus = ECU_DIAG_u8GetDiagFrame(&APP_BOOT_u8ServiceId, APP_BOOT_au8Data, APP_BOOT_u8DataSize);
+    UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO10, UC_DIO_OUT_COMMAND_ON);      
     
     if((APP_BOOT_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_BOOT_au8Data[0] == (uint8_t)ECU_SYS_NORMAL))
     {
@@ -235,6 +245,7 @@ void local_APP_BOOT_vdSwDownload(void)
       su8PageReceived = 0;
       APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_PAGE_DOWNLOAD;     
       APP_BOOT_u8CheckSumReceived = APP_BOOT_au8Data[5];
+      local_APP_BOOT_vdSwDownload();
       break;
     }
     local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8ReceivedDataEcho, STATUS_OK);
@@ -246,9 +257,13 @@ void local_APP_BOOT_vdSwDownload(void)
     APP_BOOT_u8CheckSumCalculated = local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_astrBlockMemory, APP_BOOT_BLOCK_BYTE_SIZE);
     if(APP_BOOT_u8CheckSumCalculated == APP_BOOT_u8CheckSumReceived)
     {
+      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO14, UC_DIO_OUT_COMMAND_ON);
       ECU_MEM_CODE_eWriteBlocks(APP_BOOT_astrBlockMemory, APP_BOOT_u8BlockIndex); // Write page as array of blocks
+      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO14, UC_DIO_OUT_COMMAND_OFF);
       APP_BOOT_strPageMemoryTemplate.u32PageStartingAddress = APP_BOOT_u32StartAddress; // set page starting address of the temporary page
+      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO12, UC_DIO_OUT_COMMAND_ON);      
       ECU_MEM_CODE_eReadPage(&APP_BOOT_strPageMemoryTemplate); // Read page as a whole
+      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO12, UC_DIO_OUT_COMMAND_OFF);      
       APP_BOOT_u8CheckSumOfPageWritten = local_APP_BOOT_u8PageCheckSumCalculate(&APP_BOOT_strPageMemoryTemplate); // Calculate checksum of written page
       if(APP_BOOT_u8CheckSumOfPageWritten == APP_BOOT_u8CheckSumCalculated)
       {
@@ -267,6 +282,7 @@ void local_APP_BOOT_vdSwDownload(void)
     APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;      
     APP_BOOT_au8RDTSend[3] = APP_BOOT_u8CheckSumCalculated;
     local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8RDTSend, eStatus);
+    UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO10, UC_DIO_OUT_COMMAND_OFF);      
     break;
     
   case APP_BOOT_DL_ST_ERROR:

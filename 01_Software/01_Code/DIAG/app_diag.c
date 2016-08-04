@@ -47,14 +47,26 @@ void local_APP_DIAG_vdMemory_Write(void);
 void local_APP_DIAG_vdMemory_Read(void);
 void local_APP_DIAG_EndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus);
 void local_APP_DIAG_vdFillEchoArray(uint8_t *pau8EchoArray);
+void local_APP_DIAG_vdServeDiagRequest(void);
 
 
 void APP_DIAG_vdInit(void)
 {
-
+  ECU_DIAG_vdRegisterAppDiagCallback(local_APP_DIAG_vdServeDiagRequest);
 }
 
 void APP_DIAG_vdMgr(void)
+{
+	ECU_SYS_eEcuMode_t eEcuMode;
+  eEcuMode = ECU_SYS_eGetEcuMode();
+  
+  if(eEcuMode == ECU_SYS_DIAG)
+  {
+    local_APP_DIAG_vdHeartBeat();
+  }
+}
+
+void local_APP_DIAG_vdServeDiagRequest(void)
 {
 	STATUS_t eStatus;
 	ECU_SYS_eEcuMode_t eEcuMode;
@@ -66,10 +78,10 @@ void APP_DIAG_vdMgr(void)
   
   if(eEcuMode != ECU_SYS_BOOT)
   {
-    if(eEcuMode == ECU_SYS_DIAG)
-    {
-      local_APP_DIAG_vdHeartBeat();
-    }
+//    if(eEcuMode == ECU_SYS_DIAG)
+//    {
+//      local_APP_DIAG_vdHeartBeat();
+//    }
     
     if(APP_DIAG_eStatus == APP_DIAG_STATUS_FREE)
     {
