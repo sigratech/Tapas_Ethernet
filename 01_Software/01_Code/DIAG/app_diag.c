@@ -94,6 +94,14 @@ void local_APP_DIAG_vdServeDiagRequest(void)
           /* Send Positive Response */
           local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
         }
+        else if((APP_DIAG_u8ServiceId == SID_DIAG_SESSION_CONTROL))
+        {
+          APP_DIAG_au8ResposneData[0] = (uint8_t)eEcuMode;
+          APP_DIAG_au8ResposneData[1] = 0;
+          APP_DIAG_au8ResposneData[2] = 0;
+          APP_DIAG_au8ResposneData[3] = 0;
+          local_APP_DIAG_EndService(STATUS_NOK, APP_DIAG_au8ResposneData);
+        }
         else if(eEcuMode == ECU_SYS_DIAG)
         {
           /* Serve the request */
