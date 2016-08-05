@@ -30,7 +30,7 @@ E-mail: karim@sigratech.de
 #include "app.h"
 #include "rte.h"
 #include "lib_data.h"
-
+#include "lib_delay.h"
 
 uint8_t APP_DIAG_u8ServiceId = TAPAS_DEFAULT;
 uint8_t APP_DIAG_u8DeviceId = TAPAS_DEFAULT;
@@ -80,10 +80,6 @@ void local_APP_DIAG_vdServeDiagRequest(void)
   
   if(eEcuMode != ECU_SYS_BOOT)
   {
-//    if(eEcuMode == ECU_SYS_DIAG)
-//    {
-//      local_APP_DIAG_vdHeartBeat();
-//    }
     
     if(APP_DIAG_eStatus == APP_DIAG_STATUS_FREE)
     {
@@ -129,6 +125,11 @@ void local_APP_DIAG_vdMainStateMachine(void)
 			break;
 		case SID_READ_MEMORY_BY_ADDRESS:
       local_APP_DIAG_vdMemory_Read();
+			break;
+		case SID_ECU_RESET:
+      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
+      LIB_DELAY_vdNanoSeconds(500000);
+      ECU_SYS_vdReset();
 			break;
 		default :
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
