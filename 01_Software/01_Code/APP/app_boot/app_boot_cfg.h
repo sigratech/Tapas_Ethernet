@@ -30,7 +30,7 @@ E-mail: shany@sigratech.de
 
 #define APP_BOOT_TASK_MS                                             (1)
 
-#define APP_BOOT_APPLICATION_START_ADDRESS                                 (0x100000)
+#define APP_BOOT_APPLICATION_START_ADDRESS                           (0x100000)
 
 #define APP_BOOT_PAGE_SIZE                                           (256)
 

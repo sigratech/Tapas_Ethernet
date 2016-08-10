@@ -45,12 +45,6 @@ void APP_vdTestMgr(void)
 //  float fltValue;
   
 //  su8Counter++;
-  if(u8Flag == 0)
-  {
-//    UC_EEPROM_ERASE_SECTOR(0);
-//    UC_EEPROM_WRITE(0xF0200000, au8EEPROMData, 4);      
-    u8Flag = 1;
-  }
 //  if(u8Counter == 20)
 //  {
 //    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_OFF);    

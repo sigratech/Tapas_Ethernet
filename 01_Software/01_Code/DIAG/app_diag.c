@@ -137,7 +137,7 @@ void local_APP_DIAG_vdMainStateMachine(void)
 		case SID_ECU_RESET:
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
       LIB_DELAY_vdNanoSeconds(500000);
-      ECU_SYS_vdReset();
+      ECU_SYS_vdShutdownAndReset();
 			break;
 		default :
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
@@ -203,7 +203,7 @@ void local_APP_DIAG_vdMemory_Write(void)
   fltRecData = fltRecData / 100.0f;
   if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
   {
-    eStatus = ECU_MEM_INT_eDirectWriteSignalValue(APP_DIAG_u8RequestId, fltRecData);
+    eStatus = ECU_MEM_INT_eWriteSignalValue(APP_DIAG_u8RequestId, fltRecData, u32Data);
   }
   else // External EEPROM
   {

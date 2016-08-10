@@ -26,13 +26,14 @@ E-mail: shany@sigratech.de
 #include "app_boot_cfg.h"
 #include "app_boot.h"
 #include "ecu.h"
+#include "lib_data.h"
 
 #define APP_BOOT_BLOCK_BYTE_SIZE                                        (16)
 
 #define APP_BOOT_BLOCKS_PER_PAGE                                        (APP_BOOT_PAGE_SIZE/APP_BOOT_BLOCK_BYTE_SIZE)
 
 APP_BOOT_eStatus_t APP_BOOT_eStatus = APP_BOOT_ST_INIT;
-APP_BOOT_eDownloadStatus_t APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
+APP_BOOT_eDownloadStatus_t APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_HEADER_RECEIVE_PRE_INIT;
 uint8_t APP_BOOT_au8PageReceived[APP_BOOT_PAGE_SIZE];
 uint32_t APP_BOOT_u32HeartBeatCounter;
 uint8_t APP_BOOT_au8DataNotUsed[4] = {0,0,0,0};
@@ -40,7 +41,7 @@ uint8_t APP_BOOT_u8ServiceId = TAPAS_DEFAULT;
 uint8_t APP_BOOT_au8Data[6] = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
 uint8_t APP_BOOT_u8DataSize = 6;
 uint32_t APP_BOOT_u32PageSize;
-uint32_t APP_BOOT_u32ApplicationStartAddress = (uint32_t)APP_BOOT_APPLICATION_START_ADDRESS;
+//uint32_t APP_BOOT_u32ApplicationStartAddress = (uint32_t)APP_BOOT_APPLICATION_START_ADDRESS;
 uint32_t APP_BOOT_u32ApplicationEndAddress = 0;
 uint32_t APP_BOOT_u32StartAddress;
 uint8_t APP_BOOT_u8BlockIndex=0;
@@ -56,7 +57,10 @@ uint8_t APP_BOOT_au8ReceivedDataEcho[4] = {0}; // Array which has the data to be
 APP_BOOT_strPageMemory_t APP_BOOT_strPageMemoryTemplate = {0, APP_BOOT_BLOCKS_PER_PAGE, 0, {0}}; // Temporary page to read data every time and making checksum calculation
 uint8_t APP_BOOT_au8ResposneData[4] = {0,0,0,0};
 ECU_MEM_strBlockMemory_t APP_BOOT_strBlockTemp = {0,16,{0},0,0}; // initialize temporary block with 16 data bytes as default bytes per block
-//uint8_t APP_BOOT_u8UploadByteCounter = 0;
+
+
+//debugging
+uint8_t u8flag = 0;
 /********************************************************************************************/
 /********************* EXTERNAL GLOBAL VARIABLES DECLARATION ********************************/
 /********************************************************************************************/
@@ -80,6 +84,8 @@ void local_APP_BOOT_vdEndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t e
 uint8_t local_APP_BOOT_u8PageCheckSumCalculate(APP_BOOT_strPageMemory_t* pPageMemory);
 void local_APP_BOOT_vdFlashApplicationSoftware(void);
 void local_APP_BOOT_vdSwUpload(void);
+void local_APP_BOOT_vdReceiveHeaderSrecLine(void);
+void local_APP_BOOT_vdReceiveLastSrecLine(void);
 
 /********************************************************************************************/
 /**************************** GLOBAL FUNCTIONS IMPLEMENTATION *******************************/
@@ -88,13 +94,12 @@ void local_APP_BOOT_vdSwUpload(void);
 void APP_BOOT_vdInit(void)
 {
   APP_BOOT_eStatus = APP_BOOT_ST_INIT;
-  APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
+  APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_HEADER_RECEIVE_PRE_INIT;
   float fltAppValid;
   float fltStartAddress;
   float fltEndAddress;
   ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_PROGRAM_START_ADDRESS,&fltStartAddress);
   ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_PROGRAM_END_ADDRESS,&fltEndAddress);
-  APP_BOOT_u32ApplicationStartAddress = (uint32_t)fltStartAddress;
   APP_BOOT_u32ApplicationEndAddress = (uint32_t)fltEndAddress;
   ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_APP_VALID,&fltAppValid);
   if(fltAppValid != TAPAS_FALSE)
@@ -124,7 +129,6 @@ void APP_BOOT_vdMgr(void)
 
 void local_APP_BOOT_vdFlashApplicationSoftware(void)
 {
-  
 	ECU_SYS_eEcuMode_t eEcuMode;
   eEcuMode = ECU_SYS_eGetEcuMode(); 
   STATUS_t eStatus = STATUS_NOK;
@@ -177,19 +181,19 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
           if((APP_BOOT_au8Data[4] == 1) && (APP_BOOT_u8ServiceId == SID_REQUEST_TRANSFER_EXIT)) // Request transfer exit and jump-ready signal
           {
             /*Save program start address in emulated flash*/
-            ECU_MEM_INT_eDirectWriteSignalValue(ECU_MEM_INT_PROGRAM_START_ADDRESS, APP_BOOT_APPLICATION_START_ADDRESS);
+            ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_PROGRAM_START_ADDRESS, APP_BOOT_APPLICATION_START_ADDRESS, APP_BOOT_APPLICATION_START_ADDRESS);
             /*Get program end address and save it in emulated flash*/
             APP_BOOT_u32ApplicationEndAddress = (APP_BOOT_au8Data[0] << 24);
             APP_BOOT_u32ApplicationEndAddress |= (APP_BOOT_au8Data[1] << 16);
             APP_BOOT_u32ApplicationEndAddress |= (APP_BOOT_au8Data[2] << 8);
             APP_BOOT_u32ApplicationEndAddress |= (APP_BOOT_au8Data[3]);
-            ECU_MEM_INT_eDirectWriteSignalValue(ECU_MEM_INT_PROGRAM_END_ADDRESS, APP_BOOT_u32ApplicationEndAddress);
+            ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_PROGRAM_END_ADDRESS, APP_BOOT_u32ApplicationEndAddress, APP_BOOT_u32ApplicationEndAddress);
             /*Set application valid flag*/
-            ECU_MEM_INT_eDirectWriteSignalValue(ECU_MEM_INT_APP_VALID, TAPAS_TRUE);
-            /*Change state machine to application run*/
-            APP_BOOT_eStatus = APP_BOOT_ST_APP_RUN;
+            ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_APP_VALID, TAPAS_TRUE, TAPAS_TRUE);
             /*Send positive feedback*/
             local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_OK);
+            /*Change state machine to application run*/
+            APP_BOOT_eStatus = APP_BOOT_ST_APP_RUN;
           }    
           /*Main Bootloader State Machine*/
           switch(APP_BOOT_eStatus)        
@@ -204,7 +208,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
               local_APP_BOOT_vdSwUpload();
               break;
             case APP_BOOT_ST_APP_RUN:
-              ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_START_ADDRESS);
+              ECU_SYS_vdShutdownAndReset(); // Save EEPROM and reset
               break;
             case APP_BOOT_ST_ERROR:
               local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_NOK);
@@ -222,14 +226,17 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
 void local_APP_BOOT_vdSwUpload(void)
 {
   uint32_t u32AddressReceived;
+  uint32_t u32StartAddressSREC;
   uint8_t au8Response[4] = {0};
+  uint32_t u32ApplicationStartAddress = (uint32_t)APP_BOOT_APPLICATION_START_ADDRESS;
   if(APP_BOOT_au8Data[0] == 0x1) //Response with confirmation plus start address
   {
-    au8Response[3] = (uint8_t)APP_BOOT_u32ApplicationStartAddress; //MSB
-    au8Response[2] = (uint8_t)(APP_BOOT_u32ApplicationStartAddress >> 8);
-    au8Response[1] = (uint8_t)(APP_BOOT_u32ApplicationStartAddress >> 16);
-    au8Response[0] = (uint8_t)(APP_BOOT_u32ApplicationStartAddress >> 24); //LSB
+    au8Response[3] = (uint8_t)(u32ApplicationStartAddress); //MSB
+    au8Response[2] = (uint8_t)(u32ApplicationStartAddress >> 8);
+    au8Response[1] = (uint8_t)(u32ApplicationStartAddress >> 16);
+    au8Response[0] = (uint8_t)(u32ApplicationStartAddress >> 24); //LSB
     local_APP_BOOT_vdEndService(STATUS_OK, au8Response);
+    return;
   }
   else if(APP_BOOT_au8Data[0] == 0x2) //Response with confirmation plus end address
   {
@@ -238,8 +245,52 @@ void local_APP_BOOT_vdSwUpload(void)
     au8Response[1] = (uint8_t)(APP_BOOT_u32ApplicationEndAddress >> 16);
     au8Response[0] = (uint8_t)(APP_BOOT_u32ApplicationEndAddress >> 24);
     local_APP_BOOT_vdEndService(STATUS_OK, au8Response);    
+    return;
   }
-  else if(APP_BOOT_au8Data[0] == 0)
+  else if(APP_BOOT_au8Data[0] == 0x3) //Response with confirmation plus S0 srec record
+  {
+    static uint8_t su8Count;
+    uint32_t u32Temp = 0;
+    uint8_t u8SignalNum;
+    switch(su8Count)
+    {
+    case 0:
+      u8SignalNum = ECU_MEM_INT_HEADER_SREC_0;
+      su8Count++;
+      break;
+    case 1:
+      u8SignalNum = ECU_MEM_INT_HEADER_SREC_1;
+      su8Count++;
+      break;
+    case 2:
+      u8SignalNum = ECU_MEM_INT_HEADER_SREC_2;
+      su8Count++;
+      break;
+    case 3:
+      u8SignalNum = ECU_MEM_INT_HEADER_SREC_3;
+      break;
+    default:
+      break;
+    }
+    ECU_MEM_INT_eReadRawSignalValue(u8SignalNum, &u32Temp);
+    au8Response[3] = (uint8_t)(u32Temp);
+    au8Response[2] = (uint8_t)(u32Temp >> 8);
+    au8Response[1] = (uint8_t)(u32Temp >> 16);
+    au8Response[0] = (uint8_t)(u32Temp >> 24);
+    local_APP_BOOT_vdEndService(STATUS_OK, au8Response);   
+    return;
+  }
+  else if(APP_BOOT_au8Data[0] == 0x4) //Response with confirmation plus starting address (last srec record)
+  {
+    ECU_MEM_INT_eReadRawSignalValue(ECU_MEM_INT_START_ADDRESS, &u32StartAddressSREC);
+    au8Response[3] = (uint8_t)(u32StartAddressSREC);
+    au8Response[2] = (uint8_t)(u32StartAddressSREC >> 8);
+    au8Response[1] = (uint8_t)(u32StartAddressSREC >> 16);
+    au8Response[0] = (uint8_t)(u32StartAddressSREC >> 24);
+    local_APP_BOOT_vdEndService(STATUS_OK, au8Response);    
+    return;
+  }  
+  else if(APP_BOOT_au8Data[0] == 0) // Start uploading current application
   {
     static uint8_t u8UploadByteCounter = 0;
     u32AddressReceived = 0;
@@ -247,7 +298,7 @@ void local_APP_BOOT_vdSwUpload(void)
     u32AddressReceived |= (APP_BOOT_au8Data[3] << 16);
     u32AddressReceived |= (APP_BOOT_au8Data[4] << 8);
     u32AddressReceived |= (APP_BOOT_au8Data[5]);
-    if(APP_BOOT_strBlockTemp.u32Address == 0) // First time read request
+    if(APP_BOOT_strBlockTemp.u32Address == 0) // First time read request - this handles the case when u32address is = 0
     {
       APP_BOOT_strBlockTemp.u32Address = u32AddressReceived;  
       ECU_MEM_CODE_eReadBlock(&APP_BOOT_strBlockTemp);
@@ -285,6 +336,12 @@ void local_APP_BOOT_vdSwDownload(void)
   //uint8_t u8Debug;
   switch(APP_BOOT_eDownloadStatus)
   {
+  case APP_BOOT_DL_ST_HEADER_RECEIVE_PRE_INIT: // This state receives the header srec line
+    local_APP_BOOT_vdReceiveHeaderSrecLine();
+  break;
+  case APP_BOOT_DL_ST_START_SREC_RECEIVE_PRE_INIT: // This state receives last srec line
+    local_APP_BOOT_vdReceiveLastSrecLine();
+  break;
   case APP_BOOT_DL_ST_INIT:
     local_APP_BOOT_vdPageDataReset((APP_BOOT_strPageMemory_t *)APP_BOOT_astrBlockMemory);
     APP_BOOT_u32StartAddress = 0;
@@ -318,7 +375,6 @@ void local_APP_BOOT_vdSwDownload(void)
           APP_BOOT_astrBlockMemory[APP_BOOT_u8BlockIndex].u8DataBytesCount = 16;
           APP_BOOT_u8BlockIndex++;
           break;
-          //u8Counter = 6;
         }
       }
     }
@@ -343,13 +399,9 @@ void local_APP_BOOT_vdSwDownload(void)
     APP_BOOT_u8CheckSumCalculated = local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_astrBlockMemory, APP_BOOT_BLOCK_BYTE_SIZE);
     if(APP_BOOT_u8CheckSumCalculated == APP_BOOT_u8CheckSumReceived)
     {
-//      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO14, UC_DIO_OUT_COMMAND_ON);
       ECU_MEM_CODE_eWriteBlocks(APP_BOOT_astrBlockMemory, APP_BOOT_u8BlockIndex); // Write page as array of blocks
-//      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO14, UC_DIO_OUT_COMMAND_OFF);
-      APP_BOOT_strPageMemoryTemplate.u32PageStartingAddress = APP_BOOT_u32StartAddress; // set page starting address of the temporary page
-//      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO12, UC_DIO_OUT_COMMAND_ON);      
+      APP_BOOT_strPageMemoryTemplate.u32PageStartingAddress = APP_BOOT_u32StartAddress; // set page starting address of the temporary page  
       ECU_MEM_CODE_eReadPage(&APP_BOOT_strPageMemoryTemplate); // Read page as a whole
-//      UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO12, UC_DIO_OUT_COMMAND_OFF);      
       APP_BOOT_u8CheckSumOfPageWritten = local_APP_BOOT_u8PageCheckSumCalculate(&APP_BOOT_strPageMemoryTemplate); // Calculate checksum of written page
       if(APP_BOOT_u8CheckSumOfPageWritten == APP_BOOT_u8CheckSumCalculated)
       {
@@ -379,6 +431,71 @@ void local_APP_BOOT_vdSwDownload(void)
     APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
     break;
   }
+}
+
+void local_APP_BOOT_vdReceiveHeaderSrecLine(void)
+{
+  STATUS_t eStatus = STATUS_BUSY;
+  static uint32_t su32SREC_S0 = 0;
+  static uint8_t su8S0_Count = 0;
+  float fltRecData = 0.0;
+  switch(su8S0_Count)
+  {
+  case 0:
+    su32SREC_S0 = APP_BOOT_au8Data[0] << 24;
+    su32SREC_S0 |= APP_BOOT_au8Data[1] << 16;
+    su32SREC_S0 |= APP_BOOT_au8Data[2] << 8;
+    su32SREC_S0 |= APP_BOOT_au8Data[3];
+    eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_0,fltRecData, su32SREC_S0);
+    su32SREC_S0 = 0;
+    su32SREC_S0 = APP_BOOT_au8Data[4] << 24;
+    su32SREC_S0 |= APP_BOOT_au8Data[5] << 16;
+    su8S0_Count++;
+    local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, eStatus);
+    break;
+  case 1:
+    su32SREC_S0 |= APP_BOOT_au8Data[0] << 8;
+    su32SREC_S0 |= APP_BOOT_au8Data[1];
+    eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_1,fltRecData, su32SREC_S0);
+    su32SREC_S0 = 0;
+    fltRecData = 0.0;
+    su32SREC_S0 = APP_BOOT_au8Data[2] << 24;
+    su32SREC_S0 |= APP_BOOT_au8Data[3] << 16;
+    su32SREC_S0 |= APP_BOOT_au8Data[4] << 8;
+    su32SREC_S0 |= APP_BOOT_au8Data[5];
+    eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_2,fltRecData, su32SREC_S0);
+    su8S0_Count++;
+    local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, eStatus);
+    break;
+  case 2:
+    su32SREC_S0 = 0;
+    fltRecData = 0.0;
+    su32SREC_S0 = APP_BOOT_au8Data[0] << 24;
+    su32SREC_S0 |= APP_BOOT_au8Data[1] << 16;
+    su32SREC_S0 |= APP_BOOT_au8Data[2] << 8;
+    su32SREC_S0 |= APP_BOOT_au8Data[3];
+    eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_3,fltRecData, su32SREC_S0);
+    local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, eStatus);
+    APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_START_SREC_RECEIVE_PRE_INIT;  
+    break;
+  default:
+    break;
+  }
+}
+
+void local_APP_BOOT_vdReceiveLastSrecLine(void)
+{
+  STATUS_t eStatus = STATUS_BUSY;
+  float fltRecData;
+  uint32_t u32StartingAddress = 0;
+  u32StartingAddress = APP_BOOT_au8Data[0] << 24;
+  u32StartingAddress |= APP_BOOT_au8Data[1] << 16;
+  u32StartingAddress |= APP_BOOT_au8Data[2] << 8;
+  u32StartingAddress |= APP_BOOT_au8Data[3];
+  fltRecData = (float)u32StartingAddress;
+  eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_START_ADDRESS, fltRecData, u32StartingAddress);
+  local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, eStatus);  
+  APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
 }
 
 void local_APP_BOOT_vdEndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus)
