@@ -585,6 +585,7 @@ uint8_t local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_strBlockMemory_t*
       u8CheckSum = u8CheckSum + pBlockMemory[u8Counter].au8Byte[u8LoopCounter]; 
     }
   }
+  u8CheckSum = ~u8CheckSum;
   return u8CheckSum;
 }
 
@@ -599,6 +600,7 @@ uint8_t local_APP_BOOT_u8PageCheckSumCalculate(APP_BOOT_strPageMemory_t* pPageMe
     {
       u8PageCheckSum  = u8PageCheckSum  + pPageMemory->UC_FLASH_astrBlocksOfMemory[u8LoopCounter].au8Byte[u8Counter];      
     }
-  }  
+  }
+  u8PageCheckSum = ~u8PageCheckSum;
   return u8PageCheckSum ;
 }
