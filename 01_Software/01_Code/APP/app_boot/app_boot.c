@@ -225,7 +225,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
 void local_APP_BOOT_vdSwUpload(void)
 {
   uint32_t u32AddressReceived;
-  uint32_t u32StartAddressSREC;
+  uint32_t u32StartAddressSREC = 0;
   uint8_t au8Response[4] = {0};
   uint32_t u32ApplicationStartAddress = (uint32_t)APP_BOOT_APPLICATION_START_ADDRESS;
   if(APP_BOOT_au8Data[0] == 0x1) //Response with confirmation plus start address
@@ -332,7 +332,6 @@ void local_APP_BOOT_vdSwDownload(void)
   uint8_t u8Counter;
   STATUS_t eStatus = STATUS_BUSY;
   static uint8_t su8PageReceived = 0;
-  //uint8_t u8Debug;
   switch(APP_BOOT_eDownloadStatus)
   {
   case APP_BOOT_DL_ST_HEADER_RECEIVE_PRE_INIT: // This state receives the header srec line
@@ -445,8 +444,10 @@ void local_APP_BOOT_vdReceiveHeaderSrecLine(void)
     su32SREC_S0 |= APP_BOOT_au8Data[1] << 16;
     su32SREC_S0 |= APP_BOOT_au8Data[2] << 8;
     su32SREC_S0 |= APP_BOOT_au8Data[3];
+    fltRecData = (float)(su32SREC_S0);
     eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_0,fltRecData, su32SREC_S0);
     su32SREC_S0 = 0;
+    fltRecData = 0;
     su32SREC_S0 = APP_BOOT_au8Data[4] << 24;
     su32SREC_S0 |= APP_BOOT_au8Data[5] << 16;
     su8S0_Count++;
@@ -455,6 +456,7 @@ void local_APP_BOOT_vdReceiveHeaderSrecLine(void)
   case 1:
     su32SREC_S0 |= APP_BOOT_au8Data[0] << 8;
     su32SREC_S0 |= APP_BOOT_au8Data[1];
+    fltRecData = (float)(su32SREC_S0);
     eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_1,fltRecData, su32SREC_S0);
     su32SREC_S0 = 0;
     fltRecData = 0.0;
@@ -462,6 +464,7 @@ void local_APP_BOOT_vdReceiveHeaderSrecLine(void)
     su32SREC_S0 |= APP_BOOT_au8Data[3] << 16;
     su32SREC_S0 |= APP_BOOT_au8Data[4] << 8;
     su32SREC_S0 |= APP_BOOT_au8Data[5];
+    fltRecData = (float)(su32SREC_S0);
     eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_2,fltRecData, su32SREC_S0);
     su8S0_Count++;
     local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, eStatus);
@@ -473,6 +476,7 @@ void local_APP_BOOT_vdReceiveHeaderSrecLine(void)
     su32SREC_S0 |= APP_BOOT_au8Data[1] << 16;
     su32SREC_S0 |= APP_BOOT_au8Data[2] << 8;
     su32SREC_S0 |= APP_BOOT_au8Data[3];
+    fltRecData = (float)(su32SREC_S0);
     eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_HEADER_SREC_3,fltRecData, su32SREC_S0);
     local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, eStatus);
     APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_START_SREC_RECEIVE_PRE_INIT;  
@@ -491,7 +495,7 @@ void local_APP_BOOT_vdReceiveLastSrecLine(void)
   u32StartingAddress |= APP_BOOT_au8Data[1] << 16;
   u32StartingAddress |= APP_BOOT_au8Data[2] << 8;
   u32StartingAddress |= APP_BOOT_au8Data[3];
-  fltRecData = (float)u32StartingAddress;
+  fltRecData = (float)(u32StartingAddress);
   eStatus = ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_START_ADDRESS, fltRecData, u32StartingAddress);
   local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, eStatus);  
   APP_BOOT_eDownloadStatus = APP_BOOT_DL_ST_INIT;
