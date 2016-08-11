@@ -106,7 +106,6 @@ void APP_BOOT_vdInit(void)
   {
     ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_START_ADDRESS);    
   }
-
   ECU_DIAG_vdRegisterAppBootCallback(local_APP_BOOT_vdFlashApplicationSoftware);
 }
 

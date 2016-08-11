@@ -223,23 +223,23 @@ void local_APP_DIAG_vdMemory_Write(void)
 void local_APP_DIAG_vdMemory_Read(void)
 {
   STATUS_t eStatus = STATUS_NOK;
-  float fltData;
   uint32_t u32Data;
   uint8_t APP_DIAG_au8TrialReceivedData[4] = {0, 0, 0, 0};
   if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
   {
-    eStatus = ECU_MEM_INT_eReadSignalValue(APP_DIAG_u8RequestId, &fltData);
+    eStatus = ECU_MEM_INT_eReadRawSignalValue(APP_DIAG_u8RequestId, &u32Data);
   }
   else // External EEPROM
   {
 #ifdef ECU_MEM_EXT_MODULE_ENABLE
+  float fltData = 0.0;    
   eStatus = ECU_MEM_EXT_eReadSignalValue(APP_DIAG_u8RequestId, &fltData);    
+  u32Data =(uint32_t) (fltData * 100);
 #else
   eStatus = STATUS_NOK;
 #endif /*ECU_MEM_EXT_MODULE_ENABLE*/
   
   }
-  u32Data =(uint32_t) (fltData * 100);
   APP_DIAG_au8TrialReceivedData[0] = (u32Data >> 24);
   APP_DIAG_au8TrialReceivedData[1] = (u32Data >> 16);
   APP_DIAG_au8TrialReceivedData[2] = (u32Data >> 8);

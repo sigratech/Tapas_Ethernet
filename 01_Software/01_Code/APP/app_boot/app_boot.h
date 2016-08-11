@@ -34,8 +34,6 @@ E-mail: shany@sigratech.de
 #define SID_TRANSFER_DATA                                       (0x36)
 #define SID_REQUEST_TRANSFER_EXIT                               (0x37)
 
-
-
 typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
 typedef ECU_MEM_CODE_strPageMemory_t APP_BOOT_strPageMemory_t;
 
