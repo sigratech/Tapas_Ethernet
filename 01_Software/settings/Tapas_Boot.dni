@@ -18,7 +18,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
-Checksum=-880177387
+Checksum=1649588139
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -28,8 +28,8 @@ ShowArgs=0
 MixedMode=1
 [JLinkDriver]
 WatchCond=_ 0
-Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
-Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch0=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
+Watch1=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
 CStepIntDis=_ 0
 [struct_types]
 Fmt0=APP_BOOT_strPageMemory_t-u32PageStartingAddress	4	0
@@ -45,6 +45,7 @@ Fmt8=UC_FLASH_strBlockMemory_t-u32LineNumber	3	0
 Fmt0=uint32_t[31]	4	0
 Fmt1=uint32_t[4]	4	0
 Fmt2=uint32_t[8]	4	0
+Fmt3=uint8_t[8]	4	0
 [watch_formats]
 Fmt0={W}1:APP_BOOT_u32ApplicationEndAddress	4	0
 Fmt1={W}1:APP_BOOT_u32ApplicationStartAddress	4	0
@@ -81,6 +82,11 @@ Fmt31={W}1:u8Count	3	0
 Fmt32={W}1:u8Debug	3	0
 Fmt33={W}1:u8LoopCounter	3	0
 Fmt34={W}1:u8PagesNumber	3	0
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.98.11" 0 0 1 "" 0 "" 0
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -88,15 +94,6 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[CallStackLog]
-Enabled=0
-[CallStackStripe]
-ShowTiming=1
-[Disassemble mode]
-mode=0
-[Breakpoints2]
-Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\serial\ecu_serial.c}.321.1" 0 0 1 "" 0 "" 0
-Count=1
 [Aliases]
 A0=_ "../Source/Async.c" ""
 A1=_ "../Source/FlashStateMachine.EnableEepromSectors.c" ""
@@ -109,3 +106,7 @@ A7=_ "../Source/Read.WdService.c" ""
 A8=_ "../Source/Utilities.CalculateFletcher.c" ""
 Count=9
 SuppressDialog=1
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
