@@ -90,7 +90,6 @@ void local_APP_DIAG_vdServeDiagRequest(void)
         if((eEcuMode == ECU_SYS_NORMAL) && (APP_DIAG_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_DIAG_u8DeviceId == (uint8_t)ECU_SYS_DIAG))
         {
           ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);
-          ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);
           /* Send Positive Response */
           local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
         }
@@ -110,7 +109,6 @@ void local_APP_DIAG_vdServeDiagRequest(void)
         }
         else
         {
-          ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);
           /* Send Negative Response */
           local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
         }
@@ -126,28 +124,22 @@ void local_APP_DIAG_vdMainStateMachine(void)
 	{
 		case SID_IO_CONTROL_BY_IDENTIFIER:
 			local_APP_DIAG_vdIO_Control_Identifier();
-      ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);
 			break;
 		case SID_READ_DATA_BY_IDENTIFIER:
 			local_APP_DIAG_vdRead_Identifier();
-      ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);
 			break;
 		case SID_WRITE_MEMORY_BY_ADDRESS:
       local_APP_DIAG_vdMemory_Write();
-      ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);      
 			break;
 		case SID_READ_MEMORY_BY_ADDRESS:
       local_APP_DIAG_vdMemory_Read();
-      ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);      
 			break;
 		case SID_ECU_RESET:
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
       LIB_DELAY_vdNanoSeconds(500000);
-      ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);
       ECU_SYS_vdShutdownAndReset();
 			break;
-		default :
-      ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);      
+		default :  
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
 	}
 }
@@ -193,6 +185,7 @@ void local_APP_DIAG_vdFillEchoArray(uint8_t *pau8EchoArray)
 void local_APP_DIAG_EndService(STATUS_t eStatus, uint8_t *pau8Data)
 {
 	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
+  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
 	ECU_DIAG_vdServiceDone(eStatus, pau8Data);
 }
 
