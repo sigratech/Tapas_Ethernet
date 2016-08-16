@@ -131,6 +131,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
 	ECU_SYS_eEcuMode_t eEcuMode;
   eEcuMode = ECU_SYS_eGetEcuMode(); 
   STATUS_t eStatus = STATUS_NOK;
+  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY);
   
   if(eEcuMode == ECU_SYS_BOOT)
   {   
@@ -161,6 +162,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
           switch(APP_BOOT_u8ServiceId)      
             {
             case SID_REQUEST_DOWNLOAD:
+              ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY); // set app status to busy to prevent receiving frames from other connection
               APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_DOWNLOAD;
               break;
             case SID_REQUEST_UPLOAD:
@@ -170,6 +172,12 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
               APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
               break;
             case SID_REQUEST_TRANSFER_EXIT:
+              if(APP_BOOT_eStatus == APP_BOOT_ST_REQUEST_UPLOAD) // check if uploading finishes to restart 
+              {
+                APP_BOOT_eStatus = APP_BOOT_ST_APP_RUN;
+                break;
+              }
+              // downloading is still in progress .. receiving of jump-ready signal is done here
               APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
               break;
             default:
@@ -207,6 +215,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
               local_APP_BOOT_vdSwUpload();
               break;
             case APP_BOOT_ST_APP_RUN:
+              ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE); // reset app status to allow receiving data from other connection
               ECU_SYS_vdShutdownAndReset(); // Save EEPROM and reset
               break;
             case APP_BOOT_ST_ERROR:
@@ -228,6 +237,8 @@ void local_APP_BOOT_vdSwUpload(void)
   uint32_t u32StartAddressSREC = 0;
   uint8_t au8Response[4] = {0};
   uint32_t u32ApplicationStartAddress = (uint32_t)APP_BOOT_APPLICATION_START_ADDRESS;
+  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY); // set app status to busy to prevent intervention from other connection
+  
   if(APP_BOOT_au8Data[0] == 0x1) //Response with confirmation plus start address
   {
     au8Response[3] = (uint8_t)(u32ApplicationStartAddress); //MSB
@@ -248,7 +259,7 @@ void local_APP_BOOT_vdSwUpload(void)
   }
   else if(APP_BOOT_au8Data[0] == 0x3) //Response with confirmation plus S0 srec record
   {
-    static uint8_t su8Count;
+    static uint8_t su8Count = 0;
     uint32_t u32Temp = 0;
     uint8_t u8SignalNum;
     switch(su8Count)
@@ -287,6 +298,7 @@ void local_APP_BOOT_vdSwUpload(void)
     au8Response[1] = (uint8_t)(u32StartAddressSREC >> 16);
     au8Response[0] = (uint8_t)(u32StartAddressSREC >> 24);
     local_APP_BOOT_vdEndService(STATUS_OK, au8Response);    
+    ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);
     return;
   }  
   else if(APP_BOOT_au8Data[0] == 0) // Start uploading current application
@@ -332,6 +344,7 @@ void local_APP_BOOT_vdSwDownload(void)
   uint8_t u8Counter;
   STATUS_t eStatus = STATUS_BUSY;
   static uint8_t su8PageReceived = 0;
+  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY); // set app status to busy to prevent intervention from other connection  
   switch(APP_BOOT_eDownloadStatus)
   {
   case APP_BOOT_DL_ST_HEADER_RECEIVE_PRE_INIT: // This state receives the header srec line
