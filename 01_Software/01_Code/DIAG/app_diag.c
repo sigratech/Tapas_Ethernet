@@ -58,7 +58,7 @@ void local_APP_DIAG_vdNegativeResponse(uint8_t u8RequestedService, APP_DIAG_NRC_
 void local_APP_DIAG_vdBootHeartBeat(void);
 void local_APP_DIAG_vdSingleFramePositiveResponse(uint8_t u8ResponseSID, uint8_t u8SubFunction, uint8_t* pu8Data, uint8_t u8DataSize);
 void local_APP_DIAG_vdSingleFrameNegativeResponse(uint8_t u8RequestedService, APP_DIAG_NRC_t eNRCCode);
-
+void local_APP_DIAG_vdECU_Reset(void);
 
 void APP_DIAG_vdInit(void)
 {
@@ -130,97 +130,6 @@ void local_APP_DIAG_vdServeDiagRequest(ECU_SYS_eEcuMode_t ECU_Session)
 
 void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode)
 {
-	switch(APP_DIAG_u8ServiceId) 
-	{
-#ifdef APP_DIAG_BOOT_SERVICE_ENABLE
-    case SID_SECURITY_ACCESS:
-    
-      break;
-    case SID_COMMUNICATION_CONTROL:
-      
-      break;
-    case SID_ACCESS_TIMING_PARAMETER:
-      
-      break;
-    case SID_SECURED_DATA_TRANSMISSION:
-      
-      break;
-    case SID_CONTROL_DTC_SETTING:
-      
-      break;
-    case SID_LINK_CONTROL:
-      
-      break;
-    case SID_READ_DATA_BY_PERIODIC_IDENTIFIER:
-      
-      break;
-    case SID_INPUT_OUTPUT_CONTROL_BY_IDENTIFER:
-      local_APP_DIAG_vdIO_Control_Identifier();
-      break;
-    case SID_REQUEST_DOWNLOAD:
-      
-      break;
-    case SID_REQUEST_UPLOAD:
-      
-      break;
-    case SID_TRANSFER_DATA:
-      
-      break;
-    case SID_REQUEST_TRANSFER_EXIT:
-      
-      break;
-    case SID_REQUEST_FILE_TRANSFER:
-      
-      break;      
-#endif /*APP_DIAG_BOOT_SERVICE_ENABLE*/
-    case SID_DIAG_SESSION_CONTROL:
-      local_APP_DIAG_vdDiag_Session_Control(eEcuMode);
-      break;
-		case SID_ECU_RESET:
-      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
-      LIB_DELAY_vdNanoSeconds(500000);
-      ECU_SYS_vdShutdownAndReset();
-			break;    
-    case SID_TESTER_PRESENT:
-      
-      break;
-    case SID_RESPONSE_ON_EVENT:
-      
-      break;
-    case SID_READ_DATA_BY_IDENTIFIER:
-			local_APP_DIAG_vdRead_Identifier();      
-      break;
-    case SID_READ_MEMORY_BY_ADDRESS:
-      local_APP_DIAG_vdMemory_Read();      
-      break;
-    case SID_READ_SCALING_DATA_BY_IDENTIFIER:
-      
-      break;
-    case SID_DYNAMICALLY_DEFINE_DATA_IDENTIFIER:
-      
-      break;
-    case SID_WRITE_DATA_BY_IDENTIFIER:
-      
-      break;
-    case SID_WRITE_MEMORY_BY_ADDRESS:
-      local_APP_DIAG_vdMemory_Write();      
-      break;
-    case SID_CLEAR_DIAGNOSTIC_INFORMATION:
-      
-      break;
-    case SID_READ_DTC_INFORMATION:
-      
-      break;
-    case SID_ROUTINE_CONTROL:
-      
-      break;
-		default :  
-      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
-	}
-}
-
-void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
-{
   uint8_t u8Count;
   uint8_t u8DataCount = 0;
   /*Check if sub-function byte is null*/
@@ -240,15 +149,107 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
       }
     }    
   }
+  if(APP_DIAG_u8DataCount != u8DataCount) // check if length of message receieved is wrong
+  {
+    local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_IncorrectMessageLengthOrInvalidFormat);
+  }
+  else
+  {
+    switch(APP_DIAG_u8ServiceId) 
+    {
+  #ifdef APP_DIAG_BOOT_SERVICE_ENABLE
+      case SID_SECURITY_ACCESS:
+      
+        break;
+      case SID_COMMUNICATION_CONTROL:
+        
+        break;
+      case SID_ACCESS_TIMING_PARAMETER:
+        
+        break;
+      case SID_SECURED_DATA_TRANSMISSION:
+        
+        break;
+      case SID_CONTROL_DTC_SETTING:
+        
+        break;
+      case SID_LINK_CONTROL:
+        
+        break;
+      case SID_READ_DATA_BY_PERIODIC_IDENTIFIER:
+        
+        break;
+      case SID_INPUT_OUTPUT_CONTROL_BY_IDENTIFER:
+        local_APP_DIAG_vdIO_Control_Identifier();
+        break;
+      case SID_REQUEST_DOWNLOAD:
+        
+        break;
+      case SID_REQUEST_UPLOAD:
+        
+        break;
+      case SID_TRANSFER_DATA:
+        
+        break;
+      case SID_REQUEST_TRANSFER_EXIT:
+        
+        break;
+      case SID_REQUEST_FILE_TRANSFER:
+        
+        break;      
+  #endif /*APP_DIAG_BOOT_SERVICE_ENABLE*/
+      case SID_DIAG_SESSION_CONTROL:
+        local_APP_DIAG_vdDiag_Session_Control(eEcuMode); // Conditions not correct NRC is not fully implemented
+        break;
+      case SID_ECU_RESET:
+        local_APP_DIAG_vdECU_Reset(); // Conditions not correct and security access denied are not implemented
+        break;    
+      case SID_TESTER_PRESENT:
+        
+        break;
+      case SID_RESPONSE_ON_EVENT:
+        
+        break;
+      case SID_READ_DATA_BY_IDENTIFIER:
+        local_APP_DIAG_vdRead_Identifier();      
+        break;
+      case SID_READ_MEMORY_BY_ADDRESS:
+        local_APP_DIAG_vdMemory_Read();      
+        break;
+      case SID_READ_SCALING_DATA_BY_IDENTIFIER:
+        
+        break;
+      case SID_DYNAMICALLY_DEFINE_DATA_IDENTIFIER:
+        
+        break;
+      case SID_WRITE_DATA_BY_IDENTIFIER:
+        
+        break;
+      case SID_WRITE_MEMORY_BY_ADDRESS:
+        local_APP_DIAG_vdMemory_Write();      
+        break;
+      case SID_CLEAR_DIAGNOSTIC_INFORMATION:
+        
+        break;
+      case SID_READ_DTC_INFORMATION:
+        
+        break;
+      case SID_ROUTINE_CONTROL:
+        
+        break;
+      default :  
+        local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
+    }    
+  }
+}
+
+void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
+{
   /*Negative error codes checks*/
   if(APP_DIAG_u8SubFunction == 0 || APP_DIAG_u8SubFunction > 0x3) // sub-function is not supported
   {
-    local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_SubFunctionNotSupported);
+    local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_SubFunctionNotSupported);
   }      
-  else if(APP_DIAG_u8DataCount != u8DataCount) // length of message is wrong
-  {
-    local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_IncorrectMessageLengthOrInvalidFormat);
-  }
   else
   {
     switch(eEcuMode )
@@ -262,7 +263,7 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[1] = 0x50;    // P2server is 50 ms - resolution is 1 ms
           APP_DIAG_au8ResposneData[2] = 0x05;    // P2*server is 5000 ms - resolution is 10 ms
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
-          local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
+          local_APP_DIAG_vdSingleFramePositiveResponse(APP_DIAG_u8ServiceId,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }
         /*check for timing constraint error*/
         if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
@@ -282,10 +283,14 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[1] = 0x50;    // P2server is 50 ms - resolution is 1 ms
           APP_DIAG_au8ResposneData[2] = 0x05;    // P2*server is 5000 ms - resolution is 10 ms
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
-          local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
+          local_APP_DIAG_vdSingleFramePositiveResponse(APP_DIAG_u8ServiceId,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }
-          
         ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_APP_VALID, TAPAS_FALSE, TAPAS_FALSE);
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        }        
         ECU_SYS_vdShutdownAndReset();
       }
       else
@@ -296,9 +301,13 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[1] = 0x50;    // P2server is 50 ms - resolution is 1 ms
           APP_DIAG_au8ResposneData[2] = 0x05;    // P2*server is 5000 ms - resolution is 10 ms
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
-          local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
+          local_APP_DIAG_vdSingleFramePositiveResponse(APP_DIAG_u8ServiceId,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }
-         
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        }
         /*set to diag mode*/
         ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);
       }
@@ -313,7 +322,12 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[1] = 0x50;    // P2server is 50 ms - resolution is 1 ms
           APP_DIAG_au8ResposneData[2] = 0x05;    // P2*server is 5000 ms - resolution is 10 ms
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
-          local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
+          local_APP_DIAG_vdSingleFramePositiveResponse(APP_DIAG_u8ServiceId,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
+        }
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
         }
         ECU_SYS_vdShutdownAndReset();      
       }
@@ -327,8 +341,13 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[1] = 0x50;    // P2server is 50 ms - resolution is 1 ms
           APP_DIAG_au8ResposneData[2] = 0x05;    // P2*server is 5000 ms - resolution is 10 ms
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
-          local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
+          local_APP_DIAG_vdSingleFramePositiveResponse(APP_DIAG_u8ServiceId,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }      
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        }
         ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);
       }
       else
@@ -343,9 +362,13 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[1] = 0x50;    // P2server is 50 ms - resolution is 1 ms
           APP_DIAG_au8ResposneData[2] = 0x05;    // P2*server is 5000 ms - resolution is 10 ms
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
-          local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
+          local_APP_DIAG_vdSingleFramePositiveResponse(APP_DIAG_u8ServiceId,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }
-         
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        } 
         ECU_SYS_vdShutdownAndReset();      
       }
       
@@ -364,7 +387,11 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
           local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }
-            
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        }    
         ECU_SYS_vdShutdownAndReset();
       }
       else if(APP_DIAG_u8SubFunction == ECU_SYS_NORMAL)
@@ -378,8 +405,17 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
           local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }
-
         ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_APP_VALID, TAPAS_TRUE, TAPAS_TRUE);
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        }
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        }
         ECU_SYS_vdShutdownAndReset();      
       }
       else
@@ -392,7 +428,11 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
           APP_DIAG_au8ResposneData[3] = 0;       // P2*server is 5000 ms - resolution is 10 ms
           local_APP_DIAG_vdSingleFramePositiveResponse(0x50,APP_DIAG_u8SubFunction,APP_DIAG_au8ResposneData,4);                    
         }
-
+        /*check for timing constraint error*/
+        if(ECU_DIAG_u8CheckTimerOverflowFlag() == TAPAS_TRUE)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(SID_DIAG_SESSION_CONTROL,APP_DIAG_ConditionsNotCorrect);          
+        }
         ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);      
       }
       break;
@@ -403,13 +443,27 @@ void local_APP_DIAG_vdDiag_Session_Control(ECU_SYS_eEcuMode_t eEcuMode)
 
 }
 
+void local_APP_DIAG_vdECU_Reset(void)
+{
+  if(APP_DIAG_u8SubFunction != 0x02)
+  {
+    local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_SubFunctionNotSupported);    
+  }
+  else
+  {
+    local_APP_DIAG_vdSingleFramePositiveResponse(APP_DIAG_u8ServiceId,APP_DIAG_u8SubFunction,APP_DIAG_au8DataNotUsed,0);
+//    LIB_DELAY_vdNanoSeconds(500000);
+    ECU_SYS_vdShutdownAndReset();    
+  }
+}
+
 void local_APP_DIAG_vdSingleFramePositiveResponse(uint8_t u8ResponseSID, uint8_t u8SubFunction, uint8_t* pu8Data, uint8_t u8DataSize)
 {
   STATUS_t eStatus = STATUS_OK;
   uint8_t u8Count;
   uint8_t u8PR_Data[8] = {0};
   u8PR_Data[0] = u8DataSize + 2;
-  u8PR_Data[1] = u8ResponseSID;
+  u8PR_Data[1] = u8ResponseSID + 0x40;
   u8PR_Data[2] = u8SubFunction;
   for(u8Count = 0; u8Count < ECU_DIAG_FRAME_DATA_BYTES; u8Count++)
   {
