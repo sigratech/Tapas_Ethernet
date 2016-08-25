@@ -106,7 +106,7 @@ void APP_BOOT_vdInit(void)
   {
     ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_START_ADDRESS);    
   }
-  ECU_DIAG_vdRegisterAppBootCallback(local_APP_BOOT_vdFlashApplicationSoftware);
+//  ECU_DIAG_vdRegisterAppBootCallback(local_APP_BOOT_vdFlashApplicationSoftware);
 }
 
 void APP_BOOT_vdDeInit(void)
@@ -116,14 +116,14 @@ void APP_BOOT_vdDeInit(void)
 
 void APP_BOOT_vdMgr(void)
 {
-	ECU_SYS_eEcuMode_t eEcuMode;
-  eEcuMode = ECU_SYS_eGetEcuMode();
-  
-  if(eEcuMode == ECU_SYS_BOOT)
-  {
-    /*Heart Beat*/
-    local_APP_BOOT_vdBootHeartBeat();
-  }
+//	ECU_SYS_eEcuMode_t eEcuMode;
+//  eEcuMode = ECU_SYS_eGetEcuMode();
+//  
+//  if(eEcuMode == ECU_SYS_BOOT)
+//  {
+//    /*Heart Beat*/
+//    local_APP_BOOT_vdBootHeartBeat();
+//  }
 }
 
 void local_APP_BOOT_vdFlashApplicationSoftware(void)
@@ -135,7 +135,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
   
   if(eEcuMode == ECU_SYS_BOOT)
   {   
-    eStatus = ECU_DIAG_u8GetDiagFrame(&APP_BOOT_u8ServiceId, APP_BOOT_au8Data, APP_BOOT_u8DataSize);
+//    eStatus = ECU_DIAG_u8GetDiagFrame(&APP_BOOT_u8ServiceId, APP_BOOT_au8Data, APP_BOOT_u8DataSize);
     UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO10, UC_DIO_OUT_COMMAND_ON);      
     
     if((APP_BOOT_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_BOOT_au8Data[0] == (uint8_t)ECU_SYS_NORMAL))

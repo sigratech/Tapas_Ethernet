@@ -18,7 +18,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
-Checksum=305775665
+Checksum=-186817939
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -33,14 +33,11 @@ Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
 [struct_types]
 Fmt0=APP_BOOT_strPageMemory_t-u32PageStartingAddress	4	0
-Fmt1=ECU_DIAG_strPacket_t-u32DeviceID	4	0
-Fmt2=ECU_DIAG_strPacket_t-u32RequestID	4	0
-Fmt3=ECU_DIAG_strPacket_t-u32ServiceID	4	0
-Fmt4=ECU_MEM_CODE_strPageMemory_t-u32PageStartingAddress	4	0
-Fmt5=ECU_MEM_INT_strE2pSignalData_t-u32RawValue	4	0
-Fmt6=ECU_MEM_strBlockMemory_t-u32Address	4	0
-Fmt7=UC_FLASH_strBlockMemory_t-u32Address	4	0
-Fmt8=UC_FLASH_strBlockMemory_t-u32LineNumber	3	0
+Fmt1=ECU_MEM_CODE_strPageMemory_t-u32PageStartingAddress	4	0
+Fmt2=ECU_MEM_INT_strE2pSignalData_t-u32RawValue	4	0
+Fmt3=ECU_MEM_strBlockMemory_t-u32Address	4	0
+Fmt4=UC_FLASH_strBlockMemory_t-u32Address	4	0
+Fmt5=UC_FLASH_strBlockMemory_t-u32LineNumber	3	0
 [array_types]
 Fmt0=uint32_t[31]	4	0
 Fmt1=uint32_t[4]	4	0
@@ -96,7 +93,9 @@ ShowTiming=1
 [Disassemble mode]
 mode=0
 [Breakpoints2]
-Count=0
+Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.408.12" 0 0 1 "" 0 "" 0
+Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.65.3" 0 0 1 "" 0 "" 0
+Count=2
 [Aliases]
 A0=_ "../Source/Async.c" ""
 A1=_ "../Source/FlashStateMachine.EnableEepromSectors.c" ""
