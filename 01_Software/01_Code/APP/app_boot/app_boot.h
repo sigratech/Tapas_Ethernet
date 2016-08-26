@@ -29,10 +29,14 @@ E-mail: shany@sigratech.de
 #include "ecu.h"
 
 #define SID_DIAG_SESSION_CONTROL                                (0x10)
+#define UPLOAD_EE2PROM                                          (0x11)
+#define DOWNLOAD_EE2PROM                                        (0x12)
 #define SID_REQUEST_DOWNLOAD                                    (0x34)
 #define SID_REQUEST_UPLOAD                                      (0x35)
 #define SID_TRANSFER_DATA                                       (0x36)
 #define SID_REQUEST_TRANSFER_EXIT                               (0x37)
+
+#define EEPROM_STARTING_ADDRESS                                 (0xF0200000)
 
 typedef ECU_MEM_strBlockMemory_t APP_BOOT_strBlockMemory_t;
 typedef ECU_MEM_CODE_strPageMemory_t APP_BOOT_strPageMemory_t;
@@ -45,6 +49,7 @@ typedef enum APP_BOOT_eStatusTemplate
   APP_BOOT_ST_REQUEST_UPLOAD = 3,
   APP_BOOT_ST_APP_RUN = 4,
   APP_BOOT_ST_ERROR = 5,
+  APP_BOOT_RESET_REQUEST = 6,
 } APP_BOOT_eStatus_t;
 
 

@@ -57,8 +57,12 @@ uint8_t APP_BOOT_au8ReceivedDataEcho[4] = {0}; // Array which has the data to be
 APP_BOOT_strPageMemory_t APP_BOOT_strPageMemoryTemplate = {0, APP_BOOT_BLOCKS_PER_PAGE, 0, {0}}; // Temporary page to read data every time and making checksum calculation
 uint8_t APP_BOOT_au8ResposneData[4] = {0,0,0,0};
 ECU_MEM_strBlockMemory_t APP_BOOT_strBlockTemp = {0,16,{0},0,0}; // initialize temporary block with 16 data bytes as default bytes per block
-
-
+uint8_t APP_BOOT_u8BlockData[16] = {0};
+uint32_t APP_BOOT_u32UploadEEPROMAddress = EEPROM_STARTING_ADDRESS;
+uint32_t APP_BOOT_u32DownloadEEPROMAddress = EEPROM_STARTING_ADDRESS;
+uint8_t APP_BOOT_u8FirstRead = 1;
+uint8_t APP_BOOT_u8FirstWrite = 1;
+uint8_t APP_BOOT_u8DataRec[16] = {0};
 //debugging
 uint8_t u8flag = 0;
 /********************************************************************************************/
@@ -86,6 +90,8 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void);
 void local_APP_BOOT_vdSwUpload(void);
 void local_APP_BOOT_vdReceiveHeaderSrecLine(void);
 void local_APP_BOOT_vdReceiveLastSrecLine(void);
+void local_APP_BOOT_vdUploadEEPROM(void);
+void local_APP_BOOT_vdDownloadEEPROM(void);
 
 /********************************************************************************************/
 /**************************** GLOBAL FUNCTIONS IMPLEMENTATION *******************************/
@@ -166,22 +172,34 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
               APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_DOWNLOAD;
               break;
             case SID_REQUEST_UPLOAD:
+              ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY); // set app status to busy to prevent receiving frames from other connection              
               APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_UPLOAD;
               break;
             case SID_TRANSFER_DATA:
               APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
               break;
             case SID_REQUEST_TRANSFER_EXIT:
-              if(APP_BOOT_eStatus == APP_BOOT_ST_REQUEST_UPLOAD) // check if uploading finishes to restart 
+              if(APP_BOOT_eStatus == APP_BOOT_ST_REQUEST_UPLOAD || APP_BOOT_eStatus == APP_BOOT_RESET_REQUEST ) // check if uploading finishes to restart 
               {
+                local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_NOK);                              
                 APP_BOOT_eStatus = APP_BOOT_ST_APP_RUN;
                 break;
               }
               // downloading is still in progress .. receiving of jump-ready signal is done here
               APP_BOOT_eStatus = APP_BOOT_ST_DATA_TRANSFER;
               break;
+            case UPLOAD_EE2PROM:
+              ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY); // set app status to busy to prevent receiving frames from other connection              
+              local_APP_BOOT_vdUploadEEPROM();
+              APP_BOOT_eStatus = APP_BOOT_RESET_REQUEST;
+              break;
+            case DOWNLOAD_EE2PROM:
+              ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY); // set app status to busy to prevent receiving frames from other connection              
+              local_APP_BOOT_vdDownloadEEPROM();
+              APP_BOOT_eStatus = APP_BOOT_RESET_REQUEST;
+              break;
             default:
-              APP_BOOT_eStatus = APP_BOOT_ST_ERROR;
+              APP_BOOT_eStatus = APP_BOOT_ST_INIT;
               break;
             }
           
@@ -221,6 +239,8 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
             case APP_BOOT_ST_ERROR:
               local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_NOK);
               break;
+            case APP_BOOT_RESET_REQUEST:
+              break;
             default:
               APP_BOOT_eStatus = APP_BOOT_ST_INIT;
               break;
@@ -228,6 +248,63 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
         }
       }
     }
+  }
+}
+
+void local_APP_BOOT_vdDownloadEEPROM(void)
+{
+//  uint8_t u8Count;
+//  static uint8_t su8DownloadCount = 0;
+//  if(APP_BOOT_u8FirstWrite == 1)
+//  {
+//    ECU_MEM_INT_eEraseSector((ECU_MEM_INT_eAddressSector_t)0xF0200000);
+//    ECU_MEM_INT_eEraseSector((ECU_MEM_INT_eAddressSector_t)0xF0204000);
+//    ECU_MEM_INT_eEraseSector((ECU_MEM_INT_eAddressSector_t)0xF0208000);
+//    ECU_MEM_INT_eEraseSector((ECU_MEM_INT_eAddressSector_t)0xF020C000);
+//    APP_BOOT_u8FirstWrite = 0;
+//  }
+//  APP_BOOT_u8DataRec[su8DownloadCount] = APP_BOOT_au8Data[2];
+//  APP_BOOT_u8DataRec[su8DownloadCount + 1] = APP_BOOT_au8Data[3];
+//  APP_BOOT_u8DataRec[su8DownloadCount + 2] = APP_BOOT_au8Data[4];
+//  APP_BOOT_u8DataRec[su8DownloadCount + 3] = APP_BOOT_au8Data[5];
+//  su8DownloadCount = su8DownloadCount + 4;
+//  if(su8DownloadCount == 16)
+//  {
+//    ECU_MEM_INT_eWriteBlock(APP_BOOT_u32DownloadEEPROMAddress, APP_BOOT_u8DataRec);
+//    APP_BOOT_u32DownloadEEPROMAddress = APP_BOOT_u32DownloadEEPROMAddress + 16;
+//    su8DownloadCount = 0;
+//    for(u8Count = 0; u8Count < 16; u8Count++)
+//    {
+//      APP_BOOT_u8DataRec[u8Count] = 0;
+//    }
+//  }
+//  local_APP_BOOT_vdEndService(STATUS_OK, APP_BOOT_au8DataNotUsed);    
+}
+
+void local_APP_BOOT_vdUploadEEPROM(void)
+{
+  static uint8_t su8BytePos = 0;
+  uint8_t au8CANFrame[4] = {0};
+  if(APP_BOOT_u8FirstRead == 1)
+  {
+    APP_BOOT_u8FirstRead = 0;
+    ECU_MEM_INT_eReadBlock(APP_BOOT_u32UploadEEPROMAddress, APP_BOOT_u8BlockData);            
+  }
+  else if(su8BytePos == 0 && APP_BOOT_u8FirstRead == 0)
+  {
+    APP_BOOT_u32UploadEEPROMAddress = APP_BOOT_u32UploadEEPROMAddress + 16;
+    ECU_MEM_INT_eReadBlock(APP_BOOT_u32UploadEEPROMAddress, APP_BOOT_u8BlockData);        
+    APP_BOOT_u8FirstRead = 0; 
+  }
+  au8CANFrame[0] =  APP_BOOT_u8BlockData[su8BytePos + 0];
+  au8CANFrame[1] =  APP_BOOT_u8BlockData[su8BytePos + 1];
+  au8CANFrame[2] =  APP_BOOT_u8BlockData[su8BytePos + 2];
+  au8CANFrame[3] =  APP_BOOT_u8BlockData[su8BytePos + 3];  
+  local_APP_BOOT_vdEndService(STATUS_OK,au8CANFrame);
+  su8BytePos = su8BytePos + 4;
+  if(su8BytePos == 16)
+  {
+    su8BytePos = 0;
   }
 }
 
