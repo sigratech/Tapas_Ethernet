@@ -114,10 +114,7 @@
   ENTRY &progflash
 
   IF &progflash 
-  (	
-    ; Disable external watchdog
-	PER.SET.FIELD D:0xFFF7BC3C %Long 0x00000020 1
-	
+  (		
 	;FLASH.Erase 0x00008000--0x002FFFFF
 	;FLASH.Program 0x00008000--0x002FFFFF
 	FLASH.ReProgram 0x00008000--0x002FFFFF /Erase
