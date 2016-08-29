@@ -62,6 +62,7 @@ void APP_DIAG_vdMgr(void)
 	ECU_SYS_eEcuMode_t eEcuMode;
   eEcuMode = ECU_SYS_eGetEcuMode();
   
+//  local_APP_DIAG_vdHeartBeat();  
   if(eEcuMode == ECU_SYS_DIAG)
   {
     local_APP_DIAG_vdHeartBeat();

@@ -63,6 +63,7 @@ uint32_t APP_BOOT_u32DownloadEEPROMAddress = EEPROM_STARTING_ADDRESS;
 uint8_t APP_BOOT_u8FirstRead = 1;
 uint8_t APP_BOOT_u8FirstWrite = 1;
 uint8_t APP_BOOT_u8DataRec[16] = {0};
+uint8_t APP_BOOT_u8FlashingMode = 0;
 //debugging
 uint8_t u8flag = 0;
 /********************************************************************************************/
@@ -122,14 +123,15 @@ void APP_BOOT_vdDeInit(void)
 
 void APP_BOOT_vdMgr(void)
 {
-	ECU_SYS_eEcuMode_t eEcuMode;
-  eEcuMode = ECU_SYS_eGetEcuMode();
-  
-  if(eEcuMode == ECU_SYS_BOOT)
-  {
-    /*Heart Beat*/
-    local_APP_BOOT_vdBootHeartBeat();
-  }
+//	ECU_SYS_eEcuMode_t eEcuMode;
+//  eEcuMode = ECU_SYS_eGetEcuMode();
+
+  local_APP_BOOT_vdBootHeartBeat();  
+//  if(eEcuMode == ECU_SYS_BOOT)
+//  {
+//    /*Heart Beat*/
+//    local_APP_BOOT_vdBootHeartBeat();
+//  }
 }
 
 void local_APP_BOOT_vdFlashApplicationSoftware(void)
@@ -168,6 +170,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
           switch(APP_BOOT_u8ServiceId)      
             {
             case SID_REQUEST_DOWNLOAD:
+              APP_BOOT_u8FlashingMode = 1;
               ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY); // set app status to busy to prevent receiving frames from other connection
               APP_BOOT_eStatus = APP_BOOT_ST_REQUEST_DOWNLOAD;
               break;
@@ -618,30 +621,47 @@ void local_APP_BOOT_vdEndService(STATUS_t eStatus, uint8_t *pau8Data)
 
 void local_APP_BOOT_vdBootHeartBeat(void)
 {
-  static uint32_t su32HeartBeatCounter = 1;
+  static uint32_t su32NormalHeartBeatCounter = 1;
+  static uint32_t su32FlashHeartBeatCounter = 1;
   static uint8_t su8Counter = 0;
-    
-  if(((su32HeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_HALF_PERIOD_MS) && (su8Counter < (APP_BOOT_HEARTBEAT_FAST_COUNT*2)))
+  
+  if(APP_BOOT_u8FlashingMode == 0)
   {
-    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_BOOT_HB, ECU_IO_OUT_COMMAND_TOGGLE);
-    su32HeartBeatCounter = 1;
-    su8Counter++;
-  }
-  else if(su8Counter == (APP_BOOT_HEARTBEAT_FAST_COUNT*2))
-  {
-    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_BOOT_HB, ECU_IO_OUT_COMMAND_ON);
-    su8Counter = (APP_BOOT_HEARTBEAT_FAST_COUNT*2) + 1;
-    su32HeartBeatCounter++;
-  }
-  else if ((su32HeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_STATIC_PERIOD_MS)
-  {
-    su32HeartBeatCounter = 1;
-    su8Counter = 0;
+    if(((su32NormalHeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_HALF_PERIOD_MS) && (su8Counter < (APP_BOOT_HEARTBEAT_FAST_COUNT*2)))
+    {
+      ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_BOOT_HB, ECU_IO_OUT_COMMAND_TOGGLE);
+      su32NormalHeartBeatCounter = 1;
+      su8Counter++;
+    }
+    else if(su8Counter == (APP_BOOT_HEARTBEAT_FAST_COUNT*2))
+    {
+      ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_BOOT_HB, ECU_IO_OUT_COMMAND_ON);
+      su8Counter = (APP_BOOT_HEARTBEAT_FAST_COUNT*2) + 1;
+      su32NormalHeartBeatCounter++;
+    }
+    else if ((su32NormalHeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_STATIC_PERIOD_MS)
+    {
+      su32NormalHeartBeatCounter = 1;
+      su8Counter = 0;
+    }
+    else
+    {
+      su32NormalHeartBeatCounter++;
+    }    
   }
   else
   {
-    su32HeartBeatCounter++;
+    if((su32FlashHeartBeatCounter*APP_BOOT_TASK_MS) == (APP_BOOT_HEARTBEAT_HALF_PERIOD_MS/2))
+    {
+      ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_BOOT_HB, ECU_IO_OUT_COMMAND_TOGGLE);
+      su32FlashHeartBeatCounter = 1;
+    }
+    else
+    {
+      su32FlashHeartBeatCounter++;
+    }
   }
+
 }
 
 void local_APP_BOOT_vdPageDataReset(APP_BOOT_strPageMemory_t *strPageMemory)
