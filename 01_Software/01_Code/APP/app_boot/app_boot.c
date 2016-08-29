@@ -108,7 +108,7 @@ void APP_BOOT_vdInit(void)
   ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_PROGRAM_END_ADDRESS,&fltEndAddress);
   APP_BOOT_u32ApplicationEndAddress = (uint32_t)fltEndAddress;
   ECU_MEM_INT_eReadSignalValue(ECU_MEM_INT_APP_VALID,&fltAppValid);
-  if(fltAppValid != TAPAS_FALSE)
+  if(fltAppValid == TAPAS_TRUE)
   {
     ECU_SYS_vdGoToApplication(APP_BOOT_APPLICATION_START_ADDRESS);    
   }
@@ -623,13 +623,13 @@ void local_APP_BOOT_vdBootHeartBeat(void)
     
   if(((su32HeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_HALF_PERIOD_MS) && (su8Counter < (APP_BOOT_HEARTBEAT_FAST_COUNT*2)))
   {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
+    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_BOOT_HB, ECU_IO_OUT_COMMAND_TOGGLE);
     su32HeartBeatCounter = 1;
     su8Counter++;
   }
   else if(su8Counter == (APP_BOOT_HEARTBEAT_FAST_COUNT*2))
   {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_ON);
+    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_BOOT_HB, ECU_IO_OUT_COMMAND_ON);
     su8Counter = (APP_BOOT_HEARTBEAT_FAST_COUNT*2) + 1;
     su32HeartBeatCounter++;
   }
