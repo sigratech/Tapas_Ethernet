@@ -137,7 +137,6 @@ void local_APP_DIAG_vdMainStateMachine(void)
 			break;
 		case SID_ECU_RESET:
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
-      LIB_DELAY_vdNanoSeconds(500000);
       ECU_SYS_vdShutdownAndReset();
 			break;
 		default :  
