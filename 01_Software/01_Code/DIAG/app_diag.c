@@ -244,6 +244,10 @@ void local_APP_DIAG_vdMemory_Read(void)
   {
     u32Data = (uint32_t)(fltData * 100);
   }
+  else
+  {
+    ECU_MEM_INT_eReadRawSignalValue(APP_DIAG_u8RequestId, &u32Data);
+  }
   APP_DIAG_au8TrialReceivedData[0] = (u32Data >> 24);
   APP_DIAG_au8TrialReceivedData[1] = (u32Data >> 16);
   APP_DIAG_au8TrialReceivedData[2] = (u32Data >> 8);
