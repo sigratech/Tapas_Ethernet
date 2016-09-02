@@ -39,6 +39,7 @@ uint8_t APP_DIAG_au8RequestData[4] = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAUL
 uint8_t APP_DIAG_au8ResposneData[4] = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
 uint8_t APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
 uint8_t APP_DIAG_au8DataNotUsed[4] = {0,0,0,0};
+uint8_t APP_DIAG_u8BlockData[16] = {0};
 
 void local_APP_DIAG_vdHeartBeat(void);
 void local_APP_DIAG_vdMainStateMachine(void);
@@ -50,6 +51,7 @@ void local_APP_DIAG_vdMemory_Read(void);
 void local_APP_DIAG_EndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eStatus);
 void local_APP_DIAG_vdFillEchoArray(uint8_t *pau8EchoArray);
 void local_APP_DIAG_vdServeDiagRequest(void);
+void local_APP_DIAG_vdUploadEEPROM_DTC(void);
 
 
 void APP_DIAG_vdInit(void)
@@ -139,9 +141,38 @@ void local_APP_DIAG_vdMainStateMachine(void)
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
       ECU_SYS_vdShutdownAndReset();
 			break;
+    case SID_READ_DTC_INFORMATION:
+      local_APP_DIAG_vdUploadEEPROM_DTC();
+      break;
 		default :  
       local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
 	}
+}
+
+void local_APP_DIAG_vdUploadEEPROM_DTC(void)
+{
+  uint8_t au8CANFrame[4] = {0};
+  uint32_t u32UploadEEPROMAddress;
+  uint32_t u32RawData;
+  float fltPhysicalData;
+  u32UploadEEPROMAddress = APP_DIAG_au8RequestData[0] << 24U;
+  u32UploadEEPROMAddress |= APP_DIAG_au8RequestData[1] << 16U;
+  u32UploadEEPROMAddress |= APP_DIAG_au8RequestData[2] << 8U;
+  u32UploadEEPROMAddress |= APP_DIAG_au8RequestData[3];
+  if(APP_DIAG_u8RequestId == 0) // read raw signal
+  {
+    ECU_MEM_INT_eReadRawSignalValue(u32UploadEEPROMAddress,&u32RawData);
+  }
+  else
+  {
+    ECU_MEM_INT_eReadSignalValue(u32UploadEEPROMAddress,&fltPhysicalData);
+    u32RawData = (uint32_t)fltPhysicalData;
+  }
+  au8CANFrame[0] =  u32RawData >> 24U;
+  au8CANFrame[1] =  u32RawData >> 16U;
+  au8CANFrame[2] =  u32RawData >> 8U;
+  au8CANFrame[3] =  u32RawData;  
+  local_APP_DIAG_EndService(STATUS_OK,au8CANFrame);
 }
 
 void local_APP_DIAG_vdIO_Control_Identifier(void)

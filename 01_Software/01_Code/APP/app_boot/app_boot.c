@@ -288,7 +288,7 @@ void local_APP_BOOT_vdUploadEEPROM(void)
 {
   static uint8_t su8BytePos = 0;
   uint8_t au8CANFrame[4] = {0};
-  if(APP_BOOT_u8FirstRead == 1)
+  if(APP_BOOT_u8FirstRead == 1) // Due to Fapi library limitaions on starting reading sector from middle
   {
     APP_BOOT_u8FirstRead = 0;
     ECU_MEM_INT_eReadBlock(APP_BOOT_u32UploadEEPROMAddress, APP_BOOT_u8BlockData);            

@@ -18,7 +18,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
-Checksum=363045955
+Checksum=1806913009
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -31,6 +31,10 @@ WatchCond=_ 0
 Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
 [struct_types]
 Fmt0=APP_BOOT_strPageMemory_t-u32PageStartingAddress	4	0
 Fmt1=ECU_DIAG_strPacket_t-u32DeviceID	4	0
@@ -77,13 +81,14 @@ Fmt26={W}1:u32SREC_S0	4	0
 Fmt27={W}1:u32StartAddressSREC	4	0
 Fmt28={W}1:u32StartingAddress	4	0
 Fmt29={W}1:u32Temp	4	0
-Fmt30={W}1:u32Value	4	0
-Fmt31={W}1:u32ValueInput	4	0
-Fmt32={W}1:u8BytesCount	3	0
-Fmt33={W}1:u8Count	3	0
-Fmt34={W}1:u8Debug	3	0
-Fmt35={W}1:u8LoopCounter	3	0
-Fmt36={W}1:u8PagesNumber	3	0
+Fmt30={W}1:u32UploadEEPROMAddress	4	0
+Fmt31={W}1:u32Value	4	0
+Fmt32={W}1:u32ValueInput	4	0
+Fmt33={W}1:u8BytesCount	3	0
+Fmt34={W}1:u8Count	3	0
+Fmt35={W}1:u8Debug	3	0
+Fmt36={W}1:u8LoopCounter	3	0
+Fmt37={W}1:u8PagesNumber	3	0
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -91,10 +96,6 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[CallStackLog]
-Enabled=0
-[CallStackStripe]
-ShowTiming=1
 [Disassemble mode]
 mode=0
 [Breakpoints2]
