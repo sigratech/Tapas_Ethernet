@@ -18,7 +18,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
-Checksum=1806913009
+Checksum=529931863
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -31,10 +31,6 @@ WatchCond=_ 0
 Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
-[CallStackLog]
-Enabled=0
-[CallStackStripe]
-ShowTiming=1
 [struct_types]
 Fmt0=APP_BOOT_strPageMemory_t-u32PageStartingAddress	4	0
 Fmt1=ECU_DIAG_strPacket_t-u32DeviceID	4	0
@@ -96,15 +92,19 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
 [Disassemble mode]
 mode=0
 [Breakpoints2]
-Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.164.14" 0 0 1 "" 0 "" 0
-Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.140.14" 0 0 1 "" 0 "" 0
-Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.116.14" 0 0 1 "" 0 "" 0
-Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.381.11" 0 0 1 "" 0 "" 0
-Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.389.11" 0 0 1 "" 0 "" 0
-Bp5=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.95.3" 0 0 1 "" 0 "" 0
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.165.14" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.141.14" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.117.14" 0 0 1 "" 0 "" 0
+Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.462.11" 0 0 1 "" 0 "" 0
+Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.470.11" 0 0 1 "" 0 "" 0
+Bp5=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.96.3" 0 0 1 "" 0 "" 0
 Count=6
 [Aliases]
 A0=_ "../Source/Async.WithAddress.c" ""

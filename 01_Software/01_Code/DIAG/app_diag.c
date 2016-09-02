@@ -52,7 +52,7 @@ void local_APP_DIAG_EndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eSt
 void local_APP_DIAG_vdFillEchoArray(uint8_t *pau8EchoArray);
 void local_APP_DIAG_vdServeDiagRequest(void);
 void local_APP_DIAG_vdUploadEEPROM_DTC(void);
-
+void local_APP_DIAG_EndServicePlusData(STATUS_t eStatus, uint8_t *pau8Data);
 
 void APP_DIAG_vdInit(void)
 {
@@ -151,28 +151,23 @@ void local_APP_DIAG_vdMainStateMachine(void)
 
 void local_APP_DIAG_vdUploadEEPROM_DTC(void)
 {
-  uint8_t au8CANFrame[4] = {0};
-  uint32_t u32UploadEEPROMAddress;
+  uint8_t au8CANFrame[6] = {0};
+  uint32_t u32SignalID;
   uint32_t u32RawData;
-  float fltPhysicalData;
-  u32UploadEEPROMAddress = APP_DIAG_au8RequestData[0] << 24U;
-  u32UploadEEPROMAddress |= APP_DIAG_au8RequestData[1] << 16U;
-  u32UploadEEPROMAddress |= APP_DIAG_au8RequestData[2] << 8U;
-  u32UploadEEPROMAddress |= APP_DIAG_au8RequestData[3];
-  if(APP_DIAG_u8RequestId == 0) // read raw signal
-  {
-    ECU_MEM_INT_eReadRawSignalValue(u32UploadEEPROMAddress,&u32RawData);
-  }
-  else
-  {
-    ECU_MEM_INT_eReadSignalValue(u32UploadEEPROMAddress,&fltPhysicalData);
-    u32RawData = (uint32_t)fltPhysicalData;
-  }
+  uint16_t u16Resolution;
+  u32SignalID = APP_DIAG_au8RequestData[0] << 24U;
+  u32SignalID |= APP_DIAG_au8RequestData[1] << 16U;
+  u32SignalID |= APP_DIAG_au8RequestData[2] << 8U;
+  u32SignalID |= APP_DIAG_au8RequestData[3];
+  ECU_MEM_INT_eReadRawSignalValue(u32SignalID,&u32RawData);    
+  u16Resolution = ECU_MEM_INT_u16ReadSignalResolution(u32SignalID);    
   au8CANFrame[0] =  u32RawData >> 24U;
   au8CANFrame[1] =  u32RawData >> 16U;
   au8CANFrame[2] =  u32RawData >> 8U;
   au8CANFrame[3] =  u32RawData;  
-  local_APP_DIAG_EndService(STATUS_OK,au8CANFrame);
+  au8CANFrame[4] =  u16Resolution >> 8U; // MSB
+  au8CANFrame[5] =  u16Resolution;  // LSB
+  local_APP_DIAG_EndServicePlusData(STATUS_OK,au8CANFrame);
 }
 
 void local_APP_DIAG_vdIO_Control_Identifier(void)
@@ -218,6 +213,13 @@ void local_APP_DIAG_EndService(STATUS_t eStatus, uint8_t *pau8Data)
 	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
   ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
 	ECU_DIAG_vdServiceDone(eStatus, pau8Data);
+}
+
+void local_APP_DIAG_EndServicePlusData(STATUS_t eStatus, uint8_t *pau8Data)
+{
+	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
+  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
+	ECU_DIAG_vdServiceDonePlusData(eStatus, pau8Data);
 }
 
 void local_APP_DIAG_vdMemory_Write(void)
