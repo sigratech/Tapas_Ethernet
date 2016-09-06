@@ -60,6 +60,7 @@ void local_APP_DIAG_vdSingleFramePositiveResponse(uint8_t u8ResponseSID, uint8_t
 void local_APP_DIAG_vdSingleFrameNegativeResponse(uint8_t u8RequestedService, APP_DIAG_NRC_t eNRCCode);
 void local_APP_DIAG_vdECU_Reset(void);
 void local_APP_DIAG_vdTester_Present(void);
+STATUS_t local_APP_DIAG_vdDefaultEcuModeSet(ECU_SYS_eEcuMode_t Mode);
 
 
 void APP_DIAG_vdInit(void)
@@ -669,13 +670,13 @@ void local_APP_DIAG_vdBootHeartBeat(void)
     
   if(((su32HeartBeatCounter*APP_BOOT_TASK_MS) == APP_BOOT_HEARTBEAT_HALF_PERIOD_MS) && (su8Counter < (APP_BOOT_HEARTBEAT_FAST_COUNT*2)))
   {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
+    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_DIAG_HB, ECU_IO_OUT_COMMAND_TOGGLE);
     su32HeartBeatCounter = 1;
     su8Counter++;
   }
   else if(su8Counter == (APP_BOOT_HEARTBEAT_FAST_COUNT*2))
   {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_ON);
+    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_DIAG_HB, ECU_IO_OUT_COMMAND_ON);
     su8Counter = (APP_BOOT_HEARTBEAT_FAST_COUNT*2) + 1;
     su32HeartBeatCounter++;
   }
