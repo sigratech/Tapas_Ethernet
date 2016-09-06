@@ -61,6 +61,8 @@ void local_APP_DIAG_vdSingleFrameNegativeResponse(uint8_t u8RequestedService, AP
 void local_APP_DIAG_vdECU_Reset(void);
 void local_APP_DIAG_vdTester_Present(void);
 STATUS_t local_APP_DIAG_vdDefaultEcuModeSet(ECU_SYS_eEcuMode_t Mode);
+void local_APP_DIAG_EndServicePlusData(STATUS_t eStatus, uint8_t *pau8Data);
+
 
 
 void APP_DIAG_vdInit(void)
@@ -129,7 +131,6 @@ void local_APP_DIAG_vdServeDiagRequest(ECU_SYS_eEcuMode_t ECU_Session)
 //      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
 //    }
   }
-  
 }
 
 void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode)
@@ -506,7 +507,7 @@ void local_APP_DIAG_vdSingleFramePositiveResponse(uint8_t u8ResponseSID, uint8_t
   {
     APP_DIAG_au8ResposneData[u8Count] = 0;
   }
-  ECU_DIAG_vdEndService(eStatus, u8PR_Data);
+  ECU_DIAG_vdServiceDonePlusData(eStatus, u8PR_Data);
 }
 
 void local_APP_DIAG_vdSingleFrameNegativeResponse(uint8_t u8RequestedService, APP_DIAG_NRC_t eNRCCode)
@@ -534,6 +535,13 @@ void local_APP_DIAG_vdUploadEEPROM_DTC(void)
   local_APP_DIAG_EndServicePlusData(STATUS_OK,au8CANFrame);
 }
 
+void local_APP_DIAG_EndServicePlusData(STATUS_t eStatus, uint8_t *pau8Data)
+{
+	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
+  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
+	ECU_DIAG_vdServiceDonePlusData(eStatus, pau8Data);
+}
+
 void local_APP_DIAG_vdIO_Control_Identifier(void)
 {
 //	switch(APP_DIAG_u8DeviceId) 
@@ -557,7 +565,7 @@ void local_APP_DIAG_EndServiceWithEchoArray(uint8_t *pau8EchoArray, STATUS_t eSt
 {
   uint8_t u8Count;
   local_APP_DIAG_vdFillEchoArray(pau8EchoArray);
-  local_APP_DIAG_EndService(eStatus, pau8EchoArray);
+  local_APP_DIAG_EndServicePlusData(eStatus, pau8EchoArray);
   for(u8Count = 0; u8Count < 8; u8Count++)
   {
     pau8EchoArray[u8Count] = 0;
@@ -577,13 +585,6 @@ void local_APP_DIAG_EndService(STATUS_t eStatus, uint8_t *pau8Data)
 	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
 //  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
 	ECU_DIAG_vdServiceDone(eStatus, pau8Data);
-}
-
-void local_APP_DIAG_EndServicePlusData(STATUS_t eStatus, uint8_t *pau8Data)
-{
-	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
-  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
-	ECU_DIAG_vdServiceDonePlusData(eStatus, pau8Data);
 }
 
 void local_APP_DIAG_vdMemory_Write(void)
