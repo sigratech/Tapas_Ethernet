@@ -74,6 +74,7 @@ void APP_DIAG_vdMgr(void)
 	ECU_SYS_eEcuMode_t eEcuMode;
   eEcuMode = ECU_SYS_eGetEcuMode();
   
+//  local_APP_DIAG_vdHeartBeat();  
   if(eEcuMode == ECU_SYS_DIAG)
   {
     local_APP_DIAG_vdDiagHeartBeat();
@@ -510,17 +511,27 @@ void local_APP_DIAG_vdSingleFramePositiveResponse(uint8_t u8ResponseSID, uint8_t
 
 void local_APP_DIAG_vdSingleFrameNegativeResponse(uint8_t u8RequestedService, APP_DIAG_NRC_t eNRCCode)
 {
-  STATUS_t eStatus = STATUS_OK;
-  uint8_t u8NRC_Data[8] = {0};
-  u8NRC_Data[0] = 0x3;
-  u8NRC_Data[1] = 0x7F;
-  u8NRC_Data[2] = u8RequestedService;
-  u8NRC_Data[3] = eNRCCode;
-  u8NRC_Data[4] = 0xAA;
-  u8NRC_Data[5] = 0xAA;
-  u8NRC_Data[6] = 0xAA;
-  u8NRC_Data[7] = 0xAA;\
-	ECU_DIAG_vdEndService(eStatus, u8NRC_Data);
+}
+
+void local_APP_DIAG_vdUploadEEPROM_DTC(void)
+{
+  uint8_t au8CANFrame[6] = {0};
+  uint32_t u32SignalID;
+  uint32_t u32RawData;
+  uint16_t u16Resolution;
+  u32SignalID = APP_DIAG_au8RequestData[0] << 24U;
+  u32SignalID |= APP_DIAG_au8RequestData[1] << 16U;
+  u32SignalID |= APP_DIAG_au8RequestData[2] << 8U;
+  u32SignalID |= APP_DIAG_au8RequestData[3];
+  ECU_MEM_INT_eReadRawSignalValue(u32SignalID,&u32RawData);    
+  u16Resolution = ECU_MEM_INT_u16ReadSignalResolution(u32SignalID);    
+  au8CANFrame[0] =  u32RawData >> 24U;
+  au8CANFrame[1] =  u32RawData >> 16U;
+  au8CANFrame[2] =  u32RawData >> 8U;
+  au8CANFrame[3] =  u32RawData;  
+  au8CANFrame[4] =  u16Resolution >> 8U; // MSB
+  au8CANFrame[5] =  u16Resolution;  // LSB
+  local_APP_DIAG_EndServicePlusData(STATUS_OK,au8CANFrame);
 }
 
 void local_APP_DIAG_vdIO_Control_Identifier(void)
@@ -566,6 +577,13 @@ void local_APP_DIAG_EndService(STATUS_t eStatus, uint8_t *pau8Data)
 	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
 //  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
 	ECU_DIAG_vdServiceDone(eStatus, pau8Data);
+}
+
+void local_APP_DIAG_EndServicePlusData(STATUS_t eStatus, uint8_t *pau8Data)
+{
+	APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
+  ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_IDLE);  
+	ECU_DIAG_vdServiceDonePlusData(eStatus, pau8Data);
 }
 
 void local_APP_DIAG_vdMemory_Write(void)
@@ -654,7 +672,7 @@ void local_APP_DIAG_vdDiagHeartBeat(void)
   
   if((su32HeartBeatCounter*APP_DIAG_TASK_MS) == APP_DIAG_HEARTBEAT_HALF_PERIOD_MS)
   {
-    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);
+    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_INT_DIAG_HB, ECU_IO_OUT_COMMAND_TOGGLE);
     su32HeartBeatCounter = 1;
   }
   else

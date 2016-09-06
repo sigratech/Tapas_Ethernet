@@ -18,7 +18,11 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
+<<<<<<< HEAD
 Checksum=2106218834
+=======
+Checksum=-1435409575
+>>>>>>> develop
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -99,18 +103,27 @@ ShowTiming=1
 [Disassemble mode]
 mode=0
 [Breakpoints2]
+<<<<<<< HEAD
 Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem\ecu_mem.c}.304.7" 0 0 1 "" 0 "" 0
 Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.59.3" 0 0 1 "" 0 "" 0
 Count=2
+=======
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.165.14" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.117.14" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.96.3" 0 0 1 "" 0 "" 0
+Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\APP\app_boot\app_boot.c}.112.3" 0 0 1 "" 0 "" 0
+Count=4
+>>>>>>> develop
 [Aliases]
-A0=_ "../Source/Async.c" ""
-A1=_ "../Source/FlashStateMachine.EnableEepromSectors.c" ""
-A2=_ "../Source/FlashStateMachine.EnableMainSectors.c" ""
-A3=_ "../Source/FlashStateMachine.InitializeFlashBanks.c" ""
-A4=_ "../Source/FlashStateMachine.SetActiveBank.c" ""
-A5=_ "../Source/Program.c" ""
-A6=_ "../Source/Read.Margin.c" ""
-A7=_ "../Source/Read.WdService.c" ""
-A8=_ "../Source/Utilities.CalculateFletcher.c" ""
-Count=9
+A0=_ "../Source/Async.WithAddress.c" ""
+A1=_ "../Source/Async.c" ""
+A2=_ "../Source/FlashStateMachine.EnableEepromSectors.c" ""
+A3=_ "../Source/FlashStateMachine.EnableMainSectors.c" ""
+A4=_ "../Source/FlashStateMachine.InitializeFlashBanks.c" ""
+A5=_ "../Source/FlashStateMachine.SetActiveBank.c" ""
+A6=_ "../Source/Program.c" ""
+A7=_ "../Source/Read.Margin.c" ""
+A8=_ "../Source/Read.WdService.c" ""
+A9=_ "../Source/Utilities.CalculateFletcher.c" ""
+Count=10
 SuppressDialog=1
