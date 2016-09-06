@@ -26,6 +26,9 @@ E-mail: karim@sigratech.de
 #ifndef APP_DIAG_H
 #define APP_DIAG_H
 
+#include "lib_types.h"
+#include "app.h"
+
 /* List of diag global defines */
 #define APP_DIAG_STATUS_FREE                                    (0)                                           
 #define APP_DIAG_STATUS_BUSY                                    (1)
@@ -122,7 +125,7 @@ typedef enum APP_DIAG_NRC_template
 
 void APP_DIAG_vdInit(void);
 void APP_DIAG_vdMgr(void);
-
+uint8_t APP_DIAG_u8DefaultEcuModeCheck(ECU_SYS_eEcuMode_t* Mode);
 
 #endif /*APP_DIAG_H*/
 
