@@ -10,25 +10,53 @@
     <Static>
       <Workspace>
         <ColumnWidths>
-          <Column0>154</Column0>
+          <Column0>0</Column0>
           <Column1>27</Column1>
           <Column2>27</Column2>
           <Column3>27</Column3>
         </ColumnWidths>
       </Workspace>
       <Build>
+        <PreferedWindows>
+          <Position>3</Position>
+          <ScreenPosX>0</ScreenPosX>
+          <ScreenPosY>0</ScreenPosY>
+          <Windows>
+            <Window>
+              <Factory>Find-in-Files</Factory>
+            </Window>
+          </Windows>
+        </PreferedWindows>
         <ColumnWidth0>20</ColumnWidth0>
         <ColumnWidth1>1024</ColumnWidth1>
         <ColumnWidth2>273</ColumnWidth2>
         <ColumnWidth3>68</ColumnWidth3>
       </Build>
       <Find-in-Files>
+        <PreferedWindows>
+          <Position>3</Position>
+          <ScreenPosX>0</ScreenPosX>
+          <ScreenPosY>0</ScreenPosY>
+          <Windows>
+            <Window>
+              <Factory>Build</Factory>
+            </Window>
+          </Windows>
+        </PreferedWindows>
         <ColumnWidth0>569</ColumnWidth0>
         <ColumnWidth1>94</ColumnWidth1>
         <ColumnWidth2>854</ColumnWidth2>
         <ColumnWidth3>379</ColumnWidth3>
       </Find-in-Files>
       <TerminalIO/>
+      <WATCH_1>
+        <PreferedWindows>
+          <Position>4</Position>
+          <ScreenPosX>2661</ScreenPosX>
+          <ScreenPosY>179</ScreenPosY>
+          <Windows/>
+        </PreferedWindows>
+      </WATCH_1>
     </Static>
     <Windows>
       <Wnd0>
@@ -43,22 +71,30 @@
                 <ExpandedNode>Tapas_Boot/APP</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/APP/app_boot</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/APP/app_boot/cfg</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/APP/app_boot/core</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/APP/app_test</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/APP_DIAG</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU/diag</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/ECU/diag/cfg</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU/diag/core</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU/mem</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU/mem/cfg</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/ECU/mem/core</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU/serial</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU/serial/cfg</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/ECU/serial/core</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/Main</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/UC</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/UC/can</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/UC/can/cfg</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/UC/can/core</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/UC/pwm</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/UC/pwm/cfg</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/UC/spi</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/UC/spi/cfg</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/UC/timer</ExpandedNode>
+                <ExpandedNode>Tapas_Boot/UC/timer/core</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/UC/uart</ExpandedNode>
                 <ExpandedNode>Tapas_Boot/UC/uart/cfg</ExpandedNode>
               </NodeDict>
@@ -70,15 +106,9 @@
       <Wnd1>
         <Tabs>
           <Tab>
-            <Identity>TabID-25038-18129</Identity>
+            <Identity>TabID-20211-10749</Identity>
             <TabName>Build</TabName>
             <Factory>Build</Factory>
-            <Session/>
-          </Tab>
-          <Tab>
-            <Identity>TabID-18264-30333</Identity>
-            <TabName>Find in Files</TabName>
-            <Factory>Find-in-Files</Factory>
             <Session/>
           </Tab>
         </Tabs>
@@ -89,15 +119,27 @@
       <Pane>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\DIAG\app_diag.c</Filename>
+          <Filename>$WS_DIR$\01_Code\APP\app_boot\app_boot.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>483</YPos2>
-          <SelStart2>21243</SelStart2>
-          <SelEnd2>21243</SelEnd2>
+          <YPos2>145</YPos2>
+          <SelStart2>5833</SelStart2>
+          <SelEnd2>5946</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem\ecu_mem_cfg.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>19</YPos2>
+          <SelStart2>4184</SelStart2>
+          <SelEnd2>4184</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -107,38 +149,113 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>96</YPos2>
-          <SelStart2>3972</SelStart2>
-          <SelEnd2>4002</SelEnd2>
+          <YPos2>94</YPos2>
+          <SelStart2>3393</SelStart2>
+          <SelEnd2>3413</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>124</YPos2>
-          <SelStart2>5620</SelStart2>
-          <SelEnd2>5620</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\TAPAS\Cfg\Boot\UC\uart\uc_uart_cfg.h</Filename>
+          <Filename>$WS_DIR$\01_Code\APP\app.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>1101</SelStart2>
-          <SelEnd2>1101</SelEnd2>
+          <SelStart2>1139</SelStart2>
+          <SelEnd2>1163</SelEnd2>
         </Tab>
-        <ActiveTab>3</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\TAPAS\Cfg\Boot\UC\adc\uc_adc_cfg.h</Filename>
+          <Filename>$WS_DIR$\01_Code\DIAG\app_diag_cfg.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>0</YPos2>
+          <SelStart2>1132</SelStart2>
+          <SelEnd2>1166</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Core\Main\main.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>13</YPos2>
+          <SelStart2>1225</SelStart2>
+          <SelEnd2>1225</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\DIAG\app_diag.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>328</YPos2>
+          <SelStart2>25783</SelStart2>
+          <SelEnd2>25783</SelEnd2>
+        </Tab>
+        <ActiveTab>6</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\DIAG\app_diag.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>9</YPos2>
+          <SelStart2>5975</SelStart2>
+          <SelEnd2>6000</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Core\LIB\lib_types.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>17</YPos2>
+          <SelStart2>1812</SelStart2>
+          <SelEnd2>1820</SelEnd2>
+        </Tab>
+      </Pane>
+      <ActivePane>0</ActivePane>
+      <Pane>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem\ecu_mem_cfg.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>15</YPos2>
+          <SelStart2>12313</SelStart2>
+          <SelEnd2>12358</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Core\UC\can\uc_can.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>778</YPos2>
+          <SelStart2>32511</SelStart2>
+          <SelEnd2>32521</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\APP\app_boot\app_boot_cfg.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
@@ -150,61 +267,65 @@
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\TAPAS\Core\Main\main.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>24</YPos2>
-          <SelStart2>1225</SelStart2>
-          <SelEnd2>1225</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\APP\app_boot\app_boot_cfg.h</Filename>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\diag\ecu_diag_cfg.h</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>1103</SelStart2>
-          <SelEnd2>1103</SelEnd2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\TAPAS\Cfg\Boot\UC\spi\uc_spi_cfg.h</Filename>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Core\ECU\mem\ecu_mem.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>1096</SelStart2>
-          <SelEnd2>1096</SelEnd2>
+          <YPos2>570</YPos2>
+          <SelStart2>23750</SelStart2>
+          <SelEnd2>23750</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\mem\ecu_mem_cfg.h</Filename>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>1134</SelStart2>
-          <SelEnd2>1134</SelEnd2>
+          <YPos2>160</YPos2>
+          <SelStart2>8824</SelStart2>
+          <SelEnd2>8844</SelEnd2>
+        </Tab>
+        <ActiveTab>5</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\01_Code\TAPAS\Core\ECU\mem\ecu_mem.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>57</YPos2>
+          <SelStart2>7919</SelStart2>
+          <SelEnd2>7941</SelEnd2>
         </Tab>
       </Pane>
-      <ActivePane>0</ActivePane>
       <Sizes>
         <Pane>
-          <X>1000000</X>
+          <X>676246</X>
+          <Y>1000000</Y>
+        </Pane>
+        <Pane>
+          <X>323753</X>
           <Y>1000000</Y>
         </Pane>
       </Sizes>
-      <SplitMode>1</SplitMode>
+      <SplitMode>4</SplitMode>
     </Editor>
     <Positions>
       <Top>
@@ -226,16 +347,16 @@
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>816</Bottom>
-                <Right>245</Right>
+                <Bottom>874</Bottom>
+                <Right>31</Right>
                 <x>-2</x>
                 <y>-2</y>
-                <xscreen>188</xscreen>
-                <yscreen>200</yscreen>
-                <sizeHorzCX>140194</sizeHorzCX>
-                <sizeHorzCY>182482</sizeHorzCY>
-                <sizeVertCX>184191</sizeVertCX>
-                <sizeVertCY>746350</sizeVertCY>
+                <xscreen>297</xscreen>
+                <yscreen>213</yscreen>
+                <sizeHorzCX>154688</sizeHorzCX>
+                <sizeHorzCY>190689</sizeHorzCY>
+                <sizeVertCX>17188</sizeVertCX>
+                <sizeVertCY>784244</sizeVertCY>
               </Rect>
             </Wnd0>
           </Sizes>
@@ -253,16 +374,16 @@
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>235</Bottom>
-                <Right>1343</Right>
+                <Bottom>198</Bottom>
+                <Right>1922</Right>
                 <x>-2</x>
                 <y>-2</y>
-                <xscreen>1345</xscreen>
-                <yscreen>237</yscreen>
-                <sizeHorzCX>1002983</sizeHorzCX>
-                <sizeHorzCY>216241</sizeHorzCY>
-                <sizeVertCX>140194</sizeVertCX>
-                <sizeVertCY>182482</sizeVertCY>
+                <xscreen>1924</xscreen>
+                <yscreen>200</yscreen>
+                <sizeHorzCX>1002083</sizeHorzCX>
+                <sizeHorzCY>179051</sizeHorzCY>
+                <sizeVertCX>104167</sizeVertCX>
+                <sizeVertCY>179051</sizeVertCY>
               </Rect>
             </Wnd1>
           </Sizes>

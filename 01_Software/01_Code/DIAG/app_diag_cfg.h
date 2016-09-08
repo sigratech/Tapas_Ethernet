@@ -28,6 +28,8 @@ E-mail: shany@sigratech.de
 
 #define APP_DIAG_ENABLE
 
+#define APP_DIAG_APPLICATION_START_ADDRESS                           (0x100000)
+
 #define APP_DIAG_HEARTBEAT_HALF_PERIOD_MS                             (100)
 #define APP_DIAG_TASK_MS                                              (1)
 

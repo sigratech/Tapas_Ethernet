@@ -33,7 +33,8 @@ E-mail: karim@sigratech.de
 #define APP_DIAG_STATUS_FREE                                    (0)                                           
 #define APP_DIAG_STATUS_BUSY                                    (1)
 
-
+/* Read data by address maximum bytes number to be read*/
+#define APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER              (128)
 /* List of Service Ids */
 #define SID_DIAG_SESSION_CONTROL                                (0x10)
 #define SID_ECU_RESET                                           (0x11)
@@ -116,12 +117,11 @@ typedef enum APP_DIAG_NRC_template
   APP_DIAG_VoltageTooLow = 0x93,
 } APP_DIAG_NRC_t;
 
-//typedef struct APP_DIAG_strServiceModuleTemplate
-//{
-//  uint8_t u8ServiceID,
-//  
-//  
-//} APP_DIAG_strServiceModule_t
+typedef struct APP_DIAG_strFlowControlTemplate
+{
+  uint8_t u8ServiceID;
+  uint8_t u8ExpectedCF_Flag;
+} APP_DIAG_strFlowControl_t;
 
 void APP_DIAG_vdInit(void);
 void APP_DIAG_vdMgr(void);

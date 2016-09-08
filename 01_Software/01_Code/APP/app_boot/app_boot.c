@@ -28,6 +28,8 @@ E-mail: shany@sigratech.de
 #include "ecu.h"
 #include "lib_data.h"
 
+#ifdef APP_BOOT_ENABLE
+
 #define APP_BOOT_BLOCK_BYTE_SIZE                                        (16)
 
 #define APP_BOOT_BLOCKS_PER_PAGE                                        (APP_BOOT_PAGE_SIZE/APP_BOOT_BLOCK_BYTE_SIZE)
@@ -714,3 +716,5 @@ uint8_t local_APP_BOOT_u8PageCheckSumCalculate(APP_BOOT_strPageMemory_t* pPageMe
   u8PageCheckSum = ~u8PageCheckSum;
   return u8PageCheckSum ;
 }
+
+#endif
