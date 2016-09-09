@@ -121,6 +121,8 @@ typedef struct APP_DIAG_strFlowControlTemplate
 {
   uint8_t u8ServiceID;
   uint8_t u8ExpectedCF_Flag;
+  uint8_t u8MaxNumberOfConsecutiveFrames;
+  uint8_t u8ConsecutiveFrameIndex;
 } APP_DIAG_strFlowControl_t;
 
 void APP_DIAG_vdInit(void);
