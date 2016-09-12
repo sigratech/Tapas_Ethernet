@@ -44,7 +44,7 @@ uint8_t APP_DIAG_au8DataNotUsed[8] = {0,0,0,0,0,0,0,0};
 ECU_SYS_eEcuMode_t APP_DIAG_eCurrentSession;
 uint32_t APP_DIAG_u32ApplicationEndAddress = 0;
 /*Global variables of SID 0x23 ReadMemoryByAddress*/
-APP_DIAG_strFlowControl_t FlowControlFrame = {0, 0};
+APP_DIAG_strFlowControl_t FlowControlFrame = {0, 0, 0, 0, 0};
 uint8_t APP_DIAG_au8ReadDataByAddress[APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER] = {0};
 uint8_t APP_DIAG_u8BytesNum;
 uint32_t APP_DIAG_u32SeparationTimeInNanoSeconds;
@@ -54,6 +54,7 @@ uint8_t APP_DIAG_u8GlobalCounter = 0;
 uint8_t APP_DIAG_u8Wait;
 uint8_t APP_DIAG_u8OverFlow;
 uint8_t APP_DIAG_u8FlowControlExpected = 0;
+uint8_t APP_DIAG_u8FlowControlServiceID = 0;
 
 void local_APP_DIAG_vdDiagHeartBeat(void);
 void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode);
@@ -79,6 +80,7 @@ void local_APP_DIAG_vdDefaultEcuModeSet(ECU_SYS_eEcuMode_t Mode);
 uint8_t local_APP_DIAG_u8SingleFrameLengthErrorCheck(void);
 void local_APP_DIAG_vdFramePositiveResponseWithFullArrayBytes(uint8_t* pu8Data);
 void local_APP_DIAG_vdSingleFramePositiveResponseWithoutSubfunction(uint8_t u8ResponseSID, uint8_t* pu8Data, uint8_t u8DataSize);
+void local_APP_DIAG_vdInitializeReadByAddressArray(void);
 
 
 void APP_DIAG_vdInit(void)
@@ -163,6 +165,7 @@ void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode)
   {
     if(FlowControlFrame.u8ExpectedCF_Flag == TAPAS_TRUE)
     {
+      APP_DIAG_u8FlowControlServiceID = APP_DIAG_u8ServiceId; // this variable is added to handle the case of flow control, since APP_DIAG_u8ServiceId is altered to skip the state machine, APP_DIAG_u8FlowControlServiceID is the variable used afterwards through flow control algorithm
       APP_DIAG_u8ServiceId = FlowControlFrame.u8ServiceID;
     }
   }
@@ -513,6 +516,7 @@ void local_APP_DIAG_vdRead_Identifier(void)
 
 void local_APP_DIAG_vdMemory_Write(void)
 {
+  
 //  STATUS_t eStatus = STATUS_NOK;
 //  float fltRecData;
 //  uint8_t APP_DIAG_au8ReceivedData[4] = {0, 0, 0, 0};
@@ -557,6 +561,7 @@ void local_APP_DIAG_vdMemory_Read(void)
       uint32_t u32MemoryAddress;
       uint8_t u8Counter = 0;
       uint8_t u8Count;
+      uint8_t u8LoopCounter;
       uint8_t u8AddressBytesNumber = (APP_DIAG_u8SubFunction & 0x0F);
       uint8_t u8DataBytesNumber = (APP_DIAG_u8SubFunction & 0xF0) >> 4U;
       uint8_t au8CanFrame[8] = {0};
@@ -581,18 +586,60 @@ void local_APP_DIAG_vdMemory_Read(void)
         //Fill array of data from memory
         if(APP_DIAG_u8FlowControlExpected == 0)
         {
+          uint8_t u8BytesNumTemp = APP_DIAG_u8BytesNum;
           APP_DIAG_u8FlowControlExpected = 1;
-          do
+          uint8_t u8LoopMax = APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS; 
+          
+          if(u8BytesNumTemp % APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS == 0) // 16, 32, 64, 128
           {
-            uint8_t au8TempData[16] = {0};
-            ECU_MEM_INT_eReadBlock(u32MemoryAddress, au8TempData);
-            for(u8Count = 0; u8Count < 16; u8Count++)
+            for(u8LoopCounter = 0; u8LoopCounter < u8BytesNumTemp; u8LoopCounter = u8LoopCounter + APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS)
             {
-              APP_DIAG_au8ReadDataByAddress[u8Counter + u8Count] =  au8TempData[u8Count];
+              uint8_t au8TempData[APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS] = {0};
+              ECU_MEM_INT_eReadBlock(u32MemoryAddress, au8TempData);              
+              for(u8Count = 0; u8Count < u8LoopMax; u8Count++)
+              {
+                APP_DIAG_au8ReadDataByAddress[u8LoopCounter + u8Count] =  au8TempData[u8Count];                
+              }
+              u32MemoryAddress = u32MemoryAddress + APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS; 
             }
-            u32MemoryAddress = u32MemoryAddress + 16;      
-            u8Counter = u8Counter + 16;
-          }while(APP_DIAG_u8BytesNum % u8Counter != 0);          
+          }
+          else 
+          {
+            while(u8BytesNumTemp % APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS != 0)
+            {
+              if(u8BytesNumTemp / APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS == 0)
+              {
+                u8LoopMax = u8BytesNumTemp;
+              }
+              uint8_t au8TempData[APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS] = {0};
+              ECU_MEM_INT_eReadBlock(u32MemoryAddress, au8TempData);
+              for(u8Count = 0; u8Count < u8LoopMax; u8Count++)
+              {
+                APP_DIAG_au8ReadDataByAddress[u8Counter + u8Count] =  au8TempData[u8Count];
+              }
+              u32MemoryAddress = u32MemoryAddress + APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS;      
+              u8BytesNumTemp = u8BytesNumTemp - APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS;
+              u8Counter = u8Counter + APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS;
+              if(u8BytesNumTemp > APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER)
+              {
+                u8BytesNumTemp = 0;
+              }
+            }            
+          }
+          
+//          do
+//          {
+//            uint8_t au8TempData[16] = {0};
+//            ECU_MEM_INT_eReadBlock(u32MemoryAddress, au8TempData);
+//            for(u8Count = 0; u8Count < 16; u8Count++)
+//            {
+//              APP_DIAG_au8ReadDataByAddress[u8Counter + u8Count] =  au8TempData[u8Count];
+//            }
+//            u32MemoryAddress = u32MemoryAddress + 16;      
+////            u8Counter = u8Counter + 16;
+//            u8BytesNumTemp = u8BytesNumTemp - 16;
+//          }while(u8BytesNumTemp / u8Counter != 0);          
+        
         }
         
         if(APP_DIAG_u8BytesNum <= 6) // check if data read could fit in single frame .. 6 is the maximum data bytes could be embedded in SF message
@@ -637,9 +684,9 @@ void local_APP_DIAG_vdMemory_Read(void)
         APP_DIAG_u8OverFlow = 1;
       }
       // check of flow control 2nd byte ..block size //      
-      if(APP_DIAG_u8ServiceId != 0)
+      if(APP_DIAG_u8FlowControlServiceID != 0)
       {
-        FlowControlFrame.u8MaxNumberOfConsecutiveFrames = APP_DIAG_u8ServiceId;
+        FlowControlFrame.u8MaxNumberOfConsecutiveFrames = APP_DIAG_u8FlowControlServiceID;
       }
       // check of flow control 3rd byte ..separation time //
       if(APP_DIAG_u8SubFunction != 0) 
@@ -666,7 +713,7 @@ void local_APP_DIAG_vdMemory_Read(void)
         uint8_t u8PciSequenceNumber = 0x20;
         uint8_t au8CanFrame[8] = {0xAA};
         uint8_t u8InnerLoopMax;
-        APP_DIAG_u8RemainingBytes = APP_DIAG_u8BytesNum - 5;//5 is the maximum data bytes could be embedded in SF message and the start of data bytes to be send in CF
+        APP_DIAG_u8RemainingBytes = APP_DIAG_u8BytesNum - 5 - (FlowControlFrame.u8NumberOfFramesSent * 7);//5 is the maximum data bytes could be embedded in SF message and the start of data bytes to be send in CF
         while(APP_DIAG_u8RemainingBytes > 0)
         {
           for(u8TempCount = 0; u8TempCount < 8; u8TempCount++)
@@ -684,16 +731,9 @@ void local_APP_DIAG_vdMemory_Read(void)
           }
           for(u8Count = 0; u8Count < u8InnerLoopMax; u8Count++) // fill frame with bytes starting from data which has been sent either in FF or last loop
           {
-            au8CanFrame[u8Count + 1] = APP_DIAG_au8ReadDataByAddress[u8Count + APP_DIAG_u8GlobalCounter + 6];
+            au8CanFrame[u8Count + 1] = APP_DIAG_au8ReadDataByAddress[u8Count + APP_DIAG_u8GlobalCounter + 5];
           }    
           local_APP_DIAG_vdFramePositiveResponseWithFullArrayBytes(au8CanFrame);
-          //Decrement consecutive frame index
-          FlowControlFrame.u8ConsecutiveFrameIndex--;
-          if(FlowControlFrame.u8ConsecutiveFrameIndex == 0)
-          {
-            APP_DIAG_u8FlowControlExpected = 1;
-            break;
-          }
           //Separation time received from Flow Control message
           LIB_DELAY_vdNanoSeconds(APP_DIAG_u32SeparationTimeInNanoSeconds);
           u8PciSequenceNumber++;
@@ -703,6 +743,14 @@ void local_APP_DIAG_vdMemory_Read(void)
           }          
           APP_DIAG_u8GlobalCounter = APP_DIAG_u8GlobalCounter + 7;
           APP_DIAG_u8RemainingBytes = APP_DIAG_u8RemainingBytes - 7;
+          FlowControlFrame.u8NumberOfFramesSent++;
+          //Decrement consecutive frame index
+          FlowControlFrame.u8ConsecutiveFrameIndex++;
+          if(FlowControlFrame.u8ConsecutiveFrameIndex == FlowControlFrame.u8MaxNumberOfConsecutiveFrames)
+          {
+            APP_DIAG_u8FlowControlExpected = 1;
+            break;
+          }          
           if(APP_DIAG_u8RemainingBytes > 128 || APP_DIAG_u8RemainingBytes == 0) // Signales end of reading
           {
             FlowControlFrame.u8ExpectedCF_Flag = TAPAS_FALSE;
@@ -711,6 +759,7 @@ void local_APP_DIAG_vdMemory_Read(void)
             APP_DIAG_u8BytesNum = 0;
             APP_DIAG_u8GlobalCounter = 0;
             APP_DIAG_u8FirstFlowControl = 0;
+            local_APP_DIAG_vdInitializeReadByAddressArray();
           }
         }                
       }
@@ -847,6 +896,15 @@ uint8_t APP_DIAG_u8DefaultEcuModeCheck(ECU_SYS_eEcuMode_t* Mode) // Check then c
   fltPhyData = u32RawData / u32Resolution;
   ECU_MEM_INT_eWriteSignalValue(ECU_MEM_INT_APP_VALID_PLUS_BOOT_MODE_AND_FLAG, fltPhyData, u32RawData); //resolution is 1 and offset is 0, raw signal only is written  
   return u8Flag;
+}
+
+void local_APP_DIAG_vdInitializeReadByAddressArray(void)
+{
+  uint8_t u8Count;
+  for(u8Count = 0; u8Count < APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER; u8Count++)
+  {
+    APP_DIAG_au8ReadDataByAddress[u8Count] = 0;
+  }
 }
 
 void local_APP_DIAG_vdAppValidSet(void)

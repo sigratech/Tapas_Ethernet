@@ -19,7 +19,7 @@ xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
 <<<<<<< HEAD
-Checksum=1038213543
+Checksum=-1696385839
 =======
 Checksum=-1435409575
 >>>>>>> develop
@@ -32,8 +32,8 @@ ShowArgs=0
 MixedMode=1
 [JLinkDriver]
 WatchCond=_ 0
-Watch0=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
-Watch1=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
+Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
 [struct_types]
 Fmt0=ECU_MEM_CODE_strPageMemory_t-u32PageStartingAddress	4	0
@@ -88,17 +88,6 @@ Fmt37={W}1:u8Debug	3	0
 Fmt38={W}1:u8Flag	1	0
 Fmt39={W}1:u8LoopCounter	3	0
 Fmt40={W}1:u8PagesNumber	3	0
-[Disassemble mode]
-mode=0
-[Breakpoints2]
-Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.166.5" 0 0 1 "" 0 "" 0
-Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.523.11" 0 0 1 "" 0 "" 0
-Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.236.7" 0 0 1 "" 0 "" 0
-Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.126.3" 0 0 1 "" 0 "" 0
-Bp4=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.549.3" 0 0 1 "" 0 "" 0
-Bp5=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.601.11" 0 0 1 "" 0 "" 0
-Bp6=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.594.13" 0 0 1 "" 0 "" 0
-Count=7
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -106,6 +95,18 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.166.5" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.523.11" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.553.3" 0 0 1 "" 0 "" 0
+Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.713.17" 0 0 1 "" 0 "" 0
+Count=4
 [Aliases]
 A0=_ "../Source/Async.WithAddress.c" ""
 A1=_ "../Source/Async.c" ""
@@ -119,7 +120,3 @@ A8=_ "../Source/Read.WdService.c" ""
 A9=_ "../Source/Utilities.CalculateFletcher.c" ""
 Count=10
 SuppressDialog=1
-[CallStackLog]
-Enabled=0
-[CallStackStripe]
-ShowTiming=1

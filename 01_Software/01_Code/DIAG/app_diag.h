@@ -35,6 +35,7 @@ E-mail: karim@sigratech.de
 
 /* Read data by address maximum bytes number to be read*/
 #define APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER              (128)
+#define APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS         (16)
 /* List of Service Ids */
 #define SID_DIAG_SESSION_CONTROL                                (0x10)
 #define SID_ECU_RESET                                           (0x11)
@@ -123,6 +124,7 @@ typedef struct APP_DIAG_strFlowControlTemplate
   uint8_t u8ExpectedCF_Flag;
   uint8_t u8MaxNumberOfConsecutiveFrames;
   uint8_t u8ConsecutiveFrameIndex;
+  uint8_t u8NumberOfFramesSent;
 } APP_DIAG_strFlowControl_t;
 
 void APP_DIAG_vdInit(void);
