@@ -32,10 +32,17 @@ E-mail: karim@sigratech.de
 /* List of diag global defines */
 #define APP_DIAG_STATUS_FREE                                    (0)                                           
 #define APP_DIAG_STATUS_BUSY                                    (1)
+#define APP_DIAG_RESPONSE_FILLER                                (0xAA)
+#define APP_DIAG_REQUEST_FILLER                                 (0x55)
 
 /* Read data by address maximum bytes number to be read*/
 #define APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER              (128)
 #define APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS         (16)
+
+/* Write data by address macros */
+#define APP_DIAG_WRITE_DATA_BY_ADDRESS_MAX_BYTES_NUMBER         (16)
+#define APP_DIAG_WRITE_DATA_BY_ADDRESS_FC_SEPARATION_TIME_MS    (1)
+
 /* List of Service Ids */
 #define SID_DIAG_SESSION_CONTROL                                (0x10)
 #define SID_ECU_RESET                                           (0x11)
@@ -118,14 +125,21 @@ typedef enum APP_DIAG_NRC_template
   APP_DIAG_VoltageTooLow = 0x93,
 } APP_DIAG_NRC_t;
 
-typedef struct APP_DIAG_strFlowControlTemplate
+typedef struct APP_DIAG_strFlowControlTemplate // when ECU sends first frame and wait for flow control from tester to continue sending consecutive frames
 {
   uint8_t u8ServiceID;
-  uint8_t u8ExpectedCF_Flag;
+  uint8_t u8ExpectedFC_Flag;
   uint8_t u8MaxNumberOfConsecutiveFrames;
   uint8_t u8ConsecutiveFrameIndex;
   uint8_t u8NumberOfFramesSent;
 } APP_DIAG_strFlowControl_t;
+
+typedef struct APP_DIAG_strConsecutiveFlowTemplate // when tester sends first frame and wait for flow control from ECU to continue sending consecutive frames
+{
+  uint8_t u8SeriveID;
+  uint8_t u8ExpectedCF_Flag;
+  uint8_t u8ExpectedCF_Number;
+} APP_DIAG_strConsecutiveFrame_t;
 
 void APP_DIAG_vdInit(void);
 void APP_DIAG_vdMgr(void);

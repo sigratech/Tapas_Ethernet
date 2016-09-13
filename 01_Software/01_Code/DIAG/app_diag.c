@@ -40,21 +40,34 @@ uint8_t APP_DIAG_u8SuppressPosResponse = TAPAS_DEFAULT;
 uint8_t APP_DIAG_au8RequestData[ECU_DIAG_FRAME_DATA_BYTES] = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
 uint8_t APP_DIAG_au8ResposneData[ECU_DIAG_FRAME_DATA_BYTES] = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
 uint8_t APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
+uint8_t APP_DIAG_au8IndexOfZeroDataReceived[8] = {0,0,0,0,0,0,0,0};
 uint8_t APP_DIAG_au8DataNotUsed[8] = {0,0,0,0,0,0,0,0};
 ECU_SYS_eEcuMode_t APP_DIAG_eCurrentSession;
 uint32_t APP_DIAG_u32ApplicationEndAddress = 0;
+APP_DIAG_strFlowControl_t FlowControlFrame = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
+uint8_t APP_DIAG_u8FlowControlExpected = TAPAS_FALSE;
+uint8_t APP_DIAG_u8FlowControlServiceID = TAPAS_FALSE;
+APP_DIAG_strConsecutiveFrame_t ConsecutiveFlowFrame = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
+uint8_t APP_DIAG_u8FirstFrameServiceID = TAPAS_FALSE;
 /*Global variables of SID 0x23 ReadMemoryByAddress*/
-APP_DIAG_strFlowControl_t FlowControlFrame = {0, 0, 0, 0, 0};
-uint8_t APP_DIAG_au8ReadDataByAddress[APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER] = {0};
-uint8_t APP_DIAG_u8BytesNum;
-uint32_t APP_DIAG_u32SeparationTimeInNanoSeconds;
-uint8_t APP_DIAG_u8FirstFlowControl = 0;
-uint8_t APP_DIAG_u8RemainingBytes ;
-uint8_t APP_DIAG_u8GlobalCounter = 0;
-uint8_t APP_DIAG_u8Wait;
-uint8_t APP_DIAG_u8OverFlow;
-uint8_t APP_DIAG_u8FlowControlExpected = 0;
-uint8_t APP_DIAG_u8FlowControlServiceID = 0;
+uint8_t APP_DIAG_au8ReadDataByAddress[APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER] = {TAPAS_DEFAULT};
+uint8_t APP_DIAG_u8ReadDataByAddress_BytesNum;
+uint32_t APP_DIAG_u32ReadDataByAddress_SeparationTimeInNanoSeconds;
+uint8_t APP_DIAG_u8ReadDataByAddress_FirstFlowControl = TAPAS_FALSE;
+uint8_t APP_DIAG_u8ReadDataByAddress_RemainingBytes ;
+uint8_t APP_DIAG_u8ReadDataByAddress_GlobalCounter = TAPAS_FALSE;
+uint8_t APP_DIAG_u8ReadDataByAddress_Wait;
+uint8_t APP_DIAG_u8ReadDataByAddress_OverFlow;
+/*Global variables of SID 0x3D WriteMemoryByAddress*/
+uint8_t APP_DIAG_u8WriteDataByAddress_ServiceTotalBytesNum;
+uint8_t APP_DIAG_u8WriteDataByAddress_SizeBytesNum;
+uint8_t APP_DIAG_u8WriteDataByAddress_AddressBytesNum;
+uint8_t APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished = TAPAS_FALSE;
+uint32_t APP_DIAG_u32WriteDataByAddress_Address;
+uint8_t APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_WRITE_DATA_BY_ADDRESS_MAX_BYTES_NUMBER] = {0};
+uint8_t APP_DIAG_u8WriteDataByAddress_BytesIndex = 0;
+uint8_t APP_DIAG_u8WriteDataByAddress_DataBytesCount;
+uint8_t APP_DIAG_u8WriteDataByAddress_ZeroElementsReceived = 0;
 
 void local_APP_DIAG_vdDiagHeartBeat(void);
 void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode);
@@ -80,7 +93,12 @@ void local_APP_DIAG_vdDefaultEcuModeSet(ECU_SYS_eEcuMode_t Mode);
 uint8_t local_APP_DIAG_u8SingleFrameLengthErrorCheck(void);
 void local_APP_DIAG_vdFramePositiveResponseWithFullArrayBytes(uint8_t* pu8Data);
 void local_APP_DIAG_vdSingleFramePositiveResponseWithoutSubfunction(uint8_t u8ResponseSID, uint8_t* pu8Data, uint8_t u8DataSize);
-void local_APP_DIAG_vdInitializeReadByAddressArray(void);
+void local_APP_DIAG_vdReadMemoryByAddressInitializeArray(void);
+void local_APP_DIAG_vdWriteMemoryByAddressFirstFrameHandler(void);
+void local_APP_DIAG_vdWriteMemoryByAddressConsecutiveFrameHandler(void);
+uint8_t local_APP_DIAG_u8NumberOfZeroElementsReceived(void);
+void local_APP_DIAG_vdResetAllGlobalVariables(void);
+
 
 
 void APP_DIAG_vdInit(void)
@@ -125,48 +143,51 @@ void local_APP_DIAG_vdServeDiagRequest(ECU_SYS_eEcuMode_t ECU_Session)
     APP_DIAG_eCurrentSession = eEcuMode;
   }
     
-  eStatus = ECU_DIAG_u8GetDiagFrame(&APP_DIAG_eFrameType, &APP_DIAG_u8DataCount, &APP_DIAG_u8ServiceId, &APP_DIAG_u8SubFunction, &APP_DIAG_u8SuppressPosResponse, APP_DIAG_au8RequestData, ECU_DIAG_FRAME_DATA_BYTES);  
+  eStatus = ECU_DIAG_u8GetDiagFrame(&APP_DIAG_eFrameType, &APP_DIAG_u8DataCount, &APP_DIAG_u8ServiceId, &APP_DIAG_u8SubFunction, &APP_DIAG_u8SuppressPosResponse, APP_DIAG_au8RequestData, ECU_DIAG_FRAME_DATA_BYTES, APP_DIAG_au8IndexOfZeroDataReceived);  
+  // 1st byte:APP_DIAG_eFrameType(7:4) and APP_DIAG_u8DataCount(3:0),2nd byte:APP_DIAG_u8ServiceId,3rd byte:APP_DIAG_u8SubFunction(6:0)and APP_DIAG_u8SuppressPosResponse(7),4th to 8th:APP_DIAG_au8RequestData
   if(eStatus == STATUS_OK)
-  {			
-    
+  {	
+//    if()
+//    {
+//      
+//    }
+//    if(APP_DIAG_eFrameType == ECU_DIAG_FirstFrame && APP_DIAG_u8SubFunction == SID_WRITE_MEMORY_BY_ADDRESS) // check if write memory by address SID
+//    {
+//      local_APP_DIAG_vdWriteMemoryByAddressFirstFrameHandler(); // function to receive FF, send FC and prepare data to be written into memory
+//      APP_DIAG_u8ServiceId = SID_WRITE_MEMORY_BY_ADDRESS;
+//    }		
     local_APP_DIAG_vdMainStateMachine(eEcuMode);
-//    /* Check if it is the Diag session request */
-//    if((eEcuMode == ECU_SYS_NORMAL) && (APP_DIAG_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_DIAG_u8DeviceId == (uint8_t)ECU_SYS_DIAG))
-//    {
-//      ECU_SYS_vdSetEcuMode(ECU_SYS_DIAG);
-//      /* Send Positive Response */
-//      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_OK);
-//    }
-//    else if((APP_DIAG_u8ServiceId == SID_DIAG_SESSION_CONTROL))
-//    {
-//      APP_DIAG_au8ResposneData[0] = (uint8_t)eEcuMode;
-//      APP_DIAG_au8ResposneData[1] = 0;
-//      APP_DIAG_au8ResposneData[2] = 0;
-//      APP_DIAG_au8ResposneData[3] = 0;
-//      local_APP_DIAG_EndService(STATUS_NOK, APP_DIAG_au8ResposneData);
-//    }
-//    else if(eEcuMode == ECU_SYS_DIAG)
-//    {
-//      /* Serve the request */
-//      APP_DIAG_eStatus = APP_DIAG_STATUS_BUSY;
-//      local_APP_DIAG_vdMainStateMachine();
-//    }
-//    else
-//    {
-//      /* Send Negative Response */
-//      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
-//    }
   }
 }
 
 void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode)
 {
-  if(APP_DIAG_eFrameType == ECU_DIAG_FlowControl)
+  if(APP_DIAG_eFrameType == ECU_DIAG_FirstFrame)
   {
-    if(FlowControlFrame.u8ExpectedCF_Flag == TAPAS_TRUE)
+    APP_DIAG_u8FirstFrameServiceID = APP_DIAG_u8ServiceId;
+    APP_DIAG_u8ServiceId = APP_DIAG_u8SubFunction;
+  }
+  else if(APP_DIAG_eFrameType == ECU_DIAG_FlowControl)
+  {
+    if(FlowControlFrame.u8ExpectedFC_Flag == TAPAS_TRUE)
     {
       APP_DIAG_u8FlowControlServiceID = APP_DIAG_u8ServiceId; // this variable is added to handle the case of flow control, since APP_DIAG_u8ServiceId is altered to skip the state machine, APP_DIAG_u8FlowControlServiceID is the variable used afterwards through flow control algorithm
       APP_DIAG_u8ServiceId = FlowControlFrame.u8ServiceID;
+    }
+    else
+    {
+      // NRC corresponding to receiving flow control without previous frames      
+    }
+  }
+  else if(APP_DIAG_eFrameType == ECU_DIAG_ConsecutiveFrame)
+  {
+    if(ConsecutiveFlowFrame.u8ExpectedCF_Flag == TAPAS_TRUE)
+    {
+      APP_DIAG_u8ServiceId = ConsecutiveFlowFrame.u8SeriveID;      
+    }
+    else
+    {
+      // NRC corresponding to receiving consecutive frame without previous frames
     }
   }
   else if(APP_DIAG_eFrameType == ECU_DIAG_SingleFrame)
@@ -260,6 +281,7 @@ void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode)
       
       break;
     default :  
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_IncorrectMessageLengthOrInvalidFormat);
       break;
       //local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
   }    
@@ -506,45 +528,81 @@ void local_APP_DIAG_vdIO_Control_Identifier(void)
 
 void local_APP_DIAG_vdRead_Identifier(void)
 {
-//	switch(APP_DIAG_u8DeviceId) 
-//	{
-//		default :
-//      local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
-//			break;
-//	}
+
 }
 
 void local_APP_DIAG_vdMemory_Write(void)
 {
-  
-//  STATUS_t eStatus = STATUS_NOK;
-//  float fltRecData;
-//  uint8_t APP_DIAG_au8ReceivedData[4] = {0, 0, 0, 0};
-//  uint32_t u32Data = 0;
-//  u32Data = APP_DIAG_au8RequestData[0] << 24;
-//  u32Data |= APP_DIAG_au8RequestData[1] << 16;
-//  u32Data |= APP_DIAG_au8RequestData[2] << 8;
-//  u32Data |= APP_DIAG_au8RequestData[3];
-//  fltRecData = (float)u32Data;
-//  u32Data = u32Data / 100;
-//  fltRecData = fltRecData / 100.0f;
-//  if(APP_DIAG_u8DeviceId == 0) // Internal Emulated 
-//  {
-//    eStatus = ECU_MEM_INT_eWriteSignalValue(APP_DIAG_u8RequestId, fltRecData, u32Data);
-//  }
-//  else // External EEPROM
-//  {
-//#ifdef ECU_MEM_EXT_MODULE_ENABLE
-//  eStatus = ECU_MEM_EXT_eWriteSignalValue(APP_DIAG_u8RequestId, LIB_DATA_fltRaw2Phy(u32Data, 0.01, 0));    
-//#else
-//  eStatus = STATUS_NOK;
-//#endif /*ECU_MEM_EXT_MODULE_ENABLE*/
-//  }
-//  APP_DIAG_au8ReceivedData[0] = APP_DIAG_au8RequestData[0];
-//  APP_DIAG_au8ReceivedData[1] = APP_DIAG_au8RequestData[1];
-//  APP_DIAG_au8ReceivedData[2] = APP_DIAG_au8RequestData[2];
-//  APP_DIAG_au8ReceivedData[3] = APP_DIAG_au8RequestData[3];  
-//  local_APP_DIAG_EndService(eStatus, APP_DIAG_au8ReceivedData);
+  if(APP_DIAG_eFrameType == ECU_DIAG_FirstFrame)
+  {
+    APP_DIAG_u8WriteDataByAddress_ZeroElementsReceived = local_APP_DIAG_u8NumberOfZeroElementsReceived();
+    local_APP_DIAG_vdWriteMemoryByAddressFirstFrameHandler();
+  }
+  else if(APP_DIAG_eFrameType == ECU_DIAG_ConsecutiveFrame)
+  {
+    local_APP_DIAG_vdWriteMemoryByAddressConsecutiveFrameHandler();
+  }
+  else if (APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished == TAPAS_TRUE)
+  {
+    uint8_t u8AddressLastByte = (APP_DIAG_u32WriteDataByAddress_Address >> 24U); //this variable to make sure address is 32-bit
+    //Minimum length check
+    if(u8AddressLastByte == 0 || APP_DIAG_u8WriteDataByAddress_ServiceTotalBytesNum == 0 || APP_DIAG_u8WriteDataByAddress_DataBytesCount == 0 || APP_DIAG_u8WriteDataByAddress_SizeBytesNum == 0 || APP_DIAG_u8WriteDataByAddress_AddressBytesNum == 0)
+    {
+      ConsecutiveFlowFrame.u8ExpectedCF_Flag = TAPAS_FALSE;
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_IncorrectMessageLengthOrInvalidFormat);
+    }
+//    if(APP_DIAG_u8WriteDataByAddress_ZeroElementsReceived > 3) // if true, this means 
+//    {
+//      ConsecutiveFlowFrame.u8ExpectedCF_Flag = TAPAS_FALSE;
+//      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_IncorrectMessageLengthOrInvalidFormat);
+//    }
+    else
+    {
+//      uint32_t u32MemoryAddress;
+//      uint8_t u8AddressBytesNumber = (APP_DIAG_u8SubFunction & 0x0F);
+//      uint8_t u8DataBytesNumber = (APP_DIAG_u8SubFunction & 0xF0) >> 4U; 
+//      u32MemoryAddress =  APP_DIAG_au8RequestData[0] << 24U;
+//      u32MemoryAddress |=  APP_DIAG_au8RequestData[1] << 16U;
+//      u32MemoryAddress |=  APP_DIAG_au8RequestData[2] << 8U;
+//      u32MemoryAddress |=  APP_DIAG_au8RequestData[3];
+//      APP_DIAG_u8WriteDataByAddress_BytesNum = APP_DIAG_au8RequestData[4];    
+      //Check on addressandlengthformatidentifier if applicable
+      if(APP_DIAG_u32WriteDataByAddress_Address < 0xF0200000 || APP_DIAG_u32WriteDataByAddress_Address > 0xF020FFFF || APP_DIAG_u8WriteDataByAddress_DataBytesCount > APP_DIAG_WRITE_DATA_BY_ADDRESS_MAX_BYTES_NUMBER)
+      {
+        ConsecutiveFlowFrame.u8ExpectedCF_Flag = TAPAS_FALSE;
+        local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_RequestOutOfRange);
+      }
+      else if(APP_DIAG_u8WriteDataByAddress_SizeBytesNum != 1 || APP_DIAG_u8WriteDataByAddress_AddressBytesNum != 4) // total length check
+      {
+        ConsecutiveFlowFrame.u8ExpectedCF_Flag = TAPAS_FALSE;
+        local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_RequestOutOfRange);
+      }    
+      else 
+      {
+      /******** Security check should be added here as else if statement***********/
+        
+        STATUS_t eStatus = ECU_MEM_INT_eWriteDataToBlock(APP_DIAG_u32WriteDataByAddress_Address, APP_DIAG_u8WriteDataByAddress_DataBytes, APP_DIAG_u8WriteDataByAddress_DataBytesCount);
+        if(eStatus == STATUS_NOK)
+        {
+          local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_GeneralProgrammingFailure);
+        }
+        else
+        {
+          uint8_t u8AddressAndLength = APP_DIAG_u8WriteDataByAddress_SizeBytesNum;
+          u8AddressAndLength |= (APP_DIAG_u8WriteDataByAddress_AddressBytesNum << 4U);
+          uint8_t au8CanPositiveResponse[5] = {APP_DIAG_RESPONSE_FILLER};
+          au8CanPositiveResponse[0] = (APP_DIAG_u32WriteDataByAddress_Address >> 24U);
+          au8CanPositiveResponse[1] = (APP_DIAG_u32WriteDataByAddress_Address >> 16U);  
+          au8CanPositiveResponse[2] = (APP_DIAG_u32WriteDataByAddress_Address >> 8U);  
+          au8CanPositiveResponse[3] = (APP_DIAG_u32WriteDataByAddress_Address);
+          au8CanPositiveResponse[4] = APP_DIAG_u8WriteDataByAddress_DataBytesCount;
+          local_APP_DIAG_vdSingleFramePositiveResponse(0x3D, u8AddressAndLength, au8CanPositiveResponse, 5);
+        }
+        ConsecutiveFlowFrame.u8ExpectedCF_Flag = TAPAS_FALSE;
+        local_APP_DIAG_vdResetAllGlobalVariables();
+      }
+    }
+  }
 }
 
 void local_APP_DIAG_vdMemory_Read(void)
@@ -556,7 +614,7 @@ void local_APP_DIAG_vdMemory_Read(void)
   }
   else
   {
-    if(FlowControlFrame.u8ExpectedCF_Flag == TAPAS_FALSE && APP_DIAG_eFrameType == ECU_DIAG_SingleFrame) //Check whether this is the first frame or consecutive frame
+    if(FlowControlFrame.u8ExpectedFC_Flag == TAPAS_FALSE && APP_DIAG_eFrameType == ECU_DIAG_SingleFrame) //Check whether this is the first frame or consecutive frame
     {
       uint32_t u32MemoryAddress;
       uint8_t u8Counter = 0;
@@ -569,9 +627,9 @@ void local_APP_DIAG_vdMemory_Read(void)
       u32MemoryAddress |=  APP_DIAG_au8RequestData[1] << 16U;
       u32MemoryAddress |=  APP_DIAG_au8RequestData[2] << 8U;
       u32MemoryAddress |=  APP_DIAG_au8RequestData[3];
-      APP_DIAG_u8BytesNum = APP_DIAG_au8RequestData[4];
+      APP_DIAG_u8ReadDataByAddress_BytesNum = APP_DIAG_au8RequestData[4];
       //Check on addressandlengthformatidentifier if applicable
-      if(u32MemoryAddress < 0xF0200000 || u32MemoryAddress > 0xF020FFFF || APP_DIAG_u8BytesNum > APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER)
+      if(u32MemoryAddress < 0xF0200000 || u32MemoryAddress > 0xF020FFFF || APP_DIAG_u8ReadDataByAddress_BytesNum > APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER)
       {
         local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_RequestOutOfRange);
       }
@@ -584,9 +642,9 @@ void local_APP_DIAG_vdMemory_Read(void)
         /******** Security check should be added here as else if statement***********/
         
         //Fill array of data from memory
-        if(APP_DIAG_u8FlowControlExpected == 0)
+        if(APP_DIAG_u8FlowControlExpected == 0) //done first time only
         {
-          uint8_t u8BytesNumTemp = APP_DIAG_u8BytesNum;
+          uint8_t u8BytesNumTemp = APP_DIAG_u8ReadDataByAddress_BytesNum;
           APP_DIAG_u8FlowControlExpected = 1;
           uint8_t u8LoopMax = APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_PER_ADDRESS; 
           
@@ -625,63 +683,45 @@ void local_APP_DIAG_vdMemory_Read(void)
                 u8BytesNumTemp = 0;
               }
             }            
-          }
-          
-//          do
-//          {
-//            uint8_t au8TempData[16] = {0};
-//            ECU_MEM_INT_eReadBlock(u32MemoryAddress, au8TempData);
-//            for(u8Count = 0; u8Count < 16; u8Count++)
-//            {
-//              APP_DIAG_au8ReadDataByAddress[u8Counter + u8Count] =  au8TempData[u8Count];
-//            }
-//            u32MemoryAddress = u32MemoryAddress + 16;      
-////            u8Counter = u8Counter + 16;
-//            u8BytesNumTemp = u8BytesNumTemp - 16;
-//          }while(u8BytesNumTemp / u8Counter != 0);          
-        
+          }        
         }
         
-        if(APP_DIAG_u8BytesNum <= 6) // check if data read could fit in single frame .. 6 is the maximum data bytes could be embedded in SF message
+        if(APP_DIAG_u8ReadDataByAddress_BytesNum <= 6) // check if data read could fit in single frame .. 6 is the maximum data bytes could be embedded in SF message
         {
           //Send single frame which has number of following data bytes
-          for(u8Counter = 0; u8Counter < APP_DIAG_u8BytesNum; u8Counter++)
+          for(u8Counter = 0; u8Counter < APP_DIAG_u8ReadDataByAddress_BytesNum; u8Counter++)
           {
             au8CanFrame[u8Counter] = APP_DIAG_au8ReadDataByAddress[u8Counter];
           }
-          local_APP_DIAG_vdSingleFramePositiveResponseWithoutSubfunction(APP_DIAG_u8ServiceId,au8CanFrame,APP_DIAG_u8BytesNum);                            
+          local_APP_DIAG_vdSingleFramePositiveResponseWithoutSubfunction(APP_DIAG_u8ServiceId,au8CanFrame,APP_DIAG_u8ReadDataByAddress_BytesNum);                            
         }
         else
         {
           //Send first frame which has number of following data bytes
           au8CanFrame[0] = 0x10;
-          au8CanFrame[1] = APP_DIAG_u8BytesNum;
+          au8CanFrame[1] = APP_DIAG_u8ReadDataByAddress_BytesNum;
           au8CanFrame[2] = 0x63;
           for(u8Counter = 0; u8Counter < 5; u8Counter++)
           {
             au8CanFrame[u8Counter + 3] = APP_DIAG_au8ReadDataByAddress[u8Counter];            
           }
-          FlowControlFrame.u8ExpectedCF_Flag = TAPAS_TRUE;
+          FlowControlFrame.u8ExpectedFC_Flag = TAPAS_TRUE;
           FlowControlFrame.u8ServiceID = SID_READ_MEMORY_BY_ADDRESS;
-          APP_DIAG_u8FirstFlowControl = 1;
+          APP_DIAG_u8ReadDataByAddress_FirstFlowControl = 1;
           local_APP_DIAG_vdFramePositiveResponseWithFullArrayBytes(au8CanFrame);     
         }
       }
     }
     else
     {
-//      if(APP_DIAG_u8FirstFlowControl == 1 || FlowControlFrame.u8ConsecutiveFrameIndex > 0)
-//      {
-//      APP_DIAG_u8FirstFlowControl = 0;
-      
       // check of flow control 1st byte ..flow status //
       if(APP_DIAG_u8DataCount == 1) 
       {
-        APP_DIAG_u8Wait = 1;
+        APP_DIAG_u8ReadDataByAddress_Wait = 1;
       }
       else if(APP_DIAG_u8DataCount == 2) 
       {
-        APP_DIAG_u8OverFlow = 1;
+        APP_DIAG_u8ReadDataByAddress_OverFlow = 1;
       }
       // check of flow control 2nd byte ..block size //      
       if(APP_DIAG_u8FlowControlServiceID != 0)
@@ -693,37 +733,37 @@ void local_APP_DIAG_vdMemory_Read(void)
       {
         if(APP_DIAG_u8SubFunction <= 0x7F) // milli seconds
         {
-          APP_DIAG_u32SeparationTimeInNanoSeconds = APP_DIAG_u8SubFunction * 1000000;
+          APP_DIAG_u32ReadDataByAddress_SeparationTimeInNanoSeconds = APP_DIAG_u8SubFunction * 1000000;
         }
         else if(APP_DIAG_u8SubFunction >= 0xF1 && APP_DIAG_u8SubFunction <= 0xF9)
         {
-          APP_DIAG_u32SeparationTimeInNanoSeconds = APP_DIAG_u8SubFunction * 1000;
+          APP_DIAG_u32ReadDataByAddress_SeparationTimeInNanoSeconds = APP_DIAG_u8SubFunction * 1000;
         }
       }
       else
       {
-        APP_DIAG_u32SeparationTimeInNanoSeconds = 0;
+        APP_DIAG_u32ReadDataByAddress_SeparationTimeInNanoSeconds = 0;
       }
 //      }
-      if(APP_DIAG_u8Wait == 0 && APP_DIAG_u8OverFlow == 0)
+      if(APP_DIAG_u8ReadDataByAddress_Wait == 0 && APP_DIAG_u8ReadDataByAddress_OverFlow == 0)
       {
         //Send consecutive frames which has requested data
         uint8_t u8Count;
         uint8_t u8TempCount;
         uint8_t u8PciSequenceNumber = 0x20;
-        uint8_t au8CanFrame[8] = {0xAA};
+        uint8_t au8CanFrame[8] = {APP_DIAG_RESPONSE_FILLER};
         uint8_t u8InnerLoopMax;
-        APP_DIAG_u8RemainingBytes = APP_DIAG_u8BytesNum - 5 - (FlowControlFrame.u8NumberOfFramesSent * 7);//5 is the maximum data bytes could be embedded in SF message and the start of data bytes to be send in CF
-        while(APP_DIAG_u8RemainingBytes > 0)
+        APP_DIAG_u8ReadDataByAddress_RemainingBytes = APP_DIAG_u8ReadDataByAddress_BytesNum - 5 - (FlowControlFrame.u8NumberOfFramesSent * 7);//5 is the maximum data bytes could be embedded in SF message and the start of data bytes to be send in CF
+        while(APP_DIAG_u8ReadDataByAddress_RemainingBytes > 0)
         {
           for(u8TempCount = 0; u8TempCount < 8; u8TempCount++)
           {
-            au8CanFrame[u8TempCount] = 0xAA;            
+            au8CanFrame[u8TempCount] = APP_DIAG_RESPONSE_FILLER;            
           }
           au8CanFrame[0] = u8PciSequenceNumber; // first byte is the pci plus sequence number
-          if((APP_DIAG_u8RemainingBytes - 7) < 0) // check if this is the last loop
+          if((APP_DIAG_u8ReadDataByAddress_RemainingBytes - 7) < 0) // check if this is the last loop
           {
-            u8InnerLoopMax = APP_DIAG_u8RemainingBytes;
+            u8InnerLoopMax = APP_DIAG_u8ReadDataByAddress_RemainingBytes;
           }
           else 
           {
@@ -731,18 +771,18 @@ void local_APP_DIAG_vdMemory_Read(void)
           }
           for(u8Count = 0; u8Count < u8InnerLoopMax; u8Count++) // fill frame with bytes starting from data which has been sent either in FF or last loop
           {
-            au8CanFrame[u8Count + 1] = APP_DIAG_au8ReadDataByAddress[u8Count + APP_DIAG_u8GlobalCounter + 5];
+            au8CanFrame[u8Count + 1] = APP_DIAG_au8ReadDataByAddress[u8Count + APP_DIAG_u8ReadDataByAddress_GlobalCounter + 5];
           }    
           local_APP_DIAG_vdFramePositiveResponseWithFullArrayBytes(au8CanFrame);
           //Separation time received from Flow Control message
-          LIB_DELAY_vdNanoSeconds(APP_DIAG_u32SeparationTimeInNanoSeconds);
+          LIB_DELAY_vdNanoSeconds(APP_DIAG_u32ReadDataByAddress_SeparationTimeInNanoSeconds);
           u8PciSequenceNumber++;
           if(u8PciSequenceNumber == 0x30) // wrap around check
           {
             u8PciSequenceNumber = 0x20;
           }          
-          APP_DIAG_u8GlobalCounter = APP_DIAG_u8GlobalCounter + 7;
-          APP_DIAG_u8RemainingBytes = APP_DIAG_u8RemainingBytes - 7;
+          APP_DIAG_u8ReadDataByAddress_GlobalCounter = APP_DIAG_u8ReadDataByAddress_GlobalCounter + 7;
+          APP_DIAG_u8ReadDataByAddress_RemainingBytes = APP_DIAG_u8ReadDataByAddress_RemainingBytes - 7;
           FlowControlFrame.u8NumberOfFramesSent++;
           //Decrement consecutive frame index
           FlowControlFrame.u8ConsecutiveFrameIndex++;
@@ -751,20 +791,136 @@ void local_APP_DIAG_vdMemory_Read(void)
             APP_DIAG_u8FlowControlExpected = 1;
             break;
           }          
-          if(APP_DIAG_u8RemainingBytes > 128 || APP_DIAG_u8RemainingBytes == 0) // Signales end of reading
+          if(APP_DIAG_u8ReadDataByAddress_RemainingBytes > 128 || APP_DIAG_u8ReadDataByAddress_RemainingBytes == 0) // Signales end of reading
           {
-            FlowControlFrame.u8ExpectedCF_Flag = TAPAS_FALSE;
+            FlowControlFrame.u8ExpectedFC_Flag = TAPAS_FALSE;
             APP_DIAG_u8FlowControlExpected = 0;
-            APP_DIAG_u8RemainingBytes = 0;
-            APP_DIAG_u8BytesNum = 0;
-            APP_DIAG_u8GlobalCounter = 0;
-            APP_DIAG_u8FirstFlowControl = 0;
-            local_APP_DIAG_vdInitializeReadByAddressArray();
+            APP_DIAG_u8ReadDataByAddress_RemainingBytes = 0;
+            APP_DIAG_u8ReadDataByAddress_BytesNum = 0;
+            APP_DIAG_u8ReadDataByAddress_GlobalCounter = 0;
+            APP_DIAG_u8ReadDataByAddress_FirstFlowControl = 0;
+            local_APP_DIAG_vdReadMemoryByAddressInitializeArray();
           }
-        }                
+        }
+        //  local_APP_DIAG_vdResetAllGlobalVariables();
       }
     }
   }
+}
+
+void local_APP_DIAG_vdWriteMemoryByAddressConsecutiveFrameHandler(void)
+{
+  uint8_t u8Count;
+  switch(APP_DIAG_u8DataCount) // represents sequence number
+  {
+  case 0:
+    APP_DIAG_u8WriteDataByAddress_DataBytesCount = APP_DIAG_u8ServiceId;
+    if(APP_DIAG_u8WriteDataByAddress_DataBytesCount == 1) // check if data bytes to be written is only 1
+    {
+      APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished = TAPAS_TRUE;
+      APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_u8WriteDataByAddress_BytesIndex] = APP_DIAG_u8SubFunction; // 1st byte    
+    }
+    else if(APP_DIAG_u8WriteDataByAddress_DataBytesCount == 0)
+    {
+      APP_DIAG_u8WriteDataByAddress_ZeroElementsReceived++;
+    }
+    else // data bytes to be written > 1
+    {
+      APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_u8WriteDataByAddress_BytesIndex] = APP_DIAG_u8SubFunction; // 1st byte     
+      APP_DIAG_u8WriteDataByAddress_BytesIndex++;
+      for(u8Count = 0; u8Count < 6; u8Count++) // loop to fill data bytes in CF
+      {
+        if((u8Count + APP_DIAG_u8WriteDataByAddress_BytesIndex) == APP_DIAG_u8WriteDataByAddress_DataBytesCount) // check whether all data bytes have been already read
+        {
+          APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished = TAPAS_TRUE;
+          break;
+        }
+        else
+        {
+          APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_u8WriteDataByAddress_BytesIndex + u8Count] = APP_DIAG_au8RequestData[u8Count]; // fill array with data bytes
+          APP_DIAG_u8WriteDataByAddress_BytesIndex++;
+        }
+      }
+    }
+    break;
+  case 1:
+    APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_u8WriteDataByAddress_BytesIndex] = APP_DIAG_u8SubFunction; // 1st byte     
+    APP_DIAG_u8WriteDataByAddress_BytesIndex++;
+    for(u8Count = 0; u8Count < 7; u8Count++) // loop to fill data bytes in CF
+    {
+      if((u8Count + APP_DIAG_u8WriteDataByAddress_BytesIndex) == APP_DIAG_u8WriteDataByAddress_DataBytesCount) // check whether all data bytes have been already read
+      {
+        APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished = TAPAS_TRUE;
+        break;
+      }
+      else
+      {
+        APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_u8WriteDataByAddress_BytesIndex + u8Count] = APP_DIAG_au8RequestData[u8Count]; // fill array with data bytes
+        APP_DIAG_u8WriteDataByAddress_BytesIndex++;
+      }
+    }     
+    break;
+  case 2:
+    APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_u8WriteDataByAddress_BytesIndex] = APP_DIAG_u8SubFunction; // 1st byte     
+    APP_DIAG_u8WriteDataByAddress_BytesIndex++;
+    for(u8Count = 0; u8Count < 7; u8Count++) // loop to fill data bytes in CF
+    {
+      if((u8Count + APP_DIAG_u8WriteDataByAddress_BytesIndex) == APP_DIAG_u8WriteDataByAddress_DataBytesCount) // check whether all data bytes have been already read
+      {
+        APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished = TAPAS_TRUE;
+        break;
+      }
+      else
+      {
+        APP_DIAG_u8WriteDataByAddress_DataBytes[APP_DIAG_u8WriteDataByAddress_BytesIndex + u8Count] = APP_DIAG_au8RequestData[u8Count]; // fill array with data bytes
+        APP_DIAG_u8WriteDataByAddress_BytesIndex++;
+      }
+    }         
+    break;
+  default:
+    break;
+  }
+}
+
+void local_APP_DIAG_vdWriteMemoryByAddressFirstFrameHandler(void)
+{
+  uint8_t au8CanFrame[8] = {APP_DIAG_RESPONSE_FILLER};
+  // Receive first frame message
+  APP_DIAG_u8WriteDataByAddress_ServiceTotalBytesNum = APP_DIAG_u8FirstFrameServiceID; // to be checked
+  APP_DIAG_u8WriteDataByAddress_SizeBytesNum = APP_DIAG_au8RequestData[0] >> 4U; // higher nibble
+  APP_DIAG_u8WriteDataByAddress_AddressBytesNum = (APP_DIAG_au8RequestData[0] & 0x0F); // lower nibble
+  APP_DIAG_u32WriteDataByAddress_Address = APP_DIAG_au8RequestData[1] << 24U;
+  APP_DIAG_u32WriteDataByAddress_Address |= APP_DIAG_au8RequestData[2] << 16U;
+  APP_DIAG_u32WriteDataByAddress_Address |= APP_DIAG_au8RequestData[3] << 8U;
+  APP_DIAG_u32WriteDataByAddress_Address |= APP_DIAG_au8RequestData[4];
+  // Send flow control message
+  if(APP_DIAG_u8WriteDataByAddress_ServiceTotalBytesNum > 22) // Overflow check, 10 is the maximum data bytes could be received for 0x3D service 
+  {
+    au8CanFrame[0] = 0x32;
+  }
+  else
+  {
+    au8CanFrame[0] = 0x30;    
+  }
+  au8CanFrame[1] = 0; // Block size; number of received frames before flow control is sent from ECU
+  au8CanFrame[2] = APP_DIAG_WRITE_DATA_BY_ADDRESS_FC_SEPARATION_TIME_MS; // Separation time; time between each CF send by tester
+  ConsecutiveFlowFrame.u8ExpectedCF_Flag = TAPAS_TRUE;
+  ConsecutiveFlowFrame.u8SeriveID = SID_WRITE_MEMORY_BY_ADDRESS;
+  local_APP_DIAG_vdFramePositiveResponseWithFullArrayBytes(au8CanFrame);
+}
+
+uint8_t local_APP_DIAG_u8NumberOfZeroElementsReceived(void)
+{
+  uint8_t u8Count;
+  uint8_t u8Ocurrences = 0;
+  for(u8Count = 0; u8Count < 8; u8Count++)
+  {
+    if(APP_DIAG_au8IndexOfZeroDataReceived[u8Count] == 1)
+    {
+      u8Ocurrences++;
+    }
+  }
+  return u8Ocurrences;
 }
 
 uint8_t local_APP_DIAG_u8SingleFrameLengthErrorCheck(void)
@@ -773,7 +929,7 @@ uint8_t local_APP_DIAG_u8SingleFrameLengthErrorCheck(void)
   uint8_t u8DataCount = 0;
   // check if length of message receieved is wrong to send NRC --- for SF only//
   /*Check if sub-function byte is null*/
-  if(APP_DIAG_u8SubFunction == 0x55 || APP_DIAG_u8SubFunction == 0xAA)
+  if(APP_DIAG_u8SubFunction == APP_DIAG_REQUEST_FILLER || APP_DIAG_u8SubFunction == APP_DIAG_RESPONSE_FILLER)
   {
     u8DataCount = 1; // only service ID byte
   }
@@ -783,7 +939,7 @@ uint8_t local_APP_DIAG_u8SingleFrameLengthErrorCheck(void)
     /*Get data bytes count*/
     for(u8Count = 0; u8Count < ECU_DIAG_FRAME_DATA_BYTES; u8Count++)
     {
-      if(APP_DIAG_au8RequestData[u8Count] != 0x55)
+      if(APP_DIAG_au8RequestData[u8Count] != APP_DIAG_REQUEST_FILLER)
       {
         u8DataCount++;
       }
@@ -797,6 +953,26 @@ uint8_t local_APP_DIAG_u8SingleFrameLengthErrorCheck(void)
   {
     return TAPAS_TRUE;
   }  
+}
+
+void local_APP_DIAG_vdResetAllGlobalVariables(void)
+{
+  APP_DIAG_eFrameType = (ECU_DIAG_FrameType_t)TAPAS_DEFAULT;
+  APP_DIAG_u8DataCount = TAPAS_DEFAULT;
+  APP_DIAG_u8ServiceId = TAPAS_DEFAULT;
+  APP_DIAG_u8SubFunction = TAPAS_DEFAULT;
+  APP_DIAG_u8SuppressPosResponse = TAPAS_DEFAULT;
+  APP_DIAG_eStatus = APP_DIAG_STATUS_FREE;
+  APP_DIAG_u32ApplicationEndAddress = 0;
+  /*Global variables of SID 0x23 ReadMemoryByAddress*/
+  APP_DIAG_u8ReadDataByAddress_FirstFlowControl = TAPAS_FALSE;
+  APP_DIAG_u8ReadDataByAddress_GlobalCounter = TAPAS_FALSE;
+  APP_DIAG_u8FlowControlExpected = TAPAS_FALSE;
+  APP_DIAG_u8FlowControlServiceID = TAPAS_FALSE;
+  /*Global variables of SID 0x3D WriteMemoryByAddress*/
+  APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished = TAPAS_FALSE;
+  APP_DIAG_u8WriteDataByAddress_BytesIndex = 0;
+  APP_DIAG_u8WriteDataByAddress_ZeroElementsReceived = 0;  
 }
 
 void local_APP_DIAG_vdFramePositiveResponseWithFullArrayBytes(uint8_t* pu8Data)
@@ -820,7 +996,7 @@ void local_APP_DIAG_vdSingleFramePositiveResponseWithoutSubfunction(uint8_t u8Re
     }
     else
     {
-      u8PR_Data[u8Count + 2] = 0xAA;
+      u8PR_Data[u8Count + 2] = APP_DIAG_RESPONSE_FILLER;
     }
   }
   for(u8Count = 0; u8Count < ECU_DIAG_FRAME_DATA_BYTES + 1; u8Count++)
@@ -846,7 +1022,7 @@ void local_APP_DIAG_vdSingleFramePositiveResponse(uint8_t u8ResponseSID, uint8_t
     }
     else
     {
-      u8PR_Data[u8Count + 3] = 0xAA;
+      u8PR_Data[u8Count + 3] = APP_DIAG_RESPONSE_FILLER;
     }
   }
   for(u8Count = 0; u8Count < ECU_DIAG_FRAME_DATA_BYTES; u8Count++)
@@ -864,10 +1040,10 @@ void local_APP_DIAG_vdSingleFrameNegativeResponse(uint8_t u8RequestedService, AP
   u8NRC_Data[1] = 0x7F;
   u8NRC_Data[2] = u8RequestedService;
   u8NRC_Data[3] = eNRCCode;
-  u8NRC_Data[4] = 0xAA;
-  u8NRC_Data[5] = 0xAA;
-  u8NRC_Data[6] = 0xAA;
-  u8NRC_Data[7] = 0xAA;\
+  u8NRC_Data[4] = APP_DIAG_RESPONSE_FILLER;
+  u8NRC_Data[5] = APP_DIAG_RESPONSE_FILLER;
+  u8NRC_Data[6] = APP_DIAG_RESPONSE_FILLER;
+  u8NRC_Data[7] = APP_DIAG_RESPONSE_FILLER;\
 	ECU_DIAG_vdEndService(eStatus, u8NRC_Data);
 }
 
@@ -898,7 +1074,7 @@ uint8_t APP_DIAG_u8DefaultEcuModeCheck(ECU_SYS_eEcuMode_t* Mode) // Check then c
   return u8Flag;
 }
 
-void local_APP_DIAG_vdInitializeReadByAddressArray(void)
+void local_APP_DIAG_vdReadMemoryByAddressInitializeArray(void)
 {
   uint8_t u8Count;
   for(u8Count = 0; u8Count < APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER; u8Count++)
