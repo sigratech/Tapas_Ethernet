@@ -41,7 +41,7 @@ E-mail: karim@sigratech.de
 
 /* Write data by address macros */
 #define APP_DIAG_WRITE_DATA_BY_ADDRESS_MAX_BYTES_NUMBER         (16)
-#define APP_DIAG_WRITE_DATA_BY_ADDRESS_FC_SEPARATION_TIME_MS    (1)
+#define APP_DIAG_WRITE_DATA_BY_ADDRESS_FC_SEPARATION_TIME_MS    (100)
 
 /* List of Service Ids */
 #define SID_DIAG_SESSION_CONTROL                                (0x10)
