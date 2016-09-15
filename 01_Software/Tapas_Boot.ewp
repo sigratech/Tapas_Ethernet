@@ -379,7 +379,8 @@
           <state>$PROJ_DIR$\01_Code\APP\app_boot</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Core\ECU\txcp</state>
           <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\ECU\txcp</state>
-          <state>$PROJ_DIR$\01_Code\DIAG</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Core\DIAG</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\DIAG</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1062,19 +1063,25 @@
     </file>
   </group>
   <group>
-    <name>APP_DIAG</name>
-    <file>
-      <name>$PROJ_DIR$\01_Code\DIAG\app_diag.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\01_Code\DIAG\app_diag.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\01_Code\DIAG\app_diag_cfg.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\01_Code\DIAG\app_diag_cfg.h</name>
-    </file>
+    <name>DIAG</name>
+    <group>
+      <name>cfg</name>
+      <file>
+        <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\DIAG\app_diag_cfg.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\DIAG\app_diag_cfg.h</name>
+      </file>
+    </group>
+    <group>
+      <name>core</name>
+      <file>
+        <name>$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.h</name>
+      </file>
+    </group>
   </group>
   <group>
     <name>ECU</name>

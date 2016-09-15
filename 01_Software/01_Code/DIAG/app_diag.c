@@ -47,9 +47,10 @@ uint32_t APP_DIAG_u32ApplicationEndAddress = 0;
 APP_DIAG_strFlowControl_t FlowControlFrame = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
 uint8_t APP_DIAG_u8FlowControlExpected = TAPAS_FALSE;
 uint8_t APP_DIAG_u8FlowControlServiceID = TAPAS_FALSE;
-APP_DIAG_strConsecutiveFrame_t ConsecutiveFlowFrame = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
+APP_DIAG_strConsecutiveFrame_t ConsecutiveFlowFrame = {TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT, TAPAS_DEFAULT};
 uint8_t APP_DIAG_u8FirstFrameServiceID = TAPAS_DEFAULT;
 uint8_t APP_DIAG_u8ConsecutiveFrameServiceID = TAPAS_DEFAULT;
+uint8_t APP_DIAG_u8ConsecutiveFrameSequenceNumber = TAPAS_DEFAULT;
 /*Global variables of SID 0x23 ReadMemoryByAddress*/
 uint8_t APP_DIAG_au8ReadDataByAddress[APP_DIAG_READ_DATA_BY_ADDRESS_BYTES_NUMBER] = {TAPAS_DEFAULT};
 uint8_t APP_DIAG_u8ReadDataByAddress_BytesNum;
@@ -138,6 +139,9 @@ void local_APP_DIAG_vdServeDiagRequest(ECU_SYS_eEcuMode_t ECU_Session)
 	STATUS_t eStatus;
 	ECU_SYS_eEcuMode_t eEcuMode;
   
+//  //debug
+//  goto Reinitialize;
+  
   /* Check the system mode */
   eEcuMode = ECU_SYS_eGetEcuMode(); 
   if(APP_DIAG_eCurrentSession == ECU_SYS_INIT) // Check whether the current session is initialization
@@ -178,19 +182,33 @@ void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode)
     }
     else
     {
-      // NRC corresponding to receiving flow control without previous frames      
+      // NRC corresponding to receiving flow control without previous frames - not expecting to receive such message     
+      APP_DIAG_u8ServiceId = 0; // to skip state machine
     }
   }
   else if(APP_DIAG_eFrameType == ECU_DIAG_ConsecutiveFrame)
   {
     if(ConsecutiveFlowFrame.u8ExpectedCF_Flag == TAPAS_TRUE)
     {
-      APP_DIAG_u8ConsecutiveFrameServiceID = APP_DIAG_u8ServiceId; // this variable is added to handle the case of consecutive frame, since APP_DIAG_u8ServiceId is altered to skip the state machine, APP_DIAG_u8ConsecutiveFlowServiceID is the variable used afterwards through consecutive frame algorithm
-      APP_DIAG_u8ServiceId = ConsecutiveFlowFrame.u8SeriveID;      
+      if(APP_DIAG_u8DataCount != APP_DIAG_u8ConsecutiveFrameSequenceNumber)
+      {
+        local_APP_DIAG_vdSingleFrameNegativeResponse(ConsecutiveFlowFrame.u8SeriveID, APP_DIAG_WrongBlockSequenceCounter);// NRC corresponding to wrong sequence number
+      }
+      else
+      {
+        APP_DIAG_u8ConsecutiveFrameServiceID = APP_DIAG_u8ServiceId; // this variable is added to handle the case of consecutive frame, since APP_DIAG_u8ServiceId is altered to skip the state machine, APP_DIAG_u8ConsecutiveFlowServiceID is the variable used afterwards through consecutive frame algorithm
+        APP_DIAG_u8ServiceId = ConsecutiveFlowFrame.u8SeriveID;              
+        APP_DIAG_u8ConsecutiveFrameSequenceNumber++;
+        if(APP_DIAG_u8ConsecutiveFrameSequenceNumber == 0x10) // wrap-around check, range is from 0 to 15 
+        {
+          APP_DIAG_u8ConsecutiveFrameSequenceNumber = 0;
+        }
+      }
     }
     else
     {
-      // NRC corresponding to receiving consecutive frame without previous frames
+      // NRC corresponding to receiving consecutive frame without previous frames - not expecting to receive such message
+      APP_DIAG_u8ServiceId = 0; // to skip state machine
     }
   }
   else if(APP_DIAG_eFrameType == ECU_DIAG_SingleFrame)
@@ -203,88 +221,215 @@ void local_APP_DIAG_vdMainStateMachine(ECU_SYS_eEcuMode_t eEcuMode)
   }
   switch(APP_DIAG_u8ServiceId) 
   {
-#ifdef APP_DIAG_BOOT_SERVICE_ENABLE
     case SID_SECURITY_ACCESS:
-    
+#ifdef SID_SECURITY_ACCESS
+      
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_SECURITY_ACCESS*/  
       break;
+      
     case SID_COMMUNICATION_CONTROL:
+#ifdef SID_COMMUNICATION_CONTROL
       
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_COMMUNICATION_CONTROL*/        
       break;
+      
     case SID_ACCESS_TIMING_PARAMETER:
-      
+#ifdef SID_COMMUNICATION_CONTROL
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupported);   
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_COMMUNICATION_CONTROL*/       
       break;
+      
     case SID_SECURED_DATA_TRANSMISSION:
-      
+#ifdef SID_SECURED_DATA_TRANSMISSION
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_SECURED_DATA_TRANSMISSION*/       
       break;
-    case SID_CONTROL_DTC_SETTING:
       
+    case SID_CONTROL_DTC_SETTING:
+#ifdef SID_CONTROL_DTC_SETTING
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_CONTROL_DTC_SETTING*/        
       break;
     case SID_LINK_CONTROL:
-      
+#ifdef SID_LINK_CONTROL
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_LINK_CONTROL*/       
       break;
+      
     case SID_READ_DATA_BY_PERIODIC_IDENTIFIER:
-      
+#ifdef SID_READ_DATA_BY_PERIODIC_IDENTIFIER
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_READ_DATA_BY_PERIODIC_IDENTIFIER*/       
       break;
+      
     case SID_INPUT_OUTPUT_CONTROL_BY_IDENTIFER:
+#ifdef SID_INPUT_OUTPUT_CONTROL_BY_IDENTIFER
       local_APP_DIAG_vdIO_Control_Identifier();
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_INPUT_OUTPUT_CONTROL_BY_IDENTIFER*/          
       break;
+      
     case SID_REQUEST_DOWNLOAD:
-      
+#ifdef SID_REQUEST_DOWNLOAD
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_REQUEST_DOWNLOAD*/       
       break;
+      
     case SID_REQUEST_UPLOAD:
-      
+#ifdef SID_REQUEST_UPLOAD
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_REQUEST_UPLOAD*/      
       break;
+      
     case SID_TRANSFER_DATA:
-      
+#ifdef SID_TRANSFER_DATA
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_TRANSFER_DATA*/      
       break;
+      
     case SID_REQUEST_TRANSFER_EXIT:
-      
+#ifdef SID_REQUEST_TRANSFER_EXIT
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_REQUEST_TRANSFER_EXIT*/      
       break;
+      
     case SID_REQUEST_FILE_TRANSFER:
-      
-      break;      
-#endif /*APP_DIAG_BOOT_SERVICE_ENABLE*/
-    case SID_DIAG_SESSION_CONTROL:
-      local_APP_DIAG_vdDiag_Session_Control(eEcuMode); // Conditions not correct NRC is not fully implemented
-      break;
-    case SID_ECU_RESET:
-      local_APP_DIAG_vdECU_Reset(); // Conditions not correct and security access denied are not implemented
+#ifdef SID_REQUEST_FILE_TRANSFER
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_REQUEST_FILE_TRANSFER*/       
       break;    
+      
+    case SID_DIAG_SESSION_CONTROL:
+#ifdef SID_DIAG_SESSION_CONTROL
+      local_APP_DIAG_vdDiag_Session_Control(eEcuMode); // Conditions not correct NRC is not fully implemented
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_DIAG_SESSION_CONTROL*/      
+      break;
+      
+    case SID_ECU_RESET:
+#ifdef SID_ECU_RESET
+      local_APP_DIAG_vdECU_Reset(); // Conditions not correct and security access denied are not implemented
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_ECU_RESET*/        
+      break;    
+      
     case SID_TESTER_PRESENT:
+#ifdef SID_TESTER_PRESENT
       local_APP_DIAG_vdTester_Present();
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_TESTER_PRESENT*/       
       break;
+      
     case SID_RESPONSE_ON_EVENT:
-      
+#ifdef SID_RESPONSE_ON_EVENT
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_RESPONSE_ON_EVENT*/        
       break;
+      
     case SID_READ_DATA_BY_IDENTIFIER:
-      local_APP_DIAG_vdRead_Identifier();      
+#ifdef SID_READ_DATA_BY_IDENTIFIER
+      local_APP_DIAG_vdRead_Identifier();
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_READ_DATA_BY_IDENTIFIER*/             
       break;
+      
     case SID_READ_MEMORY_BY_ADDRESS:
+#ifdef SID_READ_MEMORY_BY_ADDRESS
       local_APP_DIAG_vdMemory_Read();      
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_READ_MEMORY_BY_ADDRESS*/       
       break;
+      
     case SID_READ_SCALING_DATA_BY_IDENTIFIER:
-      
+#ifdef SID_READ_SCALING_DATA_BY_IDENTIFIER
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_READ_SCALING_DATA_BY_IDENTIFIER*/         
       break;
+      
     case SID_DYNAMICALLY_DEFINE_DATA_IDENTIFIER:
-      
+#ifdef SID_DYNAMICALLY_DEFINE_DATA_IDENTIFIER
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_DYNAMICALLY_DEFINE_DATA_IDENTIFIER*/        
       break;
+      
     case SID_WRITE_DATA_BY_IDENTIFIER:
-      
+#ifdef SID_WRITE_DATA_BY_IDENTIFIER
+
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_WRITE_DATA_BY_IDENTIFIER*/      
       break;
+      
     case SID_WRITE_MEMORY_BY_ADDRESS:
+#ifdef SID_WRITE_MEMORY_BY_ADDRESS
       local_APP_DIAG_vdMemory_Write();      
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_WRITE_MEMORY_BY_ADDRESS*/      
       break;
+      
     case SID_CLEAR_DIAGNOSTIC_INFORMATION:
-      
+#ifdef SID_CLEAR_DIAGNOSTIC_INFORMATION
+     
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_CLEAR_DIAGNOSTIC_INFORMATION*/      
       break;
+      
     case SID_READ_DTC_INFORMATION:
-      
+#ifdef SID_READ_DTC_INFORMATION
+     
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_READ_DTC_INFORMATION*/          
       break;
+      
     case SID_ROUTINE_CONTROL:
-      
+#ifdef SID_ROUTINE_CONTROL
+     
+#else
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupportedInActiveSession);
+#endif /*SID_ROUTINE_CONTROL*/         
       break;
+      
     default :  
-      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_IncorrectMessageLengthOrInvalidFormat);
+      local_APP_DIAG_vdSingleFrameNegativeResponse(APP_DIAG_u8ServiceId,APP_DIAG_ServiceNotSupported);
       break;
       //local_APP_DIAG_EndServiceWithEchoArray(APP_DIAG_au8DataNotUsed, STATUS_NOK);
   }    

@@ -43,44 +43,6 @@ E-mail: karim@sigratech.de
 #define APP_DIAG_WRITE_DATA_BY_ADDRESS_MAX_BYTES_NUMBER         (16)
 #define APP_DIAG_WRITE_DATA_BY_ADDRESS_FC_SEPARATION_TIME_MS    (100)
 
-/* List of Service Ids */
-#define SID_DIAG_SESSION_CONTROL                                (0x10)
-#define SID_ECU_RESET                                           (0x11)
-#define SID_SECURITY_ACCESS                                     (0x27)
-#define SID_COMMUNICATION_CONTROL                               (0x28)
-#define SID_CONTROL_DTC_SETTING                                 (0x85)
-#define SID_READ_DATA_BY_PERIODIC_IDENTIFIER                    (0x2A)
-#define SID_INPUT_OUTPUT_CONTROL_BY_IDENTIFER                   (0x2F)
-#define SID_CLEAR_DIAGNOSTIC_INFO                               (0x14)
-#define SID_READ_DTC_INFORMATION                                (0x19)
-#define SID_READ_DATA_BY_IDENTIFIER                             (0x22)
-#define SID_READ_MEMORY_BY_ADDRESS                              (0x23)
-#define SID_READ_SCALE_DATA_IDENTIFIER                          (0x24)
-#define SID_SECURITY_ACCESS                                     (0x27)
-#define SID_COMM_CONTROL                                        (0x28)
-#define SID_READ_DATA_IDENTIFIER_PERIODIC                       (0x2A)
-#define SID_DYNAMIC_DEFINE_DATA_IDENTIFIER                      (0x2C)
-#define SID_WRITE_DATA_BY_IDENTIFIER                            (0x2E)
-#define SID_IO_CONTROL_BY_IDENTIFIER                            (0x2F)
-#define SID_REMOTE_CONTROL                                      (0x31)
-#define SID_WRITE_MEMORY_BY_ADDRESS                             (0x3D)
-#define SID_TESTER_PRESENT                                      (0x3E)
-#define SID_ACCESS_TIME_PARAM                                   (0x83)
-#define SID_SECURED_DATA_TRANSMISSION                           (0x84)
-#define SID_CONTROL_DTC_SETTINGS                                (0x85)
-#define SID_RESPONSE_ON_EVENT                                   (0x86)
-#define SID_LINK_CONTROL                                        (0x87)
-#define SID_REQUEST_DOWNLOAD                                    (0x34)
-#define SID_REQUEST_UPLOAD                                      (0x35)
-#define SID_TRANSFER_DATA                                       (0x36)
-#define SID_REQUEST_TRANSFER_EXIT                               (0x37)
-#define SID_REQUEST_FILE_TRANSFER                               (0x38)
-#define SID_ACCESS_TIMING_PARAMETER                             (0x83)
-#define SID_READ_SCALING_DATA_BY_IDENTIFIER                     (0x24)
-#define SID_DYNAMICALLY_DEFINE_DATA_IDENTIFIER                  (0x2C)
-#define SID_ROUTINE_CONTROL                                     (0x31)
-#define SID_CLEAR_DIAGNOSTIC_INFORMATION                        (0x14)
-
 typedef enum APP_DIAG_NRC_template
 {
   APP_DIAG_GeneralReject = 0x10,
@@ -139,6 +101,7 @@ typedef struct APP_DIAG_strConsecutiveFlowTemplate // when tester sends first fr
   uint8_t u8SeriveID;
   uint8_t u8ExpectedCF_Flag;
   uint8_t u8ExpectedCF_Number;
+  uint8_t u8SequenceNumber;
 } APP_DIAG_strConsecutiveFrame_t;
 
 void APP_DIAG_vdInit(void);
