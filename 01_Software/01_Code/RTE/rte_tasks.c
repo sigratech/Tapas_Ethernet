@@ -31,14 +31,30 @@ void APP_vdTask10ms(void);
 void APP_vdTask50ms(void);
 void APP_vdTask100ms(void);
 
+uint8_t APP_u8Counter = 0;
 
 void APP_vdTask1ms(void)
 {
+
 }
 
 
 void APP_vdTask10ms(void)
 {
+  if(APP_u8Counter == 10)
+  {
+    APP_u8Counter = 0;
+    ECU_IO_eOutputControl(ECU_IO_DOUT_HEARTBEAT_LED, ECU_IO_OUT_COMMAND_TOGGLE);    
+  }
+  else
+  {
+    APP_u8Counter++;
+    if(APP_u8Counter == 11)
+    {
+      APP_u8Counter = 0;
+    }
+  }
+
 }
 
 

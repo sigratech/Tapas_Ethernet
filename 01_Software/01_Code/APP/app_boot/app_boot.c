@@ -128,7 +128,7 @@ void APP_BOOT_vdMgr(void)
 //	ECU_SYS_eEcuMode_t eEcuMode;
 //  eEcuMode = ECU_SYS_eGetEcuMode();
 
-  local_APP_BOOT_vdBootHeartBeat();  
+//  local_APP_BOOT_vdBootHeartBeat();  
 //  if(eEcuMode == ECU_SYS_BOOT)
 //  {
 //    /*Heart Beat*/
