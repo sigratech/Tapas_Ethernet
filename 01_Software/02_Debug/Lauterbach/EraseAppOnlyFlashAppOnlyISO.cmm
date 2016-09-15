@@ -114,17 +114,14 @@
   ENTRY &progflash
 
   IF &progflash 
-  (
-	;FLASH.Erase 1.
-	;FLASH.Erase 2.
-	;FLASH.Erase 3.
-	;FLASH.Program 1.
-	;FLASH.Program 2.
-	;FLASH.Program 3.
-	FLASH.ReProgram.ALL /Erase
-	Data.LOAD.auto ..\..\Flash_Debug\Exe\Tapas_Boot.srec
-	FLASH.Program.off
-
+  (		
+	;FLASH.Erase 0x00008000--0x002FFFFF
+	;FLASH.Program 0x00008000--0x002FFFFF
+	FLASH.ReProgram 0x00008000--0x002FFFFF /Erase
+	Data.LOAD.auto C:\Git2\Tapas_App\01_Software\Flash_Debug\Exe\Tapas_App.srec
+	;FLASH.Program.off
+	FLASH.ReProgram.off
+	
 	; Basic setup
 	  SYStem.RESet
 	  SYStem.CPU TMS570LS3137-PGE
@@ -134,8 +131,9 @@
 	  SYStem.JtagClock 10Mhz
 	  SYStem.Up
 
+	; Load sieve demo application
 	  Register.RESet
-	  Data.LOAD.Elf ..\..\Flash_Debug\Exe\Tapas_Boot.out
+	  Data.LOAD.Elf C:\Git2\Tapas_App\01_Software\Flash_Debug\Exe\Tapas_App.out
 	  ;Register.Set PC main
 	  ;Register.Set R13 0x08008000
 	  
