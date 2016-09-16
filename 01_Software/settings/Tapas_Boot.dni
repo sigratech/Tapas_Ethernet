@@ -19,7 +19,7 @@ xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
 <<<<<<< HEAD
-Checksum=447043443
+Checksum=-2078323712
 =======
 Checksum=-1435409575
 >>>>>>> develop
@@ -39,8 +39,9 @@ CStepIntDis=_ 0
 Fmt0=ECU_MEM_CODE_strPageMemory_t-u32PageStartingAddress	4	0
 Fmt1=ECU_MEM_INT_strE2pSignalData_t-u32RawValue	4	0
 Fmt2=ECU_MEM_strBlockMemory_t-u32Address	4	0
-Fmt3=UC_FLASH_strBlockMemory_t-u32Address	4	0
-Fmt4=UC_FLASH_strBlockMemory_t-u32LineNumber	3	0
+Fmt3=UC_CAN_strMsg_t-u16MsgFrameId	4	0
+Fmt4=UC_FLASH_strBlockMemory_t-u32Address	4	0
+Fmt5=UC_FLASH_strBlockMemory_t-u32LineNumber	3	0
 [array_types]
 Fmt0=uint32_t[31]	4	0
 Fmt1=uint32_t[4]	4	0
@@ -110,7 +111,12 @@ mode=0
 Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.148.4" 0 0 1 "" 0 "" 0
 Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code}.441.3" 0 0 1 "" 0 "" 0
 Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.581.12" 0 0 1 "" 0 "" 0
-Count=3
+Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.166.5" 0 0 1 "" 0 "" 0
+Bp4=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.155.3" 0 0 1 "" 0 "" 0
+Bp5=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.440.3" 0 0 1 "" 0 "" 0
+Bp6=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.214.5" 0 0 1 "" 0 "" 0
+Bp7=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\Main\main.c}.50.5" 0 0 1 "" 0 "" 0
+Count=8
 [Aliases]
 A0=_ "../Source/Async.WithAddress.c" ""
 A1=_ "../Source/Async.c" ""

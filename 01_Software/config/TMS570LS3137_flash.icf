@@ -45,9 +45,9 @@ define block ABT_STACK with alignment = 8, size = __ICFEDIT_size_abtstack__ { };
 define block HEAP      with alignment = 8, size = __ICFEDIT_size_heap__     { };
 
 
-initialize by copy { readwrite } //comment this for bootloader flash to RAM
-except {section .intvec}; //comment this for bootloader flash to RAM
-do not initialize  { section .noinit }; //comment this for bootloader flash to RAM
+//initialize by copy { readwrite } //comment this for bootloader flash to RAM
+//except {section .intvec}; //comment this for bootloader flash to RAM
+//do not initialize  { section .noinit }; //comment this for bootloader flash to RAM
 
 place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
 
@@ -57,6 +57,6 @@ place in RAM_region   { readwrite,
                         block UND_STACK, block ABT_STACK, block HEAP };
 place in DRAM_region  { section DRAM };
 
-//initialize by copy { readonly, readwrite } //Uncomment this for bootloader flash to RAM
-//except {section .intvec}; //Uncomment this for bootloader flash to RAM
-//do not initialize  { section .noinit }; //Uncomment this for bootloader flash to RAM
+initialize by copy { readonly, readwrite } //Uncomment this for bootloader flash to RAM
+except {section .intvec}; //Uncomment this for bootloader flash to RAM
+do not initialize  { section .noinit }; //Uncomment this for bootloader flash to RAM
