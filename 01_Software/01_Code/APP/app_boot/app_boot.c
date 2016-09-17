@@ -129,7 +129,7 @@ void APP_BOOT_vdMgr(void)
 //  eEcuMode = ECU_SYS_eGetEcuMode();
 
 //  local_APP_BOOT_vdBootHeartBeat();  
-//  if(eEcuMode == ECU_SYS_BOOT)
+//  if(eEcuMode == ECU_SYS_PROGRAMMING)
 //  {
 //    /*Heart Beat*/
 //    local_APP_BOOT_vdBootHeartBeat();
@@ -143,14 +143,14 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
   STATUS_t eStatus = STATUS_NOK;
   ECU_DIAG_vdSetAppStatus(ECU_DIAG_APP_BUSY);
   
-  if(eEcuMode == ECU_SYS_BOOT)
+  if(eEcuMode == ECU_SYS_PROGRAMMING)
   {   
 //    eStatus = ECU_DIAG_u8GetDiagFrame(&APP_BOOT_u8ServiceId, APP_BOOT_au8Data, APP_BOOT_u8DataSize);
     UC_DIO_eCommandOutputPin(UC_DIO_OUTPUT_GIO10, UC_DIO_OUT_COMMAND_ON);      
     
-    if((APP_BOOT_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_BOOT_au8Data[0] == (uint8_t)ECU_SYS_NORMAL))
+    if((APP_BOOT_u8ServiceId == SID_DIAG_SESSION_CONTROL) && (APP_BOOT_au8Data[0] == (uint8_t)ECU_SYS_DEFAULT))
     {
-      ECU_SYS_vdSetEcuMode(ECU_SYS_NORMAL);
+      ECU_SYS_vdSetEcuMode(ECU_SYS_DEFAULT);
       local_APP_BOOT_vdEndServiceWithEchoArray(APP_BOOT_au8DataNotUsed, STATUS_OK);
     }
     else if((APP_BOOT_u8ServiceId == SID_DIAG_SESSION_CONTROL))
@@ -165,7 +165,7 @@ void local_APP_BOOT_vdFlashApplicationSoftware(void)
     {
       eEcuMode = ECU_SYS_eGetEcuMode();
       
-      if(eEcuMode == ECU_SYS_BOOT)
+      if(eEcuMode == ECU_SYS_PROGRAMMING)
       {
         if(	eStatus == STATUS_OK)
         {
