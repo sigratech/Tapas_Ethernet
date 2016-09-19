@@ -25,9 +25,25 @@ E-mail: info@sigratech.de
 #ifndef RTE_APP_H
 #define RTE_APP_H
 
-
 #include "app_diag.h"
-
+#include "app_FaultMgr.h"
+//#include "app_AccelMgr.h"
+//#include "app_DrivingMgr.h"
+//#include "app_McuMgr.h"
+//#include "app_AirConMgr.h"
+//#include "app_BatteryMgr.h"
+//#include "app_BrakeMgr.h"
+//#include "app_ChargingMgr.h"
+//#include "app_ComMgr.h"
+//#include "app_CoolingMgr.h"
+//#include "app_DashMgr.h"
+//#include "app_DcDcMgr.h"
+//#include "app_GearMgr.h"
+//#include "app_LightMgr.h"
+//#include "app_PowerSteeringMgr.h"
+//#include "app_StartKeyMgr.h"
+//#include "app_SysMgr.h"
+//#include "app_test_gen.h"
 
 
 #endif /*RTE_APP_H*/
