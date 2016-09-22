@@ -32,7 +32,7 @@ E-mail: karim@sigratech.de
 #include "app_diag_cfg.h"
 #include "app_diag.h"
 
-#define NON_DEFAULT_SESSION
+#define PROGRAMMING_SOFTWARE
 
 void APP_vdInit(void);
 void APP_vdDeInit(void);
