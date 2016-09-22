@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.50.2.10312/W32 for ARM                22/Sep/2016  15:46:50
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                22/Sep/2016  16:04:23
 # Copyright 2007-2015 IAR Systems AB.
 #
 #    Output file  =  
@@ -102,7 +102,7 @@ __SystemLibrary = DLib
   .intvec                 ro code  0x00000000    0x3c  tms570ls3137_cstartup.o [1]
                                  - 0x0000003c    0x3c
 
-"P1":                                          0x4d1b
+"P1":                                          0x4d1d
   .text                   ro code  0x00000040   0x1cc  tms570ls3137_cstartup.o [1]
   .text                   ro code  0x0000020c   0x1c0  low_level_init.o [1]
   Veneer                  ro code  0x000003cc     0x8  - Linker created -
@@ -118,11 +118,11 @@ __SystemLibrary = DLib
   .text                   ro code  0x0000068c     0x4  xreturnswi.o [8]
   .rodata                 const    0x00000690     0x0  zero_init3.o [7]
   .rodata                 const    0x00000690     0x0  lz77_init_single.o [7]
-  Initializer bytes       const    0x00000690  0x46cb  <for P2-1>
-                                 - 0x00004d5b  0x4d1b
+  Initializer bytes       const    0x00000690  0x46cd  <for P2-1>
+                                 - 0x00004d5d  0x4d1d
 
-"P2", part 1 of 3:                             0x80d2
-  P2-1                             0x08000000  0x80d2  <Init block>
+"P2", part 1 of 3:                             0x80da
+  P2-1                             0x08000000  0x80da  <Init block>
     .rodata               inited   0x08000000     0x8  app_diag.o [1]
     .rodata               inited   0x08000008     0x8  app_diag.o [1]
     .rodata               inited   0x08000010     0x4  uc_system.o [1]
@@ -204,105 +204,105 @@ __SystemLibrary = DLib
     .text                 inited   0x08007ddc    0x3e  lib_data.o [1]
     .text                 inited   0x08007e1a    0x14  lib_delay.o [1]
     Veneer                inited   0x08007e30     0x8  - Linker created -
-    .text                 inited   0x08007e38    0xbe  main.o [1]
-    .text                 inited   0x08007ef6    0x54  os_tasks.o [1]
-    Veneer                inited   0x08007f4c     0x8  - Linker created -
-    .text                 inited   0x08007f54    0x28  uc.o [1]
-    Veneer                inited   0x08007f7c     0x8  - Linker created -
-    .text                 inited   0x08007f84     0x4  exit.o [5]
+    .text                 inited   0x08007e38    0xc8  main.o [1]
+    .text                 inited   0x08007f00    0x54  os_tasks.o [1]
+    Veneer                inited   0x08007f54     0x8  - Linker created -
+    .text                 inited   0x08007f5c    0x28  uc.o [1]
+    Veneer                inited   0x08007f84     0x8  - Linker created -
+    .text                 inited   0x08007f8c     0x4  exit.o [5]
     .text:Fapi_calculateFletcherChecksum
-                          inited   0x08007f88    0x36  Utilities.CalculateFletcher.obj [4]
+                          inited   0x08007f90    0x36  Utilities.CalculateFletcher.obj [4]
     .text:Fapi_doMarginRead
-                          inited   0x08007fbe    0x6e  Read.Margin.obj [4]
+                          inited   0x08007fc6    0x6e  Read.Margin.obj [4]
     .text:Fapi_flushPipeline
-                          inited   0x0800802c    0x22  Read.FlushPipeline.obj [4]
+                          inited   0x08008034    0x22  Read.FlushPipeline.obj [4]
     .text:Fapi_issueAsyncCommand
-                          inited   0x0800804e    0x2a  Async.obj [4]
-    .text:Fapi_waitDelay  inited   0x08008078    0x30  Utilities.WaitDelay.obj [4]
+                          inited   0x08008056    0x2a  Async.obj [4]
+    .text:Fapi_waitDelay  inited   0x08008080    0x30  Utilities.WaitDelay.obj [4]
     .text:_Fapi_checkWdService
-                          inited   0x080080a8     0xc  Read.WdService.obj [4]
+                          inited   0x080080b0     0xc  Read.WdService.obj [4]
     .text:_Fapi_divideUnsignedLong
-                          inited   0x080080b4    0x1c  FlashStateMachine.InitializeFlashBanks.obj [4]
-    .data                 inited   0x080080d0     0x1  ecu_wdg.o [1]
-    .data                 inited   0x080080d1     0x1  FlashStateMachine.SetActiveBank.obj [4]
-                                 - 0x080080d2  0x80d2
+                          inited   0x080080bc    0x1c  FlashStateMachine.InitializeFlashBanks.obj [4]
+    .data                 inited   0x080080d8     0x1  ecu_wdg.o [1]
+    .data                 inited   0x080080d9     0x1  FlashStateMachine.SetActiveBank.obj [4]
+                                 - 0x080080da  0x80da
 
 "P2", part 2 of 3:                             0x2500
-  CSTACK                           0x080080d8  0x2000  <Block>
-    CSTACK                uninit   0x080080d8  0x2000  <Block tail>
-  SVC_STACK                        0x0800a0d8   0x100  <Block>
-    SVC_STACK             uninit   0x0800a0d8   0x100  <Block tail>
-  IRQ_STACK                        0x0800a1d8   0x100  <Block>
-    IRQ_STACK             uninit   0x0800a1d8   0x100  <Block tail>
-  FIQ_STACK                        0x0800a2d8   0x100  <Block>
-    FIQ_STACK             uninit   0x0800a2d8   0x100  <Block tail>
-  UND_STACK                        0x0800a3d8   0x100  <Block>
-    UND_STACK             uninit   0x0800a3d8   0x100  <Block tail>
-  ABT_STACK                        0x0800a4d8   0x100  <Block>
-    ABT_STACK             uninit   0x0800a4d8   0x100  <Block tail>
-                                 - 0x0800a5d8  0x2500
+  CSTACK                           0x080080e0  0x2000  <Block>
+    CSTACK                uninit   0x080080e0  0x2000  <Block tail>
+  SVC_STACK                        0x0800a0e0   0x100  <Block>
+    SVC_STACK             uninit   0x0800a0e0   0x100  <Block tail>
+  IRQ_STACK                        0x0800a1e0   0x100  <Block>
+    IRQ_STACK             uninit   0x0800a1e0   0x100  <Block tail>
+  FIQ_STACK                        0x0800a2e0   0x100  <Block>
+    FIQ_STACK             uninit   0x0800a2e0   0x100  <Block tail>
+  UND_STACK                        0x0800a3e0   0x100  <Block>
+    UND_STACK             uninit   0x0800a3e0   0x100  <Block tail>
+  ABT_STACK                        0x0800a4e0   0x100  <Block>
+    ABT_STACK             uninit   0x0800a4e0   0x100  <Block tail>
+                                 - 0x0800a5e0  0x2500
 
 "P2", part 3 of 3:                              0x168
-  .bss                    zero     0x0800a5d8    0x80  app_diag.o [1]
-  .bss                    zero     0x0800a658    0x40  uc_dio.o [1]
-  .bss                    zero     0x0800a698    0x10  app_diag.o [1]
-  .bss                    zero     0x0800a6a8    0x10  ecu_diag.o [1]
-  .bss                    zero     0x0800a6b8     0x8  app_diag_gf.o [1]
+  .bss                    zero     0x0800a5e0    0x80  app_diag.o [1]
+  .bss                    zero     0x0800a660    0x40  uc_dio.o [1]
+  .bss                    zero     0x0800a6a0    0x10  app_diag.o [1]
+  .bss                    zero     0x0800a6b0    0x10  ecu_diag.o [1]
   .bss                    zero     0x0800a6c0     0x8  app_diag_gf.o [1]
   .bss                    zero     0x0800a6c8     0x8  app_diag_gf.o [1]
   .bss                    zero     0x0800a6d0     0x8  app_diag_gf.o [1]
   .bss                    zero     0x0800a6d8     0x8  app_diag_gf.o [1]
-  .bss                    zero     0x0800a6e0     0x8  uc_uart.o [1]
-  .bss                    zero     0x0800a6e8     0x4  app_diag.o [1]
-  .bss                    zero     0x0800a6ec     0x4  app_diag.o [1]
-  .bss                    zero     0x0800a6f0     0x4  app_diag_gf.o [1]
-  .bss                    zero     0x0800a6f4     0x4  app_diag_gf.o [1]
+  .bss                    zero     0x0800a6e0     0x8  app_diag_gf.o [1]
+  .bss                    zero     0x0800a6e8     0x8  uc_uart.o [1]
+  .bss                    zero     0x0800a6f0     0x4  app_diag.o [1]
+  .bss                    zero     0x0800a6f4     0x4  app_diag.o [1]
   .bss                    zero     0x0800a6f8     0x4  app_diag_gf.o [1]
-  .bss                    zero     0x0800a6fc     0x4  ecu_diag.o [1]
-  .bss                    zero     0x0800a700     0x4  ecu_diag.o [1]
-  .bss                    zero     0x0800a704     0x4  os.o [1]
-  .bss                    zero     0x0800a708     0x4  os.o [1]
+  .bss                    zero     0x0800a6fc     0x4  app_diag_gf.o [1]
+  .bss                    zero     0x0800a700     0x4  app_diag_gf.o [1]
+  .bss                    zero     0x0800a704     0x4  ecu_diag.o [1]
+  .bss                    zero     0x0800a708     0x4  ecu_diag.o [1]
   .bss                    zero     0x0800a70c     0x4  os.o [1]
-  .bss                    zero     0x0800a710     0x4  uc_system.o [1]
-  .bss                    zero     0x0800a714     0x4  uc_system.o [1]
-  .bss                    zero     0x0800a718     0x4  uc_timer.o [1]
-  .bss                    zero     0x0800a71c     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a71d     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a71e     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a71f     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a720     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a721     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a722     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a723     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a710     0x4  os.o [1]
+  .bss                    zero     0x0800a714     0x4  os.o [1]
+  .bss                    zero     0x0800a718     0x4  uc_system.o [1]
+  .bss                    zero     0x0800a71c     0x4  uc_system.o [1]
+  .bss                    zero     0x0800a720     0x4  uc_timer.o [1]
   .bss                    zero     0x0800a724     0x1  app_diag.o [1]
   .bss                    zero     0x0800a725     0x1  app_diag.o [1]
   .bss                    zero     0x0800a726     0x1  app_diag.o [1]
   .bss                    zero     0x0800a727     0x1  app_diag.o [1]
   .bss                    zero     0x0800a728     0x1  app_diag.o [1]
-  .bss                    zero     0x0800a729     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a72a     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a72b     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a72c     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a72d     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a72e     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a72f     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a730     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a729     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a72a     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a72b     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a72c     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a72d     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a72e     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a72f     0x1  app_diag.o [1]
+  .bss                    zero     0x0800a730     0x1  app_diag.o [1]
   .bss                    zero     0x0800a731     0x1  app_diag_gf.o [1]
   .bss                    zero     0x0800a732     0x1  app_diag_gf.o [1]
   .bss                    zero     0x0800a733     0x1  app_diag_gf.o [1]
   .bss                    zero     0x0800a734     0x1  app_diag_gf.o [1]
   .bss                    zero     0x0800a735     0x1  app_diag_gf.o [1]
   .bss                    zero     0x0800a736     0x1  app_diag_gf.o [1]
-  .bss                    zero     0x0800a737     0x1  ecu_diag.o [1]
-  .bss                    zero     0x0800a738     0x1  ecu_diag.o [1]
-  .bss                    zero     0x0800a739     0x1  ecu_mem.o [1]
-  .bss                    zero     0x0800a73a     0x1  ecu_system.o [1]
-  .bss                    zero     0x0800a73b     0x1  ecu_system.o [1]
-  .bss                    zero     0x0800a73c     0x1  ecu_wdg.o [1]
-  .bss                    zero     0x0800a73d     0x1  os.o [1]
-  .bss                    zero     0x0800a73e     0x1  os.o [1]
-  .bss                    zero     0x0800a73f     0x1  uc_uart.o [1]
-                                 - 0x0800a740   0x168
+  .bss                    zero     0x0800a737     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a738     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a739     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a73a     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a73b     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a73c     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a73d     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a73e     0x1  app_diag_gf.o [1]
+  .bss                    zero     0x0800a73f     0x1  ecu_diag.o [1]
+  .bss                    zero     0x0800a740     0x1  ecu_diag.o [1]
+  .bss                    zero     0x0800a741     0x1  ecu_mem.o [1]
+  .bss                    zero     0x0800a742     0x1  ecu_system.o [1]
+  .bss                    zero     0x0800a743     0x1  ecu_system.o [1]
+  .bss                    zero     0x0800a744     0x1  ecu_wdg.o [1]
+  .bss                    zero     0x0800a745     0x1  os.o [1]
+  .bss                    zero     0x0800a746     0x1  os.o [1]
+  .bss                    zero     0x0800a747     0x1  uc_uart.o [1]
+                                 - 0x0800a748   0x168
 
 Absolute sections, part 1 of 73:                  0x4
   .noinit                 uninit   0xff1a0000     0x4  uc_can.o [1]
@@ -857,13 +857,13 @@ Absolute sections, part 73 of 73:                 0x4
           -------     ----
 Zero (__iar_zero_init3)
     1 destination range, total size 0x168:
-          0x0800a5d8   0x168
+          0x0800a5e0   0x168
 
 Copy/lz77 (__iar_lz77_init_single3)
-    1 source range, total size 0x46cb (54% of destination):
-          0x00000690  0x46cb
-    1 destination range, total size 0x80d2:
-          0x08000000  0x80d2
+    1 source range, total size 0x46cd (54% of destination):
+          0x00000690  0x46cd
+    1 destination range, total size 0x80da:
+          0x08000000  0x80da
 
 
 
@@ -875,41 +875,41 @@ Copy/lz77 (__iar_lz77_init_single3)
                                                                                       (abs)
     ------                                       -------  -------  -------  -------  -------
 C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj: [1]
-    Fapi_UserDefinedFunctions.o                                 4        2
-    app.o                                                      10        6
-    app_diag.o                                              4 664    2 572      181
+    Fapi_UserDefinedFunctions.o                                 4        3
+    app.o                                                      10        5
+    app_diag.o                                              4 664    2 571      181
     app_diag_gf.o                                           1 804      994       70
     ecu.o                                                      40       22
-    ecu_diag.o                                                756      415       26
-    ecu_io.o                                                  148       82
+    ecu_diag.o                                                756      416       26
+    ecu_io.o                                                  148       81
     ecu_io_cfg.o                                                         8       16
     ecu_mem.o                                               1 656      910        1
     ecu_mem_cfg.o                                                      497      904
-    ecu_system.o                                              216      118        2
-    ecu_wdg.o                                                  92       52        2
+    ecu_system.o                                              216      119        2
+    ecu_wdg.o                                                  92       51        2
     lib_data.o                                                 62       34
     lib_delay.o                                                20       11
     low_level_init.o                                 448                                  56
-    main.o                                                    190      104
+    main.o                                                    200      110
     os.o                                                      584      321       14
     os_cfg.o                                                            53       96
     os_tasks.o                                                 84       46
     rte.o                                                       4        2
     tms570ls3137_cstartup.o                          520
     uc.o                                                       40       22
-    uc_can.o                                                9 464    5 939    1 344      684
-    uc_can_cfg.o                                                       368      668
-    uc_dio.o                                                1 264      940      512      264
+    uc_can.o                                                9 464    5 938    1 344      684
+    uc_can_cfg.o                                                       367      668
+    uc_dio.o                                                1 264      942      512      264
     uc_dio_cfg.o                                                       369      672
     uc_eeprom.o                                               600      330
-    uc_flash.o                                                100       55                 8
+    uc_flash.o                                                100       54                 8
     uc_system.o                                      352        6        5       12       56
-    uc_timer.o                                                612      336        4       32
+    uc_timer.o                                                612      337        4       32
     uc_timer_cfg.o                                                      88      160
-    uc_uart _cfg.o                                                      62      112        8
-    uc_uart.o                                               3 060    1 893      393      192
+    uc_uart _cfg.o                                                      61      112        8
+    uc_uart.o                                               3 060    1 892      393      192
     ----------------------------------------------------------------------------------------
-    Total:                                         1 320   25 480   16 656    5 189    1 300
+    Total:                                         1 320   25 490   16 659    5 189    1 300
 
 C:\ti\Hercules\F021 Flash API\02.01.01: [2]
     ----------------------------------------------------------------------------------------
@@ -922,11 +922,11 @@ command line: [3]
 F021_API_CortexR4_BE.lib: [4]
     Async.WithAddress.obj                                      48       27
     Async.obj                                                  42       23
-    FlashStateMachine.EnableEepromSectors.obj                 196      107
+    FlashStateMachine.EnableEepromSectors.obj                 196      108
     FlashStateMachine.Hercules.IsEccAddress.obj                80       44
     FlashStateMachine.InitializeFlashBanks.obj                636      349
     FlashStateMachine.IssueFsmCommand.obj                      60       33
-    FlashStateMachine.ScaleFclk.obj                            32       21        8
+    FlashStateMachine.ScaleFclk.obj                            32       22        8
     FlashStateMachine.SetActiveBank.obj                       380      210        1
     Program.obj                                               376      206
     Read.Common.obj                                           148       82
@@ -935,10 +935,10 @@ F021_API_CortexR4_BE.lib: [4]
     Read.WdService.obj                                         12        7
     Utilities.CalculateEcc.obj                                 20       11
     Utilities.CalculateFletcher.obj                            54       30
-    Utilities.GetNumberOfSectors.obj                           16        9
+    Utilities.GetNumberOfSectors.obj                           16        8
     Utilities.WaitDelay.obj                                    48       26
     ----------------------------------------------------------------------------------------
-    Total:                                                  2 292    1 264        9
+    Total:                                                  2 292    1 265        9
 
 dl7Sx_tbn.a: [5]
     exit.o                                                      4        2
@@ -951,8 +951,8 @@ m7Sx_tbv.a: [6]
     Total:                                                     40       22
 
 rt7Sx_tb.a: [7]
-    ABImemclr4.o                                                8        4
-    ABImemcpy.o                                               176       97
+    ABImemclr4.o                                                8        5
+    ABImemcpy.o                                               176       96
     ABImemset48.o                                              56       31
     cexit.o                                                    16        9
     cmain.o                                           44
@@ -968,10 +968,10 @@ sh7Sxs_b.a: [8]
     ----------------------------------------------------------------------------------------
     Total:                                            24
 
-    Gaps                                                        4
-    Linker created                                    24       64       70    9 472
+    Gaps                                                        2
+    Linker created                                    24       64       68    9 472
 --------------------------------------------------------------------------------------------
-    Grand Total:                                   1 644   28 140   18 155   14 670    1 300
+    Grand Total:                                   1 644   28 148   18 157   14 670    1 300
 
 
 *******************************************************************************
@@ -983,86 +983,86 @@ Entry                      Address   Size  Type      Object
 .iar.init_table$$Base   0x0000066c          --   Gb  - Linker created -
 .iar.init_table$$Limit  0x0000068c          --   Gb  - Linker created -
 ?main                   0x0000062c         Code  Gb  cmain.o [7]
-ABT_STACK$$Base         0x0800a4d8          --   Gb  - Linker created -
-ABT_STACK$$Limit        0x0800a5d8          --   Gb  - Linker created -
+ABT_STACK$$Base         0x0800a4e0          --   Gb  - Linker created -
+ABT_STACK$$Limit        0x0800a5e0          --   Gb  - Linker created -
 APP_DIAG_au8DataNotUsed
-                        0x0800a6d0    0x8  Data  Gb  app_diag_gf.o [1]
+                        0x0800a6d8    0x8  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_au8ReadDataByAddress
-                        0x0800a5d8   0x80  Data  Gb  app_diag.o [1]
+                        0x0800a5e0   0x80  Data  Gb  app_diag.o [1]
 APP_DIAG_au8ReceivedFullArray
-                        0x0800a6c8    0x8  Data  Gb  app_diag_gf.o [1]
+                        0x0800a6d0    0x8  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_au8RequestData
-                        0x0800a6b8    0x8  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_au8ResposneData
                         0x0800a6c0    0x8  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_au8ResposneData
+                        0x0800a6c8    0x8  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_eCurrentSession
-                        0x0800a72e    0x1  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_eFrameType     0x0800a729    0x1  Data  Gb  app_diag_gf.o [1]
+                        0x0800a736    0x1  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_eFrameType     0x0800a731    0x1  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_u32ApplicationEndAddress
-                        0x0800a6f0    0x4  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_u32ReadDataByAddress_SeparationTimeInNanoSeconds
-                        0x0800a6e8    0x4  Data  Gb  app_diag.o [1]
-APP_DIAG_u32TesterPresentTimer
                         0x0800a6f8    0x4  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_u32ReadDataByAddress_SeparationTimeInNanoSeconds
+                        0x0800a6f0    0x4  Data  Gb  app_diag.o [1]
+APP_DIAG_u32TesterPresentTimer
+                        0x0800a700    0x4  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_u32WriteDataByAddress_Address
-                        0x0800a6ec    0x4  Data  Gb  app_diag.o [1]
+                        0x0800a6f4    0x4  Data  Gb  app_diag.o [1]
 APP_DIAG_u8ConsecutiveFrameSequenceNumber
-                        0x0800a733    0x1  Data  Gb  app_diag_gf.o [1]
+                        0x0800a73b    0x1  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_u8ConsecutiveFrameServiceID
-                        0x0800a732    0x1  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_u8DataCount    0x0800a72a    0x1  Data  Gb  app_diag_gf.o [1]
+                        0x0800a73a    0x1  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_u8DataCount    0x0800a732    0x1  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_u8DefaultEcuModeCheck
                         0x0800168d   0x2a  Code  Gb  app_diag_gf.o [1]
 APP_DIAG_u8FirstFrameServiceID
-                        0x0800a731    0x1  Data  Gb  app_diag_gf.o [1]
+                        0x0800a739    0x1  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_u8FlowControlExpected
-                        0x0800a72f    0x1  Data  Gb  app_diag_gf.o [1]
+                        0x0800a737    0x1  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_u8FlowControlServiceID
-                        0x0800a730    0x1  Data  Gb  app_diag_gf.o [1]
+                        0x0800a738    0x1  Data  Gb  app_diag_gf.o [1]
 APP_DIAG_u8ReadDataByAddress_BytesNum
-                        0x0800a71c    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8ReadDataByAddress_FirstFlowControl
-                        0x0800a71d    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8ReadDataByAddress_GlobalCounter
-                        0x0800a71f    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8ReadDataByAddress_OverFlow
-                        0x0800a721    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8ReadDataByAddress_RemainingBytes
-                        0x0800a71e    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8ReadDataByAddress_Wait
-                        0x0800a720    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8ServiceId    0x0800a72b    0x1  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_u8ServiceInAction
-                        0x0800a735    0x1  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_u8SubFunction  0x0800a72c    0x1  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_u8SuppressPosResponse
-                        0x0800a72d    0x1  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_u8TesterPresentReceived
-                        0x0800a734    0x1  Data  Gb  app_diag_gf.o [1]
-APP_DIAG_u8WriteDataByAddress_AddressBytesNum
                         0x0800a724    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8WriteDataByAddress_BytesIndex
-                        0x0800a726    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished
+APP_DIAG_u8ReadDataByAddress_FirstFlowControl
                         0x0800a725    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8WriteDataByAddress_DataBytes
-                        0x0800a698   0x10  Data  Gb  app_diag.o [1]
-APP_DIAG_u8WriteDataByAddress_DataBytesCount
+APP_DIAG_u8ReadDataByAddress_GlobalCounter
                         0x0800a727    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8WriteDataByAddress_ServiceTotalBytesNum
-                        0x0800a722    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8WriteDataByAddress_SizeBytesNum
-                        0x0800a723    0x1  Data  Gb  app_diag.o [1]
-APP_DIAG_u8WriteDataByAddress_ZeroElementsReceived
+APP_DIAG_u8ReadDataByAddress_OverFlow
+                        0x0800a729    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8ReadDataByAddress_RemainingBytes
+                        0x0800a726    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8ReadDataByAddress_Wait
                         0x0800a728    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8ServiceId    0x0800a733    0x1  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_u8ServiceInAction
+                        0x0800a73d    0x1  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_u8SubFunction  0x0800a734    0x1  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_u8SuppressPosResponse
+                        0x0800a735    0x1  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_u8TesterPresentReceived
+                        0x0800a73c    0x1  Data  Gb  app_diag_gf.o [1]
+APP_DIAG_u8WriteDataByAddress_AddressBytesNum
+                        0x0800a72c    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8WriteDataByAddress_BytesIndex
+                        0x0800a72e    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8WriteDataByAddress_ConsecutiveFrameFinished
+                        0x0800a72d    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8WriteDataByAddress_DataBytes
+                        0x0800a6a0   0x10  Data  Gb  app_diag.o [1]
+APP_DIAG_u8WriteDataByAddress_DataBytesCount
+                        0x0800a72f    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8WriteDataByAddress_ServiceTotalBytesNum
+                        0x0800a72a    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8WriteDataByAddress_SizeBytesNum
+                        0x0800a72b    0x1  Data  Gb  app_diag.o [1]
+APP_DIAG_u8WriteDataByAddress_ZeroElementsReceived
+                        0x0800a730    0x1  Data  Gb  app_diag.o [1]
 APP_DIAG_vdInit         0x08000015   0x66  Code  Gb  app_diag.o [1]
 APP_DIAG_vdMgr          0x0800007b   0x7e  Code  Gb  app_diag.o [1]
 APP_vdDeInit            0x08007daf    0x2  Code  Gb  app.o [1]
 APP_vdInit              0x08007da7    0x8  Code  Gb  app.o [1]
 Abort_Handler           0x0000049f    0xc  Code  Gb  uc_system.o [1]
-CSTACK$$Base            0x080080d8          --   Gb  - Linker created -
-CSTACK$$Limit           0x0800a0d8          --   Gb  - Linker created -
-ConsecutiveFlowFrame    0x0800a6f4    0x4  Data  Gb  app_diag_gf.o [1]
+CSTACK$$Base            0x080080e0          --   Gb  - Linker created -
+CSTACK$$Limit           0x0800a0e0          --   Gb  - Linker created -
+ConsecutiveFlowFrame    0x0800a6fc    0x4  Data  Gb  app_diag_gf.o [1]
 DCAN1ABOTR              0xfff7dc80    0x4  Data  Gb  uc_can.o [1]
 DCAN1RAM_BASE           0xff1e0000    0x4  Data  Gb  uc_can.o [1]
 DCAN2ABOTR              0xfff7de80    0x4  Data  Gb  uc_can.o [1]
@@ -1070,16 +1070,16 @@ DCAN2RAM_BASE           0xff1c0000    0x4  Data  Gb  uc_can.o [1]
 DCAN3ABOTR              0xfff7e080    0x4  Data  Gb  uc_can.o [1]
 DCAN3RAM_BASE           0xff1a0000    0x4  Data  Gb  uc_can.o [1]
 ECU_DIAG_EcuCommunicationMode
-                        0x0800a737    0x1  Data  Gb  ecu_diag.o [1]
+                        0x0800a73f    0x1  Data  Gb  ecu_diag.o [1]
 ECU_DIAG_pfCallback_vdAppDiag
-                        0x0800a6fc    0x4  Data  Gb  ecu_diag.o [1]
+                        0x0800a704    0x4  Data  Gb  ecu_diag.o [1]
 ECU_DIAG_pfCallback_vdTimingRequirement
-                        0x0800a700    0x4  Data  Gb  ecu_diag.o [1]
-ECU_DIAG_strPacket      0x0800a6a8   0x10  Data  Gb  ecu_diag.o [1]
+                        0x0800a708    0x4  Data  Gb  ecu_diag.o [1]
+ECU_DIAG_strPacket      0x0800a6b0   0x10  Data  Gb  ecu_diag.o [1]
 ECU_DIAG_u8GetDiagFrame
                         0x08001aa9   0xf4  Code  Gb  ecu_diag.o [1]
 ECU_DIAG_u8TimerOverFlow
-                        0x0800a738    0x1  Data  Gb  ecu_diag.o [1]
+                        0x0800a740    0x1  Data  Gb  ecu_diag.o [1]
 ECU_DIAG_vdCAN1_Callback
                         0x080019b5   0x4c  Code  Gb  ecu_diag.o [1]
 ECU_DIAG_vdCAN2_Callback
@@ -1122,12 +1122,12 @@ ECU_MEM_INT_vdReadBootMemory
 ECU_MEM_vdDeInit        0x08001ced    0xc  Code  Gb  ecu_mem.o [1]
 ECU_MEM_vdInit          0x08001ce1    0xc  Code  Gb  ecu_mem.o [1]
 ECU_MEM_vdMgr           0x08001cf9    0x2  Code  Gb  ecu_mem.o [1]
-ECU_SYS_eEcuMode        0x0800a73a    0x1  Data  Gb  ecu_system.o [1]
+ECU_SYS_eEcuMode        0x0800a742    0x1  Data  Gb  ecu_system.o [1]
 ECU_SYS_eGetEcuMode     0x080023f5    0x6  Code  Gb  ecu_system.o [1]
 ECU_SYS_u8IsShutdownAndReset
                         0x08002409    0x6  Code  Gb  ecu_system.o [1]
 ECU_SYS_u8ShutdownAndResetReq
-                        0x0800a73b    0x1  Data  Gb  ecu_system.o [1]
+                        0x0800a743    0x1  Data  Gb  ecu_system.o [1]
 ECU_SYS_vdDeInit        0x08002375    0xc  Code  Gb  ecu_system.o [1]
 ECU_SYS_vdExtWdgManage  0x0800241d   0x24  Code  Gb  ecu_system.o [1]
 ECU_SYS_vdGoToApplication
@@ -1141,8 +1141,8 @@ ECU_SYS_vdShutdown      0x0800238d    0x8  Code  Gb  ecu_system.o [1]
 ECU_SYS_vdShutdownAndReset
                         0x080023fb    0xe  Code  Gb  ecu_system.o [1]
 ECU_SYS_vdSleep         0x0800239d   0x3e  Code  Gb  ecu_system.o [1]
-ECU_WDG_eControlCmd     0x080080d0    0x1  Data  Gb  ecu_wdg.o [1]
-ECU_WDG_eEnableCmd      0x0800a73c    0x1  Data  Gb  ecu_wdg.o [1]
+ECU_WDG_eControlCmd     0x080080d8    0x1  Data  Gb  ecu_wdg.o [1]
+ECU_WDG_eEnableCmd      0x0800a744    0x1  Data  Gb  ecu_wdg.o [1]
 ECU_WDG_vdDeInit        0x0800244b    0xa  Code  Gb  ecu_wdg.o [1]
 ECU_WDG_vdEnable        0x08002471   0x22  Code  Gb  ecu_wdg.o [1]
 ECU_WDG_vdInit          0x08002441    0xa  Code  Gb  ecu_wdg.o [1]
@@ -1150,21 +1150,21 @@ ECU_WDG_vdMgr           0x08002455   0x1c  Code  Gb  ecu_wdg.o [1]
 ECU_vdDeInit            0x08007dc9   0x10  Code  Gb  ecu.o [1]
 ECU_vdInit              0x08007db1   0x18  Code  Gb  ecu.o [1]
 FIQ_Handler             0x000004ab    0xe  Code  Gb  uc_system.o [1]
-FIQ_STACK$$Base         0x0800a2d8          --   Gb  - Linker created -
-FIQ_STACK$$Limit        0x0800a3d8          --   Gb  - Linker created -
+FIQ_STACK$$Base         0x0800a2e0          --   Gb  - Linker created -
+FIQ_STACK$$Limit        0x0800a3e0          --   Gb  - Linker created -
 Fapi_calculateEcc       0x08006325         Code  Gb  Utilities.CalculateEcc.obj [4]
 Fapi_calculateFletcherChecksum
-                        0x08007f89         Code  Gb  Utilities.CalculateFletcher.obj [4]
-Fapi_doMarginRead       0x08007fbf         Code  Gb  Read.Margin.obj [4]
+                        0x08007f91         Code  Gb  Utilities.CalculateFletcher.obj [4]
+Fapi_doMarginRead       0x08007fc7         Code  Gb  Read.Margin.obj [4]
 Fapi_enableEepromBankSectors
                         0x08006339         Code  Gb  FlashStateMachine.EnableEepromSectors.obj [4]
-Fapi_flushPipeline      0x0800802d         Code  Gb  Read.FlushPipeline.obj [4]
+Fapi_flushPipeline      0x08008035         Code  Gb  Read.FlushPipeline.obj [4]
 Fapi_getNumberOfBankSectors
                         0x080063b9         Code  Gb  Utilities.GetNumberOfSectors.obj [4]
 Fapi_initializeFlashBanks
                         0x080063c9         Code  Gb  FlashStateMachine.InitializeFlashBanks.obj [4]
 Fapi_isAddressEcc       0x08006629         Code  Gb  FlashStateMachine.Hercules.IsEccAddress.obj [4]
-Fapi_issueAsyncCommand  0x0800804f         Code  Gb  Async.obj [4]
+Fapi_issueAsyncCommand  0x08008057         Code  Gb  Async.obj [4]
 Fapi_issueAsyncCommandWithAddress
                         0x08006679         Code  Gb  Async.WithAddress.obj [4]
 Fapi_issueProgrammingCommand
@@ -1173,26 +1173,26 @@ Fapi_serviceWatchdogTimer
                         0x08007dd9    0x4  Code  Gb  Fapi_UserDefinedFunctions.o [1]
 Fapi_setActiveFlashBank
                         0x08006821         Code  Gb  FlashStateMachine.SetActiveBank.obj [4]
-Fapi_waitDelay          0x08008079         Code  Gb  Utilities.WaitDelay.obj [4]
-FlowControlFrame        0x0800a6d8    0x8  Data  Gb  app_diag_gf.o [1]
+Fapi_waitDelay          0x08008081         Code  Gb  Utilities.WaitDelay.obj [4]
+FlowControlFrame        0x0800a6e0    0x8  Data  Gb  app_diag_gf.o [1]
 IOMM_KICK_REG0          0xffffea38    0x4  Data  Gb  uc_system.o [1]
 IOMM_KICK_REG1          0xffffea3c    0x4  Data  Gb  uc_system.o [1]
 IRQ_Handler             0x000004b9    0xe  Code  Gb  uc_system.o [1]
-IRQ_STACK$$Base         0x0800a1d8          --   Gb  - Linker created -
-IRQ_STACK$$Limit        0x0800a2d8          --   Gb  - Linker created -
+IRQ_STACK$$Base         0x0800a1e0          --   Gb  - Linker created -
+IRQ_STACK$$Limit        0x0800a2e0          --   Gb  - Linker created -
 IntTable                0x08000010    0x4  Data  Gb  uc_system.o [1]
 LIB_DATA_fltRaw2Phy     0x08007ddd   0x1a  Code  Gb  lib_data.o [1]
 LIB_DATA_u32Phy2Raw     0x08007df7   0x24  Code  Gb  lib_data.o [1]
 LIB_DELAY_vdNanoSeconds
                         0x08007e1b   0x14  Code  Gb  lib_delay.o [1]
 OS_astrTasks            0x08006e6c   0x60  Data  Gb  os_cfg.o [1]
-OS_u32SystemTick        0x0800a704    0x4  Data  Gb  os.o [1]
-OS_u32SystemTimerUs     0x0800a708    0x4  Data  Gb  os.o [1]
+OS_u32SystemTick        0x0800a70c    0x4  Data  Gb  os.o [1]
+OS_u32SystemTimerUs     0x0800a710    0x4  Data  Gb  os.o [1]
 OS_u32UpdateTasksCounter
-                        0x0800a70c    0x4  Data  Gb  os.o [1]
+                        0x0800a714    0x4  Data  Gb  os.o [1]
 OS_u8ReInitializeSignal
-                        0x0800a73e    0x1  Data  Gb  os.o [1]
-OS_u8ShutDownSignal     0x0800a73d    0x1  Data  Gb  os.o [1]
+                        0x0800a746    0x1  Data  Gb  os.o [1]
+OS_u8ShutDownSignal     0x0800a745    0x1  Data  Gb  os.o [1]
 OS_vdDeInit             0x08002525    0x8  Code  Gb  os.o [1]
 OS_vdInit               0x0800249d   0x62  Code  Gb  os.o [1]
 OS_vdMain               0x0800252d   0xe4  Code  Gb  os.o [1]
@@ -1200,10 +1200,10 @@ OS_vdReinitialize       0x08002517    0xe  Code  Gb  os.o [1]
 OS_vdShutDown           0x0800250f    0x8  Code  Gb  os.o [1]
 OS_vdStart              0x080024ff    0x8  Code  Gb  os.o [1]
 OS_vdStop               0x08002507    0x8  Code  Gb  os.o [1]
-OS_vdTask100ms          0x08007f43    0x8  Code  Gb  os_tasks.o [1]
-OS_vdTask10ms           0x08007f27   0x10  Code  Gb  os_tasks.o [1]
-OS_vdTask1ms            0x08007ef7   0x30  Code  Gb  os_tasks.o [1]
-OS_vdTask50ms           0x08007f37    0xc  Code  Gb  os_tasks.o [1]
+OS_vdTask100ms          0x08007f4d    0x8  Code  Gb  os_tasks.o [1]
+OS_vdTask10ms           0x08007f31   0x10  Code  Gb  os_tasks.o [1]
+OS_vdTask1ms            0x08007f01   0x30  Code  Gb  os_tasks.o [1]
+OS_vdTask50ms           0x08007f41    0xc  Code  Gb  os_tasks.o [1]
 Prefetch_Handler        0x000004c7    0xe  Code  Gb  uc_system.o [1]
 RTE_vdDeInit            0x080026e7    0x2  Code  Gb  rte.o [1]
 RTE_vdInit              0x080026e5    0x2  Code  Gb  rte.o [1]
@@ -1213,11 +1213,11 @@ RTIFRC0                 0xfffffc10    0x4  Data  Gb  uc_timer.o [1]
 RTIUDCP0                0xfffffc54    0x4  Data  Gb  uc_timer.o [1]
 Region$$Table$$Base     0x0000066c          --   Gb  - Linker created -
 Region$$Table$$Limit    0x0000068c          --   Gb  - Linker created -
-SVC_STACK$$Base         0x0800a0d8          --   Gb  - Linker created -
-SVC_STACK$$Limit        0x0800a1d8          --   Gb  - Linker created -
+SVC_STACK$$Base         0x0800a0e0          --   Gb  - Linker created -
+SVC_STACK$$Limit        0x0800a1e0          --   Gb  - Linker created -
 SWI_Handler             0x000004d5    0xe  Code  Gb  uc_system.o [1]
-SYS_vdDeInit            0x08007edf   0x18  Code  Gb  main.o [1]
-SYS_vdInit              0x08007ec7   0x18  Code  Gb  main.o [1]
+SYS_vdDeInit            0x08007ee9   0x18  Code  Gb  main.o [1]
+SYS_vdInit              0x08007ed1   0x18  Code  Gb  main.o [1]
 UC_CAN_astrModule       0x0800763c   0x6c  Data  Gb  uc_can_cfg.o [1]
 UC_CAN_astrMsgRx1       0x080074d4   0x78  Data  Gb  uc_can_cfg.o [1]
 UC_CAN_astrMsgRx2       0x0800759c   0x50  Data  Gb  uc_can_cfg.o [1]
@@ -1237,7 +1237,7 @@ UC_CAN_vdInit           0x080026f9  0xf14  Code  Gb  uc_can.o [1]
 UC_CAN_vdMgr            0x08003611  0x71a  Code  Gb  uc_can.o [1]
 UC_DIO_astrInput        0x08007ac0   0x48  Data  Gb  uc_dio_cfg.o [1]
 UC_DIO_astrIntInputIdDecode
-                        0x0800a658   0x40  Data  Gb  uc_dio.o [1]
+                        0x0800a660   0x40  Data  Gb  uc_dio.o [1]
 UC_DIO_astrObj          0x080076a8  0x1c0  Data  Gb  uc_dio.o [1]
 UC_DIO_astrOutput       0x08007868  0x258  Data  Gb  uc_dio_cfg.o [1]
 UC_DIO_eCommandOutputPin
@@ -1252,9 +1252,9 @@ UC_EEPROM_vdDeInit      0x08005143   0x62  Code  Gb  uc_eeprom.o [1]
 UC_EEPROM_vdInit        0x080050e1   0x62  Code  Gb  uc_eeprom.o [1]
 UC_FLASH_vdInit         0x08005339   0x56  Code  Gb  uc_flash.o [1]
 UC_SYSTEM_STOP_u32Address
-                        0x0800a714    0x4  Data  Gb  uc_system.o [1]
+                        0x0800a71c    0x4  Data  Gb  uc_system.o [1]
 UC_SYSTEM_STOP_u32Signal
-                        0x0800a710    0x4  Data  Gb  uc_system.o [1]
+                        0x0800a718    0x4  Data  Gb  uc_system.o [1]
 UC_SYS_vdEnableISR      0x000003e9   0x4a  Code  Gb  uc_system.o [1]
 UC_SYS_vdEnableInterrupts
                         0x00000433    0x4  Code  Gb  uc_system.o [1]
@@ -1264,7 +1264,7 @@ UC_SYS_vdRegisterISR    0x000003d5   0x14  Code  Gb  uc_system.o [1]
 UC_SYS_vdSleep          0x0000049d    0x2  Code  Gb  uc_system.o [1]
 UC_SYS_vdSwReset        0x00000489   0x14  Code  Gb  uc_system.o [1]
 UC_TIMER_pftTickCallback
-                        0x0800a718    0x4  Data  Gb  uc_timer.o [1]
+                        0x0800a720    0x4  Data  Gb  uc_timer.o [1]
 UC_TIMER_strTimeOutSignals
                         0x08007b08   0xa0  Data  Gb  uc_timer_cfg.o [1]
 UC_TIMER_u32TimerTickUs
@@ -1280,14 +1280,14 @@ UC_TIMER_vdRegisterTimeOutSignal
                         0x08005411   0x2e  Code  Gb  uc_timer.o [1]
 UC_UART_astrHandler     0x08007ba8   0x70  Data  Gb  uc_uart _cfg.o [1]
 UC_UART_astrObj         0x08007c18  0x180  Data  Gb  uc_uart.o [1]
-UC_UART_au8ReadMBUF     0x0800a6e0    0x8  Data  Gb  uc_uart.o [1]
+UC_UART_au8ReadMBUF     0x0800a6e8    0x8  Data  Gb  uc_uart.o [1]
 UC_UART_eSendByteSync   0x08005e73  0x11a  Code  Gb  uc_uart.o [1]
 UC_UART_vdInit          0x08005601  0x828  Code  Gb  uc_uart.o [1]
 UC_UART_vdMgr           0x08005e29   0x4a  Code  Gb  uc_uart.o [1]
-UC_vdDeInit             0x08007f75    0x8  Code  Gb  uc.o [1]
-UC_vdInit               0x08007f55   0x20  Code  Gb  uc.o [1]
-UND_STACK$$Base         0x0800a3d8          --   Gb  - Linker created -
-UND_STACK$$Limit        0x0800a4d8          --   Gb  - Linker created -
+UC_vdDeInit             0x08007f7d    0x8  Code  Gb  uc.o [1]
+UC_vdInit               0x08007f5d   0x20  Code  Gb  uc.o [1]
+UND_STACK$$Base         0x0800a3e0          --   Gb  - Linker created -
+UND_STACK$$Limit        0x0800a4e0          --   Gb  - Linker created -
 Undefined_Handler       0x000004e3    0xe  Code  Gb  uc_system.o [1]
 VIM_DCAN1L0_Handler     0x08004aa0   0x38  Code  Gb  uc_can.o [1]
 VIM_DCAN1L1_Handler     0x08004ad8   0x38  Code  Gb  uc_can.o [1]
@@ -1616,7 +1616,7 @@ _A_VCLKASRC             0xffffff4c    0x4  Data  Gb  low_level_init.o [1]
 _A_WAKEENACLR0          0xfffffe60    0x4  Data  Gb  uc_system.o [1]
 _A_WAKEENACLR1          0xfffffe64    0x4  Data  Gb  uc_system.o [1]
 _Fapi_EnableSectors     0x0800699d         Code  Gb  FlashStateMachine.EnableEepromSectors.obj [4]
-_Fapi_checkWdService    0x080080a9         Code  Gb  Read.WdService.obj [4]
+_Fapi_checkWdService    0x080080b1         Code  Gb  Read.WdService.obj [4]
 _Fapi_enterMarginMode   0x080069e1         Code  Gb  Read.Common.obj [4]
 _Fapi_exitMarginMode    0x08006a49         Code  Gb  Read.Common.obj [4]
 _Fapi_issueFsmCommand   0x08006a75         Code  Gb  FlashStateMachine.IssueFsmCommand.obj [4]
@@ -1642,8 +1642,8 @@ _exit                   0x08006314         Code  Gb  cexit.o [7]
 _main                   0x00000648         Code  Gb  cmain.o [7]
 _scaleEEFclk            0x08006ab1         Code  Gb  FlashStateMachine.ScaleFclk.obj [4]
 _scaleMainFclk          0x08006ac1         Code  Gb  FlashStateMachine.ScaleFclk.obj [4]
-bFirstRun$1             0x080080d1    0x1  Data  Lc  FlashStateMachine.SetActiveBank.obj [4]
-exit                    0x08007f85    0x4  Code  Gb  exit.o [5]
+bFirstRun$1             0x080080d9    0x1  Data  Lc  FlashStateMachine.SetActiveBank.obj [4]
+exit                    0x08007f8d    0x4  Code  Gb  exit.o [5]
 local_APP_DIAG_u8AppValidCheck
                         0x08001771   0x1c  Code  Gb  app_diag_gf.o [1]
 local_APP_DIAG_u8NonEmptyReceivedFrameElements
@@ -1747,8 +1747,8 @@ local_UC_UART_vdInterruptHandlerTx
                         0x08006099   0x48  Code  Gb  uc_uart.o [1]
 local_UC_UART_vdUpdateBaudRate
                         0x080060e1   0x32  Code  Gb  uc_uart.o [1]
-main                    0x08007e39   0x8e  Code  Gb  main.o [1]
-u8ReadBootFlag          0x0800a739    0x1  Data  Gb  ecu_mem.o [1]
+main                    0x08007e39   0x98  Code  Gb  main.o [1]
+u8ReadBootFlag          0x0800a741    0x1  Data  Gb  ecu_mem.o [1]
 
 
 [1] = C:\Git2\Tapas_Boot\01_Software\Flash_Debug\Obj
@@ -1761,8 +1761,8 @@ u8ReadBootFlag          0x0800a739    0x1  Data  Gb  ecu_mem.o [1]
 [8] = sh7Sxs_b.a
 
    1 644 bytes of readonly  code memory
-  28 140 bytes of readwrite code memory
-  18 155 bytes of readonly  data memory
+  28 148 bytes of readwrite code memory
+  18 157 bytes of readonly  data memory
   14 670 bytes of readwrite data memory (+ 1 300 absolute)
 
 Errors: none
