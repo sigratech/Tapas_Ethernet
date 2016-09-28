@@ -19,7 +19,7 @@ xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
 <<<<<<< HEAD
-Checksum=1113404131
+Checksum=-292764099
 =======
 Checksum=-1435409575
 >>>>>>> develop
@@ -32,8 +32,8 @@ ShowArgs=0
 MixedMode=1
 [JLinkDriver]
 WatchCond=_ 0
-Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
-Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch0=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
+Watch1=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
 CStepIntDis=_ 0
 [struct_types]
 Fmt0=ECU_MEM_CODE_strPageMemory_t-u32PageStartingAddress	4	0
@@ -97,17 +97,6 @@ Fmt44={W}1:u8Debug	3	0
 Fmt45={W}1:u8Flag	1	0
 Fmt46={W}1:u8LoopCounter	3	0
 Fmt47={W}1:u8PagesNumber	3	0
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
-[CallStackLog]
-Enabled=0
-[CallStackStripe]
-ShowTiming=1
 [Disassemble mode]
 mode=0
 [Breakpoints2]
@@ -115,11 +104,19 @@ Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.148.4" 0 0 1 "" 0 "" 0
 Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code}.441.3" 0 0 1 "" 0 "" 0
 Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\DIAG\app_diag.c}.581.12" 0 0 1 "" 0 "" 0
 Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\OS\os.c}.133.3" 0 0 1 "" 0 "" 0
-Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.897.9" 0 0 1 "" 0 "" 0
+Bp4=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.1079.9" 0 0 1 "" 0 "" 0
 Bp5=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\mem\ecu_mem.c}.693.12" 0 0 1 "" 0 "" 0
-Bp6=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.971.11" 0 0 1 "" 0 "" 0
-Bp7=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.965.9" 0 0 1 "" 0 "" 0
-Count=8
+Bp6=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.1155.13" 0 0 1 "" 0 "" 0
+Bp7=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.1155.13" 0 0 1 "" 0 "" 0
+Bp8=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\DIAG\app_diag.c}.351.7" 0 0 1 "" 0 "" 0
+Count=9
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Aliases]
 A0=_ "../Source/Async.WithAddress.c" ""
 A1=_ "../Source/Async.c" ""
@@ -134,3 +131,7 @@ A9=_ "../Source/Read.WdService.c" ""
 A10=_ "../Source/Utilities.CalculateFletcher.c" ""
 Count=11
 SuppressDialog=1
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1

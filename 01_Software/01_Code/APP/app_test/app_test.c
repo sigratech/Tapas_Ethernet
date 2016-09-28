@@ -39,6 +39,7 @@ uint8_t au8EEPROMData[4] = {0xA0,0xB0,0xC0,0xD0};
 
 void APP_vdTestMgr(void)
 {
+  
 //  static uint8_t su8Counter = 0;
 //  static uint8_t u8Flag = 0;
 //  static uint8_t u8Loop;
