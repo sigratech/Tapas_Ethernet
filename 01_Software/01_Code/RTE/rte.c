@@ -2974,6 +2974,28 @@ RTE_strData_t RTE_astrData[RTE_DATA_NUM] =
 	}
 };
 
+/*RTE Access APIs*/
+STATUS_t RTE_eReadData(uint16_t u16Id, float* pfltData)
+{
+  STATUS_t eStatus = STATUS_NOK;
+  if(u16Id < RTE_DATA_NUM)
+  {
+     eStatus = STATUS_OK;
+     *pfltData = RTE_astrData[u16Id].fltData;
+  }
+  return eStatus;
+}
+
+STATUS_t RTE_eWriteData(uint16_t u16Id, float fltData)
+{
+  STATUS_t eStatus = STATUS_NOK;
+  if(u16Id < RTE_DATA_NUM)
+  {
+     eStatus = STATUS_OK;
+     RTE_astrData[u16Id].fltData = fltData;
+  }
+  return eStatus;  
+}
 
 /* -----------------------------------------  */
 /* RTE Sender Receiver Interfaces Defintions  */

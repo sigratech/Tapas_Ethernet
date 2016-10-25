@@ -353,6 +353,10 @@ typedef struct RTE_strDataTemplate
 /* RTE Sender Receiver Bus Declaration */
 extern RTE_strData_t RTE_astrData[RTE_DATA_NUM];
 
+/*RTE Access APIs*/
+STATUS_t RTE_eReadData(uint16_t u16Id, float* pfltData);
+STATUS_t RTE_eWriteData(uint16_t u16Id, float fltData);
+
 
 /* RTE Sender Receiver Interfaces Declarations */
 float RTE_Read_FLT_CLR_ACP_CombinedFault(void);
