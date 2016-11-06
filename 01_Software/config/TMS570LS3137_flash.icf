@@ -19,13 +19,13 @@ define symbol __ICFEDIT_region_RAM_end__   = 0x0802FFFF;
 //define symbol __ICFEDIT_region_RAM_CODE_end__ = 0x0802FFFF;
 
 /*-Sizes-*/
-define symbol __ICFEDIT_size_cstack__   = 0x2000;
-define symbol __ICFEDIT_size_svcstack__ = 0x100;
-define symbol __ICFEDIT_size_irqstack__ = 0x100;
-define symbol __ICFEDIT_size_fiqstack__ = 0x100;
-define symbol __ICFEDIT_size_undstack__ = 0x100;
-define symbol __ICFEDIT_size_abtstack__ = 0x100;
-define symbol __ICFEDIT_size_heap__     = 0x4000;
+define symbol __ICFEDIT_size_cstack__   = 0x4000;
+define symbol __ICFEDIT_size_svcstack__ = 0x200;
+define symbol __ICFEDIT_size_irqstack__ = 0x200;
+define symbol __ICFEDIT_size_fiqstack__ = 0x200;
+define symbol __ICFEDIT_size_undstack__ = 0x200;
+define symbol __ICFEDIT_size_abtstack__ = 0x200;
+define symbol __ICFEDIT_size_heap__     = 0x8000;
 /**** End of ICF editor section. ###ICF###*/
 
 define memory mem with size = 4G;

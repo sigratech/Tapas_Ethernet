@@ -489,13 +489,17 @@ void local_APP_BOOT_vdSwDownload(void)
   case APP_BOOT_DL_ST_PAGE_DOWNLOAD:
     /*Download the page and confirm the download by calcualting the checksum of the flashed bytes (read them)*/
     /* Check the real-time of flashing one block, to know how much flash in one task period */
+    
     APP_BOOT_u8CheckSumCalculated = local_APP_BOOT_u8BlocksArrayCheckSumCalculate(APP_BOOT_astrBlockMemory, APP_BOOT_BLOCK_BYTE_SIZE);
+    
     if(APP_BOOT_u8CheckSumCalculated == APP_BOOT_u8CheckSumReceived)
     {
       ECU_MEM_CODE_eWriteBlocks(APP_BOOT_astrBlockMemory, APP_BOOT_u8BlockIndex); // Write page as array of blocks
       APP_BOOT_strPageMemoryTemplate.u32PageStartingAddress = APP_BOOT_u32StartAddress; // set page starting address of the temporary page  
+      
       ECU_MEM_CODE_eReadPage(&APP_BOOT_strPageMemoryTemplate); // Read page as a whole
       APP_BOOT_u8CheckSumOfPageWritten = local_APP_BOOT_u8PageCheckSumCalculate(&APP_BOOT_strPageMemoryTemplate); // Calculate checksum of written page
+      
       if(APP_BOOT_u8CheckSumOfPageWritten == APP_BOOT_u8CheckSumCalculated)
       {
         
