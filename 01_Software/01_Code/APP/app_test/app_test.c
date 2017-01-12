@@ -36,10 +36,13 @@ uint8_t u8ShutDown = 0;
 uint8_t u8Counter = 0;
 uint8_t u8Flag = 0;
 uint8_t au8EEPROMData[4] = {0xA0,0xB0,0xC0,0xD0};
+uint8_t u8ID = 0;
+uint16_t u16Freq = 20000;
+uint8_t u8Duty = 80;
 
 void APP_vdTestMgr(void)
 {
-  
+  ECU_IO_eSetPwm(u8ID,u16Freq,u8Duty);
 //  static uint8_t su8Counter = 0;
 //  static uint8_t u8Flag = 0;
 //  static uint8_t u8Loop;
