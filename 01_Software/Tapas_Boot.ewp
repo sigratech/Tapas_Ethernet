@@ -383,6 +383,9 @@
           <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\Boot\DIAG</state>
           <state>$PROJ_DIR$\01_Code\RTE</state>
           <state>$PROJ_DIR$\01_Code\APP\app_faultmgr</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Core\UC\emac</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\ethernet\UC</state>
+          <state>$PROJ_DIR$\01_Code\TAPAS\Cfg\ethernet\UC\emac</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -741,7 +744,7 @@
         </option>
         <option>
           <name>IlinkRawBinaryFile</name>
-          <state>C:\ti\Hercules\F021 Flash API\02.01.01\F021_API_CortexR4_BE.lib</state>
+          <state>C:\Git2\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash API\02.01.01\F021_API_CortexR4_BE.lib</state>
         </option>
         <option>
           <name>IlinkRawBinarySymbol</name>
@@ -841,7 +844,7 @@
         </option>
         <option>
           <name>IlinkAdditionalLibs</name>
-          <state>$PROJ_DIR$\01_Code\TAPAS\Core\LIB\F021 Flash API\02.01.01\F021_API_CortexR4_BE.lib</state>
+          <state>$PROJ_DIR$\..\..\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash API\02.01.01\F021_API_CortexR4_BE.lib</state>
         </option>
         <option>
           <name>IlinkOverrideProgramEntryLabel</name>
@@ -1447,6 +1450,27 @@
         </file>
         <file>
           <name>$PROJ_DIR$\01_Code\TAPAS\Core\UC\eeprom\uc_eeprom.h</name>
+        </file>
+      </group>
+    </group>
+    <group>
+      <name>emac</name>
+      <group>
+        <name>cfg</name>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\ethernet\UC\emac\uc_emac_cfg.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Cfg\ethernet\UC\emac\uc_emac_cfg.h</name>
+        </file>
+      </group>
+      <group>
+        <name>core</name>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Core\UC\emac\uc_emac.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\01_Code\TAPAS\Core\UC\emac\uc_emac.h</name>
         </file>
       </group>
     </group>

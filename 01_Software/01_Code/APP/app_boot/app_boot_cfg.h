@@ -26,7 +26,7 @@ E-mail: shany@sigratech.de
 #ifndef APP_BOOT_CFG_H
 #define APP_BOOT_CFG_H
 
-#undef APP_BOOT_ENABLE
+#define APP_BOOT_ENABLE
 
 #define APP_BOOT_TASK_MS                                             (1)
 

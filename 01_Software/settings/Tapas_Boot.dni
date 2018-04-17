@@ -19,7 +19,7 @@ xdsResetStyle=0
 xdsResetStrategy=2
 [DebugChecksum]
 <<<<<<< HEAD
-Checksum=-1931120254
+Checksum=1490443897
 =======
 Checksum=-1435409575
 >>>>>>> develop
@@ -32,8 +32,8 @@ ShowArgs=0
 MixedMode=1
 [JLinkDriver]
 WatchCond=_ 0
-Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
-Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
+Watch0=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
+Watch1=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
 CStepIntDis=_ 0
 [struct_types]
 Fmt0=APP_DIAG_strPageMemory_t-u32PageStartingAddress	4	0
@@ -120,23 +120,20 @@ Fmt66={W}1:u8FrameCounter	3	0
 Fmt67={W}1:u8LoopCounter	3	0
 Fmt68={W}1:u8PagesNumber	3	0
 Fmt69={W}1:u8SignalID	3	0
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.115.14" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\UC\uart\uc_uart.c}.457.3" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\01_Code\APP\app_test\app_test.c}.45.1" 0 0 1 "" 0 "" 0
+Count=3
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
 Category=_ 0
-[CallStackLog]
-Enabled=0
-[CallStackStripe]
-ShowTiming=1
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[Disassemble mode]
-mode=0
-[Breakpoints2]
-Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\ECU\diag\ecu_diag.c}.115.14" 0 0 1 "" 0 "" 0
-Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\UC\uart\uc_uart.c}.457.3" 0 0 1 "" 0 "" 0
-Count=2
 [Aliases]
 A0=_ "../Source/Async.WithAddress.c" ""
 A1=_ "../Source/Async.c" ""
@@ -151,3 +148,7 @@ A9=_ "../Source/Read.WdService.c" ""
 A10=_ "../Source/Utilities.CalculateFletcher.c" ""
 Count=11
 SuppressDialog=1
+[CallStackLog]
+Enabled=0
+[CallStackStripe]
+ShowTiming=1
