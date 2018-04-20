@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.50.2.10312/W32 for ARM                17/Apr/2018  13:24:56
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                20/Apr/2018  17:27:38
 # Copyright 2007-2015 IAR Systems AB.
 #
 #    Output file  =  
@@ -105,7 +105,7 @@ __SystemLibrary = DLib
   .intvec            ro code  0x00000000    0x3c  tms570ls3137_cstartup.o [2]
                             - 0x0000003c    0x3c
 
-"P1":                                     0x1247
+"P1":                                     0x1a34
   .text              ro code  0x00000040   0x1cc  tms570ls3137_cstartup.o [2]
   .text              ro code  0x0000020c   0x1c0  low_level_init.o [2]
   Veneer             ro code  0x000003cc     0x8  - Linker created -
@@ -121,11 +121,11 @@ __SystemLibrary = DLib
   .text              ro code  0x0000068c     0x4  xreturnswi.o [7]
   .rodata            const    0x00000690     0x0  zero_init3.o [6]
   .rodata            const    0x00000690     0x0  lz77_init_single.o [6]
-  Initializer bytes  const    0x00000690   0xbf7  <for P2-1>
-                            - 0x00001287  0x1247
+  Initializer bytes  const    0x00000690  0x13e4  <for P2-1>
+                            - 0x00001a74  0x1a34
 
-"P2", part 1 of 3:                        0x136a
-  P2-1                        0x08000000  0x136a  <Init block>
+"P2", part 1 of 3:                        0x233a
+  P2-1                        0x08000000  0x233a  <Init block>
     .rodata          inited   0x08000000     0x4  uc_system.o [2]
     .text            inited   0x08000004    0xc8  app_boot.o [2]
     .text            inited   0x080000cc    0xb0  ecu_io.o [2]
@@ -138,66 +138,266 @@ __SystemLibrary = DLib
     Veneer           inited   0x080004bc     0x8  - Linker created -
     Veneer           inited   0x080004c4     0x8  - Linker created -
     .text            inited   0x080004cc   0x4f0  uc_dio.o [2]
-    .text            inited   0x080009bc   0x21c  uc_timer.o [2]
-    .text            inited   0x08000bd8    0xb0  ABImemcpy.o [6]
-    .text            inited   0x08000c88    0x28  fpinit.o [5]
-    Veneer           inited   0x08000cb0     0x8  - Linker created -
-    .text            inited   0x08000cb8    0x10  cexit.o [6]
-    .data            inited   0x08000cc8     0x4  app_boot.o [2]
-    .data            inited   0x08000ccc     0x4  app_boot.o [2]
-    .data            inited   0x08000cd0    0x14  ecu_io_cfg.o [2]
-    .data            inited   0x08000ce4    0x60  os_cfg.o [2]
-    .data            inited   0x08000d44   0x1c0  uc_dio.o [2]
-    .data            inited   0x08000f04   0x258  uc_dio_cfg.o [2]
-    .data            inited   0x0800115c    0x48  uc_dio_cfg.o [2]
-    .data            inited   0x080011a4    0xa0  uc_timer_cfg.o [2]
-    .textrw          inited   0x08001244     0x6  uc_system.o [2]
-    .text            inited   0x0800124a     0x4  app.o [2]
-    .text            inited   0x0800124e    0x18  ecu.o [2]
-    .text            inited   0x08001266    0x14  lib_delay.o [2]
-    Veneer           inited   0x0800127c     0x8  - Linker created -
-    .text            inited   0x08001284    0x98  main.o [2]
-    .text            inited   0x0800131c    0x22  os_tasks.o [2]
-    Veneer           inited   0x08001340     0x8  - Linker created -
-    .text            inited   0x08001348    0x12  uc.o [2]
-    Veneer           inited   0x0800135c     0x8  - Linker created -
-    .text            inited   0x08001364     0x4  exit.o [4]
-    .data            inited   0x08001368     0x1  ecu_system.o [2]
-    .data            inited   0x08001369     0x1  ecu_wdg.o [2]
-                            - 0x0800136a  0x136a
+    .text            inited   0x080009bc   0xcd8  uc_emac.o [2]
+    .text            inited   0x08001694   0x21c  uc_timer.o [2]
+    .text            inited   0x080018b0    0xb0  ABImemcpy.o [6]
+    .text            inited   0x08001960    0x28  fpinit.o [5]
+    Veneer           inited   0x08001988     0x8  - Linker created -
+    .text            inited   0x08001990    0x10  cexit.o [6]
+    .data            inited   0x080019a0     0x4  app_boot.o [2]
+    .data            inited   0x080019a4     0x4  app_boot.o [2]
+    .data            inited   0x080019a8    0x14  ecu_io_cfg.o [2]
+    .data            inited   0x080019bc    0x60  os_cfg.o [2]
+    .data            inited   0x08001a1c   0x1c0  uc_dio.o [2]
+    .data            inited   0x08001bdc   0x258  uc_dio_cfg.o [2]
+    .data            inited   0x08001e34    0x48  uc_dio_cfg.o [2]
+    .data            inited   0x08001e7c   0x2f0  uc_emac.o [2]
+    .data            inited   0x0800216c     0x4  uc_emac.o [2]
+    .data            inited   0x08002170    0xa0  uc_timer_cfg.o [2]
+    .textrw          inited   0x08002210     0x6  uc_system.o [2]
+    .text            inited   0x08002216     0x4  app.o [2]
+    .text            inited   0x0800221a    0x18  ecu.o [2]
+    .text            inited   0x08002232    0x14  lib_delay.o [2]
+    Veneer           inited   0x08002248     0x8  - Linker created -
+    .text            inited   0x08002250    0x98  main.o [2]
+    .text            inited   0x080022e8    0x22  os_tasks.o [2]
+    Veneer           inited   0x0800230c     0x8  - Linker created -
+    .text            inited   0x08002314    0x16  uc.o [2]
+    Veneer           inited   0x0800232c     0x8  - Linker created -
+    .text            inited   0x08002334     0x4  exit.o [4]
+    .data            inited   0x08002338     0x1  ecu_system.o [2]
+    .data            inited   0x08002339     0x1  ecu_wdg.o [2]
+                            - 0x0800233a  0x233a
 
 "P2", part 2 of 3:                        0x4a00
-  CSTACK                      0x08001370  0x4000  <Block>
-    CSTACK           uninit   0x08001370  0x4000  <Block tail>
-  SVC_STACK                   0x08005370   0x200  <Block>
-    SVC_STACK        uninit   0x08005370   0x200  <Block tail>
-  IRQ_STACK                   0x08005570   0x200  <Block>
-    IRQ_STACK        uninit   0x08005570   0x200  <Block tail>
-  FIQ_STACK                   0x08005770   0x200  <Block>
-    FIQ_STACK        uninit   0x08005770   0x200  <Block tail>
-  UND_STACK                   0x08005970   0x200  <Block>
-    UND_STACK        uninit   0x08005970   0x200  <Block tail>
-  ABT_STACK                   0x08005b70   0x200  <Block>
-    ABT_STACK        uninit   0x08005b70   0x200  <Block tail>
-                            - 0x08005d70  0x4a00
+  CSTACK                      0x08002340  0x4000  <Block>
+    CSTACK           uninit   0x08002340  0x4000  <Block tail>
+  SVC_STACK                   0x08006340   0x200  <Block>
+    SVC_STACK        uninit   0x08006340   0x200  <Block tail>
+  IRQ_STACK                   0x08006540   0x200  <Block>
+    IRQ_STACK        uninit   0x08006540   0x200  <Block tail>
+  FIQ_STACK                   0x08006740   0x200  <Block>
+    FIQ_STACK        uninit   0x08006740   0x200  <Block tail>
+  UND_STACK                   0x08006940   0x200  <Block>
+    UND_STACK        uninit   0x08006940   0x200  <Block tail>
+  ABT_STACK                   0x08006b40   0x200  <Block>
+    ABT_STACK        uninit   0x08006b40   0x200  <Block tail>
+                            - 0x08006d40  0x4a00
 
 "P2", part 3 of 3:                          0x60
-  .bss               zero     0x08005d70    0x40  uc_dio.o [2]
-  .bss               zero     0x08005db0     0x4  os.o [2]
-  .bss               zero     0x08005db4     0x4  os.o [2]
-  .bss               zero     0x08005db8     0x4  os.o [2]
-  .bss               zero     0x08005dbc     0x4  uc_system.o [2]
-  .bss               zero     0x08005dc0     0x4  uc_system.o [2]
-  .bss               zero     0x08005dc4     0x4  uc_timer.o [2]
-  .bss               zero     0x08005dc8     0x1  app_boot.o [2]
-  .bss               zero     0x08005dc9     0x1  app_boot.o [2]
-  .bss               zero     0x08005dca     0x1  ecu_system.o [2]
-  .bss               zero     0x08005dcb     0x1  ecu_wdg.o [2]
-  .bss               zero     0x08005dcc     0x1  os.o [2]
-  .bss               zero     0x08005dcd     0x1  os.o [2]
-                            - 0x08005dce    0x5e
+  .bss               zero     0x08006d40    0x40  uc_dio.o [2]
+  .bss               zero     0x08006d80     0x4  os.o [2]
+  .bss               zero     0x08006d84     0x4  os.o [2]
+  .bss               zero     0x08006d88     0x4  os.o [2]
+  .bss               zero     0x08006d8c     0x4  uc_system.o [2]
+  .bss               zero     0x08006d90     0x4  uc_system.o [2]
+  .bss               zero     0x08006d94     0x4  uc_timer.o [2]
+  .bss               zero     0x08006d98     0x1  app_boot.o [2]
+  .bss               zero     0x08006d99     0x1  app_boot.o [2]
+  .bss               zero     0x08006d9a     0x1  ecu_system.o [2]
+  .bss               zero     0x08006d9b     0x1  ecu_wdg.o [2]
+  .bss               zero     0x08006d9c     0x1  os.o [2]
+  .bss               zero     0x08006d9d     0x1  os.o [2]
+                            - 0x08006d9e    0x5e
 
-Absolute sections, part 1 of 35:            0x20
+Absolute sections, part 1 of 58:             0xc
+  .noinit            uninit   0xfcf78000     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78004     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78008     0x4  uc_emac.o [2]
+                            - 0xfcf7800c     0xc
+
+Absolute sections, part 2 of 58:             0xc
+  .noinit            uninit   0xfcf78010     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78014     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78018     0x4  uc_emac.o [2]
+                            - 0xfcf7801c     0xc
+
+Absolute sections, part 3 of 58:            0x18
+  .noinit            uninit   0xfcf78080     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78084     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78088     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7808c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78090     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78094     0x4  uc_emac.o [2]
+                            - 0xfcf78098    0x18
+
+Absolute sections, part 4 of 58:            0x20
+  .noinit            uninit   0xfcf780a0     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf780a4     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf780a8     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf780ac     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf780b0     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf780b4     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf780b8     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf780bc     0x4  uc_emac.o [2]
+                            - 0xfcf780c0    0x20
+
+Absolute sections, part 5 of 58:            0x18
+  .noinit            uninit   0xfcf78100     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78104     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78108     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7810c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78110     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78114     0x4  uc_emac.o [2]
+                            - 0xfcf78118    0x18
+
+Absolute sections, part 6 of 58:            0x58
+  .noinit            uninit   0xfcf78120     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78124     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78128     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7812c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78130     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78134     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78138     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7813c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78140     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78144     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78148     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7814c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78150     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78154     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78158     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7815c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78160     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78164     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78168     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7816c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78170     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78174     0x4  uc_emac.o [2]
+                            - 0xfcf78178    0x58
+
+Absolute sections, part 7 of 58:            0x20
+  .noinit            uninit   0xfcf781d0     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf781d4     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf781d8     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf781dc     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf781e0     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf781e4     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf781e8     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf781ec     0x4  uc_emac.o [2]
+                            - 0xfcf781f0    0x20
+
+Absolute sections, part 8 of 58:            0x90
+  .noinit            uninit   0xfcf78200     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78204     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78208     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7820c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78210     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78214     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78218     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7821c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78220     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78224     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78228     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7822c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78230     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78234     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78238     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7823c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78240     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78244     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78248     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7824c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78250     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78254     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78258     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7825c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78260     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78264     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78268     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7826c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78270     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78274     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78278     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7827c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78280     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78284     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78288     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7828c     0x4  uc_emac.o [2]
+                            - 0xfcf78290    0x90
+
+Absolute sections, part 9 of 58:             0xc
+  .noinit            uninit   0xfcf78500     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78504     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78508     0x4  uc_emac.o [2]
+                            - 0xfcf7850c     0xc
+
+Absolute sections, part 10 of 58:           0x60
+  .noinit            uninit   0xfcf78600     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78604     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78608     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7860c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78610     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78614     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78618     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7861c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78620     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78624     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78628     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7862c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78630     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78634     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78638     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7863c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78640     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78644     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78648     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7864c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78650     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78654     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78658     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7865c     0x4  uc_emac.o [2]
+                            - 0xfcf78660    0x60
+
+Absolute sections, part 11 of 58:            0x8
+  .noinit            uninit   0xfcf78800     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78804     0x4  uc_emac.o [2]
+                            - 0xfcf78808     0x8
+
+Absolute sections, part 12 of 58:           0x14
+  .noinit            uninit   0xfcf7880c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78810     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78814     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78818     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7881c     0x4  uc_emac.o [2]
+                            - 0xfcf78820    0x14
+
+Absolute sections, part 13 of 58:           0x10
+  .noinit            uninit   0xfcf78840     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78844     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78848     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7884c     0x4  uc_emac.o [2]
+                            - 0xfcf78850    0x10
+
+Absolute sections, part 14 of 58:            0x8
+  .noinit            uninit   0xfcf78870     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78874     0x4  uc_emac.o [2]
+                            - 0xfcf78878     0x8
+
+Absolute sections, part 15 of 58:           0x18
+  .noinit            uninit   0xfcf78900     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78904     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78908     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7890c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78910     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78914     0x4  uc_emac.o [2]
+                            - 0xfcf78918    0x18
+
+Absolute sections, part 16 of 58:           0x10
+  .noinit            uninit   0xfcf78920     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78924     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78928     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7892c     0x4  uc_emac.o [2]
+                            - 0xfcf78930    0x10
+
+Absolute sections, part 17 of 58:           0x10
+  .noinit            uninit   0xfcf78980     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78984     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf78988     0x4  uc_emac.o [2]
+  .noinit            uninit   0xfcf7898c     0x4  uc_emac.o [2]
+                            - 0xfcf78990    0x10
+
+Absolute sections, part 18 of 58:           0x20
   .noinit            uninit   0xfff7b84c     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7b850     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7b854     0x4  uc_dio.o [2]
@@ -208,7 +408,7 @@ Absolute sections, part 1 of 35:            0x20
   .noinit            uninit   0xfff7b868     0x4  uc_dio.o [2]
                             - 0xfff7b86c    0x20
 
-Absolute sections, part 2 of 35:            0x20
+Absolute sections, part 19 of 58:           0x20
   .noinit            uninit   0xfff7b94c     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7b950     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7b954     0x4  uc_dio.o [2]
@@ -219,27 +419,27 @@ Absolute sections, part 2 of 35:            0x20
   .noinit            uninit   0xfff7b968     0x4  uc_dio.o [2]
                             - 0xfff7b96c    0x20
 
-Absolute sections, part 3 of 35:             0x4
+Absolute sections, part 20 of 58:            0x4
   .noinit            uninit   0xfff7bc00     0x4  uc_dio.o [2]
                             - 0xfff7bc04     0x4
 
-Absolute sections, part 4 of 35:             0xc
+Absolute sections, part 21 of 58:            0xc
   .noinit            uninit   0xfff7bc08     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7bc0c     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7bc10     0x4  uc_dio.o [2]
                             - 0xfff7bc14     0xc
 
-Absolute sections, part 5 of 35:             0x8
+Absolute sections, part 22 of 58:            0x8
   .noinit            uninit   0xfff7bc18     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7bc1c     0x4  uc_dio.o [2]
                             - 0xfff7bc20     0x8
 
-Absolute sections, part 6 of 35:             0x8
+Absolute sections, part 23 of 58:            0x8
   .noinit            uninit   0xfff7bc24     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7bc28     0x4  uc_dio.o [2]
                             - 0xfff7bc2c     0x8
 
-Absolute sections, part 7 of 35:            0x40
+Absolute sections, part 24 of 58:           0x40
   .noinit            uninit   0xfff7bc34     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7bc38     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7bc3c     0x4  uc_dio.o [2]
@@ -258,11 +458,11 @@ Absolute sections, part 7 of 35:            0x40
   .noinit            uninit   0xfff7bc70     0x4  uc_dio.o [2]
                             - 0xfff7bc74    0x40
 
-Absolute sections, part 8 of 35:             0x4
+Absolute sections, part 25 of 58:            0x4
   .noinit            uninit   0xfff7f400     0x4  uc_dio.o [2]
                             - 0xfff7f404     0x4
 
-Absolute sections, part 9 of 35:            0x20
+Absolute sections, part 26 of 58:           0x20
   .noinit            uninit   0xfff7f418     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7f41c     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7f420     0x4  uc_dio.o [2]
@@ -273,7 +473,7 @@ Absolute sections, part 9 of 35:            0x20
   .noinit            uninit   0xfff7f434     0x4  uc_dio.o [2]
                             - 0xfff7f438    0x20
 
-Absolute sections, part 10 of 35:           0x20
+Absolute sections, part 27 of 58:           0x20
   .noinit            uninit   0xfff7f818     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7f81c     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7f820     0x4  uc_dio.o [2]
@@ -284,11 +484,11 @@ Absolute sections, part 10 of 35:           0x20
   .noinit            uninit   0xfff7f834     0x4  uc_dio.o [2]
                             - 0xfff7f838    0x20
 
-Absolute sections, part 11 of 35:            0x4
+Absolute sections, part 28 of 58:            0x4
   .noinit            uninit   0xfff7fc00     0x4  uc_dio.o [2]
                             - 0xfff7fc04     0x4
 
-Absolute sections, part 12 of 35:           0x20
+Absolute sections, part 29 of 58:           0x20
   .noinit            uninit   0xfff7fc18     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7fc1c     0x4  uc_dio.o [2]
   .noinit            uninit   0xfff7fc20     0x4  uc_dio.o [2]
@@ -299,109 +499,168 @@ Absolute sections, part 12 of 35:           0x20
   .noinit            uninit   0xfff7fc34     0x4  uc_dio.o [2]
                             - 0xfff7fc38    0x20
 
-Absolute sections, part 13 of 35:            0x4
+Absolute sections, part 30 of 58:            0x4
   .noinit            uninit   0xfff82000     0x4  uc_system.o [2]
                             - 0xfff82004     0x4
 
-Absolute sections, part 14 of 35:            0x4
+Absolute sections, part 31 of 58:            0x4
   .noinit            uninit   0xfff87000     0x4  low_level_init.o [2]
                             - 0xfff87004     0x4
 
-Absolute sections, part 15 of 35:            0x4
+Absolute sections, part 32 of 58:            0x4
   .noinit            uninit   0xfff87040     0x4  low_level_init.o [2]
                             - 0xfff87044     0x4
 
-Absolute sections, part 16 of 35:           0x10
+Absolute sections, part 33 of 58:           0x10
   .noinit            uninit   0xffffe0a0     0x4  low_level_init.o [2]
   .noinit            uninit   0xffffe0a4     0x4  low_level_init.o [2]
   .noinit            uninit   0xffffe0a8     0x4  low_level_init.o [2]
   .noinit            uninit   0xffffe0ac     0x4  low_level_init.o [2]
                             - 0xffffe0b0    0x10
 
-Absolute sections, part 17 of 35:            0x4
-  .noinit            uninit   0xffffe170     0x4  low_level_init.o [2]
+Absolute sections, part 34 of 58:            0x4
+  .noinit            uninit   0xffffe100     0x4  uc_emac.o [2]
+                            - 0xffffe104     0x4
+
+Absolute sections, part 35 of 58:            0x4
+  .noinit            uninit   0xffffe108     0x4  uc_emac.o [2]
+                            - 0xffffe10c     0x4
+
+Absolute sections, part 36 of 58:            0x4
+  .noinit            uninit   0xffffe124     0x4  uc_emac.o [2]
+                            - 0xffffe128     0x4
+
+Absolute sections, part 37 of 58:            0x8
+  .noinit            uninit   0xffffe13c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffe140     0x4  uc_emac.o [2]
+                            - 0xffffe144     0x8
+
+Absolute sections, part 38 of 58:            0x4
+  .noinit            uninit   0xffffe170     0x4  uc_emac.o [2]
                             - 0xffffe174     0x4
 
-Absolute sections, part 18 of 35:            0x8
+Absolute sections, part 39 of 58:           0x14
+  .noinit            uninit   0xffffe1ec     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffe1f0     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffe1f4     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffe1f8     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffe1fc     0x4  uc_emac.o [2]
+                            - 0xffffe200    0x14
+
+Absolute sections, part 40 of 58:            0x8
   .noinit            uninit   0xffffea38     0x4  uc_system.o [2]
   .noinit            uninit   0xffffea3c     0x4  uc_system.o [2]
                             - 0xffffea40     0x8
 
-Absolute sections, part 19 of 35:            0x4
+Absolute sections, part 41 of 58:           0x7c
+  .noinit            uninit   0xffffeb10     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb14     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb18     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb1c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb20     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb24     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb28     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb2c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb30     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb34     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb38     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb3c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb40     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb44     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb48     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb4c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb50     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb54     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb58     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb5c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb60     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb64     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb68     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb6c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb70     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb74     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb78     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb7c     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb80     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb84     0x4  uc_emac.o [2]
+  .noinit            uninit   0xffffeb88     0x4  uc_emac.o [2]
+                            - 0xffffeb8c    0x7c
+
+Absolute sections, part 42 of 58:            0x4
   .noinit            uninit   0xfffffc00     0x4  uc_timer.o [2]
                             - 0xfffffc04     0x4
 
-Absolute sections, part 20 of 35:            0x4
+Absolute sections, part 43 of 58:            0x4
   .noinit            uninit   0xfffffc10     0x4  uc_timer.o [2]
                             - 0xfffffc14     0x4
 
-Absolute sections, part 21 of 35:            0x4
+Absolute sections, part 44 of 58:            0x4
   .noinit            uninit   0xfffffc18     0x4  uc_timer.o [2]
                             - 0xfffffc1c     0x4
 
-Absolute sections, part 22 of 35:            0x8
+Absolute sections, part 45 of 58:            0x8
   .noinit            uninit   0xfffffc50     0x4  uc_timer.o [2]
   .noinit            uninit   0xfffffc54     0x4  uc_timer.o [2]
                             - 0xfffffc58     0x8
 
-Absolute sections, part 23 of 35:            0x4
+Absolute sections, part 46 of 58:            0x4
   .noinit            uninit   0xfffffc80     0x4  uc_timer.o [2]
                             - 0xfffffc84     0x4
 
-Absolute sections, part 24 of 35:            0x4
+Absolute sections, part 47 of 58:            0x4
   .noinit            uninit   0xfffffc88     0x4  uc_timer.o [2]
                             - 0xfffffc8c     0x4
 
-Absolute sections, part 25 of 35:            0x8
+Absolute sections, part 48 of 58:            0x8
   .noinit            uninit   0xfffffe10     0x4  uc_system.o [2]
   .noinit            uninit   0xfffffe14     0x4  uc_system.o [2]
                             - 0xfffffe18     0x8
 
-Absolute sections, part 26 of 35:            0xc
+Absolute sections, part 49 of 58:            0xc
   .noinit            uninit   0xfffffe30     0x4  uc_system.o [2]
   .noinit            uninit   0xfffffe34     0x4  uc_system.o [2]
   .noinit            uninit   0xfffffe38     0x4  uc_system.o [2]
                             - 0xfffffe3c     0xc
 
-Absolute sections, part 27 of 35:            0x8
+Absolute sections, part 50 of 58:            0x8
   .noinit            uninit   0xfffffe40     0x4  uc_system.o [2]
   .noinit            uninit   0xfffffe44     0x4  uc_system.o [2]
                             - 0xfffffe48     0x8
 
-Absolute sections, part 28 of 35:            0x8
+Absolute sections, part 51 of 58:            0x8
   .noinit            uninit   0xfffffe60     0x4  uc_system.o [2]
   .noinit            uninit   0xfffffe64     0x4  uc_system.o [2]
                             - 0xfffffe68     0x8
 
-Absolute sections, part 29 of 35:            0x4
+Absolute sections, part 52 of 58:            0x4
   .noinit            uninit   0xffffff30     0x4  low_level_init.o [2]
                             - 0xffffff34     0x4
 
-Absolute sections, part 30 of 35:           0x10
+Absolute sections, part 53 of 58:           0x10
   .noinit            uninit   0xffffff48     0x4  low_level_init.o [2]
   .noinit            uninit   0xffffff4c     0x4  low_level_init.o [2]
   .noinit            uninit   0xffffff50     0x4  uc_timer.o [2]
   .noinit            uninit   0xffffff54     0x4  low_level_init.o [2]
                             - 0xffffff58    0x10
 
-Absolute sections, part 31 of 35:            0x4
+Absolute sections, part 54 of 58:            0x4
   .noinit            uninit   0xffffff5c     0x4  uc_system.o [2]
                             - 0xffffff60     0x4
 
-Absolute sections, part 32 of 35:            0x8
+Absolute sections, part 55 of 58:            0x8
   .noinit            uninit   0xffffff70     0x4  low_level_init.o [2]
   .noinit            uninit   0xffffff74     0x4  low_level_init.o [2]
                             - 0xffffff78     0x8
 
-Absolute sections, part 33 of 35:            0x4
+Absolute sections, part 56 of 58:            0x4
   .noinit            uninit   0xffffff88     0x4  low_level_init.o [2]
                             - 0xffffff8c     0x4
 
-Absolute sections, part 34 of 35:            0x4
+Absolute sections, part 57 of 58:            0x4
   .noinit            uninit   0xffffffd0     0x4  low_level_init.o [2]
                             - 0xffffffd4     0x4
 
-Absolute sections, part 35 of 35:            0x4
+Absolute sections, part 58 of 58:            0x4
   .noinit            uninit   0xffffffe0     0x4  uc_system.o [2]
                             - 0xffffffe4     0x4
 
@@ -414,13 +673,13 @@ Absolute sections, part 35 of 35:            0x4
           -------     ----
 Zero (__iar_zero_init3)
     1 destination range, total size 0x5e:
-          0x08005d70    0x5e
+          0x08006d40    0x5e
 
 Copy/lz77 (__iar_lz77_init_single3)
-    1 source range, total size 0xbf7 (61% of destination):
-          0x00000690   0xbf7
-    1 destination range, total size 0x136a:
-          0x08000000  0x136a
+    1 source range, total size 0x13e4 (56% of destination):
+          0x00000690  0x13e4
+    1 destination range, total size 0x233a:
+          0x08000000  0x233a
 
 
 
@@ -437,28 +696,29 @@ C:\Git2\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash API\02.01.01: [
 
 C:\Git2\Tapas_Ethernet\01_Software\Flash_Debug\Obj: [2]
     app.o                                   4        2
-    app_boot.o                            200      128       10
-    ecu.o                                  24       15
-    ecu_io.o                              176      109
-    ecu_io_cfg.o                                    12       20
-    ecu_system.o                          154       95        2
-    ecu_wdg.o                              92       59        2
-    lib_delay.o                            20       13
-    low_level_init.o             448                                  60
-    main.o                                152       93
-    os.o                                  564      348       14
-    os_cfg.o                                        59       96
-    os_tasks.o                             34       21
+    app_boot.o                            200      117       10
+    ecu.o                                  24       13
+    ecu_io.o                              176       99
+    ecu_io_cfg.o                                    11       20
+    ecu_system.o                          154       88        2
+    ecu_wdg.o                              92       54        2
+    lib_delay.o                            20       12
+    low_level_init.o             448                                  56
+    main.o                                152       86
+    os.o                                  564      319       14
+    os_cfg.o                                        55       96
+    os_tasks.o                             34       19
     rte.o                                   4        2
     tms570ls3137_cstartup.o      520
-    uc.o                                   18       11
-    uc_dio.o                            1 264    1 056      512      264
-    uc_dio_cfg.o                                   414      672
+    uc.o                                   22       12
+    uc_dio.o                            1 264      967      512      264
+    uc_dio_cfg.o                                   379      672
+    uc_emac.o                           3 288    2 283      756      752
     uc_system.o                  352        6        6       12       56
-    uc_timer.o                            540      333        4       32
-    uc_timer_cfg.o                                  98      160
+    uc_timer.o                            540      305        4       32
+    uc_timer_cfg.o                                  90      160
     --------------------------------------------------------------------
-    Total:                     1 320    3 252    2 874    1 504      412
+    Total:                     1 320    6 544    4 919    2 260    1 160
 
 command line: [3]
     --------------------------------------------------------------------
@@ -470,19 +730,19 @@ dl7Sx_tbn.a: [4]
     Total:                                  4        2
 
 m7Sx_tbv.a: [5]
-    fpinit.o                               40       24
+    fpinit.o                               40       23
     --------------------------------------------------------------------
-    Total:                                 40       24
+    Total:                                 40       23
 
 rt7Sx_tb.a: [6]
-    ABImemcpy.o                           176      109
-    cexit.o                                16       10
+    ABImemcpy.o                           176       99
+    cexit.o                                16        9
     cmain.o                       44
     data_init.o                   48
     lz77_init_single.o           120
     zero_init3.o                  64
     --------------------------------------------------------------------
-    Total:                       276      192      119
+    Total:                       276      192      108
 
 sh7Sxs_b.a: [7]
     exit.o                        20
@@ -491,9 +751,9 @@ sh7Sxs_b.a: [7]
     Total:                        24
 
     Gaps                                    8
-    Linker created                24       64       76   18 944
+    Linker created                24       64       72   18 944
 ------------------------------------------------------------------------
-    Grand Total:               1 644    3 560    3 095   20 448      412
+    Grand Total:               1 644    6 852    5 124   21 204    1 160
 
 
 *******************************************************************************
@@ -505,27 +765,31 @@ Entry                      Address   Size  Type      Object
 .iar.init_table$$Base   0x0000066c          --   Gb  - Linker created -
 .iar.init_table$$Limit  0x0000068c          --   Gb  - Linker created -
 ?main                   0x0000062c         Code  Gb  cmain.o [6]
-ABT_STACK$$Base         0x08005b70          --   Gb  - Linker created -
-ABT_STACK$$Limit        0x08005d70          --   Gb  - Linker created -
+ABT_STACK$$Base         0x08006b40          --   Gb  - Linker created -
+ABT_STACK$$Limit        0x08006d40          --   Gb  - Linker created -
 APP_BOOT_u8FlashingMode
-                        0x08005dc8    0x1  Data  Gb  app_boot.o [2]
+                        0x08006d98    0x1  Data  Gb  app_boot.o [2]
 APP_BOOT_vdMgr          0x08000005   0x18  Code  Gb  app_boot.o [2]
-APP_vdDeInit            0x0800124d    0x2  Code  Gb  app.o [2]
-APP_vdInit              0x0800124b    0x2  Code  Gb  app.o [2]
+APP_vdDeInit            0x08002219    0x2  Code  Gb  app.o [2]
+APP_vdInit              0x08002217    0x2  Code  Gb  app.o [2]
 Abort_Handler           0x0000049f    0xc  Code  Gb  uc_system.o [2]
-CSTACK$$Base            0x08001370          --   Gb  - Linker created -
-CSTACK$$Limit           0x08005370          --   Gb  - Linker created -
-ECU_IO_astrObjInput     0x08000cd0   0x14  Data  Gb  ecu_io_cfg.o [2]
+CSTACK$$Base            0x08002340          --   Gb  - Linker created -
+CSTACK$$Limit           0x08006340          --   Gb  - Linker created -
+DIEID_REG0              0xffffe1f0    0x4  Data  Gb  uc_emac.o [2]
+DIEID_REG1              0xffffe1f4    0x4  Data  Gb  uc_emac.o [2]
+DIEID_REG2              0xffffe1f8    0x4  Data  Gb  uc_emac.o [2]
+DIEID_REG3              0xffffe1fc    0x4  Data  Gb  uc_emac.o [2]
+ECU_IO_astrObjInput     0x080019a8   0x14  Data  Gb  ecu_io_cfg.o [2]
 ECU_IO_eInternalOutputControl
                         0x080000dd   0x3e  Code  Gb  ecu_io.o [2]
 ECU_IO_vdInit           0x080000cd    0x8  Code  Gb  ecu_io.o [2]
 ECU_IO_vdMgr            0x080000d5    0x8  Code  Gb  ecu_io.o [2]
-ECU_SYS_eEcuMode        0x08001368    0x1  Data  Gb  ecu_system.o [2]
+ECU_SYS_eEcuMode        0x08002338    0x1  Data  Gb  ecu_system.o [2]
 ECU_SYS_eGetEcuMode     0x08000205    0x6  Code  Gb  ecu_system.o [2]
 ECU_SYS_u8IsShutdownAndReset
                         0x0800020b    0x6  Code  Gb  ecu_system.o [2]
 ECU_SYS_u8ShutdownAndResetReq
-                        0x08005dca    0x1  Data  Gb  ecu_system.o [2]
+                        0x08006d9a    0x1  Data  Gb  ecu_system.o [2]
 ECU_SYS_vdDeInit        0x08000199    0xc  Code  Gb  ecu_system.o [2]
 ECU_SYS_vdExtWdgManage  0x0800021d    0xa  Code  Gb  ecu_system.o [2]
 ECU_SYS_vdInit          0x0800018d    0xc  Code  Gb  ecu_system.o [2]
@@ -533,42 +797,108 @@ ECU_SYS_vdMgr           0x080001a5    0xc  Code  Gb  ecu_system.o [2]
 ECU_SYS_vdReset         0x080001f7    0x8  Code  Gb  ecu_system.o [2]
 ECU_SYS_vdSetEcuMode    0x080001ff    0x6  Code  Gb  ecu_system.o [2]
 ECU_SYS_vdSleep         0x080001b1   0x46  Code  Gb  ecu_system.o [2]
-ECU_WDG_eControlCmd     0x08001369    0x1  Data  Gb  ecu_wdg.o [2]
-ECU_WDG_eEnableCmd      0x08005dcb    0x1  Data  Gb  ecu_wdg.o [2]
+ECU_WDG_eControlCmd     0x08002339    0x1  Data  Gb  ecu_wdg.o [2]
+ECU_WDG_eEnableCmd      0x08006d9b    0x1  Data  Gb  ecu_wdg.o [2]
 ECU_WDG_vdDeInit        0x08000233    0xa  Code  Gb  ecu_wdg.o [2]
 ECU_WDG_vdEnable        0x08000259   0x22  Code  Gb  ecu_wdg.o [2]
 ECU_WDG_vdInit          0x08000229    0xa  Code  Gb  ecu_wdg.o [2]
 ECU_WDG_vdMgr           0x0800023d   0x1c  Code  Gb  ecu_wdg.o [2]
-ECU_vdDeInit            0x0800125f    0x8  Code  Gb  ecu.o [2]
-ECU_vdInit              0x0800124f   0x10  Code  Gb  ecu.o [2]
+ECU_vdDeInit            0x0800222b    0x8  Code  Gb  ecu.o [2]
+ECU_vdInit              0x0800221b   0x10  Code  Gb  ecu.o [2]
+EMAC_FRAME1024TUP       0xfcf7827c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_FRAME128T255       0xfcf78270    0x4  Data  Gb  uc_emac.o [2]
+EMAC_FRAME256T511       0xfcf78274    0x4  Data  Gb  uc_emac.o [2]
+EMAC_FRAME512T1023      0xfcf78278    0x4  Data  Gb  uc_emac.o [2]
+EMAC_FRAME64            0xfcf78268    0x4  Data  Gb  uc_emac.o [2]
+EMAC_FRAME65T127        0xfcf7826c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_MACHASH1           0xfcf781d8    0x4  Data  Gb  uc_emac.o [2]
+EMAC_MACHASH2           0xfcf781dc    0x4  Data  Gb  uc_emac.o [2]
+EMAC_NETOCTETS          0xfcf78280    0x4  Data  Gb  uc_emac.o [2]
+EMAC_REVID              0xfcf78800    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX0HDP             0xfcf78620    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX1HDP             0xfcf78624    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX2HDP             0xfcf78628    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX3HDP             0xfcf7862c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX4HDP             0xfcf78630    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX5HDP             0xfcf78634    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX6HDP             0xfcf78638    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RX7HDP             0xfcf7863c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXALIGNCODEERRORS  0xfcf78214    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXBCASTFRAMES      0xfcf78204    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXCRCERRORS        0xfcf78210    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXDMAOVERRUNS      0xfcf7828c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXFILTERED         0xfcf78228    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXFRAGMENTS        0xfcf78224    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXGOODFRAMES       0xfcf78200    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXJABBER           0xfcf7821c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXMCASTFRAMES      0xfcf78208    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXMOFOVERRUNS      0xfcf78288    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXOCTETS           0xfcf78230    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXOVERSIZED        0xfcf78218    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXPAUSEFRAMES      0xfcf7820c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXQOSFILTERED      0xfcf7822c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXREVID            0xfcf78010    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXSOFOVERRUNS      0xfcf78284    0x4  Data  Gb  uc_emac.o [2]
+EMAC_RXUNDERSIZED       0xfcf78220    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX0CP              0xfcf78640    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX0HDP             0xfcf78600    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX1CP              0xfcf78644    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX1HDP             0xfcf78604    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX2CP              0xfcf78648    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX2HDP             0xfcf78608    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX3CP              0xfcf7864c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX3HDP             0xfcf7860c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX4CP              0xfcf78650    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX4HDP             0xfcf78610    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX5CP              0xfcf78654    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX5HDP             0xfcf78614    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX6CP              0xfcf78658    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX6HDP             0xfcf78618    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX7CP              0xfcf7865c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TX7HDP             0xfcf7861c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXBCASTFRAMES      0xfcf78238    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXCARRIERSENSE     0xfcf78260    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXCOLLISION        0xfcf78248    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXDEFERRED         0xfcf78244    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXEXCESSIVECOLL    0xfcf78254    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXGOODFRAMES       0xfcf78234    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXLATECOLL         0xfcf78258    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXMCASTFRAMES      0xfcf7823c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXMULTICOLL        0xfcf78250    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXOCTETS           0xfcf78264    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXPAUSEFRAMES      0xfcf78240    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXREVID            0xfcf78000    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXSINGLECOLL       0xfcf7824c    0x4  Data  Gb  uc_emac.o [2]
+EMAC_TXUNDERRUN         0xfcf7825c    0x4  Data  Gb  uc_emac.o [2]
 FIQ_Handler             0x000004ab    0xe  Code  Gb  uc_system.o [2]
-FIQ_STACK$$Base         0x08005770          --   Gb  - Linker created -
-FIQ_STACK$$Limit        0x08005970          --   Gb  - Linker created -
+FIQ_STACK$$Base         0x08006740          --   Gb  - Linker created -
+FIQ_STACK$$Limit        0x08006940          --   Gb  - Linker created -
 IOMM_KICK_REG0          0xffffea38    0x4  Data  Gb  uc_system.o [2]
 IOMM_KICK_REG1          0xffffea3c    0x4  Data  Gb  uc_system.o [2]
 IRQ_Handler             0x000004b9    0xe  Code  Gb  uc_system.o [2]
-IRQ_STACK$$Base         0x08005570          --   Gb  - Linker created -
-IRQ_STACK$$Limit        0x08005770          --   Gb  - Linker created -
+IRQ_STACK$$Base         0x08006540          --   Gb  - Linker created -
+IRQ_STACK$$Limit        0x08006740          --   Gb  - Linker created -
 IntTable                0x08000000    0x4  Data  Gb  uc_system.o [2]
 LIB_DELAY_vdNanoSeconds
-                        0x08001267   0x14  Code  Gb  lib_delay.o [2]
-OS_astrTasks            0x08000ce4   0x60  Data  Gb  os_cfg.o [2]
-OS_u32SystemTick        0x08005db0    0x4  Data  Gb  os.o [2]
-OS_u32SystemTimerUs     0x08005db4    0x4  Data  Gb  os.o [2]
+                        0x08002233   0x14  Code  Gb  lib_delay.o [2]
+MDIO_REVID              0xfcf78900    0x4  Data  Gb  uc_emac.o [2]
+OS_astrTasks            0x080019bc   0x60  Data  Gb  os_cfg.o [2]
+OS_u32SystemTick        0x08006d80    0x4  Data  Gb  os.o [2]
+OS_u32SystemTimerUs     0x08006d84    0x4  Data  Gb  os.o [2]
 OS_u32UpdateTasksCounter
-                        0x08005db8    0x4  Data  Gb  os.o [2]
+                        0x08006d88    0x4  Data  Gb  os.o [2]
 OS_u8ReInitializeSignal
-                        0x08005dcd    0x1  Data  Gb  os.o [2]
-OS_u8ShutDownSignal     0x08005dcc    0x1  Data  Gb  os.o [2]
+                        0x08006d9d    0x1  Data  Gb  os.o [2]
+OS_u8ShutDownSignal     0x08006d9c    0x1  Data  Gb  os.o [2]
 OS_vdDeInit             0x080002f7    0x8  Code  Gb  os.o [2]
 OS_vdInit               0x08000285   0x62  Code  Gb  os.o [2]
 OS_vdMain               0x080002ff   0xe4  Code  Gb  os.o [2]
 OS_vdStart              0x080002e7    0x8  Code  Gb  os.o [2]
 OS_vdStop               0x080002ef    0x8  Code  Gb  os.o [2]
-OS_vdTask100ms          0x0800133d    0x2  Code  Gb  os_tasks.o [2]
-OS_vdTask10ms           0x08001329    0xc  Code  Gb  os_tasks.o [2]
-OS_vdTask1ms            0x0800131d    0xc  Code  Gb  os_tasks.o [2]
-OS_vdTask50ms           0x08001335    0x8  Code  Gb  os_tasks.o [2]
+OS_vdTask100ms          0x08002309    0x2  Code  Gb  os_tasks.o [2]
+OS_vdTask10ms           0x080022f5    0xc  Code  Gb  os_tasks.o [2]
+OS_vdTask1ms            0x080022e9    0xc  Code  Gb  os_tasks.o [2]
+OS_vdTask50ms           0x08002301    0x8  Code  Gb  os_tasks.o [2]
 Prefetch_Handler        0x000004c7    0xe  Code  Gb  uc_system.o [2]
 RTE_vdDeInit            0x080004bb    0x2  Code  Gb  rte.o [2]
 RTE_vdInit              0x080004b9    0x2  Code  Gb  rte.o [2]
@@ -578,57 +908,135 @@ RTIFRC0                 0xfffffc10    0x4  Data  Gb  uc_timer.o [2]
 RTIUDCP0                0xfffffc54    0x4  Data  Gb  uc_timer.o [2]
 Region$$Table$$Base     0x0000066c          --   Gb  - Linker created -
 Region$$Table$$Limit    0x0000068c          --   Gb  - Linker created -
-SVC_STACK$$Base         0x08005370          --   Gb  - Linker created -
-SVC_STACK$$Limit        0x08005570          --   Gb  - Linker created -
+SVC_STACK$$Base         0x08006340          --   Gb  - Linker created -
+SVC_STACK$$Limit        0x08006540          --   Gb  - Linker created -
 SWI_Handler             0x000004d5    0xe  Code  Gb  uc_system.o [2]
-SYS_vdDeInit            0x08001305   0x18  Code  Gb  main.o [2]
-SYS_vdInit              0x080012ed   0x18  Code  Gb  main.o [2]
-UC_DIO_astrInput        0x0800115c   0x48  Data  Gb  uc_dio_cfg.o [2]
+SYS_vdDeInit            0x080022d1   0x18  Code  Gb  main.o [2]
+SYS_vdInit              0x080022b9   0x18  Code  Gb  main.o [2]
+UC_DIO_astrInput        0x08001e34   0x48  Data  Gb  uc_dio_cfg.o [2]
 UC_DIO_astrIntInputIdDecode
-                        0x08005d70   0x40  Data  Gb  uc_dio.o [2]
-UC_DIO_astrObj          0x08000d44  0x1c0  Data  Gb  uc_dio.o [2]
-UC_DIO_astrOutput       0x08000f04  0x258  Data  Gb  uc_dio_cfg.o [2]
+                        0x08006d40   0x40  Data  Gb  uc_dio.o [2]
+UC_DIO_astrObj          0x08001a1c  0x1c0  Data  Gb  uc_dio.o [2]
+UC_DIO_astrOutput       0x08001bdc  0x258  Data  Gb  uc_dio_cfg.o [2]
 UC_DIO_eCommandOutputPin
                         0x08000719   0xde  Code  Gb  uc_dio.o [2]
 UC_DIO_eReadInputPin    0x080007f7   0x58  Code  Gb  uc_dio.o [2]
 UC_DIO_vdInit           0x080004cd  0x24a  Code  Gb  uc_dio.o [2]
 UC_DIO_vdMgr            0x08000717    0x2  Code  Gb  uc_dio.o [2]
+UC_EMAC_pu32AliveRegister
+                        0x0800216c    0x4  Data  Gb  uc_emac.o [2]
+UC_EMAC_strObj          0x08001e7c  0x2f0  Data  Gb  uc_emac.o [2]
+UC_EMAC_vdInit          0x080009bd    0xc  Code  Gb  uc_emac.o [2]
 UC_SYSTEM_STOP_u32Address
-                        0x08005dc0    0x4  Data  Gb  uc_system.o [2]
+                        0x08006d90    0x4  Data  Gb  uc_system.o [2]
 UC_SYSTEM_STOP_u32Signal
-                        0x08005dbc    0x4  Data  Gb  uc_system.o [2]
+                        0x08006d8c    0x4  Data  Gb  uc_system.o [2]
 UC_SYS_vdEnableISR      0x000003e9   0x4a  Code  Gb  uc_system.o [2]
 UC_SYS_vdEnableInterrupts
                         0x00000433    0x4  Code  Gb  uc_system.o [2]
 UC_SYS_vdInit           0x00000437   0x52  Code  Gb  uc_system.o [2]
-UC_SYS_vdJumpToAddress  0x08001245    0x6  Code  Gb  uc_system.o [2]
+UC_SYS_vdJumpToAddress  0x08002211    0x6  Code  Gb  uc_system.o [2]
 UC_SYS_vdRegisterISR    0x000003d5   0x14  Code  Gb  uc_system.o [2]
 UC_SYS_vdSleep          0x0000049d    0x2  Code  Gb  uc_system.o [2]
 UC_SYS_vdSwReset        0x00000489   0x14  Code  Gb  uc_system.o [2]
 UC_TIMER_pftTickCallback
-                        0x08005dc4    0x4  Data  Gb  uc_timer.o [2]
+                        0x08006d94    0x4  Data  Gb  uc_timer.o [2]
 UC_TIMER_strTimeOutSignals
-                        0x080011a4   0xa0  Data  Gb  uc_timer_cfg.o [2]
+                        0x08002170   0xa0  Data  Gb  uc_timer_cfg.o [2]
 UC_TIMER_u32TimerTickUs
-                        0x08000a4d    0x8  Code  Gb  uc_timer.o [2]
-UC_TIMER_vdDisable      0x08000a3f    0xe  Code  Gb  uc_timer.o [2]
-UC_TIMER_vdEnable       0x08000a31    0xe  Code  Gb  uc_timer.o [2]
-UC_TIMER_vdInit         0x080009bd   0x6e  Code  Gb  uc_timer.o [2]
+                        0x08001725    0x8  Code  Gb  uc_timer.o [2]
+UC_TIMER_vdDisable      0x08001717    0xe  Code  Gb  uc_timer.o [2]
+UC_TIMER_vdEnable       0x08001709    0xe  Code  Gb  uc_timer.o [2]
+UC_TIMER_vdInit         0x08001695   0x6e  Code  Gb  uc_timer.o [2]
 UC_TIMER_vdRegisterTickCallback
-                        0x08000a2b    0x6  Code  Gb  uc_timer.o [2]
-UC_vdDeInit             0x08001359    0x2  Code  Gb  uc.o [2]
-UC_vdInit               0x08001349   0x10  Code  Gb  uc.o [2]
-UND_STACK$$Base         0x08005970          --   Gb  - Linker created -
-UND_STACK$$Limit        0x08005b70          --   Gb  - Linker created -
+                        0x08001703    0x6  Code  Gb  uc_timer.o [2]
+UC_vdDeInit             0x08002329    0x2  Code  Gb  uc.o [2]
+UC_vdInit               0x08002315   0x14  Code  Gb  uc.o [2]
+UND_STACK$$Base         0x08006940          --   Gb  - Linker created -
+UND_STACK$$Limit        0x08006b40          --   Gb  - Linker created -
 Undefined_Handler       0x000004e3    0xe  Code  Gb  uc_system.o [2]
 VIM_GIOA_Handler        0x08000908   0x40  Code  Gb  uc_dio.o [2]
 VIM_GIOB_Handler        0x08000948   0x40  Code  Gb  uc_dio.o [2]
 VIM_RAM_BASE            0xfff82000    0x4  Data  Gb  uc_system.o [2]
-VIM_RTIC0_Handler       0x08000a54  0x160  Code  Gb  uc_timer.o [2]
+VIM_RTIC0_Handler       0x0800172c  0x160  Code  Gb  uc_timer.o [2]
+_A_CLK2CNTL             0xffffe13c    0x4  Data  Gb  uc_emac.o [2]
 _A_CLKCNTL              0xffffffd0    0x4  Data  Gb  low_level_init.o [2]
-_A_CLKSLIP              0xffffe170    0x4  Data  Gb  low_level_init.o [2]
+_A_CLKSLIP              0xffffe170    0x4  Data  Gb  uc_emac.o [2]
 _A_CSDIS                0xffffff30    0x4  Data  Gb  low_level_init.o [2]
 _A_CSVSTAT              0xffffff54    0x4  Data  Gb  low_level_init.o [2]
+_A_EFC_CTLREG           0xffffe1ec    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_BOFFTEST        0xfcf781e0    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0MISCEN        0xfcf7881c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0MISCSTAT      0xfcf7884c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0RXEN          0xfcf78814    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0RXIMAX        0xfcf78870    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0RXSTAT        0xfcf78844    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0RXTHRESHEN    0xfcf78810    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0RXTHRESHSTAT  0xfcf78840    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0TXEN          0xfcf78818    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0TXIMAX        0xfcf78874    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_C0TXSTAT        0xfcf78848    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_EMCONTROL       0xfcf78168    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_FIFOCONTROL     0xfcf7816c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_INTCONTROL      0xfcf7880c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACADDRHI       0xfcf78504    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACADDRLO       0xfcf78500    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACCONFIG       0xfcf78170    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACCONTROL      0xfcf78160    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACEOIVECTOR    0xfcf78094    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACINDEX        0xfcf78508    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACINTMASKCLEAR
+                        0xfcf780bc    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACINTMASKSET   0xfcf780b8    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACINTSTATMASKED
+                        0xfcf780b4    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACINTSTATRAW   0xfcf780b0    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACINVECTOR     0xfcf78090    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACSRCADDRHI    0xfcf781d4    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACSRCADDRLO    0xfcf781d0    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MACSTATUS       0xfcf78164    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_MSOFTRESET      0xfcf78174    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX0FLOWTHRESH   0xfcf78120    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX0FREEBUFFER   0xfcf78140    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX1FLOWTHRESH   0xfcf78124    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX1FREEBUFFER   0xfcf78144    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX2FLOWTHRESH   0xfcf78128    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX2FREEBUFFER   0xfcf78148    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX3FLOWTHRESH   0xfcf7812c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX3FREEBUFFER   0xfcf7814c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX4FLOWTHRESH   0xfcf78130    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX4FREEBUFFER   0xfcf78150    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX5FLOWTHRESH   0xfcf78134    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX5FREEBUFFER   0xfcf78154    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX6FLOWTHRESH   0xfcf78138    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX6FREEBUFFER   0xfcf78158    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX7FLOWTHRESH   0xfcf7813c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RX7FREEBUFFER   0xfcf7815c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXBUFFEROFFSET  0xfcf78110    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXCONTROL       0xfcf78014    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXFILTERLOWTHRESH
+                        0xfcf78114    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXINTMASKCLEAR  0xfcf780ac    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXINTMASKSET    0xfcf780a8    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXINTSTATMASKED
+                        0xfcf780a4    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXINTSTATRAW    0xfcf780a0    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXMAXLEN        0xfcf7810c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXMBPENABLE     0xfcf78100    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXPAUSE         0xfcf781e8    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXTEARDOWN      0xfcf78018    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXUNICASTCLEAR  0xfcf78108    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_RXUNICASTSET    0xfcf78104    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_SOFTRESET       0xfcf78804    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TPACETEST       0xfcf781e4    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TXCONTROL       0xfcf78004    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TXINTMASKCLEAR  0xfcf7808c    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TXINTMASKSET    0xfcf78088    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TXINTSTATMASKED
+                        0xfcf78084    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TXINTSTATRAW    0xfcf78080    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TXPAUSE         0xfcf781ec    0x4  Data  Gb  uc_emac.o [2]
+_A_EMAC_TXTEARDOWN      0xfcf78008    0x4  Data  Gb  uc_emac.o [2]
 _A_FBFALLBACK           0xfff87040    0x4  Data  Gb  low_level_init.o [2]
 _A_FIRQPR0              0xfffffe10    0x4  Data  Gb  uc_system.o [2]
 _A_FIRQPR1              0xfffffe14    0x4  Data  Gb  uc_system.o [2]
@@ -674,7 +1082,52 @@ _A_HET2DSET             0xfff7b958    0x4  Data  Gb  uc_dio.o [2]
 _A_HET2PDR              0xfff7b960    0x4  Data  Gb  uc_dio.o [2]
 _A_HET2PSL              0xfff7b968    0x4  Data  Gb  uc_dio.o [2]
 _A_HET2PULDIS           0xfff7b964    0x4  Data  Gb  uc_dio.o [2]
+_A_IOMM_PINMMR00        0xffffeb10    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR01        0xffffeb14    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR02        0xffffeb18    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR03        0xffffeb1c    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR04        0xffffeb20    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR05        0xffffeb24    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR06        0xffffeb28    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR07        0xffffeb2c    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR08        0xffffeb30    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR09        0xffffeb34    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR10        0xffffeb38    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR11        0xffffeb3c    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR12        0xffffeb40    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR13        0xffffeb44    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR14        0xffffeb48    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR15        0xffffeb4c    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR16        0xffffeb50    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR17        0xffffeb54    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR18        0xffffeb58    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR19        0xffffeb5c    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR20        0xffffeb60    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR21        0xffffeb64    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR22        0xffffeb68    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR23        0xffffeb6c    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR24        0xffffeb70    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR25        0xffffeb74    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR26        0xffffeb78    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR27        0xffffeb7c    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR28        0xffffeb80    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR29        0xffffeb84    0x4  Data  Gb  uc_emac.o [2]
+_A_IOMM_PINMMR30        0xffffeb88    0x4  Data  Gb  uc_emac.o [2]
 _A_LPOMONCTL            0xffffff88    0x4  Data  Gb  low_level_init.o [2]
+_A_MDIO_ALIVE           0xfcf78908    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_CONTROL         0xfcf78904    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_LINK            0xfcf7890c    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_LINKINTMASKED   0xfcf78914    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_LINKINTRAW      0xfcf78910    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERACCESS0     0xfcf78980    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERACCESS1     0xfcf78988    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERINTMASKCLEAR
+                        0xfcf7892c    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERINTMASKED   0xfcf78924    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERINTMASKSET  0xfcf78928    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERINTRAW      0xfcf78920    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERPHYSEL0     0xfcf78984    0x4  Data  Gb  uc_emac.o [2]
+_A_MDIO_USERPHYSEL1     0xfcf7898c    0x4  Data  Gb  uc_emac.o [2]
 _A_MIBSPI1GCR0          0xfff7f400    0x4  Data  Gb  uc_dio.o [2]
 _A_MIBSPI1PC1           0xfff7f418    0x4  Data  Gb  uc_dio.o [2]
 _A_MIBSPI1PC2           0xfff7f41c    0x4  Data  Gb  uc_dio.o [2]
@@ -704,6 +1157,7 @@ _A_MIBSPI5PC8           0xfff7fc34    0x4  Data  Gb  uc_dio.o [2]
 _A_MINITGCR             0xffffff5c    0x4  Data  Gb  uc_system.o [2]
 _A_PLLCTL1              0xffffff70    0x4  Data  Gb  low_level_init.o [2]
 _A_PLLCTL2              0xffffff74    0x4  Data  Gb  low_level_init.o [2]
+_A_PLLCTL3              0xffffe100    0x4  Data  Gb  uc_emac.o [2]
 _A_PSPWRDWNCLR0         0xffffe0a0    0x4  Data  Gb  low_level_init.o [2]
 _A_PSPWRDWNCLR1         0xffffe0a4    0x4  Data  Gb  low_level_init.o [2]
 _A_PSPWRDWNCLR2         0xffffe0a8    0x4  Data  Gb  low_level_init.o [2]
@@ -717,17 +1171,20 @@ _A_REQENASET2           0xfffffe38    0x4  Data  Gb  uc_system.o [2]
 _A_RTIGCTRL             0xfffffc00    0x4  Data  Gb  uc_timer.o [2]
 _A_RTIINTFLAG           0xfffffc88    0x4  Data  Gb  uc_timer.o [2]
 _A_RTISETINTENA         0xfffffc80    0x4  Data  Gb  uc_timer.o [2]
+_A_STCCLKDIV            0xffffe108    0x4  Data  Gb  uc_emac.o [2]
+_A_SYS2_ECPCNTL         0xffffe124    0x4  Data  Gb  uc_emac.o [2]
 _A_SYSECR               0xffffffe0    0x4  Data  Gb  uc_system.o [2]
+_A_VCLKACON1            0xffffe140    0x4  Data  Gb  uc_emac.o [2]
 _A_VCLKASRC             0xffffff4c    0x4  Data  Gb  low_level_init.o [2]
 _A_WAKEENACLR0          0xfffffe60    0x4  Data  Gb  uc_system.o [2]
 _A_WAKEENACLR1          0xfffffe64    0x4  Data  Gb  uc_system.o [2]
-__aeabi_memcpy4         0x08000bd8         Code  Gb  ABImemcpy.o [6]
-__aeabi_memcpy8         0x08000bd8         Code  Gb  ABImemcpy.o [6]
+__aeabi_memcpy4         0x080018b0         Code  Gb  ABImemcpy.o [6]
+__aeabi_memcpy8         0x080018b0         Code  Gb  ABImemcpy.o [6]
 __cmain                 0x0000062c         Code  Gb  cmain.o [6]
 __exit                  0x00000659   0x14  Code  Gb  exit.o [7]
 __iar_data_init3        0x000005ed   0x30  Code  Gb  data_init.o [6]
-__iar_init_vfp          0x08000c9c         Code  Gb  fpinit.o [5]
-__iar_init_vfp_v6       0x08000c88         Code  Gb  fpinit.o [5]
+__iar_init_vfp          0x08001974         Code  Gb  fpinit.o [5]
+__iar_init_vfp_v6       0x08001960         Code  Gb  fpinit.o [5]
 __iar_lz77_init_single3
                         0x00000535   0x78  Code  Gb  lz77_init_single.o [6]
 __iar_program_start     0x00000040         Code  Gb  tms570ls3137_cstartup.o [2]
@@ -736,9 +1193,9 @@ __iar_zero_init3        0x000005ad   0x40  Code  Gb  zero_init3.o [6]
 __low_level_init        0x0000020c  0x1c0  Code  Gb  low_level_init.o [2]
 __vector                0x00000000         Code  Gb  tms570ls3137_cstartup.o [2]
 _call_main              0x00000640         Code  Gb  cmain.o [6]
-_exit                   0x08000cb8         Code  Gb  cexit.o [6]
+_exit                   0x08001990         Code  Gb  cexit.o [6]
 _main                   0x00000648         Code  Gb  cmain.o [6]
-exit                    0x08001365    0x4  Code  Gb  exit.o [4]
+exit                    0x08002335    0x4  Code  Gb  exit.o [4]
 local_APP_BOOT_vdBootHeartBeat
                         0x0800001d   0x9e  Code  Gb  app_boot.o [2]
 local_ECU_IO_POUT_vdInitialize
@@ -752,7 +1209,13 @@ local_UC_DIO_eInputInterruptHandler
                         0x080008bd   0x48  Code  Gb  uc_dio.o [2]
 local_UC_DIO_ePinConfigure
                         0x0800084f   0x6e  Code  Gb  uc_dio.o [2]
-main                    0x08001285   0x68  Code  Gb  main.o [2]
+local_UC_EMAC_eIsPhyAlive
+                        0x080009c9   0x1c  Code  Gb  uc_emac.o [2]
+local_UC_EMAC_vdConfigureSignalsMultiplexing
+                        0x08000a6f  0xc1c  Code  Gb  uc_emac.o [2]
+local_UC_EMAC_vdInitializeMDIO
+                        0x080009e5   0x8a  Code  Gb  uc_emac.o [2]
+main                    0x08002251   0x68  Code  Gb  main.o [2]
 
 
 [1] = C:\Git2\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash API\02.01.01
@@ -764,9 +1227,9 @@ main                    0x08001285   0x68  Code  Gb  main.o [2]
 [7] = sh7Sxs_b.a
 
    1 644 bytes of readonly  code memory
-   3 560 bytes of readwrite code memory
-   3 095 bytes of readonly  data memory
-  20 448 bytes of readwrite data memory (+ 412 absolute)
+   6 852 bytes of readwrite code memory
+   5 124 bytes of readonly  data memory
+  21 204 bytes of readwrite data memory (+ 1 160 absolute)
 
 Errors: none
 Warnings: none
