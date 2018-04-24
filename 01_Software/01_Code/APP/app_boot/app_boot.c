@@ -82,6 +82,7 @@ uint8_t APP_BOOT_u8FlashingMode = 0;
 ///********************************************************************************************/
 //
 void local_APP_BOOT_vdBootHeartBeat(void);
+void local_APP_BOOT_vdBootHeartBeat_modified(void);
 //__ramfunc void local_APP_BOOT_vdSwDownload(void);
 //void local_APP_BOOT_vdPageDataReset(APP_BOOT_strPageMemory_t *strPageMemory);
 //void local_APP_BOOT_vdEndService(STATUS_t eStatus, uint8_t *pau8Data);
@@ -128,14 +129,27 @@ void APP_BOOT_vdMgr(void)
 	ECU_SYS_eEcuMode_t eEcuMode;
   eEcuMode = ECU_SYS_eGetEcuMode();
 
-  local_APP_BOOT_vdBootHeartBeat();  
+  local_APP_BOOT_vdBootHeartBeat_modified();  
   if(eEcuMode == ECU_SYS_PROGRAMMING)
   {
     /*Heart Beat*/
-    local_APP_BOOT_vdBootHeartBeat();
+    local_APP_BOOT_vdBootHeartBeat_modified();
   }
 }
 
+void local_APP_BOOT_vdBootHeartBeat_modified(void)
+{
+  static uint32_t su32FlashHeartBeatCounter = 1;
+  if((su32FlashHeartBeatCounter*APP_BOOT_TASK_MS) == (APP_BOOT_HEARTBEAT_HALF_PERIOD_MS/2))
+  {
+    ECU_IO_eInternalOutputControl(ECU_IO_DOUT_CHECK_HEARBEAT, ECU_IO_OUT_COMMAND_TOGGLE);
+    su32FlashHeartBeatCounter = 1;
+  }
+  else
+  {
+    su32FlashHeartBeatCounter++;
+  }
+}
 void local_APP_BOOT_vdBootHeartBeat(void)
 {
   static uint32_t su32NormalHeartBeatCounter = 1;

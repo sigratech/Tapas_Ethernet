@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.50.2.10312/W32 for ARM                20/Apr/2018  17:27:38
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                24/Apr/2018  17:55:19
 # Copyright 2007-2015 IAR Systems AB.
 #
 #    Output file  =  
@@ -105,7 +105,7 @@ __SystemLibrary = DLib
   .intvec            ro code  0x00000000    0x3c  tms570ls3137_cstartup.o [2]
                             - 0x0000003c    0x3c
 
-"P1":                                     0x1a34
+"P1":                                     0x1f24
   .text              ro code  0x00000040   0x1cc  tms570ls3137_cstartup.o [2]
   .text              ro code  0x0000020c   0x1c0  low_level_init.o [2]
   Veneer             ro code  0x000003cc     0x8  - Linker created -
@@ -121,84 +121,86 @@ __SystemLibrary = DLib
   .text              ro code  0x0000068c     0x4  xreturnswi.o [7]
   .rodata            const    0x00000690     0x0  zero_init3.o [6]
   .rodata            const    0x00000690     0x0  lz77_init_single.o [6]
-  Initializer bytes  const    0x00000690  0x13e4  <for P2-1>
-                            - 0x00001a74  0x1a34
+  Initializer bytes  const    0x00000690  0x18d4  <for P2-1>
+                            - 0x00001f64  0x1f24
 
-"P2", part 1 of 3:                        0x233a
-  P2-1                        0x08000000  0x233a  <Init block>
-    .rodata          inited   0x08000000     0x4  uc_system.o [2]
-    .text            inited   0x08000004    0xc8  app_boot.o [2]
-    .text            inited   0x080000cc    0xb0  ecu_io.o [2]
-    Veneer           inited   0x0800017c     0x8  - Linker created -
-    Veneer           inited   0x08000184     0x8  - Linker created -
-    .text            inited   0x0800018c    0x9a  ecu_system.o [2]
-    .text            inited   0x08000228    0x5c  ecu_wdg.o [2]
-    .text            inited   0x08000284   0x234  os.o [2]
-    .text            inited   0x080004b8     0x4  rte.o [2]
-    Veneer           inited   0x080004bc     0x8  - Linker created -
-    Veneer           inited   0x080004c4     0x8  - Linker created -
-    .text            inited   0x080004cc   0x4f0  uc_dio.o [2]
-    .text            inited   0x080009bc   0xcd8  uc_emac.o [2]
-    .text            inited   0x08001694   0x21c  uc_timer.o [2]
-    .text            inited   0x080018b0    0xb0  ABImemcpy.o [6]
-    .text            inited   0x08001960    0x28  fpinit.o [5]
-    Veneer           inited   0x08001988     0x8  - Linker created -
-    .text            inited   0x08001990    0x10  cexit.o [6]
-    .data            inited   0x080019a0     0x4  app_boot.o [2]
-    .data            inited   0x080019a4     0x4  app_boot.o [2]
-    .data            inited   0x080019a8    0x14  ecu_io_cfg.o [2]
-    .data            inited   0x080019bc    0x60  os_cfg.o [2]
-    .data            inited   0x08001a1c   0x1c0  uc_dio.o [2]
-    .data            inited   0x08001bdc   0x258  uc_dio_cfg.o [2]
-    .data            inited   0x08001e34    0x48  uc_dio_cfg.o [2]
-    .data            inited   0x08001e7c   0x2f0  uc_emac.o [2]
-    .data            inited   0x0800216c     0x4  uc_emac.o [2]
-    .data            inited   0x08002170    0xa0  uc_timer_cfg.o [2]
-    .textrw          inited   0x08002210     0x6  uc_system.o [2]
-    .text            inited   0x08002216     0x4  app.o [2]
-    .text            inited   0x0800221a    0x18  ecu.o [2]
-    .text            inited   0x08002232    0x14  lib_delay.o [2]
-    Veneer           inited   0x08002248     0x8  - Linker created -
-    .text            inited   0x08002250    0x98  main.o [2]
-    .text            inited   0x080022e8    0x22  os_tasks.o [2]
-    Veneer           inited   0x0800230c     0x8  - Linker created -
-    .text            inited   0x08002314    0x16  uc.o [2]
-    Veneer           inited   0x0800232c     0x8  - Linker created -
-    .text            inited   0x08002334     0x4  exit.o [4]
-    .data            inited   0x08002338     0x1  ecu_system.o [2]
-    .data            inited   0x08002339     0x1  ecu_wdg.o [2]
-                            - 0x0800233a  0x233a
+"P2", part 1 of 3:                        0x2c4b
+  P2-1                        0x08000000  0x2c4b  <Init block>
+    .rodata          inited   0x08000000    0x10  uc_emac.o [2]
+    .rodata          inited   0x08000010     0x4  uc_system.o [2]
+    .text            inited   0x08000014    0x44  app_boot.o [2]
+    .text            inited   0x08000058    0xb0  ecu_io.o [2]
+    Veneer           inited   0x08000108     0x8  - Linker created -
+    Veneer           inited   0x08000110     0x8  - Linker created -
+    .text            inited   0x08000118    0x9a  ecu_system.o [2]
+    .text            inited   0x080001b4    0x5c  ecu_wdg.o [2]
+    .text            inited   0x08000210   0x234  os.o [2]
+    .text            inited   0x08000444     0x4  rte.o [2]
+    Veneer           inited   0x08000448     0x8  - Linker created -
+    Veneer           inited   0x08000450     0x8  - Linker created -
+    .text            inited   0x08000458   0x4f0  uc_dio.o [2]
+    .text            inited   0x08000948  0x165c  uc_emac.o [2]
+    .text            inited   0x08001fa4   0x21c  uc_timer.o [2]
+    .text            inited   0x080021c0    0xb0  ABImemcpy.o [6]
+    .text            inited   0x08002270    0x28  fpinit.o [5]
+    Veneer           inited   0x08002298     0x8  - Linker created -
+    .text            inited   0x080022a0    0x10  cexit.o [6]
+    .data            inited   0x080022b0     0x4  app_boot.o [2]
+    .data            inited   0x080022b4    0x14  ecu_io_cfg.o [2]
+    .data            inited   0x080022c8    0x60  os_cfg.o [2]
+    .data            inited   0x08002328   0x1c0  uc_dio.o [2]
+    .data            inited   0x080024e8   0x258  uc_dio_cfg.o [2]
+    .data            inited   0x08002740    0x48  uc_dio_cfg.o [2]
+    .data            inited   0x08002788   0x2f0  uc_emac.o [2]
+    .data            inited   0x08002a78    0xa0  uc_timer_cfg.o [2]
+    .textrw          inited   0x08002b18     0x6  uc_system.o [2]
+    .text            inited   0x08002b1e     0x4  app.o [2]
+    .text            inited   0x08002b22    0x18  ecu.o [2]
+    .text            inited   0x08002b3a    0x14  lib_delay.o [2]
+    Veneer           inited   0x08002b50     0x8  - Linker created -
+    .text            inited   0x08002b58    0x98  main.o [2]
+    .text            inited   0x08002bf0    0x26  os_tasks.o [2]
+    Veneer           inited   0x08002c18     0x8  - Linker created -
+    .text            inited   0x08002c20    0x16  uc.o [2]
+    Veneer           inited   0x08002c38     0x8  - Linker created -
+    .text            inited   0x08002c40     0x4  exit.o [4]
+    .data            inited   0x08002c44     0x1  ecu_system.o [2]
+    .data            inited   0x08002c45     0x1  ecu_wdg.o [2]
+    .data            inited   0x08002c46     0x1  uc_emac.o [2]
+    .data            inited   0x08002c47     0x1  uc_emac.o [2]
+    .data            inited   0x08002c48     0x1  uc_emac.o [2]
+    .data            inited   0x08002c49     0x1  uc_emac.o [2]
+    .data            inited   0x08002c4a     0x1  uc_emac.o [2]
+                            - 0x08002c4b  0x2c4b
 
 "P2", part 2 of 3:                        0x4a00
-  CSTACK                      0x08002340  0x4000  <Block>
-    CSTACK           uninit   0x08002340  0x4000  <Block tail>
-  SVC_STACK                   0x08006340   0x200  <Block>
-    SVC_STACK        uninit   0x08006340   0x200  <Block tail>
-  IRQ_STACK                   0x08006540   0x200  <Block>
-    IRQ_STACK        uninit   0x08006540   0x200  <Block tail>
-  FIQ_STACK                   0x08006740   0x200  <Block>
-    FIQ_STACK        uninit   0x08006740   0x200  <Block tail>
-  UND_STACK                   0x08006940   0x200  <Block>
-    UND_STACK        uninit   0x08006940   0x200  <Block tail>
-  ABT_STACK                   0x08006b40   0x200  <Block>
-    ABT_STACK        uninit   0x08006b40   0x200  <Block tail>
-                            - 0x08006d40  0x4a00
+  CSTACK                      0x08002c50  0x4000  <Block>
+    CSTACK           uninit   0x08002c50  0x4000  <Block tail>
+  SVC_STACK                   0x08006c50   0x200  <Block>
+    SVC_STACK        uninit   0x08006c50   0x200  <Block tail>
+  IRQ_STACK                   0x08006e50   0x200  <Block>
+    IRQ_STACK        uninit   0x08006e50   0x200  <Block tail>
+  FIQ_STACK                   0x08007050   0x200  <Block>
+    FIQ_STACK        uninit   0x08007050   0x200  <Block tail>
+  UND_STACK                   0x08007250   0x200  <Block>
+    UND_STACK        uninit   0x08007250   0x200  <Block tail>
+  ABT_STACK                   0x08007450   0x200  <Block>
+    ABT_STACK        uninit   0x08007450   0x200  <Block tail>
+                            - 0x08007650  0x4a00
 
-"P2", part 3 of 3:                          0x60
-  .bss               zero     0x08006d40    0x40  uc_dio.o [2]
-  .bss               zero     0x08006d80     0x4  os.o [2]
-  .bss               zero     0x08006d84     0x4  os.o [2]
-  .bss               zero     0x08006d88     0x4  os.o [2]
-  .bss               zero     0x08006d8c     0x4  uc_system.o [2]
-  .bss               zero     0x08006d90     0x4  uc_system.o [2]
-  .bss               zero     0x08006d94     0x4  uc_timer.o [2]
-  .bss               zero     0x08006d98     0x1  app_boot.o [2]
-  .bss               zero     0x08006d99     0x1  app_boot.o [2]
-  .bss               zero     0x08006d9a     0x1  ecu_system.o [2]
-  .bss               zero     0x08006d9b     0x1  ecu_wdg.o [2]
-  .bss               zero     0x08006d9c     0x1  os.o [2]
-  .bss               zero     0x08006d9d     0x1  os.o [2]
-                            - 0x08006d9e    0x5e
+"P2", part 3 of 3:                          0x5c
+  .bss               zero     0x08007650    0x40  uc_dio.o [2]
+  .bss               zero     0x08007690     0x4  os.o [2]
+  .bss               zero     0x08007694     0x4  os.o [2]
+  .bss               zero     0x08007698     0x4  os.o [2]
+  .bss               zero     0x0800769c     0x4  uc_system.o [2]
+  .bss               zero     0x080076a0     0x4  uc_system.o [2]
+  .bss               zero     0x080076a4     0x4  uc_timer.o [2]
+  .bss               zero     0x080076a8     0x1  ecu_system.o [2]
+  .bss               zero     0x080076a9     0x1  ecu_wdg.o [2]
+  .bss               zero     0x080076aa     0x1  os.o [2]
+  .bss               zero     0x080076ab     0x1  os.o [2]
+                            - 0x080076ac    0x5c
 
 Absolute sections, part 1 of 58:             0xc
   .noinit            uninit   0xfcf78000     0x4  uc_emac.o [2]
@@ -672,14 +674,14 @@ Absolute sections, part 58 of 58:            0x4
           Address     Size
           -------     ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x5e:
-          0x08006d40    0x5e
+    1 destination range, total size 0x5c:
+          0x08007650    0x5c
 
 Copy/lz77 (__iar_lz77_init_single3)
-    1 source range, total size 0x13e4 (56% of destination):
-          0x00000690  0x13e4
-    1 destination range, total size 0x233a:
-          0x08000000  0x233a
+    1 source range, total size 0x18d4 (56% of destination):
+          0x00000690  0x18d4
+    1 destination range, total size 0x2c4b:
+          0x08000000  0x2c4b
 
 
 
@@ -696,38 +698,38 @@ C:\Git2\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash API\02.01.01: [
 
 C:\Git2\Tapas_Ethernet\01_Software\Flash_Debug\Obj: [2]
     app.o                                   4        2
-    app_boot.o                            200      117       10
+    app_boot.o                             68       40        4
     ecu.o                                  24       13
-    ecu_io.o                              176       99
-    ecu_io_cfg.o                                    11       20
-    ecu_system.o                          154       88        2
-    ecu_wdg.o                              92       54        2
+    ecu_io.o                              176       98
+    ecu_io_cfg.o                                    12       20
+    ecu_system.o                          154       87        2
+    ecu_wdg.o                              92       53        2
     lib_delay.o                            20       12
     low_level_init.o             448                                  56
-    main.o                                152       86
-    os.o                                  564      319       14
-    os_cfg.o                                        55       96
-    os_tasks.o                             34       19
+    main.o                                152       85
+    os.o                                  564      317       14
+    os_cfg.o                                        53       96
+    os_tasks.o                             38       22
     rte.o                                   4        2
     tms570ls3137_cstartup.o      520
-    uc.o                                   22       12
-    uc_dio.o                            1 264      967      512      264
-    uc_dio_cfg.o                                   379      672
-    uc_emac.o                           3 288    2 283      756      752
-    uc_system.o                  352        6        6       12       56
-    uc_timer.o                            540      305        4       32
-    uc_timer_cfg.o                                  90      160
+    uc.o                                   22       13
+    uc_dio.o                            1 264      960      512      264
+    uc_dio_cfg.o                                   376      672
+    uc_emac.o                           5 724    3 642      773      752
+    uc_system.o                  352        6        7       12       56
+    uc_timer.o                            540      303        4       32
+    uc_timer_cfg.o                                  89      160
     --------------------------------------------------------------------
-    Total:                     1 320    6 544    4 919    2 260    1 160
+    Total:                     1 320    8 852    6 186    2 271    1 160
 
 command line: [3]
     --------------------------------------------------------------------
     Total:
 
 dl7Sx_tbn.a: [4]
-    exit.o                                  4        2
+    exit.o                                  4        3
     --------------------------------------------------------------------
-    Total:                                  4        2
+    Total:                                  4        3
 
 m7Sx_tbv.a: [5]
     fpinit.o                               40       23
@@ -735,14 +737,14 @@ m7Sx_tbv.a: [5]
     Total:                                 40       23
 
 rt7Sx_tb.a: [6]
-    ABImemcpy.o                           176       99
+    ABImemcpy.o                           176       98
     cexit.o                                16        9
     cmain.o                       44
     data_init.o                   48
     lz77_init_single.o           120
     zero_init3.o                  64
     --------------------------------------------------------------------
-    Total:                       276      192      108
+    Total:                       276      192      107
 
 sh7Sxs_b.a: [7]
     exit.o                        20
@@ -751,9 +753,9 @@ sh7Sxs_b.a: [7]
     Total:                        24
 
     Gaps                                    8
-    Linker created                24       64       72   18 944
+    Linker created                24       64       69   18 944
 ------------------------------------------------------------------------
-    Grand Total:               1 644    6 852    5 124   21 204    1 160
+    Grand Total:               1 644    9 160    6 388   21 215    1 160
 
 
 *******************************************************************************
@@ -765,46 +767,44 @@ Entry                      Address   Size  Type      Object
 .iar.init_table$$Base   0x0000066c          --   Gb  - Linker created -
 .iar.init_table$$Limit  0x0000068c          --   Gb  - Linker created -
 ?main                   0x0000062c         Code  Gb  cmain.o [6]
-ABT_STACK$$Base         0x08006b40          --   Gb  - Linker created -
-ABT_STACK$$Limit        0x08006d40          --   Gb  - Linker created -
-APP_BOOT_u8FlashingMode
-                        0x08006d98    0x1  Data  Gb  app_boot.o [2]
-APP_BOOT_vdMgr          0x08000005   0x18  Code  Gb  app_boot.o [2]
-APP_vdDeInit            0x08002219    0x2  Code  Gb  app.o [2]
-APP_vdInit              0x08002217    0x2  Code  Gb  app.o [2]
+ABT_STACK$$Base         0x08007450          --   Gb  - Linker created -
+ABT_STACK$$Limit        0x08007650          --   Gb  - Linker created -
+APP_BOOT_vdMgr          0x08000015   0x18  Code  Gb  app_boot.o [2]
+APP_vdDeInit            0x08002b21    0x2  Code  Gb  app.o [2]
+APP_vdInit              0x08002b1f    0x2  Code  Gb  app.o [2]
 Abort_Handler           0x0000049f    0xc  Code  Gb  uc_system.o [2]
-CSTACK$$Base            0x08002340          --   Gb  - Linker created -
-CSTACK$$Limit           0x08006340          --   Gb  - Linker created -
+CSTACK$$Base            0x08002c50          --   Gb  - Linker created -
+CSTACK$$Limit           0x08006c50          --   Gb  - Linker created -
 DIEID_REG0              0xffffe1f0    0x4  Data  Gb  uc_emac.o [2]
 DIEID_REG1              0xffffe1f4    0x4  Data  Gb  uc_emac.o [2]
 DIEID_REG2              0xffffe1f8    0x4  Data  Gb  uc_emac.o [2]
 DIEID_REG3              0xffffe1fc    0x4  Data  Gb  uc_emac.o [2]
-ECU_IO_astrObjInput     0x080019a8   0x14  Data  Gb  ecu_io_cfg.o [2]
+ECU_IO_astrObjInput     0x080022b4   0x14  Data  Gb  ecu_io_cfg.o [2]
 ECU_IO_eInternalOutputControl
-                        0x080000dd   0x3e  Code  Gb  ecu_io.o [2]
-ECU_IO_vdInit           0x080000cd    0x8  Code  Gb  ecu_io.o [2]
-ECU_IO_vdMgr            0x080000d5    0x8  Code  Gb  ecu_io.o [2]
-ECU_SYS_eEcuMode        0x08002338    0x1  Data  Gb  ecu_system.o [2]
-ECU_SYS_eGetEcuMode     0x08000205    0x6  Code  Gb  ecu_system.o [2]
+                        0x08000069   0x3e  Code  Gb  ecu_io.o [2]
+ECU_IO_vdInit           0x08000059    0x8  Code  Gb  ecu_io.o [2]
+ECU_IO_vdMgr            0x08000061    0x8  Code  Gb  ecu_io.o [2]
+ECU_SYS_eEcuMode        0x08002c44    0x1  Data  Gb  ecu_system.o [2]
+ECU_SYS_eGetEcuMode     0x08000191    0x6  Code  Gb  ecu_system.o [2]
 ECU_SYS_u8IsShutdownAndReset
-                        0x0800020b    0x6  Code  Gb  ecu_system.o [2]
+                        0x08000197    0x6  Code  Gb  ecu_system.o [2]
 ECU_SYS_u8ShutdownAndResetReq
-                        0x08006d9a    0x1  Data  Gb  ecu_system.o [2]
-ECU_SYS_vdDeInit        0x08000199    0xc  Code  Gb  ecu_system.o [2]
-ECU_SYS_vdExtWdgManage  0x0800021d    0xa  Code  Gb  ecu_system.o [2]
-ECU_SYS_vdInit          0x0800018d    0xc  Code  Gb  ecu_system.o [2]
-ECU_SYS_vdMgr           0x080001a5    0xc  Code  Gb  ecu_system.o [2]
-ECU_SYS_vdReset         0x080001f7    0x8  Code  Gb  ecu_system.o [2]
-ECU_SYS_vdSetEcuMode    0x080001ff    0x6  Code  Gb  ecu_system.o [2]
-ECU_SYS_vdSleep         0x080001b1   0x46  Code  Gb  ecu_system.o [2]
-ECU_WDG_eControlCmd     0x08002339    0x1  Data  Gb  ecu_wdg.o [2]
-ECU_WDG_eEnableCmd      0x08006d9b    0x1  Data  Gb  ecu_wdg.o [2]
-ECU_WDG_vdDeInit        0x08000233    0xa  Code  Gb  ecu_wdg.o [2]
-ECU_WDG_vdEnable        0x08000259   0x22  Code  Gb  ecu_wdg.o [2]
-ECU_WDG_vdInit          0x08000229    0xa  Code  Gb  ecu_wdg.o [2]
-ECU_WDG_vdMgr           0x0800023d   0x1c  Code  Gb  ecu_wdg.o [2]
-ECU_vdDeInit            0x0800222b    0x8  Code  Gb  ecu.o [2]
-ECU_vdInit              0x0800221b   0x10  Code  Gb  ecu.o [2]
+                        0x080076a8    0x1  Data  Gb  ecu_system.o [2]
+ECU_SYS_vdDeInit        0x08000125    0xc  Code  Gb  ecu_system.o [2]
+ECU_SYS_vdExtWdgManage  0x080001a9    0xa  Code  Gb  ecu_system.o [2]
+ECU_SYS_vdInit          0x08000119    0xc  Code  Gb  ecu_system.o [2]
+ECU_SYS_vdMgr           0x08000131    0xc  Code  Gb  ecu_system.o [2]
+ECU_SYS_vdReset         0x08000183    0x8  Code  Gb  ecu_system.o [2]
+ECU_SYS_vdSetEcuMode    0x0800018b    0x6  Code  Gb  ecu_system.o [2]
+ECU_SYS_vdSleep         0x0800013d   0x46  Code  Gb  ecu_system.o [2]
+ECU_WDG_eControlCmd     0x08002c45    0x1  Data  Gb  ecu_wdg.o [2]
+ECU_WDG_eEnableCmd      0x080076a9    0x1  Data  Gb  ecu_wdg.o [2]
+ECU_WDG_vdDeInit        0x080001bf    0xa  Code  Gb  ecu_wdg.o [2]
+ECU_WDG_vdEnable        0x080001e5   0x22  Code  Gb  ecu_wdg.o [2]
+ECU_WDG_vdInit          0x080001b5    0xa  Code  Gb  ecu_wdg.o [2]
+ECU_WDG_vdMgr           0x080001c9   0x1c  Code  Gb  ecu_wdg.o [2]
+ECU_vdDeInit            0x08002b33    0x8  Code  Gb  ecu.o [2]
+ECU_vdInit              0x08002b23   0x10  Code  Gb  ecu.o [2]
 EMAC_FRAME1024TUP       0xfcf7827c    0x4  Data  Gb  uc_emac.o [2]
 EMAC_FRAME128T255       0xfcf78270    0x4  Data  Gb  uc_emac.o [2]
 EMAC_FRAME256T511       0xfcf78274    0x4  Data  Gb  uc_emac.o [2]
@@ -871,94 +871,100 @@ EMAC_TXREVID            0xfcf78000    0x4  Data  Gb  uc_emac.o [2]
 EMAC_TXSINGLECOLL       0xfcf7824c    0x4  Data  Gb  uc_emac.o [2]
 EMAC_TXUNDERRUN         0xfcf7825c    0x4  Data  Gb  uc_emac.o [2]
 FIQ_Handler             0x000004ab    0xe  Code  Gb  uc_system.o [2]
-FIQ_STACK$$Base         0x08006740          --   Gb  - Linker created -
-FIQ_STACK$$Limit        0x08006940          --   Gb  - Linker created -
+FIQ_STACK$$Base         0x08007050          --   Gb  - Linker created -
+FIQ_STACK$$Limit        0x08007250          --   Gb  - Linker created -
 IOMM_KICK_REG0          0xffffea38    0x4  Data  Gb  uc_system.o [2]
 IOMM_KICK_REG1          0xffffea3c    0x4  Data  Gb  uc_system.o [2]
 IRQ_Handler             0x000004b9    0xe  Code  Gb  uc_system.o [2]
-IRQ_STACK$$Base         0x08006540          --   Gb  - Linker created -
-IRQ_STACK$$Limit        0x08006740          --   Gb  - Linker created -
-IntTable                0x08000000    0x4  Data  Gb  uc_system.o [2]
+IRQ_STACK$$Base         0x08006e50          --   Gb  - Linker created -
+IRQ_STACK$$Limit        0x08007050          --   Gb  - Linker created -
+IntTable                0x08000010    0x4  Data  Gb  uc_system.o [2]
 LIB_DELAY_vdNanoSeconds
-                        0x08002233   0x14  Code  Gb  lib_delay.o [2]
+                        0x08002b3b   0x14  Code  Gb  lib_delay.o [2]
 MDIO_REVID              0xfcf78900    0x4  Data  Gb  uc_emac.o [2]
-OS_astrTasks            0x080019bc   0x60  Data  Gb  os_cfg.o [2]
-OS_u32SystemTick        0x08006d80    0x4  Data  Gb  os.o [2]
-OS_u32SystemTimerUs     0x08006d84    0x4  Data  Gb  os.o [2]
+OS_astrTasks            0x080022c8   0x60  Data  Gb  os_cfg.o [2]
+OS_u32SystemTick        0x08007690    0x4  Data  Gb  os.o [2]
+OS_u32SystemTimerUs     0x08007694    0x4  Data  Gb  os.o [2]
 OS_u32UpdateTasksCounter
-                        0x08006d88    0x4  Data  Gb  os.o [2]
+                        0x08007698    0x4  Data  Gb  os.o [2]
 OS_u8ReInitializeSignal
-                        0x08006d9d    0x1  Data  Gb  os.o [2]
-OS_u8ShutDownSignal     0x08006d9c    0x1  Data  Gb  os.o [2]
-OS_vdDeInit             0x080002f7    0x8  Code  Gb  os.o [2]
-OS_vdInit               0x08000285   0x62  Code  Gb  os.o [2]
-OS_vdMain               0x080002ff   0xe4  Code  Gb  os.o [2]
-OS_vdStart              0x080002e7    0x8  Code  Gb  os.o [2]
-OS_vdStop               0x080002ef    0x8  Code  Gb  os.o [2]
-OS_vdTask100ms          0x08002309    0x2  Code  Gb  os_tasks.o [2]
-OS_vdTask10ms           0x080022f5    0xc  Code  Gb  os_tasks.o [2]
-OS_vdTask1ms            0x080022e9    0xc  Code  Gb  os_tasks.o [2]
-OS_vdTask50ms           0x08002301    0x8  Code  Gb  os_tasks.o [2]
+                        0x080076ab    0x1  Data  Gb  os.o [2]
+OS_u8ShutDownSignal     0x080076aa    0x1  Data  Gb  os.o [2]
+OS_vdDeInit             0x08000283    0x8  Code  Gb  os.o [2]
+OS_vdInit               0x08000211   0x62  Code  Gb  os.o [2]
+OS_vdMain               0x0800028b   0xe4  Code  Gb  os.o [2]
+OS_vdStart              0x08000273    0x8  Code  Gb  os.o [2]
+OS_vdStop               0x0800027b    0x8  Code  Gb  os.o [2]
+OS_vdTask100ms          0x08002c15    0x2  Code  Gb  os_tasks.o [2]
+OS_vdTask10ms           0x08002c01    0xc  Code  Gb  os_tasks.o [2]
+OS_vdTask1ms            0x08002bf1   0x10  Code  Gb  os_tasks.o [2]
+OS_vdTask50ms           0x08002c0d    0x8  Code  Gb  os_tasks.o [2]
 Prefetch_Handler        0x000004c7    0xe  Code  Gb  uc_system.o [2]
-RTE_vdDeInit            0x080004bb    0x2  Code  Gb  rte.o [2]
-RTE_vdInit              0x080004b9    0x2  Code  Gb  rte.o [2]
+RTE_vdDeInit            0x08000447    0x2  Code  Gb  rte.o [2]
+RTE_vdInit              0x08000445    0x2  Code  Gb  rte.o [2]
 RTICOMP0                0xfffffc50    0x4  Data  Gb  uc_timer.o [2]
 RTICPUC0                0xfffffc18    0x4  Data  Gb  uc_timer.o [2]
 RTIFRC0                 0xfffffc10    0x4  Data  Gb  uc_timer.o [2]
 RTIUDCP0                0xfffffc54    0x4  Data  Gb  uc_timer.o [2]
 Region$$Table$$Base     0x0000066c          --   Gb  - Linker created -
 Region$$Table$$Limit    0x0000068c          --   Gb  - Linker created -
-SVC_STACK$$Base         0x08006340          --   Gb  - Linker created -
-SVC_STACK$$Limit        0x08006540          --   Gb  - Linker created -
+SVC_STACK$$Base         0x08006c50          --   Gb  - Linker created -
+SVC_STACK$$Limit        0x08006e50          --   Gb  - Linker created -
 SWI_Handler             0x000004d5    0xe  Code  Gb  uc_system.o [2]
-SYS_vdDeInit            0x080022d1   0x18  Code  Gb  main.o [2]
-SYS_vdInit              0x080022b9   0x18  Code  Gb  main.o [2]
-UC_DIO_astrInput        0x08001e34   0x48  Data  Gb  uc_dio_cfg.o [2]
+SYS_vdDeInit            0x08002bd9   0x18  Code  Gb  main.o [2]
+SYS_vdInit              0x08002bc1   0x18  Code  Gb  main.o [2]
+UC_DIO_astrInput        0x08002740   0x48  Data  Gb  uc_dio_cfg.o [2]
 UC_DIO_astrIntInputIdDecode
-                        0x08006d40   0x40  Data  Gb  uc_dio.o [2]
-UC_DIO_astrObj          0x08001a1c  0x1c0  Data  Gb  uc_dio.o [2]
-UC_DIO_astrOutput       0x08001bdc  0x258  Data  Gb  uc_dio_cfg.o [2]
+                        0x08007650   0x40  Data  Gb  uc_dio.o [2]
+UC_DIO_astrObj          0x08002328  0x1c0  Data  Gb  uc_dio.o [2]
+UC_DIO_astrOutput       0x080024e8  0x258  Data  Gb  uc_dio_cfg.o [2]
 UC_DIO_eCommandOutputPin
-                        0x08000719   0xde  Code  Gb  uc_dio.o [2]
-UC_DIO_eReadInputPin    0x080007f7   0x58  Code  Gb  uc_dio.o [2]
-UC_DIO_vdInit           0x080004cd  0x24a  Code  Gb  uc_dio.o [2]
-UC_DIO_vdMgr            0x08000717    0x2  Code  Gb  uc_dio.o [2]
-UC_EMAC_pu32AliveRegister
-                        0x0800216c    0x4  Data  Gb  uc_emac.o [2]
-UC_EMAC_strObj          0x08001e7c  0x2f0  Data  Gb  uc_emac.o [2]
-UC_EMAC_vdInit          0x080009bd    0xc  Code  Gb  uc_emac.o [2]
+                        0x080006a5   0xde  Code  Gb  uc_dio.o [2]
+UC_DIO_eReadInputPin    0x08000783   0x58  Code  Gb  uc_dio.o [2]
+UC_DIO_vdInit           0x08000459  0x24a  Code  Gb  uc_dio.o [2]
+UC_DIO_vdMgr            0x080006a3    0x2  Code  Gb  uc_dio.o [2]
+UC_EMAC_eDuplexMode     0x08002c4a    0x1  Data  Gb  uc_emac.o [2]
+UC_EMAC_eEmacIsInitialized
+                        0x08002c48    0x1  Data  Gb  uc_emac.o [2]
+UC_EMAC_ePhyIsAlive     0x08002c46    0x1  Data  Gb  uc_emac.o [2]
+UC_EMAC_ePhyIsLinked    0x08002c47    0x1  Data  Gb  uc_emac.o [2]
+UC_EMAC_eSendBytes      0x08000b1f   0x20  Code  Gb  uc_emac.o [2]
+UC_EMAC_eSpeedMode      0x08002c49    0x1  Data  Gb  uc_emac.o [2]
+UC_EMAC_strObj          0x08002788  0x2f0  Data  Gb  uc_emac.o [2]
+UC_EMAC_vdInit          0x08000949   0x1e  Code  Gb  uc_emac.o [2]
+UC_EMAC_vdMngr          0x08000967   0x4e  Code  Gb  uc_emac.o [2]
 UC_SYSTEM_STOP_u32Address
-                        0x08006d90    0x4  Data  Gb  uc_system.o [2]
+                        0x080076a0    0x4  Data  Gb  uc_system.o [2]
 UC_SYSTEM_STOP_u32Signal
-                        0x08006d8c    0x4  Data  Gb  uc_system.o [2]
+                        0x0800769c    0x4  Data  Gb  uc_system.o [2]
 UC_SYS_vdEnableISR      0x000003e9   0x4a  Code  Gb  uc_system.o [2]
 UC_SYS_vdEnableInterrupts
                         0x00000433    0x4  Code  Gb  uc_system.o [2]
 UC_SYS_vdInit           0x00000437   0x52  Code  Gb  uc_system.o [2]
-UC_SYS_vdJumpToAddress  0x08002211    0x6  Code  Gb  uc_system.o [2]
+UC_SYS_vdJumpToAddress  0x08002b19    0x6  Code  Gb  uc_system.o [2]
 UC_SYS_vdRegisterISR    0x000003d5   0x14  Code  Gb  uc_system.o [2]
 UC_SYS_vdSleep          0x0000049d    0x2  Code  Gb  uc_system.o [2]
 UC_SYS_vdSwReset        0x00000489   0x14  Code  Gb  uc_system.o [2]
 UC_TIMER_pftTickCallback
-                        0x08006d94    0x4  Data  Gb  uc_timer.o [2]
+                        0x080076a4    0x4  Data  Gb  uc_timer.o [2]
 UC_TIMER_strTimeOutSignals
-                        0x08002170   0xa0  Data  Gb  uc_timer_cfg.o [2]
+                        0x08002a78   0xa0  Data  Gb  uc_timer_cfg.o [2]
 UC_TIMER_u32TimerTickUs
-                        0x08001725    0x8  Code  Gb  uc_timer.o [2]
-UC_TIMER_vdDisable      0x08001717    0xe  Code  Gb  uc_timer.o [2]
-UC_TIMER_vdEnable       0x08001709    0xe  Code  Gb  uc_timer.o [2]
-UC_TIMER_vdInit         0x08001695   0x6e  Code  Gb  uc_timer.o [2]
+                        0x08002035    0x8  Code  Gb  uc_timer.o [2]
+UC_TIMER_vdDisable      0x08002027    0xe  Code  Gb  uc_timer.o [2]
+UC_TIMER_vdEnable       0x08002019    0xe  Code  Gb  uc_timer.o [2]
+UC_TIMER_vdInit         0x08001fa5   0x6e  Code  Gb  uc_timer.o [2]
 UC_TIMER_vdRegisterTickCallback
-                        0x08001703    0x6  Code  Gb  uc_timer.o [2]
-UC_vdDeInit             0x08002329    0x2  Code  Gb  uc.o [2]
-UC_vdInit               0x08002315   0x14  Code  Gb  uc.o [2]
-UND_STACK$$Base         0x08006940          --   Gb  - Linker created -
-UND_STACK$$Limit        0x08006b40          --   Gb  - Linker created -
+                        0x08002013    0x6  Code  Gb  uc_timer.o [2]
+UC_vdDeInit             0x08002c35    0x2  Code  Gb  uc.o [2]
+UC_vdInit               0x08002c21   0x14  Code  Gb  uc.o [2]
+UND_STACK$$Base         0x08007250          --   Gb  - Linker created -
+UND_STACK$$Limit        0x08007450          --   Gb  - Linker created -
 Undefined_Handler       0x000004e3    0xe  Code  Gb  uc_system.o [2]
-VIM_GIOA_Handler        0x08000908   0x40  Code  Gb  uc_dio.o [2]
-VIM_GIOB_Handler        0x08000948   0x40  Code  Gb  uc_dio.o [2]
+VIM_GIOA_Handler        0x08000894   0x40  Code  Gb  uc_dio.o [2]
+VIM_GIOB_Handler        0x080008d4   0x40  Code  Gb  uc_dio.o [2]
 VIM_RAM_BASE            0xfff82000    0x4  Data  Gb  uc_system.o [2]
-VIM_RTIC0_Handler       0x0800172c  0x160  Code  Gb  uc_timer.o [2]
+VIM_RTIC0_Handler       0x0800203c  0x160  Code  Gb  uc_timer.o [2]
 _A_CLK2CNTL             0xffffe13c    0x4  Data  Gb  uc_emac.o [2]
 _A_CLKCNTL              0xffffffd0    0x4  Data  Gb  low_level_init.o [2]
 _A_CLKSLIP              0xffffe170    0x4  Data  Gb  uc_emac.o [2]
@@ -1178,13 +1184,13 @@ _A_VCLKACON1            0xffffe140    0x4  Data  Gb  uc_emac.o [2]
 _A_VCLKASRC             0xffffff4c    0x4  Data  Gb  low_level_init.o [2]
 _A_WAKEENACLR0          0xfffffe60    0x4  Data  Gb  uc_system.o [2]
 _A_WAKEENACLR1          0xfffffe64    0x4  Data  Gb  uc_system.o [2]
-__aeabi_memcpy4         0x080018b0         Code  Gb  ABImemcpy.o [6]
-__aeabi_memcpy8         0x080018b0         Code  Gb  ABImemcpy.o [6]
+__aeabi_memcpy4         0x080021c0         Code  Gb  ABImemcpy.o [6]
+__aeabi_memcpy8         0x080021c0         Code  Gb  ABImemcpy.o [6]
 __cmain                 0x0000062c         Code  Gb  cmain.o [6]
 __exit                  0x00000659   0x14  Code  Gb  exit.o [7]
 __iar_data_init3        0x000005ed   0x30  Code  Gb  data_init.o [6]
-__iar_init_vfp          0x08001974         Code  Gb  fpinit.o [5]
-__iar_init_vfp_v6       0x08001960         Code  Gb  fpinit.o [5]
+__iar_init_vfp          0x08002284         Code  Gb  fpinit.o [5]
+__iar_init_vfp_v6       0x08002270         Code  Gb  fpinit.o [5]
 __iar_lz77_init_single3
                         0x00000535   0x78  Code  Gb  lz77_init_single.o [6]
 __iar_program_start     0x00000040         Code  Gb  tms570ls3137_cstartup.o [2]
@@ -1193,29 +1199,39 @@ __iar_zero_init3        0x000005ad   0x40  Code  Gb  zero_init3.o [6]
 __low_level_init        0x0000020c  0x1c0  Code  Gb  low_level_init.o [2]
 __vector                0x00000000         Code  Gb  tms570ls3137_cstartup.o [2]
 _call_main              0x00000640         Code  Gb  cmain.o [6]
-_exit                   0x08001990         Code  Gb  cexit.o [6]
+_exit                   0x080022a0         Code  Gb  cexit.o [6]
 _main                   0x00000648         Code  Gb  cmain.o [6]
-exit                    0x08002335    0x4  Code  Gb  exit.o [4]
-local_APP_BOOT_vdBootHeartBeat
-                        0x0800001d   0x9e  Code  Gb  app_boot.o [2]
+exit                    0x08002c41    0x4  Code  Gb  exit.o [4]
+local_APP_BOOT_vdBootHeartBeat_modified
+                        0x0800002d   0x26  Code  Gb  app_boot.o [2]
 local_ECU_IO_POUT_vdInitialize
-                        0x0800016d   0x10  Code  Gb  ecu_io.o [2]
-local_ECU_IO_vdDioMgr   0x0800011b   0x4c  Code  Gb  ecu_io.o [2]
+                        0x080000f9   0x10  Code  Gb  ecu_io.o [2]
+local_ECU_IO_vdDioMgr   0x080000a7   0x4c  Code  Gb  ecu_io.o [2]
 local_OS_u32GetSystemTickTrigVal
-                        0x0800040f    0xe  Code  Gb  os.o [2]
-local_OS_vdAddTask      0x0800041d   0x82  Code  Gb  os.o [2]
-local_OS_vdTrigger      0x080003e5   0x2a  Code  Gb  os.o [2]
+                        0x0800039b    0xe  Code  Gb  os.o [2]
+local_OS_vdAddTask      0x080003a9   0x82  Code  Gb  os.o [2]
+local_OS_vdTrigger      0x08000371   0x2a  Code  Gb  os.o [2]
 local_UC_DIO_eInputInterruptHandler
-                        0x080008bd   0x48  Code  Gb  uc_dio.o [2]
+                        0x08000849   0x48  Code  Gb  uc_dio.o [2]
 local_UC_DIO_ePinConfigure
-                        0x0800084f   0x6e  Code  Gb  uc_dio.o [2]
+                        0x080007db   0x6e  Code  Gb  uc_dio.o [2]
+local_UC_EMAC_eCreateBufferDescriptor
+                        0x08000b3f   0x28  Code  Gb  uc_emac.o [2]
 local_UC_EMAC_eIsPhyAlive
-                        0x080009c9   0x1c  Code  Gb  uc_emac.o [2]
+                        0x08000aeb   0x1a  Code  Gb  uc_emac.o [2]
+local_UC_EMAC_eIsPhyLinked
+                        0x08000b05   0x1a  Code  Gb  uc_emac.o [2]
+local_UC_EMAC_eReadAutoNegotiationResults
+                        0x080009b5   0x84  Code  Gb  uc_emac.o [2]
+local_UC_EMAC_eReadPhyRegData
+                        0x08000a39   0xb2  Code  Gb  uc_emac.o [2]
 local_UC_EMAC_vdConfigureSignalsMultiplexing
-                        0x08000a6f  0xc1c  Code  Gb  uc_emac.o [2]
+                        0x08001381  0xc1c  Code  Gb  uc_emac.o [2]
+local_UC_EMAC_vdInitializeEMAC
+                        0x08000bff  0x760  Code  Gb  uc_emac.o [2]
 local_UC_EMAC_vdInitializeMDIO
-                        0x080009e5   0x8a  Code  Gb  uc_emac.o [2]
-main                    0x08002251   0x68  Code  Gb  main.o [2]
+                        0x08000b67   0x98  Code  Gb  uc_emac.o [2]
+main                    0x08002b59   0x68  Code  Gb  main.o [2]
 
 
 [1] = C:\Git2\Tapas_Boot\01_Software\01_Code\TAPAS\Core\LIB\F021 Flash API\02.01.01
@@ -1227,9 +1243,9 @@ main                    0x08002251   0x68  Code  Gb  main.o [2]
 [7] = sh7Sxs_b.a
 
    1 644 bytes of readonly  code memory
-   6 852 bytes of readwrite code memory
-   5 124 bytes of readonly  data memory
-  21 204 bytes of readwrite data memory (+ 1 160 absolute)
+   9 160 bytes of readwrite code memory
+   6 388 bytes of readonly  data memory
+  21 215 bytes of readwrite data memory (+ 1 160 absolute)
 
 Errors: none
 Warnings: none
