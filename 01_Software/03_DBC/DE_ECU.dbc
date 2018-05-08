@@ -1,0 +1,2816 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: CAN3_500Kb CAN2_250Kb CAN1_250Kb
+VAL_TABLE_ Lanetype2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_TABLE_ viewAvailabe 1 "valid" 0 "not valid" ;
+VAL_TABLE_ MD 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_TABLE_ Lane_Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ Position_in_Lanes : 0|4@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Number_of_Lanes : 0|4@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ OBJ_DIST_HLB_Right : 0|8@1+ (2,0) [0|400] "m" Vector__XXX
+ SG_ OBJ_DIST_HLB_Left : 0|8@1+ (2,0) [0|400] "m" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Object_Accel_X : 0|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 0|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 0|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+ SG_ MatchedRadarID : 0|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 0|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 0|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 0|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 0|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+ SG_ Cut_in_and_Out : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType : 0|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX : 0|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY : 0|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX : 0|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ LDW_Availability : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Lane_conf : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ LaneType : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneOffset : 0|12@1- (0.02,0) [-40.96|40.94] "m" Vector__XXX
+ SG_ LaneID : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LDW_Availability : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Lane_conf : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ LaneType0 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneOffset : 0|12@1- (0.02,0) [-40.96|40.94] "m" Vector__XXX
+ SG_ LaneID : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneValid : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Fixed_Yaw : 0|32@1- (1,0) [0|0] "pixels" Vector__XXX
+ SG_ Fixed_Horizon : 0|32@1- (1,0) [0|0] "pixels" Vector__XXX
+ SG_ Left_Guard_Rail : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Right_Guard_Rail : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2550190080 CAR_CONTROL1: 8 CAN2_250Kb
+ SG_ DE_CONTROL_SpeedSetpoint : 39|8@0+ (1,-20) [-20|235] "km/h" Vector__XXX
+ SG_ DE_CONTROL_SemiAutoSteering : 27|1@0+ (1,0) [0|0] "ON/Off" Vector__XXX
+ SG_ DE_CONTROL_SemiAutoSpeed : 28|1@0+ (1,0) [0|0] "On/Off" Vector__XXX
+ SG_ DE_CONTROL_Lifebeat : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DE_CONTROL_Gear : 30|1@0+ (1,0) [0|0] "forward/backward" Vector__XXX
+ SG_ DE_CONTROL_AutoEnableTablet : 29|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DE_CONTROL_AutoEnable : 31|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ DE_CONTROL_AngleSetpoint : 15|16@0+ (0.1,-780) [-780|780] "Degree" Vector__XXX
+
+BO_ 1964 DE_DUMMY_RX2_MESSAGE: 1 Vector__XXX
+ SG_ DE_dummySignal3 : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1963 DE_DUMMY_TX2_MESSAGE: 1 CAN2_250Kb
+ SG_ DE_dummySignal2 : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1962 DE_DUMMY_TX1_MESSAGE: 1 CAN1_250Kb
+ SG_ DE_dummySignal1 : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2348863727 MCU_STATUS1: 8 CAN1_250Kb
+ SG_ MCU_VCU_RotationDirection : 2|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MCU_VCU_PrechargeStatus : 0|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MCU_VCU_MotorTorque : 55|16@0+ (0.1,-3000) [-3000|3000] "Nm" Vector__XXX
+ SG_ MCU_VCU_MotorTemp : 39|8@0+ (1,-40) [-40|210] "C" Vector__XXX
+ SG_ MCU_VCU_MotorRPM : 23|16@0+ (1,-15000) [-15000|15000] "" Vector__XXX
+ SG_ MCU_VCU_ModeControl : 1|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MCU_VCU_MCUTemp : 47|8@0+ (1,-40) [-40|210] "C" Vector__XXX
+ SG_ MCU_VCU_MCULowVolSelftest : 5|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MCU_VCU_MCULife : 15|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MCU_VCU_Idle : 3|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MCU_VCU_ErrorStatus : 7|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ MCU_VCU_AllowedCloseK2 : 4|1@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 128 SPEED_TO_ME: 8 CAN3_500Kb
+ SG_ ME_Speed : 7|16@0+ (0.0555555555555556,0) [0|0] "km/h" Vector__XXX
+
+BO_ 2550137040 CAR_STATUS: 8 CAN2_250Kb
+ SG_ VCU_VehicleSpeed : 15|8@0+ (1,-20) [-20|235] "" Vector__XXX
+ SG_ VCU_SteeringAngle : 23|16@0+ (0.1,-3200) [-3200|3353.5] "Deg" Vector__XXX
+ SG_ VCU_SemiAutoSteering : 4|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_SemiAutoSpeed : 5|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_ReservedFlag4 : 0|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_ReservedFlag3 : 1|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_ReservedFlag2 : 2|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_ReservedFlag1 : 3|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_Reserved4 : 63|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Reserved3 : 55|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Reserved2 : 47|8@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Reserved1 : 39|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ VCU_AutoMode : 7|2@0+ (1,0) [0|0] "off/on" Vector__XXX
+
+BO_ 1847 LaneDetails: 8 Vector__XXX
+ SG_ YawAngle : 32|16@1+ (0.0009765625,-31.999) [-31.999|31.999] "radians" Vector__XXX
+ SG_ PitchAngle : 48|16@1+ (1.9073486328125E-006,-0.0625) [-0.05|0.05] "radians" Vector__XXX
+ SG_ LeftLDWAvailability : 30|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RightLDWAvailability : 29|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CA : 28|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Lane_Heading : 16|12@1- (0.0005,0) [0|0] "" Vector__XXX
+ SG_ Lane_Curvature : 0|16@1- (3.81E-006,0) [-0.12|0.12] "" Vector__XXX
+
+BO_ 1917 Details_NextLaneB8: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1915 Details_NextLaneB7: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1914 Details_NextLaneA7: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1913 Details_NextLaneB6: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1912 Details_NextLaneA6: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1911 Details_NextLaneB5: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1910 Details_NextLaneA5: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1909 Details_NextLaneB4: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1908 Details_NextLaneA4: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1907 Details_NextLaneB3: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1906 Details_NextLaneA3: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1905 Details_NextLaneB2: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1904 Details_NextLaneA2: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1903 Details_NextLaneB1: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1902 Details_NextLaneA1: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1641 Details_Lane: 8 Vector__XXX
+ SG_ LaneConfidenceRight : 40|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ LaneTypeRight : 44|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneTypeLeft : 4|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LDWAvailableRight : 42|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LDWAvailabilityLeft : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneConfidenceLeft : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ DistanceToRightLane : 52|12@1- (0.02,0) [-40|40] "m" Vector__XXX
+ SG_ DistanceToLeftLane : 12|12@1- (0.02,0) [0|0] "m" Vector__XXX
+
+BO_ 546 SIGRA3_speed: 8 Vector__XXX
+ SG_ SIGRA_Speed : 0|16@1+ (0.5,0) [0|0] "km/h" Vector__XXX
+
+BO_ 1901 Details_NextLaneB0: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1900 Details_NextLaneA0: 8 Vector__XXX
+ SG_ LaneMarkWidth : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType2 : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1899 NumberOfNextLaneMarkersReported: 8 Vector__XXX
+ SG_ NumberOfNextLaneMarkersReported : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1898 ReferencePoints: 8 Vector__XXX
+ SG_ RefPoint2Validity : 63|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RefPoint2Distance : 48|15@1+ (0.00390625,0) [0|127.99609375] "m" Vector__XXX
+ SG_ RefPoint2Position : 32|16@1+ (0.00390625,-127.996) [-127.996|127.996] "" Vector__XXX
+ SG_ RefPoint1Validity : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RefPoint1Distance : 16|15@1+ (0.00390625,0) [0|127.99609375] "m" Vector__XXX
+ SG_ RefPoint1Position : 0|16@1+ (0.00390625,-127.996) [-127.996|127.996] "" Vector__XXX
+
+BO_ 1897 LKA_RightLaneB: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1896 LKA_RightLaneA: 8 Vector__XXX
+ SG_ WidthRightMarking : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LaneType : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1895 LKA_LeftLaneB: 4 Vector__XXX
+ SG_ ViewRangeAvailability : 31|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ ViewRange : 16|15@1+ (0.00390625,0) [0|127.996] "" Vector__XXX
+ SG_ HeadingAngleC1 : 0|16@1+ (0.0009765625,-32) [-0.357|0.357] "" Vector__XXX
+
+BO_ 1894 LKA_LeftLaneA: 8 Vector__XXX
+ SG_ LaneType : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WidthLeftMarking : 56|8@1+ (0.01,0) [0|2.5] "" Vector__XXX
+ SG_ CurvatureDerivativeParameterC3 : 40|16@1+ (3.7253E-009,-0.0001221) [-0.0001221|0.0001220375355] "" Vector__XXX
+ SG_ CurvatureParameterC2 : 24|16@1+ (9.765625E-007,-0.032) [-0.02|0.02] "" Vector__XXX
+ SG_ PositionParameterC0 : 8|16@1- (0.00390625,0) [-127|128] "m" Vector__XXX
+ SG_ ModelDegree : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Quality : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1893 ObstacleDataC14: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1892 ObstacleDataB14: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1891 ObstacleDataA14: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A14 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A14 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A14 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A14 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A14 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A14 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A14 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A14 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A14 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A14 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1890 ObstacleDataC13: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1889 ObstacleDataB13: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1888 ObstacleDataA13: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A13 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A13 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A13 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A13 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A13 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A13 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A13 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A13 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A13 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A13 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1887 ObstacleDataC12: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1886 ObstacleDataB12: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1885 ObstacleDataA12: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A12 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A12 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A12 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A12 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A12 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A12 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A12 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A12 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A12 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A12 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1884 ObstacleDataC11: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1883 ObstacleDataB11: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1882 ObstacleDataA11: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A11 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A11 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A11 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A11 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A11 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A11 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A11 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A11 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A11 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A11 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1881 ObstacleDataC10: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1880 ObstacleDataB10: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1879 ObstacleDataA10: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A10 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A10 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A10 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A10 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A10 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A10 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A10 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A10 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A10 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A10 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1616 Fixed_FOE_signals: 8 Vector__XXX
+ SG_ Fixed_Horizon : 32|32@1- (1,0) [0|0] "pixels" Vector__XXX
+ SG_ Fixed_Yaw : 0|32@1- (1,0) [0|0] "pixels" Vector__XXX
+
+BO_ 545 SIGRA2: 8 Vector__XXX
+ SG_ SIGRA_TurnRight : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SIGRA_TurnLeft : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 544 SIGRA1: 8 Vector__XXX
+ SG_ SIGRA_Speed : 0|16@1+ (0.5,0) [0|0] "km/h" Vector__XXX
+
+BO_ 1840 AHBC_Gradual_DataB: 2 Vector__XXX
+ SG_ ST_OBJ_DIST_HLB : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_BNDRY_DOM_NGL_RH_HLB : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_BNDRY_DOM_NGL_LH_HLB : 2|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_BNDRY_DOM_BOT_NGL_HLB : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Busy_Scene : 11|1@1+ (1,0) [0|1] "ENUM" Vector__XXX
+ SG_ Too_Many_Cars : 10|1@1+ (1,0) [0|1] "ENUM" Vector__XXX
+ SG_ Right_Target_Change : 9|1@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Left_Target_Change : 8|1@1+ (1,0) [0|1] "ENUM" Vector__XXX
+
+BO_ 1828 TSR4: 8 Vector__XXX
+ SG_ NoEntryVisionStatus : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Filter_type : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Sign_Position_Z : 32|8@1- (0.5,0) [-16|16] "meters" Vector__XXX
+ SG_ Sign_Position_Y : 24|8@1- (0.5,0) [-32|31] "meters" Vector__XXX
+ SG_ Sign_Position_X : 16|8@1+ (0.5,0) [0|122] "meter" Vector__XXX
+ SG_ Vision_only_Supp_Sign_Type : 8|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type : 0|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+
+BO_ 1827 TSR3: 8 Vector__XXX
+ SG_ NoEntryVisionStatus : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Filter_type : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Sign_Position_Z : 32|8@1- (0.5,0) [-16|16] "meters" Vector__XXX
+ SG_ Sign_Position_Y : 24|8@1- (0.5,0) [-32|31] "meters" Vector__XXX
+ SG_ Sign_Position_X : 16|8@1+ (0.5,0) [0|122] "meter" Vector__XXX
+ SG_ Vision_only_Supp_Sign_Type : 8|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type : 0|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+
+BO_ 1826 TSR2: 8 Vector__XXX
+ SG_ NoEntryVisionStatus : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Filter_type : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Sign_Position_Z : 32|8@1- (0.5,0) [-16|16] "meters" Vector__XXX
+ SG_ Sign_Position_Y : 24|8@1- (0.5,0) [-32|31] "meters" Vector__XXX
+ SG_ Sign_Position_X : 16|8@1+ (0.5,0) [0|122] "meter" Vector__XXX
+ SG_ Vision_only_Supp_Sign_Type : 8|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type : 0|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+
+BO_ 1824 TSR0: 8 Vector__XXX
+ SG_ NoEntryVisionStatus : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Filter_type : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Sign_Position_Z : 32|8@1- (0.5,0) [-16|16] "meters" Vector__XXX
+ SG_ Sign_Position_Y : 24|8@1- (0.5,0) [-32|31] "meters" Vector__XXX
+ SG_ Sign_Position_X : 16|8@1+ (0.5,0) [0|122] "meter" Vector__XXX
+ SG_ Vision_only_Supp_Sign_Type : 8|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type : 0|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+
+BO_ 1829 TSR5: 8 Vector__XXX
+ SG_ NoEntryVisionStatus : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Filter_type : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Sign_Position_Z : 32|8@1- (0.5,0) [-16|16] "meters" Vector__XXX
+ SG_ Sign_Position_Y : 24|8@1- (0.5,0) [-32|31] "meters" Vector__XXX
+ SG_ Sign_Position_X : 16|8@1+ (0.5,0) [0|122] "meter" Vector__XXX
+ SG_ Vision_only_Supp_Sign_Type : 8|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type : 0|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+
+BO_ 1825 TSR1: 8 Vector__XXX
+ SG_ NoEntryVisionStatus : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Filter_type : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Sign_Position_Z : 32|8@1- (0.5,0) [-16|16] "meters" Vector__XXX
+ SG_ Sign_Position_Y : 24|8@1- (0.5,0) [-32|31] "meters" Vector__XXX
+ SG_ Sign_Position_X : 16|8@1+ (0.5,0) [0|122] "meter" Vector__XXX
+ SG_ Vision_only_Supp_Sign_Type : 8|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type : 0|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+
+BO_ 1878 ObstacleDataC9: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1875 ObstacleDataC8: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1872 ObstacleDataC7: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1869 ObstacleDataC6: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1866 ObstacleDataC5: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1863 ObstacleDataC4: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1860 ObstacleDataC3: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1877 ObstacleDataB9: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1874 ObstacleDataB8: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1871 ObstacleDataB7: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1868 ObstacleDataB6: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1865 ObstacleDataB5: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1862 ObstacleDataB4: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1859 ObstacleDataB3: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1876 ObstacleDataA9: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A9 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A9 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A9 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A9 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A9 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A9 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A9 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A9 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A9 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A9 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1873 ObstacleDataA8: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A8 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A8 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A8 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A8 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A8 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A8 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A8 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A8 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A8 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A8 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1870 ObstacleDataA7: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A7 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A7 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A7 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A7 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A7 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A7 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A7 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A7 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A7 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A7 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1867 ObstacleDataA6: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A6 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A6 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A6 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A6 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A6 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A6 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A6 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A6 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A6 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A6 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1864 ObstacleDataA5: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A5 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A5 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A5 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A5 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A5 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A5 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A5 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A5 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A5 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A5 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1861 ObstacleDataA4: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A4 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A4 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A4 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A4 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A4 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A4 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A4 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A4 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A4 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A4 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1858 ObstacleDataA3: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A3 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A3 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A3 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A3 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A3 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A3 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A3 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A3 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A3 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A3 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1833 AHBC_Gradual: 7 Vector__XXX
+ SG_ Busy_Scene : 51|1@1+ (1,0) [0|1] "ENUM" Vector__XXX
+ SG_ Too_Many_Cars : 50|1@1+ (1,0) [0|1] "ENUM" Vector__XXX
+ SG_ Right_Target_Change : 49|1@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Left_Target_Change : 48|1@1+ (1,0) [0|1] "ENUM" Vector__XXX
+ SG_ ST_OBJ_DIST_HLB : 46|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_BNDRY_DOM_NGL_RH_HLB : 44|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_BNDRY_DOM_NGL_LH_HLB : 42|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_BNDRY_DOM_BOT_NGL_HLB : 40|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OBJ_DIST_HLB : 32|8@1+ (2,0) [0|400] "m" Vector__XXX
+ SG_ BNDRY_DOM_NGL_RH_HLB : 20|12@1+ (0.1,-20) [-20|389.5] "degree" Vector__XXX
+ SG_ BNDRY_DOM_NGL_LH_HLB : 8|12@1+ (0.1,-20) [-20|389.5] "degree" Vector__XXX
+ SG_ BNDRY_DOM_BOT_NGL_HLB : 0|8@1+ (0.1,-10) [-10|15.5] "degree" Vector__XXX
+
+BO_ 1792 AWSDisplay: 8 CAN3_500Kb
+ SG_ Ped_in_DZ : 42|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Ped_FCW : 41|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ FCW_on : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DuskTimeIndicator : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HeadwayWarningLevel : 56|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LanesOn : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LeftLDWOn : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RightLDWOn : 34|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LeftCrossing : 36|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RightCrossing : 37|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Maintenance : 38|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HeadwayValid : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HeadwayMeasurement : 17|7@1+ (0.1,0) [0|9.9] "s" Vector__XXX
+ SG_ SoundType : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NightTimeIndicator : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Suppress : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1857 ObstacleDataC2: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1854 ObstacleDataC1: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1851 ObstacleDataC0: 8 Vector__XXX
+ SG_ Object_Accel_X : 32|10@1- (0.03,0) [-14.97|14.97] "m/s square" Vector__XXX
+ SG_ ObstacleAngle : 48|16@1- (0.01,0) [-327.68|327.68] "degree" Vector__XXX
+ SG_ ObstacleReplaced : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleScaleChange : 16|16@1- (0.0002,0) [-6.5534|6.5534] "pix/sec" Vector__XXX
+ SG_ ObstacleAngleRate : 0|16@1- (0.01,0) [-327.68|327.67] "degree" Vector__XXX
+
+BO_ 1856 ObstacleDataB2: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1853 ObstacleDataB1: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1850 ObstacleDataB0: 8 Vector__XXX
+ SG_ MatchedRadarID : 56|7@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ RadarMatchConfidence : 52|3@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ RadarVelX : 40|12@1- (0.0625,0) [-128|128] "m/sec" Vector__XXX
+ SG_ RadarPosX : 28|12@1+ (0.0625,0) [0|255.938] "m" Vector__XXX
+ SG_ CIPVFlag : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ObstacleLane : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ObstacleAge : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ObstacleWidth : 8|8@1+ (0.05,0) [0|12.5] "m" Vector__XXX
+ SG_ ObstacleLenght : 0|8@1+ (0.5,0) [0|31.5] "m" Vector__XXX
+
+BO_ 1855 ObstacleDataA2: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A2 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A2 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A2 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A2 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A2 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A2 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A2 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A2 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A2 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A2 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1852 ObstacleDataA1: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A1 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A1 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A1 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A1 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A1 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A1 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A1 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A1 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A1 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A1 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1849 ObstacleDataA0: 8 CAN3_500Kb
+ SG_ Cut_in_and_Out_A0 : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ BlinkerInfo_A0 : 34|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleValid_A0 : 62|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleBrakeLights_A0 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ObstacleStatus_A0 : 56|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleType_A0 : 52|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ ObstacleVelX_A0 : 40|12@1- (0.0625,0) [-127.93|127.93] "m/sec" Vector__XXX
+ SG_ ObstaclePosY_A0 : 24|10@1- (0.0625,0) [-32|31.9375] "m" Vector__XXX
+ SG_ ObstaclePosX_A0 : 8|12@1+ (0.0625,0) [0|250] "m" Vector__XXX
+ SG_ ObstacleID_A0 : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1848 ObstacleStatus: 6 CAN3_500Kb
+ SG_ Failsafe : 41|4@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Close_Car : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Go_Signal : 28|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ProtocolVersion : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RightCloseRangeCutIn : 27|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LeftCloseRangeCutIn : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ActiveVersionNumberSection : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ ApplicationVersion : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Timestamp : 8|8@1+ (1,0) [0|255] "mSec" Vector__XXX
+ SG_ NumObstacles : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1832 HighLowBeam: 3 Vector__XXX
+ SG_ ReasonsToSwitchToLowBeam : 8|9@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BinaryHighLowBeamDecision : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 1831 Vision_Only_TSR_continues: 8 Vector__XXX
+ SG_ Vision_only_supp_Sign_Type_D4 : 56|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Vision_only_supp_Sign_Type_D3 : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Vision_only_supp_Sign_Type_D2 : 24|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Vision_only_supp_Sign_Type_D1 : 8|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type_D4 : 48|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type_D3 : 32|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type_D2 : 16|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type_D1 : 0|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+
+BO_ 1830 TSR6: 8 Vector__XXX
+ SG_ NoEntryVisionStatus : 48|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Filter_type : 40|8@1+ (1,0) [0|255] "ENUM" Vector__XXX
+ SG_ Sign_Position_Z : 32|8@1- (0.5,0) [-16|16] "meters" Vector__XXX
+ SG_ Sign_Position_Y : 24|8@1- (0.5,0) [-32|31] "meters" Vector__XXX
+ SG_ Sign_Position_X : 16|8@1+ (0.5,0) [0|122] "meter" Vector__XXX
+ SG_ Vision_only_Supp_Sign_Type : 8|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+ SG_ Vision_only_Sign_Type : 0|8@1+ (1,0) [0|0] "ENUM" Vector__XXX
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 3221225472 OBJ_DIST_HLB_Right "Range of the closest object ahead of the vehicle defining
+the lower boundary of the glare free area (GFA)";
+CM_ SG_ 3221225472 OBJ_DIST_HLB_Left "Range of the closest object ahead of the vehicle defining
+the lower boundary of the glare free area (GFA)";
+CM_ SG_ 3221225472 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200hThe longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200hThe longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200hThe longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200hThe longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200hThe longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200hThe longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+";
+CM_ SG_ 3221225472 ObstacleScaleChange "currently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zerocurrently not in use
+always zero";
+CM_ SG_ 3221225472 CIPVFlag "0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIPV
+1 - CIPV0 - not CIP";
+CM_ SG_ 3221225472 Cut_in_and_Out "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of w";
+CM_ SG_ 3221225472 ObstacleBrakeLights "0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 = off or not identifined
+1 = on0 =";
+CM_ SG_ 3221225472 ObstacleID "New obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last used free IDNew obstacles are given the last ";
+CM_ SG_ 3221225472 LDW_Availability "0 stands for unavailable, 1 for available. 
+
+0 stands for unavailable, 1 for available. 
+
+";
+CM_ SG_ 3221225472 LaneOffset "Offset (c) parameter in equation : y=ax^2+bx+cOffset (c) parameter in equation : y=ax^2+bx+c";
+CM_ SG_ 3221225472 LaneID "Left Lane ID =1
+Right Lane ID = 0Left Lane ID =1
+Right Lane ID = 0";
+CM_ SG_ 1893 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1893 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1892 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1891 Cut_in_and_Out_A14 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1891 ObstacleBrakeLights_A14 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1891 ObstacleID_A14 "New obstacles are given the last used free ID";
+CM_ SG_ 1890 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1890 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1889 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1888 Cut_in_and_Out_A13 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1888 ObstacleBrakeLights_A13 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1888 ObstacleID_A13 "New obstacles are given the last used free ID";
+CM_ SG_ 1887 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1887 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1886 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1885 Cut_in_and_Out_A12 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1885 ObstacleBrakeLights_A12 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1885 ObstacleID_A12 "New obstacles are given the last used free ID";
+CM_ SG_ 1884 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1884 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1883 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1882 Cut_in_and_Out_A11 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1882 ObstacleBrakeLights_A11 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1882 ObstacleID_A11 "New obstacles are given the last used free ID";
+CM_ SG_ 1881 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1881 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1880 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1879 Cut_in_and_Out_A10 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1879 ObstacleBrakeLights_A10 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1879 ObstacleID_A10 "New obstacles are given the last used free ID";
+CM_ SG_ 1840 ST_BNDRY_DOM_NGL_RH_HLB "state of the right boundary of the glare free area";
+CM_ SG_ 1840 ST_BNDRY_DOM_NGL_LH_HLB "state of the left boundary of the glare free area";
+CM_ SG_ 1840 ST_BNDRY_DOM_BOT_NGL_HLB "state of the lower boundary of the glare free area";
+CM_ SG_ 1878 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1878 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1875 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1875 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1872 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1872 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1869 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1869 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1866 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1866 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1863 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1863 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1860 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1860 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1877 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1874 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1871 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1868 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1865 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1862 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1859 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1876 Cut_in_and_Out_A9 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1876 ObstacleBrakeLights_A9 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1876 ObstacleID_A9 "New obstacles are given the last used free ID";
+CM_ SG_ 1873 Cut_in_and_Out_A8 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1873 ObstacleBrakeLights_A8 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1873 ObstacleID_A8 "New obstacles are given the last used free ID";
+CM_ SG_ 1870 Cut_in_and_Out_A7 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1870 ObstacleBrakeLights_A7 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1870 ObstacleID_A7 "New obstacles are given the last used free ID";
+CM_ SG_ 1867 Cut_in_and_Out_A6 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1867 ObstacleBrakeLights_A6 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1867 ObstacleID_A6 "New obstacles are given the last used free ID";
+CM_ SG_ 1864 Cut_in_and_Out_A5 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1864 ObstacleBrakeLights_A5 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1864 ObstacleID_A5 "New obstacles are given the last used free ID";
+CM_ SG_ 1861 Cut_in_and_Out_A4 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1861 ObstacleBrakeLights_A4 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1861 ObstacleID_A4 "New obstacles are given the last used free ID";
+CM_ SG_ 1858 Cut_in_and_Out_A3 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1858 ObstacleBrakeLights_A3 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1858 ObstacleID_A3 "New obstacles are given the last used free ID";
+CM_ SG_ 1833 ST_BNDRY_DOM_NGL_RH_HLB "state of the right boundary of the glare free area";
+CM_ SG_ 1833 ST_BNDRY_DOM_NGL_LH_HLB "state of the left boundary of the glare free area";
+CM_ SG_ 1833 ST_BNDRY_DOM_BOT_NGL_HLB "state of the lower boundary of the glare free area";
+CM_ SG_ 1833 OBJ_DIST_HLB "Range of the closest object ahead of the vehicle defining
+the lower boundary of the glare free area (GFA)";
+CM_ SG_ 1833 BNDRY_DOM_NGL_RH_HLB "right boundary of the glare free area (GFA) in the image,
+given as angle with respect to the camera coordinate system";
+CM_ SG_ 1833 BNDRY_DOM_NGL_LH_HLB "left boundary of the glare free area (GFA) in the image,
+given as angle with respect to the camera coordinate system";
+CM_ SG_ 1833 BNDRY_DOM_BOT_NGL_HLB "lower boundary of the glare free area (GFA) in the image,
+given as angle with respect to the camera coordinate system";
+CM_ SG_ 1792 FCW_on "Meaning: There is an FCW warning on a vehicle.";
+CM_ SG_ 1792 DuskTimeIndicator "indicates if the system is in night mode";
+CM_ SG_ 1792 HeadwayWarningLevel "When no CIPV is present, HW Level = 0 (Off)
+When a CIPV is present with HW >1.0, HW Level = 1 (Green)
+When a CIPV is present with 0.6 > HW >1.0, HW Level = 2 (Orange)
+When a CIPV is present with HW < 0.6, HW Level = 3 (Red)";
+CM_ SG_ 1792 NightTimeIndicator "indicates if the system is in night mode";
+CM_ SG_ 1857 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1857 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1854 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1854 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1851 Object_Accel_X "The longitude acceleration of the object. 
+Type: 10 bit, signed integer 
+Range: -14.97 : 14.97 [m/s2]
+Conversion: (HEX)* 0.03
+Invalid value: 200h";
+CM_ SG_ 1851 ObstacleScaleChange "currently not in use
+always zero";
+CM_ SG_ 1856 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1853 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1850 CIPVFlag "0 - not CIPV
+1 - CIPV";
+CM_ SG_ 1855 Cut_in_and_Out_A2 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1855 ObstacleBrakeLights_A2 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1855 ObstacleID_A2 "New obstacles are given the last used free ID";
+CM_ SG_ 1852 Cut_in_and_Out_A1 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1852 ObstacleBrakeLights_A1 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1852 ObstacleID_A1 "New obstacles are given the last used free ID";
+CM_ SG_ 1849 Cut_in_and_Out_A0 "The signal is based on our estimation of where the target is now relatively to the lanes, its rate of change, and our estimation of where it is going to be within one second.
+
+";
+CM_ SG_ 1849 ObstacleBrakeLights_A0 "0 = off or not identifined
+1 = on";
+CM_ SG_ 1849 ObstacleID_A0 "New obstacles are given the last used free ID";
+CM_ BO_ 1848 "Values:
+00000000 - No Failsafe
+00000001 - Low Sun
+00000010 - Blur Image
+00000100 - Smear Image
+00001000 - Partial Transparent Blockage
+00010000 - Full Blockage
+00100000 - Splashes
+01000000 - Out of Calibration
+10000000 - Impaired VD
+";
+CM_ SG_ 1848 Close_Car "Indication whether we detect a close car in front of the host vehicle or not.";
+CM_ SG_ 1848 Go_Signal "Currently this signal is implemented (Stop or Go are reported) only when the own vehicle is standing (having ego speed of less than 0.1 meters per second). Otherwise, the value 15 is reported.";
+BA_DEF_ BO_  "tapas_period_ms" INT 0 0;
+BA_DEF_ BO_  "tapas_jitter_ms" INT 0 0;
+BA_DEF_ BU_  "tapas_channel_id" INT 0 0;
+BA_DEF_ BU_  "tapas_baudrate_kbps" INT 0 0;
+BA_DEF_DEF_  "tapas_period_ms" 0;
+BA_DEF_DEF_  "tapas_jitter_ms" 0;
+BA_DEF_DEF_  "tapas_channel_id" 0;
+BA_DEF_DEF_  "tapas_baudrate_kbps" 0;
+BA_ "tapas_channel_id" BU_ CAN3_500Kb 3;
+BA_ "tapas_baudrate_kbps" BU_ CAN3_500Kb 500;
+BA_ "tapas_channel_id" BU_ CAN2_250Kb 2;
+BA_ "tapas_baudrate_kbps" BU_ CAN2_250Kb 250;
+BA_ "tapas_channel_id" BU_ CAN1_250Kb 1;
+BA_ "tapas_baudrate_kbps" BU_ CAN1_250Kb 250;
+BA_ "tapas_jitter_ms" BO_ 2550190080 0;
+BA_ "tapas_period_ms" BO_ 2550190080 10;
+BA_ "tapas_period_ms" BO_ 1963 100;
+BA_ "tapas_jitter_ms" BO_ 1963 0;
+BA_ "tapas_period_ms" BO_ 1962 100;
+BA_ "tapas_jitter_ms" BO_ 1962 0;
+BA_ "tapas_period_ms" BO_ 2348863727 10;
+BA_ "tapas_jitter_ms" BO_ 2348863727 5;
+BA_ "tapas_period_ms" BO_ 128 10;
+BA_ "tapas_jitter_ms" BO_ 128 0;
+BA_ "tapas_period_ms" BO_ 2550137040 10;
+BA_ "tapas_jitter_ms" BO_ 2550137040 5;
+BA_ "tapas_period_ms" BO_ 1891 100;
+BA_ "tapas_jitter_ms" BO_ 1891 10;
+BA_ "tapas_period_ms" BO_ 1888 100;
+BA_ "tapas_jitter_ms" BO_ 1888 10;
+BA_ "tapas_period_ms" BO_ 1885 100;
+BA_ "tapas_jitter_ms" BO_ 1885 10;
+BA_ "tapas_period_ms" BO_ 1882 100;
+BA_ "tapas_jitter_ms" BO_ 1882 10;
+BA_ "tapas_period_ms" BO_ 1879 100;
+BA_ "tapas_jitter_ms" BO_ 1879 10;
+BA_ "tapas_period_ms" BO_ 1876 100;
+BA_ "tapas_jitter_ms" BO_ 1876 10;
+BA_ "tapas_period_ms" BO_ 1873 100;
+BA_ "tapas_jitter_ms" BO_ 1873 10;
+BA_ "tapas_period_ms" BO_ 1870 100;
+BA_ "tapas_jitter_ms" BO_ 1870 10;
+BA_ "tapas_period_ms" BO_ 1867 100;
+BA_ "tapas_jitter_ms" BO_ 1867 10;
+BA_ "tapas_period_ms" BO_ 1864 100;
+BA_ "tapas_jitter_ms" BO_ 1864 10;
+BA_ "tapas_period_ms" BO_ 1861 100;
+BA_ "tapas_jitter_ms" BO_ 1861 10;
+BA_ "tapas_period_ms" BO_ 1858 100;
+BA_ "tapas_jitter_ms" BO_ 1858 10;
+BA_ "tapas_period_ms" BO_ 1792 100;
+BA_ "tapas_jitter_ms" BO_ 1792 10;
+BA_ "tapas_period_ms" BO_ 1855 100;
+BA_ "tapas_jitter_ms" BO_ 1855 10;
+BA_ "tapas_period_ms" BO_ 1852 100;
+BA_ "tapas_jitter_ms" BO_ 1852 10;
+BA_ "tapas_period_ms" BO_ 1849 100;
+BA_ "tapas_jitter_ms" BO_ 1849 10;
+BA_ "tapas_period_ms" BO_ 1848 100;
+BA_ "tapas_jitter_ms" BO_ 1848 10;
+VAL_ 3221225472 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 3221225472 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 3221225472 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 3221225472 Cut_in_and_Out 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 3221225472 BlinkerInfo 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 3221225472 ObstacleValid 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 3221225472 ObstacleBrakeLights 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 3221225472 ObstacleStatus 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 3221225472 ObstacleType 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 3221225472 LaneType 6 "invalid" 5 "botts dots" 4 "double lane marks" 3 "road edge" 2 "none" 1 "solid" 0 "dashed" ;
+VAL_ 3221225472 LaneID 1 "left lane" 0 "right lane" ;
+VAL_ 3221225472 LaneValid 3 "invalid" 2 "valid lane" 1 "new lane" 0 "undefined" ;
+VAL_ 3221225472 Left_Guard_Rail 1 "Guard rail detected" 0 "No guard rail detected" ;
+VAL_ 3221225472 Right_Guard_Rail 1 "Guard rail detected" 0 "No guard rail detected" ;
+VAL_ 1917 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1915 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1914 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1914 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1914 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1913 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1912 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1912 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1912 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1911 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1910 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1910 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1910 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1909 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1908 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1908 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1908 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1907 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1906 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1906 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1906 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1905 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1904 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1904 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1904 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1903 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1902 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1902 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1902 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1641 LaneTypeRight 6 "invalid" 5 "botts dots" 4 "double lane marks" 3 "road edge" 2 "none" 1 "solid" 0 "dashed" ;
+VAL_ 1641 LaneTypeLeft 6 "invalid" 5 "botts dots" 4 "double lane marks" 3 "road edge" 2 "none" 1 "solid" 0 "dashed" ;
+VAL_ 1901 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1900 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1900 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1900 LaneType2 6 "undecided" 5 "undecided" 4 "undecided" 3 "undecided" 2 "undecided" 1 "solid" 0 "undecided" ;
+VAL_ 1898 RefPoint2Validity 1 "valid" 0 "not valid" ;
+VAL_ 1898 RefPoint1Validity 1 "valid" 0 "not valid" ;
+VAL_ 1897 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1896 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1896 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1896 LaneType 6 "invalid" 5 "botts dots" 4 "double lane marks" 3 "road edge" 2 "none" 1 "solid" 0 "dashed" ;
+VAL_ 1895 ViewRangeAvailability 1 "valid" 0 "not valid" ;
+VAL_ 1894 LaneType 6 "invalid" 5 "botts dots" 4 "double lane marks" 3 "road edge" 2 "none" 1 "solid" 0 "dashed" ;
+VAL_ 1894 ModelDegree 3 "3rd degree model" 2 "parabolic model" 1 "linear model" 0 "unspecified" ;
+VAL_ 1894 Quality 3 "high quality" 2 "high quality" 1 "low quality" 0 "low quality" ;
+VAL_ 1893 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1892 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1892 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1891 Cut_in_and_Out_A14 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1891 BlinkerInfo_A14 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1891 ObstacleValid_A14 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1891 ObstacleBrakeLights_A14 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1891 ObstacleStatus_A14 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1891 ObstacleType_A14 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1890 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1889 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1889 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1888 Cut_in_and_Out_A13 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1888 BlinkerInfo_A13 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1888 ObstacleValid_A13 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1888 ObstacleBrakeLights_A13 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1888 ObstacleStatus_A13 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1888 ObstacleType_A13 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1887 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1886 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1886 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1885 Cut_in_and_Out_A12 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1885 BlinkerInfo_A12 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1885 ObstacleValid_A12 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1885 ObstacleBrakeLights_A12 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1885 ObstacleStatus_A12 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1885 ObstacleType_A12 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1884 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1883 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1883 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1882 Cut_in_and_Out_A11 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1882 BlinkerInfo_A11 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1882 ObstacleValid_A11 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1882 ObstacleBrakeLights_A11 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1882 ObstacleStatus_A11 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1882 ObstacleType_A11 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1881 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1880 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1880 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1879 Cut_in_and_Out_A10 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1879 BlinkerInfo_A10 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1879 ObstacleValid_A10 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1879 ObstacleBrakeLights_A10 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1879 ObstacleStatus_A10 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1879 ObstacleType_A10 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1840 ST_OBJ_DIST_HLB 3 "invalid" 2 "oncoming vehicle detected" 1 "preceding vehicle detected" 0 "no object detected" ;
+VAL_ 1840 ST_BNDRY_DOM_NGL_RH_HLB 3 "invalid" 2 "defined by oncoming vehicle" 1 "defined by preceding vehicle" 0 "no object detected" ;
+VAL_ 1840 ST_BNDRY_DOM_NGL_LH_HLB 3 "invalid" 2 "defined by oncoming vehicle" 1 "defined by preceding vehicle" 0 "no object detected" ;
+VAL_ 1840 ST_BNDRY_DOM_BOT_NGL_HLB 3 "invalid" 2 "defined by oncoming vehicle" 1 "defined by preceding vehicle" 0 "no object detected" ;
+VAL_ 1840 Right_Target_Change 1 "Target has changed" 0 "Target is the same as before" ;
+VAL_ 1840 Left_Target_Change 1 "Target has changed" 0 "Target is the same as before" ;
+VAL_ 1828 NoEntryVisionStatus 4 "Second_Alert" 3 "Alert" 2 "Reject_Vision_Only " 1 "Delay" 0 "Notification" ;
+VAL_ 1828 Filter_type 3 "Embedded" 2 "On vehicle/Truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_ 1828 Vision_only_Supp_Sign_Type 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1828 Vision_only_Sign_Type 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1827 NoEntryVisionStatus 4 "Second_Alert" 3 "Alert" 2 "Reject_Vision_Only " 1 "Delay" 0 "Notification" ;
+VAL_ 1827 Filter_type 3 "Embedded" 2 "On vehicle/Truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_ 1827 Vision_only_Supp_Sign_Type 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1827 Vision_only_Sign_Type 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1826 NoEntryVisionStatus 4 "Second_Alert" 3 "Alert" 2 "Reject_Vision_Only " 1 "Delay" 0 "Notification" ;
+VAL_ 1826 Filter_type 3 "Embedded" 2 "On vehicle/Truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_ 1826 Vision_only_Supp_Sign_Type 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1826 Vision_only_Sign_Type 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1824 NoEntryVisionStatus 4 "Second_Alert" 3 "Alert" 2 "Reject_Vision_Only " 1 "Delay" 0 "Notification" ;
+VAL_ 1824 Filter_type 3 "Embedded" 2 "On vehicle/Truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_ 1824 Vision_only_Supp_Sign_Type 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1824 Vision_only_Sign_Type 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1829 NoEntryVisionStatus 4 "Second_Alert" 3 "Alert" 2 "Reject_Vision_Only " 1 "Delay" 0 "Notification" ;
+VAL_ 1829 Filter_type 3 "Embedded" 2 "On vehicle/Truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_ 1829 Vision_only_Supp_Sign_Type 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1829 Vision_only_Sign_Type 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1825 NoEntryVisionStatus 4 "Second_Alert" 3 "Alert" 2 "Reject_Vision_Only " 1 "Delay" 0 "Notification" ;
+VAL_ 1825 Filter_type 3 "Embedded" 2 "On vehicle/Truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_ 1825 Vision_only_Supp_Sign_Type 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1825 Vision_only_Sign_Type 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1878 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1875 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1872 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1869 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1866 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1863 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1860 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1877 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1877 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1874 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1874 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1871 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1871 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1868 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1868 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1865 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1865 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1862 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1862 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1859 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1859 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1876 Cut_in_and_Out_A9 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1876 BlinkerInfo_A9 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1876 ObstacleValid_A9 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1876 ObstacleBrakeLights_A9 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1876 ObstacleStatus_A9 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1876 ObstacleType_A9 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1873 Cut_in_and_Out_A8 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1873 BlinkerInfo_A8 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1873 ObstacleValid_A8 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1873 ObstacleBrakeLights_A8 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1873 ObstacleStatus_A8 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1873 ObstacleType_A8 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1870 Cut_in_and_Out_A7 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1870 BlinkerInfo_A7 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1870 ObstacleValid_A7 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1870 ObstacleBrakeLights_A7 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1870 ObstacleStatus_A7 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1870 ObstacleType_A7 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1867 Cut_in_and_Out_A6 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1867 BlinkerInfo_A6 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1867 ObstacleValid_A6 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1867 ObstacleBrakeLights_A6 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1867 ObstacleStatus_A6 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1867 ObstacleType_A6 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1864 Cut_in_and_Out_A5 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1864 BlinkerInfo_A5 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1864 ObstacleValid_A5 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1864 ObstacleBrakeLights_A5 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1864 ObstacleStatus_A5 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1864 ObstacleType_A5 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1861 Cut_in_and_Out_A4 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1861 BlinkerInfo_A4 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1861 ObstacleValid_A4 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1861 ObstacleBrakeLights_A4 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1861 ObstacleStatus_A4 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1861 ObstacleType_A4 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1858 Cut_in_and_Out_A3 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1858 BlinkerInfo_A3 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1858 ObstacleValid_A3 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1858 ObstacleBrakeLights_A3 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1858 ObstacleStatus_A3 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1858 ObstacleType_A3 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1833 Right_Target_Change 1 "Target has changed" 0 "Target is the same as before" ;
+VAL_ 1833 Left_Target_Change 1 "Target has changed" 0 "Target is the same as before" ;
+VAL_ 1833 ST_OBJ_DIST_HLB 3 "invalid" 2 "oncoming vehicle detected" 1 "preceding vehicle detected" 0 "no object detected" ;
+VAL_ 1833 ST_BNDRY_DOM_NGL_RH_HLB 3 "invalid" 2 "defined by oncoming vehicle" 1 "defined by preceding vehicle" 0 "no object detected" ;
+VAL_ 1833 ST_BNDRY_DOM_NGL_LH_HLB 3 "invalid" 2 "defined by oncoming vehicle" 1 "defined by preceding vehicle" 0 "no object detected" ;
+VAL_ 1833 ST_BNDRY_DOM_BOT_NGL_HLB 3 "invalid" 2 "defined by oncoming vehicle" 1 "defined by preceding vehicle" 0 "no object detected" ;
+VAL_ 1792 Ped_in_DZ 1 "ped is in danger zone" 0 "ped is not in a danger zone" ;
+VAL_ 1792 Ped_FCW 1 "There is an FCW warning" 0 "No FCW warning" ;
+VAL_ 1792 FCW_on 1 "There is an FCW warning" 0 "No FCW warning" ;
+VAL_ 1792 DuskTimeIndicator 1 "dusk mode" 0 "not in dusk mode" ;
+VAL_ 1792 HeadwayWarningLevel 3 "CIPV presents, HW < 0.6 (Red)" 2 "CIPV presents 0.6>HW>1.0 Orange" 1 "CIPV presents, HW >1.0 (Green)" 0 "no CIPV is present" ;
+VAL_ 1792 LanesOn 1 "LD algorithm ON" 0 "LD algorithm OFF (no speed)" ;
+VAL_ 1792 LeftLDWOn 1 "left LDW" 0 "no left LDW" ;
+VAL_ 1792 RightLDWOn 1 "right LDW" 0 "no right LDW" ;
+VAL_ 1792 LeftCrossing 1 "left crossing" 0 "no left crossing" ;
+VAL_ 1792 RightCrossing 1 "right crossing" 0 "no right crossing" ;
+VAL_ 1792 Maintenance 1 "internal error" 0 "no internal error" ;
+VAL_ 1792 HeadwayValid 1 "valid" 0 "not valid" ;
+VAL_ 1792 SoundType 7 "Reserved" 6 "Hard FCW + Peds FCW" 5 "Soft FCW" 4 "Near_HW" 3 "Far_HW (=HW1/HW2/HW3)" 2 "LDWR" 1 "LDWL" 0 "silent" ;
+VAL_ 1792 NightTimeIndicator 1 "night mode" 0 "not in night mode" ;
+VAL_ 1792 Suppress 1 "new sound or suppressed sound" 0 "old sound" ;
+VAL_ 1857 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1854 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1851 ObstacleReplaced 1 "replaced in this frame" 0 "not replaced in this frame" ;
+VAL_ 1856 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1856 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1853 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1853 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1850 CIPVFlag 1 "CIPV" 0 "not CIPV" ;
+VAL_ 1850 ObstacleLane 3 "invalid" 2 "next lane (left or right)" 1 "ego lane" 0 "not assigned" ;
+VAL_ 1855 Cut_in_and_Out_A2 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1855 BlinkerInfo_A2 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1855 ObstacleValid_A2 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1855 ObstacleBrakeLights_A2 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1855 ObstacleStatus_A2 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1855 ObstacleType_A2 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1852 Cut_in_and_Out_A1 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1852 BlinkerInfo_A1 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1852 ObstacleValid_A1 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1852 ObstacleBrakeLights_A1 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1852 ObstacleStatus_A1 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1852 ObstacleType_A1 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1849 Cut_in_and_Out_A0 4 "cut_out" 3 "cut_in" 2 "out_host_lane" 1 "in_host_lane" 0 "undefined" ;
+VAL_ 1849 BlinkerInfo_A0 4 "both" 3 "right" 2 "left" 1 "off" 0 "unavailable" ;
+VAL_ 1849 ObstacleValid_A0 2 "older valid" 1 "new valid (detected this frame)" ;
+VAL_ 1849 ObstacleBrakeLights_A0 1 "object's brake lights are on" 0 "object's brake lights are off" ;
+VAL_ 1849 ObstacleStatus_A0 6 "Unused" 5 "Parked never moved, BckLightsOff" 4 "Oncoming" 3 "moving" 2 "stopped (movable)" 1 "standing neverMoved bckLightsOn" 0 "not defined" ;
+VAL_ 1849 ObstacleType_A0 4 "Bicycle" 3 "pedestrian" 2 "bike" 1 "truck" 0 "vehicle" ;
+VAL_ 1848 Failsafe 16 "Full Blockage" 64 "Out of Calibration" 32 "Splashes" 8 "Partial Transparent Blockage" 4 "Smear Image" 2 "Blur Image" 1 "Low Sun" 0 "No Failsafe" ;
+VAL_ 1848 Close_Car 1 "Close car exists" 0 "No close car" ;
+VAL_ 1848 Go_Signal 15 "Not Calculated" 14 "currently unused" 13 "currently unused" 12 "currently unused" 11 "currently unused" 10 "currently unused" 9 "currently unused" 8 "currently unused" 7 "currently unused" 6 "currently unused" 5 "currently unused" 4 "currently unused" 3 "Driver decision is required" 2 "Undecided" 1 "Go!" 0 "Stop" ;
+VAL_ 1848 RightCloseRangeCutIn 1 "right cut in " 0 "no right cut in" ;
+VAL_ 1848 LeftCloseRangeCutIn 1 "left cut in" 0 "no left cut in" ;
+VAL_ 1832 ReasonsToSwitchToLowBeam 256 "too many lights" 128 "delay (hysteresis)" 64 "HW mode " 32 "fog detection Identified on HLB" 16 "village detection" 8 "ambient light" 4 "speed limit" 2 "preceding vehicle" 1 "oncoming vehicle" 0 "no switch reason" ;
+VAL_ 1832 BinaryHighLowBeamDecision 3 "invalid" 2 "recommendation : high beam ON" 1 "recommendation : high beam OFF" 0 "no recommendation" ;
+VAL_ 1831 Vision_only_supp_Sign_Type_D4 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1831 Vision_only_supp_Sign_Type_D3 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1831 Vision_only_supp_Sign_Type_D2 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1831 Vision_only_supp_Sign_Type_D1 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1831 Vision_only_Sign_Type_D4 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1831 Vision_only_Sign_Type_D3 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1831 Vision_only_Sign_Type_D2 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1831 Vision_only_Sign_Type_D1 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+VAL_ 1830 NoEntryVisionStatus 4 "Second_Alert" 3 "Alert" 2 "Reject_Vision_Only " 1 "Delay" 0 "Notification" ;
+VAL_ 1830 Filter_type 3 "Embedded" 2 "On vehicle/Truck" 1 "Irrelevant to the host driver" 0 "Not filtered" ;
+VAL_ 1830 Vision_only_Supp_Sign_Type 255 "Invalid_supp" 22 "e_zone" 21 "e_rappel" 20 "Supp_sign_generic" 19 "Night" 18 "Hazardous_materials" 17 "Fog" 16 "Rain_cloud" 15 "School" 14 "Snow_rain" 13 "Tractor" 12 "Distance_in" 11 "Weight" 10 "Distance_arrow ( distance for)" 9 "Truck" 8 "BendArrow_right" 7 "BendArrow_left" 6 "Arrow_right" 5 "Arrow_left" 4 "Time" 3 "Trailer" 2 "Snow" 1 "Rain" 0 "None" ;
+VAL_ 1830 Vision_only_Sign_Type 255 "e_invalid_sign " 254 "No sign detected" 221 "standard elect end of no passing" 220 "standard electr no passing start" 201 "regular end of no passing" 200 "regular no passing start" 176 "regular End of playground area" 175 "regular Playground area begin" 174 "standard regular end of ExprWay" 173 "standard regular exprWay begin" 172 "standard regular end of MotorWay" 171 "standard regular motorWay begin" 129 "standard electronic 145" 128 "standard electronic 135" 127 "standard electronic 125" 126 "standard electronic 115" 125 "standard electronic 105" 124 "standard electronic 95" 123 "standard electronic 85" 122 "standard electronic 75" 121 "standard electronic 65" 120 "standard electronic 55" 119 "standard electronic 45" 118 "standard electronic 35" 117 "standard electronic 25" 116 "standard electronic 15" 115 "standard electronic 5" 114 "standard regular 145" 113 "standard regular 135" 112 "standard regular 125" 111 "standard regular 115" 110 "standard regular 105" 109 "standard regular 95" 108 "standard regular 85" 107 "standard regular 75" 106 "standard regular 65" 105 "standard regular 55" 104 "standard regular 45" 103 "standard regular 35" 102 "standard regular 25" 101 "standard regular 15" 100 "standard regular 5" 65 "electric gen end all restriction" 64 "regular gen end all restrict" 50 "electronic end of num restrict" 41 "standard electronic 140" 40 "standard electronic 130" 39 "standard electronic 120" 38 "standard electronic 110" 37 "standard electronic 100" 36 "standard electronic 90" 35 "standard electronic 80" 34 "standard electronic 70" 33 "standard electronic 60" 32 "standard electronic 50" 31 "standard electronic 40" 30 "standard electronic 30" 29 "standard electronic 20" 28 "standard electronic 10" 20 "standard end of num restriction" 13 "standard regular 140" 12 "standard regular 130" 11 "standard regular 120" 10 "standard regular 110" 9 "standard regular 100" 8 "standard regular 90" 7 "standard regular 80" 6 "standard regular 70" 5 "standard regular 60" 4 "standard regular 50" 3 "standard regular 40" 2 "standard regular 30" 1 "standard regular 20" 0 "Standard regular 10" ;
+SIG_VALTYPE_ 3221225472 Fixed_Yaw : 1;
+SIG_VALTYPE_ 3221225472 Fixed_Horizon : 1;
+SIG_VALTYPE_ 1616 Fixed_Horizon : 1;
+SIG_VALTYPE_ 1616 Fixed_Yaw : 1;
+

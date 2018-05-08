@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fw name="tapas_v1p0" version="1.0" number="14" tasks="10,50,100,200">
+   <api id="1" name="STATUS_t ECU_COM_vdReadSignal(uint8_t u8IdSignal, float* pfltValue);"/>
+   <api id="2" name="STATUS_t ECU_COM_vdWriteSignal(uint8_t u8IdSignal, float fltValue);"/>
+   <api id="3" name="STATUS_t ECU_COM_vdEnable(uint8_t u8Enable);"/>
+   <api id="4" name="STATUS_t ECU_ANLG_eReadSignal(uint8_t u8IndexSignal, float* pfltValue);"/>
+   <api id="5" name="STATUS_t ECU_IO_eOutputControl(uint8_t u8IdOutput, ECU_IO_eOutputCommand_t eOutputCommand);"/>
+   <api id="6" name="STATUS_t ECU_IO_eInputRead(uint8_t u8IdInput, uint8_t* pu8Value);"/>
+   <api id="7" name="STATUS_t ECU_MEM_eWriteSignalValue(uint8_t u8SignalID, float fltValue, uint32_t u32Value);"/>
+   <api id="8" name="STATUS_t ECU_MEM_eReadSignalValue(uint8_t u8SignalID, float* pfltValue);"/>
+   <api id="9" name="void ECU_SYS_vdShutdown(void);"/>
+   <api id="10" name="STATUS_t ECU_IO_eReadPwm(uint8_t u8IdPin, uint32_t* pu32FreqHz, uint8_t* pu8DutyCycle);"/>
+   <api id="11" name="STATUS_t ECU_IO_eSetPwm(uint8_t u8IdPout, uint32_t u32FreqHz, uint8_t u8DutyCycle);"/>
+   <api id="12" name="void ECU_SYS_vdGetResetStatus(uint8_t* pu8IsExWdgReset);"/>
+   <api id="13" name="void ECU_SYS_vdClearResetStatus(uint8_t u8IsExWdgResetNeeded);"/>
+   <api id="14" name="STATUS_t ECU_IO_eInternalOutputControl(uint8_t u8IdOutput, ECU_IO_eOutputCommand_t eOutputCommand);"/>
+</fw>

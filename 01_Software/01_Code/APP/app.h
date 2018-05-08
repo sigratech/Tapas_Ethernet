@@ -26,16 +26,17 @@ E-mail: karim@sigratech.de
 #ifndef APP_H
 #define APP_H
 
-#define PROGRAMMING_SOFTWARE
+#define APPLICATION_SOFTWARE
 
-#include "app_test.h"
-#include "app_boot_cfg.h"
-#include "app_boot.h"
+
+#include "rte_app.h"
 #include "app_diag_cfg.h"
 #include "app_diag.h"
 #include "app_diag_gf.h"
-
-
+#include "app_FaultMgr_cfg.h"
+#include "app_FaultMgr.h"
+#include "app_CamMgr_cfg.h"
+#include "app_CamMgr.h"
 
 void APP_vdInit(void);
 void APP_vdDeInit(void);

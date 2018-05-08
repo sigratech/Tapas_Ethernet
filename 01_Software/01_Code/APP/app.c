@@ -29,9 +29,7 @@ E-mail: karim@sigratech.de
 void APP_vdInit(void)
 {
 //  app_test_gen_initialize();
-//  APP_DIAG_vdInit();
-//  APP_BOOT_vdInit();
-
+  //APP_DIAG_vdInit();
 }
 
 void APP_vdDeInit(void)

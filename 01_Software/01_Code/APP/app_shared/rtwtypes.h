@@ -18,7 +18,7 @@
  *
  * File Name: rtwtypes.h
  * Author: TAPAS/Matlab/Simulink/Embedded Coder Generated
- * TAPAS Generation Date: Wed May 25 15:39:43 2016
+ * TAPAS Generation Date: Tue Aug 30 16:31:59 2016
  * ***************************************************************************
  * ***************************************************************************
  */
@@ -39,12 +39,12 @@
 
 /*=======================================================================*
  * Target hardware information
- *   Device type: 32-bit Generic
+ *   Device type: Texas Instruments->TMS570 Cortex-R4
  *   Number of bits:     char:   8    short:   16    int:  32
  *                       long:  32
  *                       native word size:  32
- *   Byte ordering: Unspecified
- *   Signed integer division rounds to: Undefined
+ *   Byte ordering: LittleEndian
+ *   Signed integer division rounds to: Zero
  *   Shift right on a signed integer as arithmetic shift: on
  *=======================================================================*/
 

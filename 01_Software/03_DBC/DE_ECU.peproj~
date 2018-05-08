@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PCANExplorerProject Version="6.0" Name="DE_ECU">
+    <Connections AutoReset="0" IgnoreRTRLength="0" ProcessRTR="1">
+        <Connection Name="CAN500" Bus="1" Enabled="0" Protocol="0" SymbolsFileName="DE_ECU.dbc" Connection="CAN1_500Kb@pcan_usb"/>
+        <Connection Name="CAN250" Bus="2" Enabled="0" Protocol="0" SymbolsFileName="DE_ECU.dbc" Connection="PCAN2_250kbps@pcan_usb"/>
+        <Connection Name="CAN500_2" Bus="3" Enabled="0" Protocol="0" SymbolsFileName="DE_ECU.dbc" Connection="PCAN2_500kbps@pcan_usb"/>
+        <Connection Name="CAN250_1" Bus="4" Enabled="1" Protocol="0" SymbolsFileName="DE_ECU.dbc" BitRate="284" Connection="CAN2_250Kb@pcan_usb"/>
+    </Connections>
+    <MessageFilters/>
+    <TransmitList>
+        <TransmitListItem Bus="4" Msg="ID=402653392x,Type=D,Length=8,Data=001E" CycleTime="10" IsPaused="1" Creator="User"/>
+        <TransmitListItem Bus="3" Msg="ID=1849,Type=D,Length=8,Data=06A0003040A80F06" CycleTime="100" IsPaused="1" Creator="User"/>
+        <TransmitListItem Bus="3" Msg="ID=1891,Type=D,Length=8,Data=00200318001A" CycleTime="100" IsPaused="1" Creator="User"/>
+    </TransmitList>
+    <Files>
+        <File RelativePath="DE_ECU.dbc"/>
+    </Files>
+</PCANExplorerProject>

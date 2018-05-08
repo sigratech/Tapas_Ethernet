@@ -1,19 +1,27 @@
-// T32 Thu Jun 09 21:46:48 2016
+// T32 Wed Jul 06 06:02:25 2016
 
  B::
  
  TOOLBAR ON
  STATUSBAR ON
- FramePOS 13.0 7.4286 177. 47.
+ FramePOS 13.0 7.4286 141. 46.
  WinPAGE.RESet
  
  WinPAGE.Create P000
  WinCLEAR
  
- WinPOS 0.0 0.0 160. 32. 0. 0. W000
- VAR.VIEW %E ECU_MEM_astrE2pData
+ WinPOS 0.0 0.0 129. 37. 0. 0. W000
+ VAR.VIEW %E RTE_astrData
+ WinPAN 0. 90.
  
- WinPOS 1.875 1.0714 149. 32. 0. 0. W001
+ WinPOS 66.875 7.7857 90. 27. 0. 0. W002
+ VAR.VIEW %E app_AirConMgr_P
+ WinPAN 0. 11.
+ 
+ WinPOS 43.25 11.786 117. 30. 0. 0. W001
+ VAR.VIEW %E app_AirConMgr_B
+ 
+ WinPOS 37.875 3.8571 122. 34. 0. 0. W003
  VAR.VIEW %E ECU_IO_astrObjInput
  
  WinPAGE.select P000

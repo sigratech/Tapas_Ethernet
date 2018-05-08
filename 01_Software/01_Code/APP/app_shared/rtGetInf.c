@@ -18,7 +18,7 @@
  *
  * File Name: rtGetInf.c
  * Author: TAPAS/Matlab/Simulink/Embedded Coder Generated
- * TAPAS Generation Date: Wed May 25 15:39:43 2016
+ * TAPAS Generation Date: Tue Aug 30 16:31:59 2016
  * ***************************************************************************
  * ***************************************************************************
  */
@@ -41,38 +41,14 @@ real_T rtGetInf(void)
   if (bitsPerReal == 32U) {
     inf = rtGetInfF();
   } else {
-    uint16_T one = 1U;
-    enum {
-      LittleEndian,
-      BigEndian
-    } machByteOrder = (*((uint8_T *) &one) == 1U) ? LittleEndian : BigEndian;
-    switch (machByteOrder) {
-     case LittleEndian:
-      {
-        union {
-          LittleEndianIEEEDouble bitVal;
-          real_T fltVal;
-        } tmpVal;
+    union {
+      LittleEndianIEEEDouble bitVal;
+      real_T fltVal;
+    } tmpVal;
 
-        tmpVal.bitVal.words.wordH = 0x7FF00000U;
-        tmpVal.bitVal.words.wordL = 0x00000000U;
-        inf = tmpVal.fltVal;
-        break;
-      }
-
-     case BigEndian:
-      {
-        union {
-          BigEndianIEEEDouble bitVal;
-          real_T fltVal;
-        } tmpVal;
-
-        tmpVal.bitVal.words.wordH = 0x7FF00000U;
-        tmpVal.bitVal.words.wordL = 0x00000000U;
-        inf = tmpVal.fltVal;
-        break;
-      }
-    }
+    tmpVal.bitVal.words.wordH = 0x7FF00000U;
+    tmpVal.bitVal.words.wordL = 0x00000000U;
+    inf = tmpVal.fltVal;
   }
 
   return inf;
@@ -100,38 +76,14 @@ real_T rtGetMinusInf(void)
   if (bitsPerReal == 32U) {
     minf = rtGetMinusInfF();
   } else {
-    uint16_T one = 1U;
-    enum {
-      LittleEndian,
-      BigEndian
-    } machByteOrder = (*((uint8_T *) &one) == 1U) ? LittleEndian : BigEndian;
-    switch (machByteOrder) {
-     case LittleEndian:
-      {
-        union {
-          LittleEndianIEEEDouble bitVal;
-          real_T fltVal;
-        } tmpVal;
+    union {
+      LittleEndianIEEEDouble bitVal;
+      real_T fltVal;
+    } tmpVal;
 
-        tmpVal.bitVal.words.wordH = 0xFFF00000U;
-        tmpVal.bitVal.words.wordL = 0x00000000U;
-        minf = tmpVal.fltVal;
-        break;
-      }
-
-     case BigEndian:
-      {
-        union {
-          BigEndianIEEEDouble bitVal;
-          real_T fltVal;
-        } tmpVal;
-
-        tmpVal.bitVal.words.wordH = 0xFFF00000U;
-        tmpVal.bitVal.words.wordL = 0x00000000U;
-        minf = tmpVal.fltVal;
-        break;
-      }
-    }
+    tmpVal.bitVal.words.wordH = 0xFFF00000U;
+    tmpVal.bitVal.words.wordL = 0x00000000U;
+    minf = tmpVal.fltVal;
   }
 
   return minf;
