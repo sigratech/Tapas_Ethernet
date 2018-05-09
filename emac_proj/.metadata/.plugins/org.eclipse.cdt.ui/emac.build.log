@@ -1,0 +1,27 @@
+
+**** Build of configuration Debug for project emac ****
+
+"C:\\ti\\ccsv8\\utils\\bin\\gmake" -k -j 4 all -O 
+ 
+Building file: "../source/emac.c"
+Invoking: ARM Compiler
+"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.1.LTS/bin/armcl" -mv7R4 --code_state=32 --float_support=VFPv3D16 --include_path="C:/Git2/emac_proj/emac" --include_path="C:/Git2/emac_proj/emac/include" --include_path="C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.1.LTS/include" -g --diag_warning=225 --diag_wrap=off --display_error_number --enum_type=packed --abi=eabi --preproc_with_compile --preproc_dependency="source/emac.d_raw" --obj_directory="source"  "../source/emac.c"
+"../source/emac.c", line 1376: warning #9-D: nested comment is not allowed
+"../source/emac.c", line 1377: warning #9-D: nested comment is not allowed
+"../source/emac.c", line 1383: warning #9-D: nested comment is not allowed
+"../source/emac.c", line 1387: warning #9-D: nested comment is not allowed
+"../source/emac.c", line 1388: warning #9-D: nested comment is not allowed
+"../source/emac.c", line 1224: warning #179-D: variable "rxch" was declared but never referenced
+"../source/emac.c", line 1492: warning #179-D: variable "phyIdReadCount" was declared but never referenced
+"../source/emac.c", line 1494: warning #179-D: variable "retVal" was declared but never referenced
+"../source/emac.c", line 1923: warning #552-D: variable "u32PacketFlagsPlusLength" was set but never used
+Finished building: "../source/emac.c"
+ 
+Building target: "emac.out"
+Invoking: ARM Linker
+"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.1.LTS/bin/armcl" -mv7R4 --code_state=32 --float_support=VFPv3D16 -g --diag_warning=225 --diag_wrap=off --display_error_number --enum_type=packed --abi=eabi -z -m"emac.map" --heap_size=0x800 --stack_size=0x800 -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.1.LTS/lib" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="emac_linkInfo.xml" --rom_model --be32 -o "emac.out" "./source/dabort.obj" "./source/emac.obj" "./source/esm.obj" "./source/gio.obj" "./source/mdio.obj" "./source/notification.obj" "./source/phy_dp83640.obj" "./source/pinmux.obj" "./source/sys_core.obj" "./source/sys_dma.obj" "./source/sys_intvecs.obj" "./source/sys_main.obj" "./source/sys_mpu.obj" "./source/sys_pcr.obj" "./source/sys_phantom.obj" "./source/sys_pmm.obj" "./source/sys_pmu.obj" "./source/sys_selftest.obj" "./source/sys_startup.obj" "./source/sys_vim.obj" "./source/system.obj" "../source/sys_link.cmd"  -lrtsv7R4_T_be_v3D16_eabi.lib 
+<Linking>
+Finished building target: "emac.out"
+ 
+
+**** Build Finished ****
