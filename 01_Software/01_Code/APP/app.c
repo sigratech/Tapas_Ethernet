@@ -24,10 +24,21 @@ E-mail: karim@sigratech.de
 */
 
 #include "app.h"
+#include "uc_emac.h"
 
+void rec_emac(uint8_t *u8data, uint16_t u16length);
+
+void rec_emac(uint8_t *u8data, uint16_t u16length)
+{
+  uint8_t u8key = u8data[100];
+}
 
 void APP_vdInit(void)
 {
+  
+  uint8_t u8Data[200] = {5}; 
+  UC_EMAC_eSendBytes(&u8Data[0],200);
+  UC_EMAC_eRegisterDataRxClbk((UC_EMAC_p2fDataReceivedClbk_t)rec_emac,0xAA,0xAA,0xAA,0xAA,0xAA,0xAA);
 //  app_test_gen_initialize();
   //APP_DIAG_vdInit();
 }
