@@ -14,7 +14,7 @@ Watch0=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
 [DebugChecksum]
-Checksum=-286201147
+Checksum=-654547651
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -24,17 +24,23 @@ ShowArgs=0
 MixedMode=1
 [JLinkDriver]
 WatchCond=_ 0
-Watch0=_ 0 "0x00000000" 4294967295 "0xFFFFFFFF" 0 "0x00000000" 4294967295 "0xFFFFFFFF" 3 4 0 0
-Watch1=_ 0 "0x00000000" 4294967295 "0xFFFFFFFF" 0 "0x00000000" 4294967295 "0xFFFFFFFF" 3 4 0 0
+Watch0=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
+Watch1=_ 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 "0x00000000" 0 4 0 0
 CStepIntDis=_ 0
+[struct_types]
+Fmt0=UC_EMAC_strBufferDescriptor_t-BufferOffsetAndLength	4	0
+Fmt1=UC_EMAC_strBufferDescriptor_t-DataBufferAddress	4	0
+Fmt2=UC_EMAC_strBufferDescriptor_t-PacketFlagsAndLength	4	0
+Fmt3=struct UC_EMAC_strBufferDescriptor-BufferOffsetAndLength	4	0
+Fmt4=struct UC_EMAC_strBufferDescriptor-DataBufferAddress	4	0
+Fmt5=struct UC_EMAC_strBufferDescriptor-PacketFlagsAndLength	4	0
+[watch_formats]
+Fmt0={W}1:u32CppiRamAddress	4	0
 [Disassemble mode]
 mode=0
 [Breakpoints2]
-Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\UC\emac\uc_emac.c}.701.3" 0 0 1 "" 0 "" 0
-Bp1=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\Main\main.c}.47.5" 0 0 1 "" 0 "" 0
-Bp2=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\UC\emac\uc_emac.c}.438.21" 0 0 1 "" 0 "" 0
-Bp3=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\UC\emac\uc_emac.c}.649.1" 0 0 1 "" 0 "" 0
-Count=4
+Bp0=_ 1 "EMUL_CODE" "{$PROJ_DIR$\01_Code\TAPAS\Core\UC\emac\uc_emac.c}.546.3" 0 0 1 "" 0 "" 0
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
